@@ -308,4 +308,9 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  # Secret authent key load
+  SECRET_KEY = YAML.load_file(Rails.root.join("config/secret.yml"))
+  config.omniauth :facebook, SECRET_KEY["facbook_app_id"], SECRET_KEY["facebook_secret_key"], token_params: { parse: :json }
+  config.omniauth :google_oauth2, SECRET_KEY["google_app_id"], SECRET_KEY["google_secret_key"], token_params: { parse: :json }
 end

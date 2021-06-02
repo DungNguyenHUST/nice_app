@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import './style.scss';
+
+html, body
+{
+    font-family: 'Roboto', Sans-serif;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+head {
+    font-family: 'Roboto', Sans-serif;
+    width: 100%;
+    display: block;
+}
+
+footer{
+    font-family: 'Roboto', Sans-serif;
+    width: 100%;
+    display: block;
+}

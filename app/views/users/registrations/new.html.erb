@@ -1,29 +1,83 @@
-<h2>Sign up</h2>
+<div class='user_sign_up_container'>
+    <div class="container">
+        <div class="user_sign_up_block">
+            <div class="user_sign_up_label">
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="user_sign_up_title">
+                    <a>Tạo tài khoản mới</a>
+                </div>
+            </div>
+            <div class="user_sign_up_form_right">
+                <div class="login_with_google">
+                    <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post do%>
+                        <i class="material-icons">mail</i> <span>Đăng kí bằng tài khoản Google</span>
+                    <%end%>
+                </div>
+                <div class="login_with_facebook">
+                    <%= button_to user_facebook_omniauth_authorize_path, method: :post do%>
+                        <i class="material-icons">facebook</i> <span>Đăng kí bằng tài khoản Facebook</span>
+                    <%end%>
+                </div>
+            </div>
+            
+            <div class="user_sign_up_or">
+                <a><span>or</span></a>
+            </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+            <div class="user_sign_up_form_left">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <div class="user_sign_up_content">
+                        <div class="user_sign_up_label">
+                            <a><%= f.label :name, "Tên đăng nhập*", class: "user_sign_up_label_name" %></a>
+                        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                        <div class="user_sign_up_input">
+                            <%= f.text_field :name, autofocus: true, :required => true, class: 'form-control', placeholder: "Nhập họ và tên của bạn" %>
+                        </div>
+                    </div>
+                    
+                    <div class="user_sign_up_content">
+                        <div class="user_sign_up_label">
+                            <a><%= f.label :email, "Địa chỉ email*", class: "user_sign_up_label_name" %></a>
+                        </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+                        <div class="user_sign_up_input">
+                            <%= f.email_field :email, autocomplete: "email", :required => true, class: "form-control", placeholder: "Nhập email của bạn" %>
+                        </div>
+                    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+                    <div class="user_sign_up_content">
+                        <div class="user_sign_up_label">
+                            <a><%= f.label :password, "Mật khẩu*", class: "user_sign_up_label" %></a>
+                        </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+                        <div class="user_sign_up_input">
+                            <% if @minimum_password_length %>
+                            <em>(<%= @minimum_password_length %> characters minimum)</em>
+                            <% end %><br />
+                            <%= f.password_field :password, autocomplete: "new-password", :required => true, class: "form-control", placeholder: "Mật khẩu ít nhất 6 kí tự gồm chữ in hoa, chữ số và biểu tượng" %>
+                        </div>
+                    </div>
 
-<%= render "users/shared/links" %>
+                    <div class="user_sign_up_content">
+                        <div class="user_sign_up_label">
+                            <a><%= f.label :password_confirmation, "Xác nhận lại mật khẩu*", class: "user_sign_up_label" %></a>
+                        </div>
+
+                        <div class="user_sign_up_input">
+                            <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true, class: "form-control", placeholder: "Nhập lại mật khẩu" %>
+                        </div>
+                    </div>
+
+                    <div class="user_sign_up_submit">
+                        <%= f.submit "Tạo tài khoản", class: "user_sign_up_form_submit" %>
+                    </div>
+                <%end%>
+            </div>
+            
+            <p class="user_sign_up_loginhere">
+                Bạn đã có tài khoản? <%= link_to " Đăng nhập", new_user_session_path %>
+            </p>
+        </div>
+    </div>
+</div>
