@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   # GET /pages or /pages.json
   def index
+    @posts = Post.all
   end
 
   # GET /pages/1 or /pages/1.json

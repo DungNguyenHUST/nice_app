@@ -1,6 +1,190 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-h1{
-    font-size: 200;
+.page_index_container{
+    background-color: #eef0f1;
+    min-height: 900px;
+    .home_left{
+        border: 1px solid #dbdbdb;
+        background-color: #fff;
+        margin-top: 20px;
+        border-radius: 5px;
+        min-height: 300px;
+    }
+    .home_middle{
+        margin-top: 20px;
+        .post_block{
+            border: 1px solid #dbdbdb;
+            background-color: #fff;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            height: auto;
+            padding: 15px;
+            .post_info{
+                .post_info_left{
+                    float: left;
+                    .post_user_avatar{
+                        padding-bottom: 8px;
+                        .post_user_name_label{
+                            border-radius: 50%;
+                            background-color: #dfe1e5;
+                            padding: 7px;
+                            padding-left: 12px;
+                            padding-right: 12px;
+                            position: relative;
+                            top: 3px;
+                            color: #fee;
+                            text-decoration: none;
+                        }
+                    }
+                    .checked_0{
+                        background-color: #888;
+                    }
+                    .checked_1{
+                        .user_name_label{
+                            background-color: #7a20a1;
+                        }
+                    }
+                    .checked_2{
+                        .user_name_label{
+                            background-color: #778f99;
+                        }
+                    }
+                    .checked_3{
+                        .user_name_label{
+                            background-color: #00579c;
+                        }
+                    }
+                    .checked_4{
+                        .user_name_label{
+                            background-color: #33691e;
+                        }
+                    }
+                    .checked_5{
+                        .user_name_label{
+                            background-color: #c2175b;
+                        }
+                    }
+                    .checked_6{
+                        .user_name_label{
+                            background-color: #00887a;
+                        }
+                    }
+                    .checked_7{
+                        .user_name_label{
+                            background-color: #aa47bc;
+                        }
+                    }
+                    .checked_8{
+                        .user_name_label{
+                            background-color: #f24e1b;
+                        }
+                    }
+                    .checked_9{
+                        .user_name_label{
+                            background-color: #689f39;
+                        }
+                    }
+                }
+
+                .post_info_right{
+                    padding-left: 40px;
+                    position: relative;
+                    top: -3px;
+                    .post_user_name{
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: #666;
+                    }
+                    .post_create{
+                        font-size: 12px;
+                        font-weight: 400;
+                        color: #666;
+                    }
+                }
+            }
+            .post_title{
+                font-size: 24px;
+                font-weight: 600;
+                padding-top: 5px;
+                padding-bottom: 10px;
+                a{
+                    text-decoration: none;
+                }
+            }
+            .post_content{
+                font-size: 16px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3; /* number of lines to show */
+                -webkit-box-orient: vertical;
+            }
+
+            .post_vote_toolbar{
+                padding-top: 10px;
+                .post_vote_block{
+                    float: left;
+                    button{
+                        border: none;
+                        background-color: #fff;
+                        &:focus {outline:none;}
+                    }
+                    .post_vote{
+                        border: none;
+                        background-color: #fff;
+                        i{
+                            font-size: 24px;
+                            color: #666;
+                        }
+                        &:focus {outline:none;}
+                    }
+            
+                    .post_vote_highlight{
+                        border: none;
+                        background-color: #fff;
+                        i{
+                            color: #1877f2;
+                            font-size: 24px;
+                        }
+                        &:focus {outline:none;}
+                    }
+                }
+
+                .post_unvote_block{
+                    button{
+                        border: none;
+                        background-color: #fff;
+                        &:focus {outline:none;}
+                    }
+                    .post_unvote{
+                        border: none;
+                        background-color: #fff;
+                        i{
+                            color: #666;
+                            font-size: 24px;
+                        }
+                        &:focus {outline:none;}
+                    }
+            
+                    .post_unvote_highlight{
+                        border: none;
+                        background-color: #fff;
+                        i{
+                            color: #1877f2;
+                            font-size: 24px;
+                        }
+                        &:focus {outline:none;}
+                    }
+                }
+            }
+        }
+    }
+    .home_right{
+        border: 1px solid #dbdbdb;
+        background-color: #fff;
+        margin-top: 20px;
+        border-radius: 5px;
+        min-height: 300px;
+    }
 }

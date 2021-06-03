@@ -1,3 +1,107 @@
-<div class="container">
-<h1>Pages</h1>
+<div class="page_index_container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class='home_left'>
+                    <div class="home_menu_tab_link">
+                        <ul class="nav nav-tabs flex-column">
+                            <li class="nav-item">
+                                <%if @tab_id == "default" || @tab_id == "MenuTagID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                 
+                                <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'MenuTagID')%>">Tag</a>
+                            </li>
+                            <li class="nav-item">
+                                <%if @tab_id == "MenuPostID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'MenuPostID')%>">Bài viết</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="home_menu_tab_content">
+                        <%if @tab_id == "default" || @tab_id == "MenuTagID"%>
+                        <%end%>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class='home_middle'>
+                    <%@posts.each do |post|%>
+                        <div class='post_block'>
+                            <div class='post_info'>
+                                <%owner_user = find_owner_user(post)%>
+                                <div class='post_info_left'>
+                                    <div class="post_user_avatar checked_<%=find_user_color(owner_user.name)%>">
+                                        <a><%= link_to owner_user.name[0], user_session_path(owner_user), class: "post_user_name_label"%></a>
+                                    </div>
+                                </div>
+                                <div class='post_info_right'>
+                                    <div class="post_user_name">
+                                        <a><%=owner_user.name%></a>
+                                    </div>
+                                    <div class="post_create">
+                                        <span><%=time_ago_in_words(owner_user.created_at)%></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='post_title'>
+                                <a><%= link_to (post.title), post_path(post) %></a>
+                            </div>
+                            <div class='post_content'>
+                                <a><%=post.content%></a>
+                            </div>
+                            <div class="post_vote_toolbar" id="vote<%=post.id%>">
+                                <div class="post_vote_block">
+                                    <%if user_signed_in?%>
+                                        <% pre_vote = post.post_votes.find { |vote| vote.user_id == current_user.id} %>
+                                        <% if pre_vote %>  
+                                            <%= button_to post_post_vote_path(post, pre_vote), method: :delete, form_class: "post_vote_highlight" do%>
+                                                <i class="material-icons-outlined">arrow_circle_up</i>
+                                            <%end%> 
+                                        <%else%>
+                                            <%= button_to post_post_votes_path(post), method: :post, form_class: "post_vote" do%>
+                                                <i class="material-icons-outlined">arrow_circle_up</i>
+                                            <%end%> 
+                                        <%end%>
+                                    <%else%>
+                                        <%= button_to new_user_session_path, :method => :get, form_class: "post_vote" do%>
+                                            <i class="material-icons-outlined">arrow_circle_up</i>
+                                        <%end%> 
+                                    <%end%>
+                                </div>
+                                <div class="post_unvote_block">
+                                    <%if user_signed_in?%>
+                                        <% pre_unvote = post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
+                                        <% if pre_unvote %>  
+                                            <%= button_to post_post_unvote_path(post, pre_unvote), method: :delete, form_class: "post_vote_highlight" do%>
+                                                <i class="material-icons-outlined">arrow_circle_down</i>
+                                            <%end%> 
+                                        <%else%>
+                                            <%= button_to post_post_unvotes_path(post), method: :post, form_class: "post_vote" do%>
+                                                <i class="material-icons-outlined">arrow_circle_down</i>
+                                            <%end%> 
+                                        <%end%>
+                                    <%else%>
+                                        <%= button_to new_user_session_path, :method => :get, form_class: "post_vote" do%>
+                                            <i class="material-icons-outlined">arrow_circle_down</i>
+                                        <%end%> 
+                                    <%end%>
+                                </div>
+                            </div>
+                        </div>
+                    <%end%>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class='home_right'>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
