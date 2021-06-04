@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   resources :posts do
     resources :post_votes
     resources :post_unvotes
+    resources :post_saves
+    resources :post_comments
+  end
+
+  resources :post_comments do
+    resources :post_comments
   end
   
   devise_for :users, controllers: {

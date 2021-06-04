@@ -15,18 +15,20 @@ class PostVotesController < ApplicationController
 
     def create
         @post = Post.find(params[:post_id])
+        @post_vote = PostVote.new
+        @post_vote.user_id = current_user.id
         if already_voted?
             # flash[:notice] = "You can't vote more than once"
             redirect_to root_path
         else
-            @post_vote = @post.post_votes.create(user_id: current_user.id)
-            redirect_to post_path(@post)
+            @post_vote = @post.post_votes.build
+            @post_vote.save!
         end
         # redirect_to post_path(@post)
-        # respond_to do |format|
-        #     format.html {}
-        #     format.js
-        # end
+        respond_to do |format|
+            format.html {}
+            format.js
+        end
     end
 
     def edit

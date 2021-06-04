@@ -1,8 +1,8 @@
 module PostsHelper
-    def find_owner_user(object)
+    def find_owner_user(user_id)
         @owner_user = User.first
-        if object.user_id.present?
-            @owner_user = User.find_by(id: object.user_id)
+        if user_id.present?
+            @owner_user = User.find_by(id: user_id)
         end
         return @owner_user
     end

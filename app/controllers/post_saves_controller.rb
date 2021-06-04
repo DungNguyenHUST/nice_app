@@ -1,0 +1,2 @@
+class PostSavesController < ApplicationController
+end

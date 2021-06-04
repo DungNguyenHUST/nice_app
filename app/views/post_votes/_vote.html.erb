@@ -1,0 +1,38 @@
+<div id="vote<%=post.id%>">
+    <div class="post_vote_block">
+        <%if user_signed_in?%>
+            <% pre_vote = post.post_votes.find { |vote| vote.user_id == current_user.id} %>
+            <% if pre_vote %>  
+                <%= button_to post_post_vote_path(post, pre_vote), method: :delete, remote: true, form_class: "post_vote_highlight" do%>
+                    <%= bootstrap_icon "arrow-up-circle", width: 20, height: 20, fill: "#1877f2" %>
+                <%end%> 
+            <%else%>
+                <%= button_to post_post_votes_path(post), method: :post, remote: true, form_class: "post_vote" do%>
+                    <%= bootstrap_icon "arrow-up-circle", width: 20, height: 20, fill: "#333" %>
+                <%end%> 
+            <%end%>
+        <%else%>
+            <%= button_to new_user_session_path, :method => :get, form_class: "post_vote" do%>
+                <%= bootstrap_icon "arrow-up-circle", width: 20, height: 20, fill: "#333" %>
+            <%end%> 
+        <%end%>
+    </div>
+    <div class="post_unvote_block">
+        <%if user_signed_in?%>
+            <% pre_unvote = post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
+            <% if pre_unvote %>  
+                <%= button_to post_post_unvote_path(post, pre_unvote), method: :delete, remote: true, form_class: "post_unvote_highlight" do%>
+                    <%= bootstrap_icon "arrow-down-circle", width: 20, height: 20, fill: "#1877f2" %>
+                <%end%> 
+            <%else%>
+                <%= button_to post_post_unvotes_path(post), method: :post, remote: true, form_class: "post_unvote" do%>
+                    <%= bootstrap_icon "arrow-down-circle", width: 20, height: 20, fill: "#333" %>
+                <%end%> 
+            <%end%>
+        <%else%>
+            <%= button_to new_user_session_path, :method => :get, form_class: "post_unvote" do%>
+                <%= bootstrap_icon "arrow-down-circle", width: 20, height: 20, fill: "#333" %>
+            <%end%> 
+        <%end%>
+    </div>
+</div>

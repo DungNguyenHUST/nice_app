@@ -1,0 +1,160 @@
+// Place all the styles related to the PostComments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.post_reply_comment_block{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    .post_comment_left{
+        float: left;
+        .post_comment_avatar{
+            .post_comment_name_label{
+                border-radius: 50%;
+                background-color: #dfe1e5;
+                padding: 4px;
+                padding-left: 8px;
+                padding-right: 8px;
+                position: relative;
+                // top: 3px;
+                color: #fee;
+                text-decoration: none;
+            }
+        }
+        .checked_0{
+            background-color: #888;
+        }
+        .checked_1{
+            .user_name_label{
+                background-color: #7a20a1;
+            }
+        }
+        .checked_2{
+            .user_name_label{
+                background-color: #778f99;
+            }
+        }
+        .checked_3{
+            .user_name_label{
+                background-color: #00579c;
+            }
+        }
+        .checked_4{
+            .user_name_label{
+                background-color: #33691e;
+            }
+        }
+        .checked_5{
+            .user_name_label{
+                background-color: #c2175b;
+            }
+        }
+        .checked_6{
+            .user_name_label{
+                background-color: #00887a;
+            }
+        }
+        .checked_7{
+            .user_name_label{
+                background-color: #aa47bc;
+            }
+        }
+        .checked_8{
+            .user_name_label{
+                background-color: #f24e1b;
+            }
+        }
+        .checked_9{
+            .user_name_label{
+                background-color: #689f39;
+            }
+        }
+    }
+    .post_reply_comment_container{
+        margin-left: 12px;
+        border-left: 2px solid #dfe1e5;
+        .post_comment_right{
+            padding-left: 17px;
+            .post_comment_info{
+                // position: relative;
+                // top: 3px;
+                a{
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                span{
+                    font-size: 12px;
+                }
+            }
+    
+            .post_comment_cotent{
+                font-size: 14px;
+            }
+            
+            .post_comment_reply_block{
+                .post_comment_reply_btn
+                {
+                    border: none;
+                    background-color: #fff;
+                    color: #555;
+                    font-size: 13px;
+                    &:focus {outline:none;}
+    
+                    button{
+                        border: none;
+                        background-color: #fff;
+                        color: #555;
+                        font-size: 13px;
+                        &:focus {outline:none;}
+                    } 
+                    a{
+                        font-size: 13px;
+                        color: #666;
+                        @media screen and (max-width: 600px){
+                            display: none;
+                        }
+                    }
+    
+                    i{
+                        font-size: 18px;
+                        position: relative;
+                        top: -3px;
+                    }
+                    span{
+                        font-size: 13px;
+                        color: #666;
+                    }
+                }
+            }
+        }
+        .post_reply_comment_new{
+            padding: 10px;
+            // display: none;
+            .post_reply_comment_section{
+                display: none;
+                .post_reply_comment_input{
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                }
+                .post_reply_comment_submit{
+                    .post_reply_comment_form_submit{
+                        width: 100px;
+                        border: none;
+                        border-radius: 3px;
+                        background-color: #1877f2;
+                        height: 40px;
+                        color: #fff;
+                        font-size:14px;
+                        &:focus {outline:none;}
+                    }
+                }
+            }
+            .post_reply_comment_comment{
+
+            }
+        }
+        .post_comment_cotent{
+            font-size: 14px;
+            padding-top: 5px;
+        }
+    }
+}
+

@@ -1,0 +1,82 @@
+<div class='post_block'>
+    <div class='post_info'>
+        <%owner_user = find_owner_user(post.user_id)%>
+        <div class='post_info_left'>
+            <div class="post_user_avatar checked_<%=find_user_color(owner_user.name)%>">
+                <a><%= link_to owner_user.name[0], user_session_path(owner_user), class: "post_user_name_label"%></a>
+            </div>
+        </div>
+        <div class='post_info_right'>
+            <div class="post_user_name">
+                <a><%=owner_user.name%></a>
+            </div>
+            <div class="post_create">
+                <span><%=time_ago_in_words(owner_user.created_at)%></span>
+            </div>
+        </div>
+    </div>
+    <div class='post_title'>
+        <a><%= link_to (post.title), post_path(post) %></a>
+    </div>
+    <div class='post_content'>
+        <a><%=post.content%></a>
+    </div>
+    <div class="post_toolbar_block" id="vote<%=post.id%>">
+        <div class="post_vote_block">
+            <%if user_signed_in?%>
+                <% pre_vote = post.post_votes.find { |vote| vote.user_id == current_user.id} %>
+                <% if pre_vote %>  
+                    <%= button_to post_post_vote_path(post, pre_vote), method: :delete, remote: true, form_class: "post_vote_highlight" do%>
+                        <%= bootstrap_icon "arrow-up-circle", width: 20, height: 20, fill: "#1877f2" %>
+                    <%end%> 
+                <%else%>
+                    <%= button_to post_post_votes_path(post), method: :post, remote: true, form_class: "post_vote" do%>
+                        <%= bootstrap_icon "arrow-up-circle", width: 20, height: 20, fill: "#333" %>
+                    <%end%> 
+                <%end%>
+            <%else%>
+                <%= button_to new_user_session_path, :method => :get, form_class: "post_vote" do%>
+                    <%= bootstrap_icon "arrow-up-circle", width: 20, height: 20, fill: "#333" %>
+                <%end%> 
+            <%end%>
+        </div>
+        <div class="post_unvote_block">
+            <%if user_signed_in?%>
+                <% pre_unvote = post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
+                <% if pre_unvote %>  
+                    <%= button_to post_post_unvote_path(post, pre_unvote), method: :delete, remote: true, form_class: "post_unvote_highlight" do%>
+                        <%= bootstrap_icon "arrow-down-circle", width: 20, height: 20, fill: "#1877f2" %>
+                    <%end%> 
+                <%else%>
+                    <%= button_to post_post_unvotes_path(post), method: :post, remote: true, form_class: "post_unvote" do%>
+                        <%= bootstrap_icon "arrow-down-circle", width: 20, height: 20, fill: "#333" %>
+                    <%end%> 
+                <%end%>
+            <%else%>
+                <%= button_to new_user_session_path, :method => :get, form_class: "post_unvote" do%>
+                    <%= bootstrap_icon "arrow-down-circle", width: 20, height: 20, fill: "#333" %>
+                <%end%> 
+            <%end%>
+        </div>
+
+        <div class="post_comment_block" id="post_comment_index_<%=post.id%>">
+            <div class="post_comment_count">
+                <span><%= post.post_comments.count%> Comment</span>
+            </div>
+            <%= form_for([post, PostComment.new], remote: true) do |f| %>
+                <div class="post_comment_section">
+                    <div class="post_comment_input">
+                        <%= f.text_area :content, :required =>true, class: "form-control", placeholder: "Nhập bình luận của bạn tại đây" %>
+                    </div>
+
+                    <div class="post_comment_submit">
+                        <%= f.submit "Gửi bình luận", class: "post_comment_submit" %>
+                    </div>
+                </div>
+            <%end%>
+            <div class="post_comment_render">
+                <%= render post.post_comments %>
+            </div>
+        </div>
+    </div>
+</div>
