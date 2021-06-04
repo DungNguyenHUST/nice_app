@@ -17,7 +17,7 @@
             </div>
             <div class="post_comment_reply_block">
                 <%if user_signed_in?%>
-                    <button class="post_comment_reply_btn" onclick="myFunctionReplyPostComment(1)">
+                    <button class="post_comment_reply_btn" onclick="myFunctionReplyPostComment(<%=post_comment.id%>)">
                         <i><%= bootstrap_icon "reply", width: 20, height: 20, fill: "#1877f2" %></i>
                         <span><%= post_comment.post_comments.count%></span> 
                         <a>Trả lời</a> 

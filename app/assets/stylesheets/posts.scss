@@ -141,6 +141,7 @@
         }
 
         .post_unvote_block{
+            float: left;
             button{
                 border: none;
                 background-color: #fff;
@@ -166,14 +167,43 @@
                 &:focus {outline:none;}
             }
         }
+        .post_comment_btn
+        {
+            border: none;
+            background-color: #fff;
+            color: #555;
+            font-size: 13px;
+            &:focus {outline:none;}
+
+            button{
+                border: none;
+                background-color: #fff;
+                color: #555;
+                font-size: 13px;
+                &:focus {outline:none;}
+            } 
+            a{
+                font-size: 13px;
+                color: #666;
+                @media screen and (max-width: 600px){
+                    display: none;
+                }
+            }
+
+            i{
+                font-size: 18px;
+                position: relative;
+                top: -3px;
+            }
+            span{
+                font-size: 13px;
+                color: #666;
+            }
+        }
     }
 
     .post_comment_block{
-        .post_comment_count{
-            padding-top: 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
+        display: none;
         .post_comment_section{
             .post_comment_input{
                 margin-bottom: 5px;
