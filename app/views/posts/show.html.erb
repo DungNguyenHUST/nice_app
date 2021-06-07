@@ -1,14 +1,66 @@
-<p id="notice"><%= notice %></p>
+<div class='container-fluid'>
+	<div class='row'>
+		<div class='col-sm-2'>
+		</div>
+		<div class='col-sm-6'>
+			<div class='post_show_block'>
+			    <div class='post_show_info'>
+			        <%owner_user = find_owner_user(@post.user_id)%>
+			        <div class='post_show_info_left'>
+			            <div class="post_show_user_avatar checked_<%=find_user_color(owner_user.name)%>">
+			                <a><%= link_to owner_user.name[0], user_session_path(owner_user), class: "post_show_user_name_label"%></a>
+			            </div>
+			        </div>
+			        <div class='post_show_info_right'>
+			            <div class="post_show_user_name">
+			                <a><%=owner_user.name%></a>
+			            </div>
+			            <div class="post_show_create">
+			                <span><%=time_ago_in_words(owner_user.created_at)%></span>
+			            </div>
+			        </div>
+			    </div>
+			    <div class='post_show_title'>
+			        <a><%= @post.title%></a>
+			    </div>
+			    <div class='post_show_content'>
+			        <a><%=@post.content%></a>
+			    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+			    <div class="post_show_comment_block">
+			        <%= form_for([@post, PostComment.new], remote: true) do |f| %>
+			            <div class="post_show_comment_section">
+			                <div class="post_show_comment_input">
+			                    <%= f.text_area :content, :required =>true, class: "form-control", placeholder: "Nhập bình luận của bạn tại đây" %>
+			                </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+			                <div class="post_show_comment_submit">
+			                    <%= f.submit "Gửi bình luận", class: "post_show_comment_submit" %>
+			                </div>
+			            </div>
+			        <%end%>
+			    </div>
+			    
+			    <div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
+			        <%= render @post.post_comments %>
+			    </div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+			    <script>
+			        function myFunctionPostComment(id) {
+			            var x = document.getElementById(id);
+			            if (x.style.display == "block") 
+			            {
+			                x.style.display = "none";
+			            } 
+			            else 
+			            {
+			                x.style.display = "block";
+			            }
+			        }
+			    </script>
+			</div>
+		</div>
+		<div class='col-sm-4'>
+		</div>
+	</div>
+</div>

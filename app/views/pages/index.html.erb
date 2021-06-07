@@ -1,43 +1,79 @@
 <div class="page_index_container">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                <div class='home_left'>
-                    <div class="home_menu_tab_link">
-                        <ul class="nav nav-tabs flex-column">
-                            <li class="nav-item">
-                                <%if @tab_id == "default" || @tab_id == "MenuTagID"%>
-                                    <%active = "active"%>
-                                <%else%> 
-                                    <%active = ""%>
-                                <%end%>                                 
-                                <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'MenuTagID')%>">Tag</a>
-                            </li>
-                            <li class="nav-item">
-                                <%if @tab_id == "MenuPostID"%>
-                                    <%active = "active"%>
-                                <%else%> 
-                                    <%active = ""%>
-                                <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'MenuPostID')%>">Bài viết</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="home_menu_tab_content">
-                        <%if @tab_id == "default" || @tab_id == "MenuTagID"%>
-                        <%end%>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <div class='home_middle'>
-                    <%@posts.each do |post|%>
-                        <%= render post%>
-                    <%end%>
+                    <div class="home_post_sort">
+                        <%if current_user.present?%>
+                            <div class="home_new_post">
+                                <%= button_to new_post_path, method: :get do%>
+                                    <i><%= bootstrap_icon "plus", width: 18, height: 18, fill: "#fff" %></i>
+                                    New Post
+                                <%end%>
+                            </div>
+                        <%end%>
+                        <div class="home_post_tab_link">
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <%if @tab_id == "default" || @tab_id == "PostAllID"%>
+                                        <%active = "active"%>
+                                    <%else%> 
+                                        <%active = ""%>
+                                    <%end%> 
+                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostAllID')%>">
+                                        <i><%= bootstrap_icon "list", width: 18, height: 18%></i>Tất cả</a>
+                                </li>
+                                <li class="nav-item">
+                                    <%if @tab_id == "PostHotID"%>
+                                        <%active = "active"%>
+                                    <%else%> 
+                                        <%active = ""%>
+                                    <%end%>
+                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostHotID')%>"><i><%= bootstrap_icon "bar-chart", width: 18, height: 18%></i>Hot </a>
+                                </li>
+                                <li class="nav-item">
+                                    <%if @tab_id == "PostNewID"%>
+                                        <%active = "active"%>
+                                    <%else%> 
+                                        <%active = ""%>
+                                    <%end%>
+                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostNewID')%>"><i><%= bootstrap_icon "plus-circle", width: 18, height: 18%></i>Mới nhất </a>
+                                </li>
+                                <li class="nav-item">
+                                    <%if @tab_id == "PostTopID"%>
+                                        <%active = "active"%>
+                                    <%else%> 
+                                        <%active = ""%>
+                                    <%end%>
+                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostTopID')%>"><i><%= bootstrap_icon "shift", width: 18, height: 18%></i>Top </a>
+                                </li>
+                                <li class="nav-item">
+                                    <%if @tab_id == "PostTrendID"%>
+                                        <%active = "active"%>
+                                    <%else%> 
+                                        <%active = ""%>
+                                    <%end%>
+                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostTrendID')%>"><i><%= bootstrap_icon "graph-up", width: 18, height: 18%></i>Trending </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="home_post_tab_content">
+                            <%if @tab_id == "default" || @tab_id == "PostAllID"%>
+                                <%@posts.each do |post|%>
+                                    <%= render post%>
+                                <%end%>
+                            <%end%>
+
+                            <%if @tab_id == "PostHotID"%>
+                                <%@posts.reverse.each do |post|%>
+                                    <%= render post%>
+                                <%end%>
+                            <%end%>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class='home_right'>
                 </div>
             </div>

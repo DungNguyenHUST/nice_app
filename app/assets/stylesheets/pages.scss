@@ -13,6 +13,73 @@
     }
     .home_middle{
         margin-top: 20px;
+        .home_post_sort{
+            .home_new_post{
+                button{
+                    width: 100%;
+                    @media screen and (min-width: 600px)
+                    {
+                        width: 20%;
+                        float: left;
+                    }
+                    height: 50px;
+                    border-radius: 3px;
+                    padding: 6px;
+                    background: #1877f2;
+                    font-size: 14px;
+                    border: none;
+                    cursor: pointer;
+                    text-align: center;
+                    color: #fff;
+                    margin-bottom: 20px;
+                    &:hover{
+                        background-color: #369;
+                    }
+                }
+            }
+            .home_post_tab_link{
+                @media screen and (min-width: 600px)
+                {
+                    width: 70%;
+                    float: right;
+                }
+                @media screen and (max-width: 600px){
+                    clear: left;
+                }
+                overflow: hidden;
+                position: relative;
+                display: block;
+                /*background-color: #fff;*/
+                /*border-bottom: 1px solid #dfe1e5;*/
+                .nav {
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    flex-wrap: nowrap;
+                }
+                .nav .nav-link {
+                    white-space: nowrap;
+                    font-size: 16px;
+                    color: #333;
+                    text-align: left;
+                    i{
+                        position: relative;
+                        top: -3px;
+                        padding-right: 3px;
+                    }
+                }
+                .nav .nav-link, .nav .nav-link.active, .nav .nav-link:hover {
+                    border: none;
+                    color: #333;
+                    font-size: 16px;
+                }
+                .nav .nav-link.active {
+                    border-radius: 0;
+                    border-bottom: 3px solid #1877f2;
+                    font-weight: 500;
+                    color: #1877f2;
+                }
+            }
+        }
     }
     .home_right{
         border: 1px solid #dbdbdb;

@@ -13,6 +13,7 @@ class PostCommentsController < ApplicationController
                 format.html {}
                 format.js
             end 
+            # redirect_to post_path(@post)
         end
     end
 
@@ -23,12 +24,14 @@ class PostCommentsController < ApplicationController
     end
 
     def find_commentable
+        @is_post_comment = false
         if params[:post_comment_id]
             @commentable = PostComment.find_by_id(params[:post_comment_id]) 
             @post_comment = @commentable
         elsif params[:post_id]
             @commentable = Post.find_by_id(params[:post_id])
             @post = @commentable
+            @is_post_comment = true
         end
     end
 end

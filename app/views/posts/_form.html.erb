@@ -1,27 +1,47 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+          <div class="new_post_form">
+              <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+                  <div class="new_post_title">
+                      <%if !@is_edit%>
+                        <h3>New Post</h3>
+                      <%else%>
+                        <h3>Update bài viết <%=@post.title%></h3>
+                      <%end%>
+                  </div>
 
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+                  <div class="new_post_title_sub">
+                      <span>Note: Mục có dấu '*' là bắt buộc</span>
+                  </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+                  <div class="new_post_section">
+                      <div class="new_post_content">
+                          <div class="new_post_label">
+                              <a><%= f.label :title, "Tiêu đề bài viết*", class: "new_post_label_name" %></a>
+                          </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
+                          <div class="new_post_input">
+                              <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                          </div>
+                      </div>
+                  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+                  <div class="new_post_content">
+                      <div class="new_post_label">
+                          <a><%= f.label :content, "Nội dung bài viết*", class: "new_post_label_content" %></a>
+                      </div>
+                      
+                      <div class="new_post_input">
+                          <%= f.text_area :content, :required => true, class: "form-control-rich-text", placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
+                      </div>
+                  </div>
+
+                  <div class="new_post_submit">
+                      <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>
+                  </div>
+              <%end%>
+          </div>
+        </div>
+      </div>
+</div>
