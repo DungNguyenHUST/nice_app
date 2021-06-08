@@ -51,6 +51,7 @@
                 display: block;
                 /*background-color: #fff;*/
                 /*border-bottom: 1px solid #dfe1e5;*/
+                margin-bottom: 20px;
                 .nav {
                     overflow-x: auto;
                     overflow-y: hidden;
@@ -79,6 +80,9 @@
                     color: #1877f2;
                 }
             }
+            .home_post_tab_content{
+                padding-top: 20px;
+            }
         }
     }
     .home_right{
@@ -87,5 +91,23 @@
         margin-top: 20px;
         border-radius: 5px;
         min-height: 300px;
+        .home_right_title{
+            font-size: 22px;
+            font-weight: 600;
+            padding: 15px;
+        }
+
+        .home_right_content{
+            border-top: 1px solid #dbdbdb;
+            padding: 15px;
+            a{
+                text-decoration: none;
+                color: #222;
+                font-size: 16px;
+                &:hover{
+                    color: #1817f2;
+                };
+            }
+        }
     }
 }

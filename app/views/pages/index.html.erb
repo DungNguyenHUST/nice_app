@@ -37,7 +37,7 @@
                                     <%else%> 
                                         <%active = ""%>
                                     <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostNewID')%>"><i><%= bootstrap_icon "plus-circle", width: 18, height: 18%></i>Mới nhất </a>
+                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostNewID')%>"><i><%= bootstrap_icon "lightning", width: 18, height: 18%></i>Mới nhất </a>
                                 </li>
                                 <li class="nav-item">
                                     <%if @tab_id == "PostTopID"%>
@@ -75,6 +75,14 @@
             </div>
             <div class="col-sm-4">
                 <div class='home_right'>
+                    <div class='home_right_title'>
+                        <a>Top Tag</a>
+                    </div>
+                    <%@posts.each do |post|%>
+                        <div class='home_right_content'>
+                            <a><%= link_to (post.title), post_path(post) %></a>
+                        </div>
+                    <%end%>
                 </div>
             </div>
         </div>

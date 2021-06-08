@@ -115,7 +115,7 @@
         .user_sign_up_form_right{
 			display: block;
             padding-top: 10px;
-            .login_with_google{  
+            .user_sign_up_with_google{  
                 button{
                     height: 50px;
                     width: 100%;
@@ -131,20 +131,19 @@
                     font-weight: 500;
                     &:focus {outline:none;}
                     i{
-                        margin-right: 10px;
+                        margin-right: 5px;
                         color: #ea4537;
                         font-size: 30px;
                         position: relative;
-                        top: 5px;
+                        top: -8px;
                     }
                     span{
                         position: relative;
-                        top: -5px;
+                        top: -10px;
                     }
                     &:hover{
                         background-color: #ea4537;
                         color: #fff;
-                        border: none;
                         i{
                             color: #fff;
                         }
@@ -152,7 +151,7 @@
                 }
             }
     
-            .login_with_facebook{   
+            .user_sign_up_with_facebook{   
                 button{
                     height: 50px;
                     width: 100%;
@@ -175,56 +174,15 @@
                         color: #0c87ee;
                         font-size: 30px;
                         position: relative;
-                        top: 5px;
+                        top: -8px;
                     }
                     span{
                         position: relative;
-                        top: -5px;
-                    }
-                    
-                    &:hover{
-                        background-color: #1877f2;
-                        color: #fff;
-                        border: none;
-                        i{
-                            color: #fff;
-                        }
-                    }
-                }
-            }
-    
-            .login_with_phone{   
-                button{
-                    height: 50px;
-                    width: 100%;
-                    border-radius: 3px;
-                    padding: 6px;
-                    margin-bottom: 20px;
-                    margin-top: 10px;
-                    background: #fff;
-                    font-size: 16px;
-                    border: 1px solid #444;
-                    cursor: pointer;
-                    text-align: left;
-                    // color: #fff;
-                    color: #444;
-                    font-weight: 500;
-                    &:focus {outline:none;}
-                    i{
-                        margin-right: 8px;
-                        color: #444;
-                        font-size: 25px;
-                        position: relative;
-                        top: 5px;
-                    }
-                    span{
-                        position: relative;
-                        top: -5px;
+                        top: -10px;
                     }
                     &:hover{
-                        background-color: #444;
+                        background-color: #0c87ee;
                         color: #fff;
-                        border: none;
                         i{
                             color: #fff;
                         }
@@ -385,7 +343,7 @@
         .user_signin_form_right{
 			display: block;
             margin-top: 10px;
-            .login_with_google{   
+            .user_signin_with_google{   
                 button{
                     height: 50px;
                     width: 100%;
@@ -405,16 +363,15 @@
                         color: #ea4537;
                         font-size: 30px;
                         position: relative;
-                        top: 5px;
+                        top: -8px;
                     }
                     span{
                         position: relative;
-                        top: -5px;
+                        top: -10px;
                     }
                     &:hover{
                         background-color: #ea4537;
                         color: #fff;
-                        border: none;
                         i{
                             color: #fff;
                         }
@@ -422,7 +379,7 @@
                 }
             }
     
-            .login_with_facebook{   
+            .user_signin_with_facebook{   
                 button{
                     height: 50px;
                     width: 100%;
@@ -445,56 +402,16 @@
                         color: #0c87ee;
                         font-size: 30px;
                         position: relative;
-                        top: 5px;
+                        top: -8px;
                     }
                     span{
                         position: relative;
-                        top: -5px;
+                        top: -10px;
                     }
                     
                     &:hover{
                         background-color: #1877f2;
                         color: #fff;
-                        border: none;
-                        i{
-                            color: #fff;
-                        }
-                    }
-                }
-            }
-    
-            .login_with_phone{   
-                button{
-                    height: 50px;
-                    width: 100%;
-                    border-radius: 3px;
-                    padding: 6px;
-                    margin-bottom: 20px;
-                    margin-top: 10px;
-                    background: #fff;
-                    font-size: 16px;
-                    border: 1px solid #444;
-                    cursor: pointer;
-                    text-align: left;
-                    // color: #fff;
-                    color: #444;
-                    font-weight: 500;
-                    &:focus {outline:none;}
-                    i{
-                        margin-right: 8px;
-                        color: #444;
-                        font-size: 30px;
-                        position: relative;
-                        top: 5px;
-                    }
-                    span{
-                        position: relative;
-                        top: -5px;
-                    }
-                    &:hover{
-                        background-color: #444;
-                        color: #fff;
-                        border: none;
                         i{
                             color: #fff;
                         }
