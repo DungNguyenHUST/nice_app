@@ -1,32 +1,45 @@
 <div class="container">
-    <div class="row">
-        <div class="col-sm-8">
-          <div class="new_post_form">
-              <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-                  <div class="new_post_title">
-                      <%if !@is_edit%>
-                        <h3>New Post</h3>
-                      <%else%>
-                        <h3>Update bài viết <%=@post.title%></h3>
-                      <%end%>
+  <div class="row">
+      <div class="col-sm-8">
+        <div class="new_post_form">
+            <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+                <div class="new_post_title">
+                    <%if !@is_edit%>
+                      <h3>New Post</h3>
+                    <%else%>
+                      <h3>Update bài viết <%=@post.title%></h3>
+                    <%end%>
+                </div>
+
+                <div class="new_post_title_sub">
+                    <span>Note: Mục có dấu '*' là bắt buộc</span>
+                </div>
+
+                <div class="new_post_section">
+                  <div class="new_post_content">
+                    <div class="new_post_label">
+                      <a><%= f.label :image, "Tải ảnh lên", class: "new_post_label" %></a>
+                    </div>
+                    
+                    <div class="new_post_input">
+                      <%= f.file_field :image, :required => true%>
+                    </div>
                   </div>
+                </div>
 
-                  <div class="new_post_title_sub">
-                      <span>Note: Mục có dấu '*' là bắt buộc</span>
-                  </div>
+                <div class="new_post_section">
+                    <div class="new_post_content">
+                        <div class="new_post_label">
+                            <a><%= f.label :title, "Tiêu đề bài viết*", class: "new_post_label_name" %></a>
+                        </div>
 
-                  <div class="new_post_section">
-                      <div class="new_post_content">
-                          <div class="new_post_label">
-                              <a><%= f.label :title, "Tiêu đề bài viết*", class: "new_post_label_name" %></a>
-                          </div>
+                        <div class="new_post_input">
+                            <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                        </div>
+                    </div>
+                </div>
 
-                          <div class="new_post_input">
-                              <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
-                          </div>
-                      </div>
-                  </div>
-
+                <div class="new_post_section">
                   <div class="new_post_content">
                       <div class="new_post_label">
                           <a><%= f.label :content, "Nội dung bài viết*", class: "new_post_label_content" %></a>
@@ -35,13 +48,14 @@
                       <div class="new_post_input">
                           <%= f.text_area :content, :required => true, class: "form-control-rich-text", placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
                       </div>
-                  </div>
+                  </div>  
+                </div>
 
-                  <div class="new_post_submit">
-                      <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>
-                  </div>
-              <%end%>
-          </div>
+                <div class="new_post_submit">
+                    <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>
+                </div>
+            <%end%>
         </div>
       </div>
+  </div>  
 </div>

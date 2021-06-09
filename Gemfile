@@ -63,3 +63,6 @@ gem 'omniauth-rails_csrf_protection'
 gem 'bootstrap', '~> 5.0.1'
 gem 'jquery-rails'
 gem 'bootstrap-icons-helper'
+
+gem 'carrierwave'
+gem 'ckeditor'

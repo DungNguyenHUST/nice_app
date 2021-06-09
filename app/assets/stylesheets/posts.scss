@@ -99,6 +99,9 @@
         padding-top: 5px;
         padding-bottom: 10px;
         padding-left: 44px;
+        @media screen and (max-width: 600px){
+            padding-left: 0px;
+        }
         a{
             text-decoration: none;
             color: #222;
@@ -115,10 +118,16 @@
         display: -webkit-box;
         -webkit-line-clamp: 2; /* number of lines to show */
         -webkit-box-orient: vertical;
+        @media screen and (max-width: 600px){
+            padding-left: 0px;
+        }
     }
 
     .post_index_toolbar_block{
         padding-left: 44px;
+        @media screen and (max-width: 600px){
+            padding-left: 0px;
+        }
         padding-top: 10px;
         .post_index_vote_unvote_block{
             background-color: #fff;
@@ -157,8 +166,8 @@
         .post_index_comment_block{
             float: left;
             color: #555;
-            margin-right: 15px;
-            margin-left: 15px;
+            margin-right: 20px;
+            margin-left: 20px;
             button{
                 border: none;
                 background-color: #fff;
@@ -167,6 +176,11 @@
             span{
                 font-size: 14px;
                 color: #666;
+                margin-left: 2px;
+
+                @media screen and (max-width: 600px){
+                    display: none;
+                }
             }
             .post_index_comment
             {
@@ -183,15 +197,19 @@
         .post_index_save_block{
             float: left;
             color: #555;
-            margin-right: 15px;
+            margin-right: 20px;
             button{
                 border: none;
                 background-color: #fff;
                 &:focus {outline:none;}
             }
             span{
+                margin-left: 2px;
                 font-size: 14px;
                 color: #666;
+                @media screen and (max-width: 600px){
+                    display: none;
+                }
             }
             .post_index_save
             {
@@ -215,6 +233,10 @@
             span{
                 font-size: 14px;
                 color: #666;
+                margin-left: 2px;
+                @media screen and (max-width: 600px){
+                    display: none;
+                }
             }
             .post_index_share
             {
