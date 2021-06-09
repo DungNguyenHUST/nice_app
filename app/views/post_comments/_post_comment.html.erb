@@ -1,12 +1,12 @@
 
-<div class="post_reply_comment_block">
+<div class="post_comment_block">
     <%owner_user = find_owner_user(post_comment.user_id)%>
-    <div class="post_comment_left">
+    <div class="post_comment_left_block">
         <div class="post_comment_avatar checked_<%=find_user_color(owner_user.name)%>">
             <a><%= link_to owner_user.name[0], user_session_path(owner_user), class: "post_comment_name_label"%></a>
         </div>
     </div>
-    <div class="post_reply_comment_container">
+    <div class="post_comment_right_block">
         <div class="post_comment_right">
             <div class="post_comment_info">
                 <a><%=owner_user.name%></a>
@@ -24,18 +24,18 @@
                     </button>
                 <%end%>
             </div>
-        </div>
-        <div class="post_reply_comment_new">
-            <%= form_for([post_comment, PostComment.new], remote: true) do |f| %>
-                <div class="post_reply_comment_section">
-                    <div class="post_reply_comment_input">
-                        <%= f.text_area :content, :required =>true, class: "form-control", placeholder: "Nhập trả lời tại đây" %>
+            <div class="post_reply_comment_new">
+                <%= form_for([post_comment, PostComment.new], remote: true) do |f| %>
+                    <div class="post_reply_comment_section">
+                        <div class="post_reply_comment_input">
+                            <%= f.text_area :content, :required =>true, class: "form-control", placeholder: "Nhập trả lời tại đây" %>
+                        </div>
+                        <div class="post_reply_comment_submit">
+                            <%= f.submit "Trả lời", class: "post_reply_comment_form_submit" %>
+                        </div>
                     </div>
-                    <div class="post_reply_comment_submit">
-                        <%= f.submit "Gửi trả lời", class: "post_reply_comment_form_submit" %>
-                    </div>
-                </div>
-            <%end%>
+                <%end%>
+            </div>
         </div>
         <div class="post_reply_comment_render" id="post_reply_comment_index_<%=post_comment.id%>">
             <%= render post_comment.post_comments %>

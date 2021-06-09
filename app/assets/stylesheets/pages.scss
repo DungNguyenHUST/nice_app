@@ -13,45 +13,40 @@
     }
     .home_middle{
         margin-top: 20px;
-        .home_post_sort{
+        .home_post_new{
+            border: 1px solid #dbdbdb;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
             .home_new_post{
                 button{
                     width: 100%;
-                    @media screen and (min-width: 600px)
-                    {
-                        width: 20%;
-                        float: left;
-                    }
                     height: 50px;
                     border-radius: 3px;
                     padding: 6px;
-                    background: #1877f2;
+                    background: #fff;
                     font-size: 14px;
                     border: none;
                     cursor: pointer;
                     text-align: center;
-                    color: #fff;
-                    margin-bottom: 20px;
-                    &:hover{
-                        background-color: #369;
+                    color: #369;
+                    i{
+                        color: #369;
                     }
                 }
             }
+
+        }
+        .home_post_sort{
+            border: 1px solid #dbdbdb;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
             .home_post_tab_link{
-                @media screen and (min-width: 600px)
-                {
-                    width: 70%;
-                    float: right;
-                }
-                @media screen and (max-width: 600px){
-                    clear: left;
-                }
                 overflow: hidden;
                 position: relative;
                 display: block;
-                /*background-color: #fff;*/
-                /*border-bottom: 1px solid #dfe1e5;*/
-                margin-bottom: 20px;
                 .nav {
                     overflow-x: auto;
                     overflow-y: hidden;
@@ -80,9 +75,9 @@
                     color: #1877f2;
                 }
             }
-            .home_post_tab_content{
-                padding-top: 20px;
-            }
+        }
+        .home_post_tab_content{
+            padding-top: 20px;
         }
     }
     .home_right{

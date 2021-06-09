@@ -1,20 +1,23 @@
 // Place all the styles related to the PostComments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.post_reply_comment_block{
-    padding-top: 15px;
-    padding-bottom: 15px;
-    .post_comment_left{
+.post_comment_block{
+    clear: right;
+    clear: left;
+    padding-top: 10px;
+    .post_comment_left_block{
         float: left;
         .post_comment_avatar{
             .post_comment_name_label{
                 border-radius: 50%;
                 background-color: #dfe1e5;
-                padding: 4px;
-                padding-left: 8px;
-                padding-right: 8px;
+                padding: 7px;
+                padding-left: 12px;
+                padding-right: 12px;
+                margin-left: 5px;
+                margin-right: 5px;
                 position: relative;
-                // top: 3px;
+                top: 10px;
                 color: #fee;
                 text-decoration: none;
             }
@@ -68,9 +71,11 @@
             }
         }
     }
-    .post_reply_comment_container{
-        margin-left: 12px;
-        border-left: 2px solid #dfe1e5;
+    .post_comment_right_block{
+        margin-left: 21px;
+        margin-top: 10px;
+        border-left: 2px solid #e5e5e5;
+        display: block;
         .post_comment_right{
             padding-left: 17px;
             .post_comment_info{
@@ -124,34 +129,39 @@
                     }
                 }
             }
-        }
-        .post_reply_comment_new{
-            padding: 10px;
-            // display: none;
-            .post_reply_comment_section{
-                /*display: none;*/
-                .post_reply_comment_input{
+
+            .post_reply_comment_new{
+                display: block;
+                .post_reply_comment_section{
                     margin-bottom: 10px;
                     margin-top: 10px;
-                }
-                .post_reply_comment_submit{
-                    .post_reply_comment_form_submit{
-                        width: 100px;
-                        border: none;
-                        border-radius: 3px;
-                        background-color: #1877f2;
-                        height: 40px;
-                        color: #fff;
-                        font-size:14px;
-                        &:focus {outline:none;}
+                    display: block;
+                    .post_reply_comment_input{
+                        width: 100%;
+                        .form-control{
+                            border-radius: 5px;
+                            height: 30px;
+                        }
+                    }
+                    .post_reply_comment_submit{
+                        .post_reply_comment_form_submit{
+                            position: relative;
+                            top:  10px;
+                            width: 100px;
+                            border: none;
+                            border-radius: 20px;
+                            background-color: #1877f2;
+                            height: 30px;
+                            color: #fff;
+                            font-size:14px;
+                            &:focus {outline:none;}
+                        }
                     }
                 }
             }
-            .post_reply_comment_comment{
-
-            }
         }
-        .post_comment_cotent{
+
+        .post_reply_comment_render{
             font-size: 14px;
             padding-top: 5px;
         }
