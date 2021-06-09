@@ -65,4 +65,5 @@ gem 'jquery-rails'
 gem 'bootstrap-icons-helper'
 
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'ckeditor'

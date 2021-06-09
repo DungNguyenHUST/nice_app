@@ -46,7 +46,7 @@
                       </div>
                       
                       <div class="new_post_input">
-                          <%= f.text_area :content, :required => true, class: "form-control-rich-text", placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
+                        <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "full", height: 100}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
                       </div>
                   </div>  
                 </div>
