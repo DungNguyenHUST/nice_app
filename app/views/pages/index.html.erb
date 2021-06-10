@@ -24,7 +24,7 @@
                         <div class="home_post_tab_link">
                             <ul class="nav">
                                 <li class="nav-item">
-                                    <%if @tab_id == "PostHotID"%>
+                                    <%if @tab_id == "default" || @tab_id == "PostHotID"%>
                                         <%active = "active"%>
                                     <%else%> 
                                         <%active = ""%>
@@ -59,13 +59,14 @@
                         </div>
                     </div>
                     <div class="home_post_tab_content">
-                        <%if @tab_id == "default" || @tab_id == "PostAllID"%>
+                        <%if @tab_id == "default" || @tab_id == "PostHotID"%>
                             <%@posts.each do |post|%>
-                                <%= render post%>
+                                <%@post = post%>
+                                <%= render @post%>
                             <%end%>
                         <%end%>
 
-                        <%if @tab_id == "PostHotID"%>
+                        <%if @tab_id == "PostNewID"%>
                             <%@posts.reverse.each do |post|%>
                                 <%= render post%>
                             <%end%>

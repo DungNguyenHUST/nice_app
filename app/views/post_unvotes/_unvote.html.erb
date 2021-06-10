@@ -1,0 +1,12 @@
+<div id="post_index_unvote_<%=@post.id%>">
+    <% pre_unvote = @post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
+    <% if pre_unvote %>  
+        <%= button_to post_post_unvote_path(@post, pre_unvote), method: :delete, remote: true do%>
+            <i><%= bootstrap_icon "caret-down-fill", width: 28, height: 28, fill: "#1877f2" %></i>
+        <%end%> 
+    <%else%>
+        <%= button_to post_post_unvotes_path(@post), method: :post, remote: true do%>
+            <i><%= bootstrap_icon "caret-down", width: 28, height: 28, fill: "#888" %></i>
+        <%end%> 
+    <%end%>
+</div>

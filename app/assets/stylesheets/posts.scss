@@ -147,7 +147,7 @@
                 font-size: 14px;
                 font-weight: 600;
                 text-decoration: none;
-                color: #333;
+                color: #666;
                 padding-left: 3px;
                 padding-right: 3px;
                 position: relative;
@@ -173,10 +173,12 @@
                 background-color: #fff;
                 &:focus {outline:none;}
             }
-            span{
+            a{
                 font-size: 14px;
                 color: #666;
-                margin-left: 2px;
+                span{
+                    margin-left: 2px;
+                }
 
                 @media screen and (max-width: 600px){
                     display: none;
@@ -203,10 +205,13 @@
                 background-color: #fff;
                 &:focus {outline:none;}
             }
-            span{
-                margin-left: 2px;
+            a{
                 font-size: 14px;
                 color: #666;
+                span{
+                    margin-left: 2px;
+                }
+
                 @media screen and (max-width: 600px){
                     display: none;
                 }
@@ -230,10 +235,13 @@
                 background-color: #fff;
                 &:focus {outline:none;}
             }
-            span{
+            a{
                 font-size: 14px;
                 color: #666;
-                margin-left: 2px;
+                span{
+                    margin-left: 2px;
+                }
+
                 @media screen and (max-width: 600px){
                     display: none;
                 }

@@ -1,4 +1,3 @@
 class PostUnvote < ApplicationRecord
-    belongs_to :users
-    belongs_to :posts
+    belongs_to :posts, optional: true 
 end
