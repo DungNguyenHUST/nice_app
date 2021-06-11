@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+  
+  resources :users do
+    resources :user_notifications
+  end
+  
   resources :posts do
     resources :post_votes
     resources :post_unvotes
@@ -10,17 +22,6 @@ Rails.application.routes.draw do
   resources :post_comments do
     resources :post_comments
   end
-  
-  resources :users do
-    resources :user_notifications
-  end
-
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    passwords: 'users/passwords',
-    omniauth_callbacks: 'users/omniauth_callbacks'
-  }
 
   resources :pages
   root "pages#index"
