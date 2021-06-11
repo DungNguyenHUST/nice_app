@@ -9,11 +9,11 @@
 				                <% pre_vote = @post.post_votes.find { |vote| vote.user_id == current_user.id} %>
 				                <% if pre_vote %>  
 				                    <%= button_to post_post_vote_path(@post, pre_vote), method: :delete, remote: true do%>
-				                        <i><%= bootstrap_icon "caret-up-fill", width: 32, height: 32, fill: "#1877f2" %></i>
+				                        <i><%= bootstrap_icon "arrow-up-circle-fill", width: 24, height: 24, fill: "#4f46e5" %></i>
 				                    <%end%> 
 				                <%else%>
 				                    <%= button_to post_post_votes_path(@post), method: :@post, remote: true do%>
-				                        <i><%= bootstrap_icon "caret-up", width: 32, height: 32, fill: "#888" %></i>
+				                        <i><%= bootstrap_icon "arrow-up-circle", width: 24, height: 24, fill: "#888" %></i>
 				                    <%end%> 
 				                <%end%>
 				            </div>
@@ -26,11 +26,11 @@
 				                <% pre_unvote = @post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
 				                <% if pre_unvote %>  
 				                    <%= button_to post_post_unvote_path(@post, pre_unvote), method: :delete, remote: true do%>
-				                        <i><%= bootstrap_icon "caret-down-fill", width: 32, height: 32, fill: "#1877f2" %></i>
+				                        <i><%= bootstrap_icon "arrow-down-circle-fill", width: 24, height: 24, fill: "#4f46e5" %></i>
 				                    <%end%> 
 				                <%else%>
 				                    <%= button_to post_post_unvotes_path(@post), method: :@post, remote: true do%>
-				                        <i><%= bootstrap_icon "caret-down", width: 32, height: 32, fill: "#888" %></i>
+				                        <i><%= bootstrap_icon "arrow-down-circle", width: 24, height: 24, fill: "#888" %></i>
 				                    <%end%> 
 				                <%end%>
 				            </div>
@@ -38,7 +38,7 @@
 
 				        <div class="post_show_comment_block">
 				            <%= button_to post_path(@post), method: :get, form_class: "post_show_comment" do%>
-				                <i><%= bootstrap_icon "chat-square", width: 22, height: 22, fill: "#666" %></i>
+				                <i><%= bootstrap_icon "chat", width: 22, height: 22, fill: "#666" %></i>
 				                <span><%= @post.post_comments.count%></span> 
 				            <%end%> 
 				        </div>

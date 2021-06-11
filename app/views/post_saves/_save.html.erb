@@ -2,7 +2,7 @@
     <% pre_save = @post.post_saves.find { |save| save.user_id == current_user.id} %>
     <% if pre_save %>  
         <%= button_to post_post_save_path(@post, pre_save), method: :delete, remote: true do%>
-            <i><%= bootstrap_icon "caret-up-fill", width: 28, height: 28, fill: "#1877f2" %></i>
+            <i><%= bootstrap_icon "caret-up-fill", width: 28, height: 28, fill: "#4f46e5" %></i>
         <%end%> 
     <%else%>
         <%= button_to post_post_saves_path(@post), method: :post, remote: true do%>

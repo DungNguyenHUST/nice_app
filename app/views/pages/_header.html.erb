@@ -15,7 +15,7 @@
         </div>
 
         <%if user_signed_in?%>
-            <div class="nav_login_moblie" >
+            <div class="nav_signin_moblie" >
                 <div class="user_notification_mobile">
                     <%= link_to user_path(current_user, :tab_id => "NotificationID") do %>
                         <%if current_user.user_notifications.count < 10%>
@@ -61,10 +61,21 @@
             </div>
         <%end%>
 
+        <%if false%>
         <a href="<%=posts_path %>">#home </a>
         <a href="<%=posts_path %>">#tag </a>
         <a href="<%=posts_path %>">#communication </a>
         <a href="<%=posts_path %>">#create post</a>
+        <%end%>
+
+        <%=form_tag posts_path, :method => "get" do%>
+            <div class="post_search_input">
+                <div class="post_search_what">
+                    <i><%= bootstrap_icon "search", width: 20, height: 20%></i>
+                    <%= text_field_tag :search, params[:search], required: true, class: 'form-control', placeholder: "Tìm kiếm..."%>
+                </div>
+            </div>
+        <%end%>
 
         <div class="nav_right">
             <%if user_signed_in?%>
@@ -114,10 +125,10 @@
                     </div>
                 </div>
             <%else%>
-                <a class="nav_recrui" href="<%=new_user_registration_path(:user_type => 'employer') %>">
-                    <span>Tuyển dụng</span>
+                <a class="nav_signup" href="<%=new_user_registration_path%>">
+                    <span>Tạo tài khoản</span>
                 </a>
-                <a class="nav_login" href="<%=new_user_session_path %>">
+                <a class="nav_signin" href="<%=new_user_session_path %>">
                     <span>
                         <i><%= bootstrap_icon "person", width: 22, height: 22%></i> Đăng nhập
                     </span>

@@ -106,7 +106,7 @@
             text-decoration: none;
             color: #222;
             &:hover{
-                color: #1877f2;
+                color: #4f46e5;
             };
         }
     }
@@ -277,7 +277,7 @@
                         &:focus {outline:none;}
                     }
                     position: relative;
-                    left: -5px;
+                    // left: -5px;
                 }
                 .post_show_vote_unvote_count{
                     span{
@@ -296,7 +296,7 @@
                         &:focus {outline:none;}
                     }
                     position: relative;
-                    left: -5px;
+                    // left: -5px;
                 }
             }
 
@@ -503,7 +503,7 @@
                     border: none;
                     background-color: #fff;
                     i{
-                        color: #1877f2;
+                        color: #4f46e5;
                         font-size: 24px;
                     }
                     &:focus {outline:none;}
@@ -531,7 +531,7 @@
                     border: none;
                     background-color: #fff;
                     i{
-                        color: #1877f2;
+                        color: #4f46e5;
                         font-size: 24px;
                     }
                     &:focus {outline:none;}
@@ -591,7 +591,7 @@
                         width: 100px;
                         border: none;
                         border-radius: 20px;
-                        background-color: #1877f2;
+                        background-color: #4f46e5;
                         height: 40px;
                         color: #fff;
                         font-size:14px;
@@ -666,17 +666,17 @@
                     margin-left: 0px;
                     width: 100%;
                     border: 1px solid #dfe1e5;
-                    border-radius: 3px;
+                    border-radius: 5px;
                 }
                 .form-control{
                     margin-left: 0px;
                     min-height: 40px;
                     width: 100%;
                     border: 1px solid #dfe1e5;
-                    border-radius: 3px;
+                    border-radius: 5px;
                     &:focus{
-                        border: 2px solid #1877f2;
-                        border-radius: 3px;
+                        border: 2px solid #4f46e5;
+                        border-radius: 5px;
                     }
                 }
             }
@@ -689,9 +689,9 @@
         .new_post_form_submit{
             height: 50px;
             width: 100%;
-            border-radius: 3px;
+            border-radius: 5px;
             padding: 6px;
-            background: #1877f2;
+            background: #4f46e5;
             font-size: 14px;
             border: none;
             cursor: pointer;
@@ -699,7 +699,7 @@
             color: #fff;
             
             &:hover{
-                background-color: #1877f2;
+                background-color: #4f46e5;
             }
         }
     }
@@ -708,11 +708,11 @@
         padding: 10px;
         width: 300px;
         font-size: 14px;
-        border-radius: 3px;
+        border-radius: 5px;
         background: #fff;
         &:focus{
-            border: 2px solid #1877f2;
-            border-radius: 3px;
+            border: 2px solid #4f46e5;
+            border-radius: 5px;
         }
     }
 }
