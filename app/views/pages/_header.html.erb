@@ -1,28 +1,172 @@
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="<%=root_path%>">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="<%=new_user_session_path%>">Login</a>
-            </li>
-            <%if current_user.present?%>
-                <li class="nav-item">
-                    <a>
-                        <%= link_to destroy_user_session_path, method: :delete do%>
-                            <span>Log out</span>
+<div class="topnav" id="myTopnav">
+    <div class="container">
+        <a href="javascript:void(0);" class="menu_icon" onclick="openNav()">
+            <i><%= bootstrap_icon "list", width: 22, height: 22%></i> 
+        </a>
+
+        <a href="javascript:void(0);" class="close_icon" onclick="closeNav()">
+            <i><%= bootstrap_icon "x-square", width: 22, height: 22%></i> 
+        </a>
+
+        <div class="nav_logo">
+            <div class="rounded">
+                <%= link_to (image_tag(("logo.png"))), image_path(url_for(("logo.png"))), rel: "gallery" , :href => pages_path%>
+            </div>
+        </div>
+
+        <%if user_signed_in?%>
+            <div class="nav_login_moblie" >
+                <div class="user_notification_mobile">
+                    <%= link_to user_path(current_user, :tab_id => "NotificationID") do %>
+                        <%if current_user.user_notifications.count < 10%>
+                            <i><%= bootstrap_icon "bell", width: 22, height: 22%></i><span><%=current_user.user_notifications.count%></span>
+                        <%else%>
+                            <i><%= bootstrap_icon "bell", width: 22, height: 22%></i><span>9+</span>
                         <%end%>
-                    </a>
-                </li>
+                    <%end%>
+                </div>
+                <button class="user_avatar_small_moblie" onclick="openUserActionMenuMoblie()">
+                    <%if current_user.avatar?%>
+                        <div class="user_avatar_small_img">
+                            <%= image_tag current_user.avatar.url %>
+                        </div>
+                    <%else%>
+                        <div class="user_avatar_small_text checked_<%=find_user_color(current_user.name)%>">
+                            <%if current_user.name.present?%>
+                                <span><%=current_user.name[0].upcase%></span>
+                            <%else%>
+                                <span>A</span>
+                            <%end%>
+                        </div>
+                    <%end%>
+                </button>
+
+                <div class="user_action_select_mobile" id ="user_action_menu_moblie">
+                    <div class="user_action">
+                        <%= button_to user_path(current_user), :method => :get do%>
+                            <i><%= bootstrap_icon "person", width: 22, height: 22%></i> <span>Thông tin cá nhân</span>
+                        <%end%>
+                    </div>
+                    <div class="user_action">
+                        <%= button_to user_path(current_user), :method => :get do%>
+                            <i><%= bootstrap_icon "gear", width: 22, height: 22%></i> <span>Cài đặt tài khoản</span>
+                        <%end%>
+                    </div>
+                    <div class="user_action">
+                        <%= button_to destroy_user_session_path, method: :delete do%>
+                            <i><%= bootstrap_icon "box-arrow-right", width: 22, height: 22%></i> <span>Đăng xuất</span>
+                        <%end%>
+                    </div>
+                </div>
+            </div>
+        <%end%>
+
+        <a href="<%=posts_path %>">#home </a>
+        <a href="<%=posts_path %>">#tag </a>
+        <a href="<%=posts_path %>">#communication </a>
+        <a href="<%=posts_path %>">#create post</a>
+
+        <div class="nav_right">
+            <%if user_signed_in?%>
+                <div class="nav_user">
+                    <div class="user_notification">                     
+                        <%= link_to user_path(current_user, :tab_id => "NotificationID") do %>
+                            <%if current_user.user_notifications.count < 10%>
+                                <i><%= bootstrap_icon "bell", width: 22, height: 22%></i><span><%=current_user.user_notifications.count%></span>
+                            <%else%>
+                                <i><%= bootstrap_icon "bell", width: 22, height: 22%></i><span>9+</span>
+                            <%end%>
+                        <%end%>
+                    </div>
+
+                    <button class="user_avatar_small" onclick="openUserActionMenu()">
+                        <%if current_user.avatar?%>
+                            <div class="user_avatar_small_img">
+                                <%= image_tag current_user.avatar.url %>
+                            </div>
+                        <%else%>
+                            <div class="user_avatar_small_text checked_<%=find_user_color(current_user.name)%>">
+                                <%if current_user.name.present?%>
+                                    <span><%=current_user.name[0].upcase%></span>
+                                <%else%>
+                                    <span>A</span>
+                                <%end%>
+                            </div>
+                        <%end%>
+                    </button>
+
+                    <div class="user_action_select" id ="user_action_menu">
+                        <div class="user_action">
+                            <%= button_to user_path(current_user), :method => :get do%>
+                                <i><%= bootstrap_icon "person", width: 22, height: 22%></i> <span>Thông tin cá nhân</span>
+                            <%end%>
+                        </div>
+                        <div class="user_action">
+                            <%= button_to user_path(current_user), :method => :get do%>
+                                <i><%= bootstrap_icon "gear", width: 22, height: 22%></i> <span>Cài đặt tài khoản</span>
+                            <%end%>
+                        </div>
+                        <div class="user_action">
+                            <%= button_to destroy_user_session_path, method: :delete do%>
+                                <i><%= bootstrap_icon "box-arrow-right", width: 22, height: 22%></i> <span>Đăng xuất</span>
+                            <%end%>
+                        </div>
+                    </div>
+                </div>
+            <%else%>
+                <a class="nav_recrui" href="<%=new_user_registration_path(:user_type => 'employer') %>">
+                    <span>Tuyển dụng</span>
+                </a>
+                <a class="nav_login" href="<%=new_user_session_path %>">
+                    <span>
+                        <i><%= bootstrap_icon "person", width: 22, height: 22%></i> Đăng nhập
+                    </span>
+                </a>
             <%end%>
-        </ul>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        </div>
     </div>
-  </div>
-</nav>
+</div>
+
+<script>
+    function openNav() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+    function closeNav() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+    function openUserActionMenu() {
+        var x = document.getElementById("user_action_menu");
+        if (x.style.display == "block") 
+        {
+            x.style.display = "none";
+        } 
+        else 
+        {
+            x.style.display = "block";
+        }
+    }
+
+    function openUserActionMenuMoblie() {
+        var x = document.getElementById("user_action_menu_moblie");
+        if (x.style.display == "block") 
+        {
+            x.style.display = "none";
+        } 
+        else 
+        {
+            x.style.display = "block";
+        }
+    }
+</script>

@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     resources :post_comments
   end
   
+  resources :users do
+    resources :user_notifications
+  end
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
