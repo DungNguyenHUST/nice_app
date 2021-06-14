@@ -21,8 +21,10 @@ Rails.application.routes.draw do
       resources :post_comment_unvotes
       resources :post_comment_saves
     end
-
   end
+
+  resources :tags
+  get 'tags/:tag', to: 'posts#index', as: :tag
 
   resources :post_comments do
     resources :post_comments

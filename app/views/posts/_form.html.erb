@@ -39,12 +39,14 @@
                             </div>
 
                             <div class="new_post_section">
-                            <div class="new_post_content">
-                                <div class="new_post_input">
-                                    <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "full", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
-                                </div>
-                            </div>  
+                                <div class="new_post_content">
+                                    <div class="new_post_input">
+                                        <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "full", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
+                                    </div>
+                                </div>  
                             </div>
+
+                            <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
 
                             <div class="new_post_submit">
                                 <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>

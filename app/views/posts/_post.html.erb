@@ -22,6 +22,10 @@
         <a><%=@post.content%></a>
     </div>
 
+    <div class='post_index_tag'>
+        <p>#<%= raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')%></p>
+    </div>
+
     <div class="post_index_toolbar_block">
         <div class="post_index_vote_unvote_block">
             <div class="post_index_vote_block" id="post_index_vote_<%=@post.id%>">
