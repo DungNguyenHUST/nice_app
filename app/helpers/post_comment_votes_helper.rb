@@ -1,0 +1,2 @@
+module PostCommentVotesHelper
+end

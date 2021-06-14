@@ -92,38 +92,76 @@
                 font-size: 14px;
             }
             
-            .post_comment_reply_block{
-                .post_comment_reply_btn
-                {
-                    border: none;
+            .post_comment_reply_toolbar{
+                .post_comment_index_vote_unvote_block{
                     background-color: #fff;
-                    color: #555;
-                    font-size: 13px;
-                    &:focus {outline:none;}
-    
-                    button{
+                    position: relative;
+                    top: 6px;
+                    .post_comment_index_vote_block{
+                        float: left;
+                        button{
+                            background-color: #fff;
+                            border: none;
+                            &:focus {outline:none;}
+                        }
+                    }
+                    .post_comment_index_vote_unvote_count{
+                        background-color: #fff;
+                        float: left;
+                        font-size: 13px;
+                        font-weight: 600;
+                        text-decoration: none;
+                        color: #666;
+                        padding-left: 3px;
+                        padding-right: 3px;
+                        position: relative;
+                        top: 5px;
+                    }
+                    .post_comment_index_unvote_block{
+                        float: left;
+                        button{
+                            background-color: #fff;
+                            border: none;
+                            &:focus {outline:none;}
+                        }
+                    }
+                }
+                .post_comment_reply_block{
+                    position: relative;
+                    top: 6px;
+                    padding-left: 10px;
+                    .post_comment_reply_btn
+                    {
                         border: none;
                         background-color: #fff;
                         color: #555;
                         font-size: 13px;
                         &:focus {outline:none;}
-                    } 
-                    a{
-                        font-size: 13px;
-                        color: #666;
-                        @media screen and (max-width: 600px){
-                            display: none;
+        
+                        button{
+                            border: none;
+                            background-color: #fff;
+                            color: #555;
+                            font-size: 13px;
+                            &:focus {outline:none;}
+                        } 
+                        a{
+                            font-size: 13px;
+                            color: #666;
+                            @media screen and (max-width: 600px){
+                                display: none;
+                            }
                         }
-                    }
-    
-                    i{
-                        font-size: 18px;
-                        position: relative;
-                        top: -3px;
-                    }
-                    span{
-                        font-size: 13px;
-                        color: #666;
+        
+                        i{
+                            font-size: 18px;
+                            position: relative;
+                            top: -3px;
+                        }
+                        span{
+                            font-size: 13px;
+                            color: #666;
+                        }
                     }
                 }
             }

@@ -1,0 +1,14 @@
+<div id="post_comment_index_vote_<%=post_comment.id%>">
+    <%if current_user.present?%>
+        <% pre_comment_vote = post_comment.post_comment_votes.find { |vote| vote.user_id == current_user.id} %>
+    <%end%>
+    <% if pre_comment_vote %>  
+        <%= button_to post_post_comment_post_comment_vote_path(post_comment, pre_comment_vote), method: :delete, remote: true do%>
+            <i><%= bootstrap_icon "arrow-up-circle-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
+        <%end%> 
+    <%else%>
+        <%= button_to post_post_comment_post_comment_votes_path(@post, post_comment), method: :post, remote: true do%>
+            <i><%= bootstrap_icon "arrow-up-circle", width: 20, height: 20, fill: "#888" %></i>
+        <%end%> 
+    <%end%>
+</div>
