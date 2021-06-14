@@ -574,6 +574,7 @@
 
         .post_show_new_comment_block{
             margin-top: 30px;
+            margin-bottom: 30px;
             .post_show_comment_section{
                 .post_show_comment_input{
                     margin-bottom: 5px;
@@ -601,7 +602,7 @@
             }
 
             .post_show_comment_render{
-                margin-top: 20px;
+                padding-top: 20px;
                 clear: right;
                 clear: left;
             }

@@ -4,20 +4,19 @@
 .post_comment_block{
     clear: right;
     clear: left;
-    padding-top: 10px;
+    margin-top: 15px;
+    /*border-top: 1px solid #dfe1e5;*/
     .post_comment_left_block{
         float: left;
         .post_comment_avatar{
             .post_comment_name_label{
                 border-radius: 50%;
                 background-color: #dfe1e5;
-                padding: 7px;
-                padding-left: 12px;
-                padding-right: 12px;
+                padding: 5px;
+                padding-left: 10px;
+                padding-right: 10px;
                 margin-left: 5px;
                 margin-right: 5px;
-                position: relative;
-                top: 10px;
                 color: #fee;
                 text-decoration: none;
             }
@@ -72,25 +71,24 @@
         }
     }
     .post_comment_right_block{
-        margin-left: 21px;
-        margin-top: 10px;
-        border-left: 2px solid #e5e5e5;
+        margin-left: 15px;
         display: block;
         .post_comment_right{
-            padding-left: 17px;
+            padding-left: 25px;
             .post_comment_info{
-                // position: relative;
-                // top: 3px;
                 a{
                     font-size: 14px;
                     font-weight: 600;
+                    color: #666;
                 }
                 span{
                     font-size: 12px;
+                    color: #888;
                 }
             }
     
             .post_comment_cotent{
+                padding-top: 5px;
                 font-size: 14px;
             }
             
@@ -131,10 +129,10 @@
             }
 
             .post_reply_comment_new{
-                display: block;
+                display: none;
                 .post_reply_comment_section{
-                    margin-bottom: 10px;
-                    margin-top: 10px;
+                    margin-bottom: 15px;
+                    margin-top: 5px;
                     display: block;
                     .post_reply_comment_input{
                         width: 100%;
@@ -145,8 +143,7 @@
                     }
                     .post_reply_comment_submit{
                         .post_reply_comment_form_submit{
-                            position: relative;
-                            top:  10px;
+                            margin-top: 5px;
                             width: 100px;
                             border: none;
                             border-radius: 20px;
@@ -159,11 +156,13 @@
                     }
                 }
             }
-        }
 
-        .post_reply_comment_render{
-            font-size: 14px;
-            padding-top: 5px;
+            .post_comment_reply_container{
+                border-left: 2px solid #efefef;
+                .post_reply_comment_render{
+                    font-size: 14px;
+                }
+            }
         }
     }
 }
