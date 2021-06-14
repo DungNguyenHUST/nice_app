@@ -98,7 +98,7 @@
 				    </div>
 				    
 				    <div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
-				        <%= render @post.post_comments %>
+				        <%= render @post.post_comments.order('created_at DESC') %>
 				    </div>
 
 				    <script>

@@ -7,11 +7,11 @@
         </div>
     </div>
     <div class="post_comment_right_block">
+        <div class="post_comment_info">
+            <a><%=owner_user.name%></a> · 
+            <span><%=time_ago_in_words(post_comment.created_at)%></span>
+        </div>
         <div class="post_comment_right">
-            <div class="post_comment_info">
-                <a><%=owner_user.name%></a> · 
-                <span><%=time_ago_in_words(post_comment.created_at)%></span>
-            </div>
             <div class="post_comment_cotent">
                 <a><%= post_comment.content %></a>
             </div>
@@ -24,11 +24,11 @@
                         <%end%>
                         <% if pre_comment_vote %>  
                             <%= button_to post_post_comment_post_comment_vote_path(post_comment, pre_comment_vote), method: :delete, remote: true do%>
-                                <i><%= bootstrap_icon "arrow-up-circle-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
+                                <i><%= bootstrap_icon "arrow-up-circle-fill", width: 18, height: 18, fill: "#4f46e5" %></i>
                             <%end%> 
                         <%else%>
                             <%= button_to post_post_comment_post_comment_votes_path(@post, post_comment), method: :post, remote: true do%>
-                                <i><%= bootstrap_icon "arrow-up-circle", width: 20, height: 20, fill: "#888" %></i>
+                                <i><%= bootstrap_icon "arrow-up-circle", width: 18, height: 18, fill: "#888" %></i>
                             <%end%> 
                         <%end%>
                     </div>
@@ -43,11 +43,11 @@
                         <%end%>
                         <% if pre_comment_unvote %>  
                             <%= button_to post_post_comment_post_comment_unvote_path(post_comment, pre_comment_unvote), method: :delete, remote: true do%>
-                                <i><%= bootstrap_icon "arrow-down-circle-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
+                                <i><%= bootstrap_icon "arrow-down-circle-fill", width: 18, height: 18, fill: "#4f46e5" %></i>
                             <%end%> 
                         <%else%>
                             <%= button_to post_post_comment_post_comment_unvotes_path(@post, post_comment), method: :post, remote: true do%>
-                                <i><%= bootstrap_icon "arrow-down-circle", width: 20, height: 20, fill: "#888" %></i>
+                                <i><%= bootstrap_icon "arrow-down-circle", width: 18, height: 18, fill: "#888" %></i>
                             <%end%> 
                         <%end%>
                     </div>
@@ -55,7 +55,7 @@
                 <div class="post_comment_reply_block">
                     <%if user_signed_in?%>
                         <button class="post_comment_reply_btn" onclick="myFunctionReplyPostComment(<%=post_comment.id%>)">
-                            <i><%= bootstrap_icon "reply", width: 22, height: 22, fill: "#4f46e5" %></i>
+                            <i><%= bootstrap_icon "chat", width: 18, height: 18%></i>
                             <span><%= post_comment.post_comments.count%></span> 
                             <a>Trả lời</a> 
                         </button>
@@ -78,7 +78,7 @@
             
             <div class="post_comment_reply_container">
                 <div class="post_reply_comment_render" id="post_reply_comment_index_<%=post_comment.id%>">
-                    <%= render post_comment.post_comments %>
+                    <%= render post_comment.post_comments.order('created_at DESC') %>
                 </div>
             </div>
         </div>

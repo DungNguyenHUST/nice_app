@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   end
 
   resources :tags
-  get 'tags/:tag', to: 'posts#index', as: :tag
 
   resources :post_comments do
     resources :post_comments

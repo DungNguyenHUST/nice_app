@@ -23,7 +23,7 @@
     </div>
 
     <div class='post_index_tag'>
-        <p>#<%= raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')%></p>
+        <a>#<%= raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')%></a>
     </div>
 
     <div class="post_index_toolbar_block">

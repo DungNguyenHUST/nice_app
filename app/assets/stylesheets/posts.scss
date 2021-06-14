@@ -123,8 +123,17 @@
         }
     }
 
-    .post_index_toolbar_block{
+    .post_index_tag{
+        margin-top: 10px;
         padding-left: 44px;
+        a{
+            font-size: 13px;
+            text-decoration: none;
+        }
+    }
+
+    .post_index_toolbar_block{
+        padding-left: 40px;
         @media screen and (max-width: 600px){
             padding-left: 0px;
         }
