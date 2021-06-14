@@ -1,61 +1,89 @@
-<div class="container">
-  <div class="row">
-      <div class="col-sm-8">
-        <div class="new_post_form">
-            <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-                <div class="new_post_title">
-                    <%if !@is_edit%>
-                      <h3>New Post</h3>
-                    <%else%>
-                      <h3>Update bài viết <%=@post.title%></h3>
-                    <%end%>
-                </div>
+<div class="new_post_container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+            <div class="new_post_title">
+                <%if !@is_edit%>
+                    <h3>Bài viết mới</h3>
+                <%else%>
+                    <h3>Update bài viết <%=@post.title%></h3>
+                <%end%>
+            </div>
 
-                <div class="new_post_title_sub">
-                    <span>Note: Mục có dấu '*' là bắt buộc</span>
-                </div>
+            <div class="new_post_tab_link">
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#PostID">
+                    <i><%= bootstrap_icon "sticky", width: 18, height: 18%></i>Post
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#ImageID">
+                    <i><%= bootstrap_icon "image", width: 18, height: 18%></i>Image
+                    </a>
+                </li>
+                </ul>
+            </div>
 
-                <div class="new_post_section">
-                  <div class="new_post_content">
-                    <div class="new_post_label">
-                      <a><%= f.label :image, "Tải ảnh lên", class: "new_post_label" %></a>
+            <div class="new_post_tab_content">
+                <div class="tab-content">
+                <div role="tabpanel" id="PostID" class="tab-pane fade in active">
+                    <div class="new_post_form">
+                        <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+                            <div class="new_post_section">
+                                <div class="new_post_content">
+                                    <div class="new_post_input">
+                                        <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="new_post_section">
+                            <div class="new_post_content">
+                                <div class="new_post_input">
+                                    <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "full", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
+                                </div>
+                            </div>  
+                            </div>
+
+                            <div class="new_post_submit">
+                                <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>
+                            </div>
+                        <%end%>
                     </div>
-                    
-                    <div class="new_post_input">
-                      <%= f.file_field :image, :required => true%>
-                    </div>
-                  </div>
                 </div>
 
-                <div class="new_post_section">
-                    <div class="new_post_content">
-                        <div class="new_post_label">
-                            <a><%= f.label :title, "Tiêu đề bài viết*", class: "new_post_label_name" %></a>
+                    <div role="tabpanel" id="ImageID" class="tab-pane">
+                        <div class="new_image_form">
+                            <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+                                <div class="new_image_section">
+                                    <div class="new_image_content">
+                                        <div class="new_image_input">
+                                            <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="new_image_section_upload">
+                                    <div class="new_image_content">
+                                        <div class="image-upload">
+                                            <label for="file-input">
+                                                <span>Drag image or upload here</span>
+                                                <i><%= bootstrap_icon "plus", width: 18, height: 18%>Upload</i>
+                                            </label>
+                                            <%= f.file_field :image, id:"file-input" %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="new_image_submit">
+                                    <%= f.submit "Submit", class: "new_image_form_submit" %>
+                                </div>
+                            <%end%>
                         </div>
-
-                        <div class="new_post_input">
-                            <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
-                        </div>
                     </div>
                 </div>
-
-                <div class="new_post_section">
-                  <div class="new_post_content">
-                      <div class="new_post_label">
-                          <a><%= f.label :content, "Nội dung bài viết*", class: "new_post_label_content" %></a>
-                      </div>
-                      
-                      <div class="new_post_input">
-                        <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "full", height: 100}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
-                      </div>
-                  </div>  
-                </div>
-
-                <div class="new_post_submit">
-                    <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>
-                </div>
-            <%end%>
-        </div>
-      </div>
-  </div>  
+            </div>
+        </div>  
+    </div>
 </div>
