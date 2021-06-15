@@ -1,3 +1,113 @@
 // Place all the styles related to the Tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.tag_show_index_container{
+    background-color: #eef0f1;
+    min-height: 900px;
+    .tag_show_left{
+        border: 1px solid #dbdbdb;
+        background-color: #fff;
+        margin-top: 20px;
+        border-radius: 5px;
+        min-height: 300px;
+        .tag_show_left_title{
+            font-size: 22px;
+            font-weight: 600;
+            padding: 15px;
+        }
+    }
+    .tag_show_middle{
+        margin-top: 20px;
+        .tag_show_post_new{
+            border: 1px dashed #dbdbdb;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            .tag_show_new_post{
+                button{
+                    width: 100%;
+                    height: 50px;
+                    border-radius: 5px;
+                    padding: 6px;
+                    background: #fff;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                    text-align: center;
+                    color: #369;
+                    i{
+                        color: #369;
+                    }
+                }
+            }
+
+        }
+        .tag_show_post_sort{
+            border: 1px solid #dbdbdb;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            .tag_show_post_tab_link{
+                overflow: hidden;
+                position: relative;
+                display: block;
+                .nav {
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    flex-wrap: nowrap;
+                }
+                .nav .nav-link {
+                    white-space: nowrap;
+                    font-size: 16px;
+                    color: #333;
+                    text-align: left;
+                    i{
+                        position: relative;
+                        top: -3px;
+                        padding-right: 3px;
+                    }
+                }
+                .nav .nav-link, .nav .nav-link.active, .nav .nav-link:hover {
+                    border: none;
+                    color: #333;
+                    font-size: 16px;
+                }
+                .nav .nav-link.active {
+                    border-radius: 0;
+                    border-bottom: 3px solid #4f46e5;
+                    font-weight: 500;
+                    color: #4f46e5;
+                }
+            }
+        }
+        .tag_show_post_tab_content{
+            padding-top: 20px;
+        }
+    }
+    .tag_show_right{
+        border: 1px solid #dbdbdb;
+        background-color: #fff;
+        margin-top: 20px;
+        border-radius: 5px;
+        min-height: 300px;
+        .tag_show_right_title{
+            font-size: 22px;
+            font-weight: 600;
+            padding: 15px;
+        }
+
+        .tag_show_right_content{
+            border-top: 1px solid #dbdbdb;
+            padding: 15px;
+            a{
+                text-decoration: none;
+                color: #222;
+                font-size: 16px;
+                &:hover{
+                    color: #1817f2;
+                };
+            }
+        }
+    }
+}

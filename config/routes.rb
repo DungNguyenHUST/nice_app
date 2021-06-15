@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tags
+  resources :tags do
+    resources :tag_follows
+  end
 
   resources :post_comments do
     resources :post_comments

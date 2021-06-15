@@ -1,0 +1,29 @@
+<div class="new_tag_container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+	            <div class="new_tag_title">
+	                <%if !@is_edit%>
+	                    <h3>New tag</h3>
+	                <%else%>
+	                    <h3>Update bài viết <%=@tag.name%></h3>
+	                <%end%>
+	            </div>
+
+	            <%= form_for @tag, :html => { :class => "form-horizontal tag" } do |f| %>
+		            <div class="new_tag_section">
+		                <div class="new_tag_content">
+		                    <div class="new_tag_input">
+		                        <%= f.text_field :name,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tag name" %>
+		                    </div>
+		                </div>
+		            </div>
+
+		            <div class="new_tag_submit">
+		                <%= f.submit "Submit", class: "new_tag_form_submit" %>
+		            </div>
+		        <%end%>	
+	        </div>
+        </div>  
+    </div>
+</div>

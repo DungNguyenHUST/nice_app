@@ -1,0 +1,2 @@
+class TagFollowsController < ApplicationController
+end
