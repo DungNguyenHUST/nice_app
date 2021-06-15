@@ -11,23 +11,28 @@
             </div>
 
             <div class="new_post_tab_link">
-                <ul class="nav nav-tabs nav-justified" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#PostID">
-                    <i><%= bootstrap_icon "sticky", width: 18, height: 18%></i>Post
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#ImageID">
-                    <i><%= bootstrap_icon "image", width: 18, height: 18%></i>Image
-                    </a>
-                </li>
+                <ul class="nav nav-justified">
+                    <li class="nav-item">
+                        <%if @tab_id == "default" || @tab_id == "PostID"%>
+                            <%active = "active"%>
+                        <%else%> 
+                            <%active = ""%>
+                        <%end%>                                 
+                        <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'PostID')%>"><i><%= bootstrap_icon "sticky", width: 20, height: 20%></i>Bài viết</a>
+                    </li>
+                    <li class="nav-item">
+                        <%if @tab_id == "ImageID"%>
+                            <%active = "active"%>
+                        <%else%> 
+                            <%active = ""%>
+                        <%end%>                                     
+                        <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'ImageID')%>"><i><%= bootstrap_icon "image", width: 20, height: 20%></i>Hình ảnh</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="new_post_tab_content">
-                <div class="tab-content">
-                <div role="tabpanel" id="PostID" class="tab-pane fade in active">
+                <%if @tab_id == "default" || @tab_id == "PostID"%>
                     <div class="new_post_form">
                         <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
                             <div class="new_post_section">
@@ -53,38 +58,37 @@
                             </div>
                         <%end%>
                     </div>
-                </div>
+                <%end%>
 
-                    <div role="tabpanel" id="ImageID" class="tab-pane">
-                        <div class="new_image_form">
-                            <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-                                <div class="new_image_section">
-                                    <div class="new_image_content">
-                                        <div class="new_image_input">
-                                            <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
-                                        </div>
+                <%if @tab_id == "ImageID"%>
+                    <div class="new_image_form">
+                        <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+                            <div class="new_image_section">
+                                <div class="new_image_content">
+                                    <div class="new_image_input">
+                                        <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="new_image_section_upload">
-                                    <div class="new_image_content">
-                                        <div class="image-upload">
-                                            <label for="file-input">
-                                                <span>Drag image or upload here</span>
-                                                <i><%= bootstrap_icon "plus", width: 18, height: 18%>Upload</i>
-                                            </label>
-                                            <%= f.file_field :image, id:"file-input" %>
-                                        </div>
+                            <div class="new_image_section_upload">
+                                <div class="new_image_content">
+                                    <div class="image-upload">
+                                        <label for="file-input">
+                                            <span>Drag image or upload here</span>
+                                            <i><%= bootstrap_icon "plus", width: 18, height: 18%>Upload</i>
+                                        </label>
+                                        <%= f.file_field :image, id:"file-input" %>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="new_image_submit">
-                                    <%= f.submit "Submit", class: "new_image_form_submit" %>
-                                </div>
-                            <%end%>
-                        </div>
+                            <div class="new_image_submit">
+                                <%= f.submit "Submit", class: "new_image_form_submit" %>
+                            </div>
+                        <%end%>
                     </div>
-                </div>
+                <%end%>
             </div>
         </div>  
     </div>
