@@ -1,0 +1,14 @@
+<div id="tag_index_follow_<%=tag.id%>">
+    <%if current_user.present?%>
+        <% pre_follow = tag.tag_follows.find { |follow| follow.user_id == current_user.id} %>
+    <%end%>
+    <% if pre_follow %>  
+        <%= button_to tag_tag_follow_path(tag, pre_follow), method: :delete, remote: true do%>
+            <i><%= bootstrap_icon "bookmark-fill", width: 20, height: 20, fill: "#4f46e5" %></i> Follow
+        <%end%> 
+    <%else%>
+        <%= button_to tag_tag_follows_path(tag), method: :tag, remote: true do%>
+            <i><%= bootstrap_icon "bookmark", width: 20, height: 20, fill: "#888" %></i> Follow
+        <%end%> 
+    <%end%>
+</div>

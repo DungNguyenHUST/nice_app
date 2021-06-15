@@ -1,20 +1,27 @@
 <div class='tag_index_container'>
 	<div class='container'>
 		<div class='row'>
-			<div class='col-sm-3'>
-			</div>	
-			<div class='col-sm-6'>
-				<div class='tag_index_middle_block'>
-				    <%@tags.each do |tag|%>
-				    	<%=tag.name%>
-				    <%end%>
-				</div>
-			</div>
-			<div class='col-sm-4'>
-				<div class='tag_index_right_block'>
-					<a> About </a>
-				</div>
-			</div>
+		    <%@tags.each do |tag|%>
+				<div class='col-sm-4'>
+					<div class='tag_index_block'>
+		    			<a># <%= link_to (tag.name), tag_path(tag) %></a>
+		    			<div class="tag_index_follow_block" id="tag_index_follow_<%=tag.id%>">
+			                <%if current_user.present?%>
+			                    <% pre_follow = tag.tag_follows.find { |follow| follow.user_id == current_user.id} %>
+			                <%end%>
+			                <% if pre_follow %>  
+			                    <%= button_to tag_tag_follow_path(tag, pre_follow), method: :delete, remote: true do%>
+			                        <i><%= bootstrap_icon "bookmark-fill", width: 20, height: 20, fill: "#4f46e5" %></i> Follow
+			                    <%end%> 
+			                <%else%>
+			                    <%= button_to tag_tag_follows_path(tag), method: :tag, remote: true do%>
+			                        <i><%= bootstrap_icon "bookmark", width: 20, height: 20, fill: "#888" %></i> Follow
+			                    <%end%> 
+			                <%end%>
+			            </div>
+		    		</div>
+		    	</div>
+		    <%end%>
 		</div>
 	</div>
 </div>
