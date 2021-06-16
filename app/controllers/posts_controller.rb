@@ -14,6 +14,12 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    
+    if(params.has_key?(:tab_id))
+        @tab_id = params[:tab_id]
+    else
+        @tab_id = "default"
+    end
   end
 
   # GET /posts/1/edit

@@ -1,0 +1,127 @@
+<div class="container">
+    <div class='user_profile_dasboard'>
+        <%now = Time.now%>
+        <div class='user_profile_title'>
+            <a>Profile for <%=current_user.name%></a>
+        </div>
+
+        <div class="user_profile_tab_link">
+            <ul class="nav">
+                <li class="nav-item">
+                    <%if @tab_id == "default" || @tab_id == "UserOverviewID"%>
+                        <%active = "active"%>
+                    <%else%> 
+                        <%active = ""%>
+                    <%end%>                                 
+                    <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserOverviewID')%>"><i><%= bootstrap_icon "person", width: 24, height: 24%></i>Overview</a>
+                </li>
+                <li class="nav-item">
+                    <%if @tab_id == "UserPostID"%>
+                        <%active = "active"%>
+                    <%else%> 
+                        <%active = ""%>
+                    <%end%>                                     
+                    <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserPostID')%>"><i><%= bootstrap_icon "sticky", width: 20, height: 20%></i>Bài viết</a>
+                </li>
+                <li class="nav-item">
+                    <%if @tab_id == "UserCommentID"%>
+                        <%active = "active"%>
+                    <%else%> 
+                        <%active = ""%>
+                    <%end%>                                     
+                    <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserCommentID')%>"><i><%= bootstrap_icon "chat", width: 20, height: 20%></i>Comments</a>
+                </li>
+                <li class="nav-item">
+                    <%if @tab_id == "UserVoteID"%>
+                        <%active = "active"%>
+                    <%else%> 
+                        <%active = ""%>
+                    <%end%>                                     
+                    <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserVoteID')%>"><i><%= bootstrap_icon "arrow-up-circle", width: 20, height: 20%></i>Vote</a>
+                </li>
+                <li class="nav-item">
+                    <%if @tab_id == "UserUnvoteID"%>
+                        <%active = "active"%>
+                    <%else%> 
+                        <%active = ""%>
+                    <%end%>                                     
+                    <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserUnvoteID')%>"><i><%= bootstrap_icon "arrow-down-circle", width: 20, height: 20%></i>Unvote</a>
+                </li>
+                <li class="nav-item">
+                    <%if @tab_id == "UserSaveID"%>
+                        <%active = "active"%>
+                    <%else%> 
+                        <%active = ""%>
+                    <%end%>                                     
+                    <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserSaveID')%>"><i><%= bootstrap_icon "save", width: 20, height: 20%></i>Save</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="user_profile_tab_content">
+            <%if @tab_id == "default" || @tab_id == "UserOverviewID"%>
+                <div class="user_profile_personal_tab">
+                    <div class="user_profile_info">
+                        <div class="user_profile_info_des_label">
+                            <strong> Thông tin tài khoản</strong>
+                        </div>
+
+                        <div class="user_profile_info_about">
+
+                            <div class="user_profile_info_label">
+                                <strong>Tên tài khoản:</strong>
+                            </div>
+
+                            <div class="user_profile_info_des">
+                                <%=current_user.name %>
+                            </div>
+
+                            <div class="user_profile_info_label">
+                                <strong>Địa chỉ email:</strong>
+                            </div>
+
+                            <div class="user_profile_info_des">
+                                <%=current_user.email %>
+                            </div>
+
+                            <div class="user_profile_info_label">
+                                <strong>Số điện thoại liên lạc:</strong>
+                            </div>
+
+                            <div class="user_profile_info_des">
+                                <%=current_user.phone %>
+                            </div>
+
+                            <div class="user_profile_info_edit_button">
+                                <i class="fa fa-edit"></i><%= link_to " Thay đổi số điện thoại", edit_user_path(current_user), class: "user_profile_info_edit_link_to"  %>
+                            </div>
+
+                            <div class="user_profile_info_label">
+                                <strong>Địa chỉ liên hệ:</strong>
+                            </div>
+
+                            <div class="user_profile_info_des">
+                                <%=current_user.address %>
+                            </div>
+
+                            <div class="user_profile_info_edit_button">
+                                <i class="fa fa-edit"></i><%= link_to " Thay đổi địa chỉ", edit_user_path(current_user), class: "user_profile_info_edit_link_to"  %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%end%>
+
+            <%if @tab_id == "UserPostID"%>
+                <div class="user_profile_save_job_tab">
+                    <div class="user_profile_save_job_label">
+                        <strong>Việc làm bạn đang theo dõi</strong>
+                    </div>
+                </div>
+            <%end%>
+
+            <%if @tab_id == "UserCommentID"%>
+            <%end%>
+        </div>
+    </div>
+</div>

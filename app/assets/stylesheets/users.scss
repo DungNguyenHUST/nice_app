@@ -1,3 +1,1777 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+//////////////////new user registration////////////////////
+.user_sign_up_container
+{
+    background-color: #ffffff;
+    .user_sign_up_block
+    {
+        background-color: #fff;
+        border-radius: 5px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        background-color: #fff;
+        @media screen and (min-width: 600px)
+        {
+            margin-left: 30%;
+            margin-right: 30%;
+            padding: 15px;
+            border: 1px solid #dfe1e5;
+        }
+        @media screen and (max-width: 600px){
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .user_sign_up_label{
+            .user_sign_up_title{
+                text-align: left;
+				font-weight: 550;
+                a{
+                    font-size: 25px;
+                    color: #333;
+                }
+                padding-bottom: 10px;
+            }
+        }
+        .user_sign_up_form_left
+        {
+            padding-top: 10px;
+            .user_sign_up_content{
+                clear: both;
+                .user_sign_up_label{
+                    font-weight: 550;
+                    font-size: 16px;
+                    color: #333;
+                    text-align: left;
+                }
+                .user_sign_up_input{
+                    left: 0px;
+                    margin-top: 5px;
+                    margin-bottom: 20px;
+                    .form-control{
+                        width: 100%;
+                        height: 50px;
+                        border: 1px solid #dfe1e5;
+                        border-radius: 5px;
+                        &:focus{
+                            border: 2px solid #4f46e5;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+    
+            .user_sign_up_submit{
+				padding-top: 10px;
+                .user_sign_up_form_submit{
+                    width: 100%;
+                    height: 50px;
+                    border-radius: 5px;
+                    padding: 6px;
+                    background: #4f46e5;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                    text-align: center;
+                    color: #fff;
+                    
+                    &:hover{
+                        background-color: #369;
+                    }
+                }
+            }
+        }
+        
+        .user_sign_up_or{
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+            padding-top: 10px;
+            a {
+                overflow: hidden;
+            }
+            
+            a:after {
+                content:"";
+                display: inline-block;
+                height: 0.5em;
+                vertical-align: bottom;
+                width: 45%;
+                margin-right: -45%;
+                margin-left: 10px;
+                border-top: 1px solid #dfe1e5;
+            }
+
+            a:before {
+                content:"";
+                display: inline-block;
+                height: 0.5em;
+                vertical-align: bottom;
+                width: 45%;
+                margin-left: -45%;
+                margin-right: 10px;
+                border-top: 1px solid #dfe1e5;
+            }
+        }
+
+        .user_sign_up_form_right{
+			display: block;
+            padding-top: 10px;
+            .user_sign_up_with_google{  
+                button{
+                    height: 50px;
+                    width: 100%;
+                    border-radius: 5px;
+                    padding: 6px;
+                    margin-bottom: 10px;
+                    background: #fff;
+                    border: 2px solid #ea4537;
+                    font-size: 16px;
+                    cursor: pointer;
+                    text-align: left;
+                    color: #ea4537;
+                    font-weight: 500;
+                    &:focus {outline:none;}
+                    i{
+                        margin-right: 5px;
+                        color: #ea4537;
+                        font-size: 30px;
+                        position: relative;
+                        top: -8px;
+                    }
+                    span{
+                        position: relative;
+                        top: -10px;
+                    }
+                    &:hover{
+                        background-color: #ea4537;
+                        color: #fff;
+                        i{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+    
+            .user_sign_up_with_facebook{   
+                button{
+                    height: 50px;
+                    width: 100%;
+                    border-radius: 5px;
+                    padding: 6px;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                    background: #fff;
+                    border: 2px solid #0c87ee;
+                    font-size: 16px;
+                    // border: none;
+                    cursor: pointer;
+                    text-align: left;
+                    // color: #fff;
+                    color: #0c87ee;
+                    font-weight: 500;
+                    &:focus {outline:none;}
+                    i{
+                        margin-right: 5px;
+                        color: #0c87ee;
+                        font-size: 30px;
+                        position: relative;
+                        top: -8px;
+                    }
+                    span{
+                        position: relative;
+                        top: -10px;
+                    }
+                    &:hover{
+                        background-color: #0c87ee;
+                        color: #fff;
+                        i{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .user_sign_up_loginhere
+        {
+            text-align: center;
+            font-size: 16px;
+            margin-top: 20px;
+            font-weight: 550;
+            font-family: 'Roboto', Sans-serif;
+            a{
+                padding-left: 5px;
+                text-decoration: none;
+                color: #4f46e5;
+            }
+        }
+    }
+}
+
+//////////////////new sign in sessions////////////////////
+.user_signin_container{
+    background-color: #fff;
+    .user_signin_block{
+        background-color: #fff;
+        border-radius: 5px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        background-color: #fff;
+        @media screen and (min-width: 600px)
+        {
+            margin-left: 30%;
+            margin-right: 30%;
+            padding: 15px;
+            border: 1px solid #dfe1e5;
+        }
+        @media screen and (max-width: 600px){
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .user_signin_label{
+            .user_signin_title{
+                font-size: 25px;
+                color: #333;
+                text-align: left;
+				font-weight: 550;
+                padding-bottom: 10px;
+            }
+        }
+
+        .user_signin_form_left
+        {
+            padding-top: 10px;
+            .user_signin_content{
+                clear: both;
+                .user_signin_label{
+                    font-weight: 550;
+                    font-size: 16px;
+                    color: #333;
+                    text-align: left;
+                }
+    
+                .user_signin_input{
+                    left: 0px;
+                    margin-top: 5px;
+                    margin-bottom: 20px;
+                    .form-control{
+                        margin-left: 0px;
+                        height: 50px;
+                        width: 100%;
+                        border: 1px solid #dfe1e5;
+                        border-radius: 5px;
+                        &:focus{
+                            border: 2px solid #4f46e5;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+
+            .user_signin_remember{
+                float: left;
+                .user_signin_label_small{
+                    font-size: 14px;
+                    color: #555;
+                    text-align: left;
+                    font-weight: 300;
+                }
+            }
+
+            .user_signin_forgot_pass{
+                float: right;
+                a{
+                    color: #4f46e5;
+                }
+            }
+    
+            .user_signin_submit{
+                clear: both;
+				padding-top: 20px;
+                .user_signin_form_submit{
+                    height: 50px;
+                    width: 100%;
+                    border-radius: 5px;
+                    padding: 6px;
+                    background: #4f46e5;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                    text-align: center;
+                    color: #fff;
+                    
+                    &:hover{
+                        background-color: #369;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        
+        .user_signin_or{
+            font-size: 16px;
+            color: #444;
+            text-align: center;
+            padding-top: 10px;
+            a {
+                overflow: hidden;
+            }
+            
+            a:after {
+                content:"";
+                display: inline-block;
+                height: 0.5em;
+                vertical-align: bottom;
+                width: 45%;
+                margin-right: -45%;
+                margin-left: 10px;
+                border-top: 1px solid #dfe1e5;
+            }
+
+            a:before {
+                content:"";
+                display: inline-block;
+                height: 0.5em;
+                vertical-align: bottom;
+                width: 45%;
+                margin-left: -45%;
+                margin-right: 10px;
+                border-top: 1px solid #dfe1e5;
+            }
+        }
+    
+        .user_signin_form_right{
+			display: block;
+            margin-top: 10px;
+            .user_signin_with_google{   
+                button{
+                    height: 50px;
+                    width: 100%;
+                    border-radius: 5px;
+                    padding: 6px;
+                    margin-bottom: 10px;
+                    background: #fff;
+                    border: 2px solid #ea4537;
+                    font-size: 16px;
+                    cursor: pointer;
+                    text-align: left;
+                    color: #ea4537;
+                    font-weight: 500;
+                    &:focus {outline:none;}
+                    i{
+                        margin-right: 10px;
+                        color: #ea4537;
+                        font-size: 30px;
+                        position: relative;
+                        top: -8px;
+                    }
+                    span{
+                        position: relative;
+                        top: -10px;
+                    }
+                    &:hover{
+                        background-color: #ea4537;
+                        color: #fff;
+                        i{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+    
+            .user_signin_with_facebook{   
+                button{
+                    height: 50px;
+                    width: 100%;
+                    border-radius: 5px;
+                    padding: 6px;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                    background: #fff;
+                    border: 2px solid #0c87ee;
+                    font-size: 16px;
+                    // border: none;
+                    cursor: pointer;
+                    text-align: left;
+                    // color: #fff;
+                    color: #0c87ee;
+                    font-weight: 500;
+                    &:focus {outline:none;}
+                    i{
+                        margin-right: 5px;
+                        color: #0c87ee;
+                        font-size: 30px;
+                        position: relative;
+                        top: -8px;
+                    }
+                    span{
+                        position: relative;
+                        top: -10px;
+                    }
+                    
+                    &:hover{
+                        background-color: #4f46e5;
+                        color: #fff;
+                        i{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .user_signin_loginhere
+        {
+            text-align: center;
+            font-size: 16px;
+            margin-top: 20px;
+            font-weight: 550;
+            a{
+                padding-left: 5px;
+                text-decoration: none;
+                color: #4f46e5;
+            }
+        }
+    }
+}
+
+//////////////////user change pass////////////////////
+.user_change_pass_password{
+    min-height: 700px;
+    padding-top: 30px;
+    .user_reset_pass_content{
+        padding-top: 10px;
+       .user_reset_pass_label{
+            font-weight: 550;
+            font-size: 16px;
+            color: #555;
+            text-align: left;   
+           .user_reset_pass_label_name{
+
+           }
+        }
+        .user_reset_pass_input{
+            left: 0px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            .form-control{
+                width: 100%;
+                height: 50px;
+                border: 1px solid #dfe1e5;
+                border-radius: 5px;
+                &:focus{
+                    border: 2px solid #4f46e5;
+                    border-radius: 5px;
+                }
+            }
+        } 
+    }
+    .user_reset_pass_submit{
+        .user_reset_form_submit{
+            width: 100%;
+            @media screen and (min-width: 600px)
+            {
+                width: 300px;
+            }
+            height: 50px;
+            border-radius: 5px;
+            padding: 6px;
+            background: #4f46e5;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+            &:hover{
+                background-color: #369;
+            }
+        }
+    }
+
+    .user_reset_pass_loginhere{
+        padding-top: 20px;
+        a{
+            color: #4f46e5;
+        }
+    }
+}
+
+//////////////////user password////////////////////
+.user_reset_password{
+    min-height: 700px;
+    padding-top: 30px;
+    .user_reset_pass_content{
+        padding-top: 10px;
+       .user_reset_pass_label{
+            font-weight: 550;
+            font-size: 16px;
+            color: #555;
+            text-align: left;   
+           .user_reset_pass_label_name{
+
+           }
+        }
+        .user_reset_pass_input{
+            left: 0px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            .form-control{
+                width: 100%;
+                height: 50px;
+                border: 1px solid #dfe1e5;
+                border-radius: 5px;
+                &:focus{
+                    border: 2px solid #4f46e5;
+                    border-radius: 5px;
+                }
+            }
+        } 
+    }
+    .user_reset_pass_submit{
+        .user_reset_form_submit{
+            width: 100%;
+            @media screen and (min-width: 600px)
+            {
+                width: 300px;
+            }
+            height: 50px;
+            border-radius: 5px;
+            padding: 6px;
+            background: #4f46e5;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+            &:hover{
+                background-color: #369;
+            }
+        }
+    }
+
+    .user_reset_pass_loginhere{
+        a{
+            color: #4f46e5;
+        }
+    }
+}
+
+////////////////////////show-setting///////////////////////
+.user_setting_dasboard{
+    .user_setting_title{
+        padding-top: 30px;
+        padding-bottom: 20px;
+        span{
+            font-size: 22px;
+            font-weight: 600px;
+        }
+    }
+
+    .user_setting_tab_link{
+        padding-top: 20px;
+        clear: left;
+        overflow: hidden;
+        position: relative;
+        display: block;
+        background-color: #fff;
+        border-bottom: 1px solid #dfe1e5;
+        .nav {
+            overflow-x: auto;
+            overflow-y: hidden;
+            flex-wrap: nowrap;
+            border: none;
+        }
+        .nav .nav-link {
+            white-space: nowrap;
+            font-size: 16px;
+        }
+        .nav .nav-link, .nav .nav-link.active, .nav .nav-link:hover {
+            border: none;
+            color: #333;
+            text-align: left;
+            i{
+                position: relative;
+                // top: 5px;
+                padding-right: 3px;
+            }
+            span{
+                position: absolute;
+                top: 1px;
+                right: 15px;
+                font-size: 12px;
+                color: #999;
+            }
+        }
+        .nav .nav-link.active {
+            border-radius: 0;
+            border-bottom: 3px solid #1877f2;
+            font-weight: 500;
+            color: #1877f2;
+            font-size: 16px;
+            span{
+                color: #1877f2;
+            }
+        }
+    }
+
+    .user_setting_tab_content{
+        min-height: 800px;
+        padding-top: 10px;
+        .user_setting_personal_tab{
+            .user_setting_form{
+                .user_setting_title{
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                    font-size: 22px;
+                    font-weight: 550;
+                }
+            
+                .user_setting_section{
+                    padding: 15px;
+                    border-radius: 3px;
+                    border: 1px solid #e5e7ec;
+                    @media screen and (max-width: 600px){
+                        border: none;
+                        border-top: 1px solid #e5e7ec;
+                        padding: 0px;
+                        padding-top: 20px;
+                        border-radius: 0px;
+                    }
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 20px;
+                    
+                    .user_setting_content{
+                        .user_setting_label{
+                            font-size: 16px;
+                            font-weight: 550;
+                        }
+                        .user_setting_input{
+                            padding-bottom: 10px;
+                            .form-control{
+                                min-height: 40px;
+                                height: auto;
+                                margin-left: 0px;
+                                width: 100%;
+                                border: 1px solid #dfe1e5;
+                                border-radius: 3px;
+                                overflow: auto;
+                                &:focus{
+                                    border: 2px solid #1877f2;
+                                    border-radius: 3px;
+                                }
+                            }
+                        }
+                    }
+                }
+            
+                .user_setting_section_content{
+                    // padding: 15px;
+                    border-radius: 3px;
+                    // border: 1px solid #e5e7ec;
+                    @media screen and (max-width: 600px){
+                        border: none;
+                        border-top: 1px solid #e5e7ec;
+                        padding: 0px;
+                        padding-top: 20px;
+                        border-radius: 0px;
+                    }
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 20px;
+                    margin-top: 20px;
+                    .user_setting_content{
+                        .user_setting_label{
+                            font-size: 16px;
+                            font-weight: 550;
+                        }
+                        .user_setting_input{
+                            padding-bottom: 10px;
+                            .form-control{
+                                min-height: 40px;
+                                height: auto;
+                                margin-left: 0px;
+                                width: 100%;
+                                border: 1px solid #dfe1e5;
+                                border-radius: 3px;
+                                overflow: auto;
+                                &:focus{
+                                    border: 2px solid #1877f2;
+                                    border-radius: 3px;
+                                }
+                            }
+                        }
+                    }
+                }
+            
+                .user_setting_submit{
+                    .user_setting_form_submit{
+                        width: 100%;
+                        margin-top: 10px;
+                        height: 50px;
+                        border-radius: 3px;
+                        padding: 6px;
+                        background: #1877f2;
+                        font-size: 16px;
+                        border: none;
+                        cursor: pointer;
+                        text-align: center;
+                        color: #fff;
+                        
+                        &:hover{
+                            background-color: #369;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+
+        .user_setting_notification_tab{
+            padding-bottom: 20px;
+            .user_setting_notification_block{
+                border-bottom: 1px solid #dfe1e5;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                .user_setting_notification_left{  
+                    float: left;
+                    .user_setting_notification_date{
+                        a{
+                            font-size: 14px;
+                            font-style: italic;
+                            color: #888;
+                        }
+                    }
+                }
+                .user_setting_notification_right{
+                    padding-left: 100px;
+                    .user_setting_notification_user{
+                        float: left;
+                        a{
+                            font-size: 14px;
+                            font-style: italic;
+                        }
+                        span{
+                            margin-left: 3px;
+                            margin-right: 5px;
+                            font-size: 13px;
+                            font-style: italic;
+                            color: #555;
+                        }
+                    }
+                    .user_setting_notification_title{
+                        a{
+                            font-size: 14px;
+                            word-break: break-word; 
+                        }
+                    }
+                    .user_setting_notification_content{
+                        margin-top: 10px;
+                        a{
+                            font-size: 14px;
+                            word-break: break-word; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+///////////////////////show-profile//////////////////////
+.user_profile_dasboard{
+    .user_profile_title{
+        padding-top: 30px;
+        padding-bottom: 20px;
+        span{
+            font-size: 22px;
+            font-weight: 600px;
+        }
+    }
+
+    .user_profile_tab_link{
+        padding-top: 20px;
+        clear: left;
+        overflow: hidden;
+        position: relative;
+        display: block;
+        background-color: #fff;
+        border-bottom: 1px solid #dfe1e5;
+        .nav {
+            overflow-x: auto;
+            overflow-y: hidden;
+            flex-wrap: nowrap;
+            border: none;
+        }
+        .nav .nav-link {
+            white-space: nowrap;
+            font-size: 16px;
+        }
+        .nav .nav-link, .nav .nav-link.active, .nav .nav-link:hover {
+            border: none;
+            color: #333;
+            text-align: left;
+            i{
+                position: relative;
+                // top: 5px;
+                padding-right: 3px;
+            }
+            span{
+                position: absolute;
+                top: 1px;
+                right: 15px;
+                font-size: 12px;
+                color: #999;
+            }
+        }
+        .nav .nav-link.active {
+            border-radius: 0;
+            border-bottom: 3px solid #1877f2;
+            font-weight: 500;
+            color: #1877f2;
+            font-size: 16px;
+            span{
+                color: #1877f2;
+            }
+        }
+    }
+
+    .user_profile_tab_content{
+        min-height: 800px;
+        padding-top: 10px;
+        .user_profile_personal_tab{
+            .user_profile_info{
+                margin-top: 10px;
+                margin-bottom: 50px;
+                
+                .user_profile_info_wellcome_label{  
+                    font-size: 22px;
+                    color: #1877f2;
+                }
+            
+                .user_profile_info_des_label{
+                    font-size: 20px;
+                    margin-top: 0px;
+                }
+            
+                .user_profile_info_about{
+                    // border-top: 1px solid #dfe1e5;
+            
+                    .user_profile_info_label{
+                        font-size: 16px;
+                        margin-top: 40px;
+                    }
+                    .user_profile_info_des{
+                        font-size: 16px;
+                        float: left;
+                    }
+            
+                    .user_profile_info_edit_button{
+                        float: right;
+                        font-size: 16px;
+                        &:focus {outline:none;}
+                        i{
+                            color: #1877f2;
+                        }
+                        .user_profile_info_edit_link_to{
+                            color: #1877f2;
+                            text-decoration: none !important;
+                        }
+                    }
+                }
+            
+                .user_profile_log_out{
+                    clear: both;
+                    margin-top: 50px;
+                    button{
+                        padding: 6px;
+                        height: 40px;
+                        width: 150px;
+                        margin-right: 10px;
+                        background: #1877f2;
+                        font-size: 16px;
+                        border: none;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        text-align: center;
+                        color: #fff;
+                        &:focus {outline:none;}
+                        i{
+                            position: relative;
+                            top: 5px;
+                        }
+                        
+                        &:hover{
+                            background-color: #369;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+
+        .user_profile_save_job_tab{
+            .user_profile_save_job_label{
+                clear: both;
+                font-size: 20px;
+                margin-top: 10px;
+				margin-bottom: 20px;
+                padding-left: 20px;
+            }
+        
+            .user_profile_save_job{
+                .single_company_job_block {
+                    height: 230px;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    background-color: #fff;
+                    border: 1px solid #dfe1e5;
+                    border-radius: 3px;
+                    @media screen and (max-width: 600px){
+                        padding-left: 0px;
+                        padding-right: 0px;
+                        border: none;
+                        border-top: 1px solid #dfe1e5;
+                        border-bottom: 1px solid #dfe1e5;
+                        margin-bottom: 0px;
+                        border-radius: 0px;
+                    }
+                    display: block;
+                    &:hover{
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        background-color: #fff;
+                        @media screen and (max-width: 600px){
+                            box-shadow: none;
+                        }
+                    }
+                
+                    .company_job_left
+                    {
+                        height: 200px;
+                        float: left;
+                        .company_avatar {
+                            img{ 
+                                border-radius: 0px;
+                                width: 60px;
+                                height: 60px;
+                                border: 1px solid #efefef;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                    
+                    .company_job_right{
+                        margin-left: 75px;
+                        .company_job_des{
+                            min-height: 160px;
+                            .company_job_title{
+                                a{
+                                    text-decoration: none !important ;
+                                    font-size: 19px;
+                                    color: #444;
+                                    position: relative;
+                                    top: -5px;
+                                    font-weight: 550;
+                                }
+                                a:hover{
+                                    color: #1877f2;
+                                }
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2; /* number of lines to show */
+                                -webkit-box-orient: vertical;
+                            }
+    
+                            .company_job_company_rate{
+                                a{
+                                    font-size: 15px;
+                                    color: #333;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 1; /* number of lines to show */
+                                    -webkit-box-orient: vertical;
+                                    i{
+                                        color: #febb02;
+                                        font-size: 18px;
+                                        position: relative;
+                                        top: 3px;
+                                        padding-left: 3px;
+                                        // background-color: #febb02;
+                                    }
+                                }
+                            }
+                
+                            .company_job_description{
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2; /* number of lines to show */
+                                -webkit-box-orient: vertical;
+                                font-size: 14px;
+                                // margin-bottom: 10px;
+                                color: #555;
+                                display: none;
+                                @media screen and (max-width: 600px){
+                                    display: none;
+                                }
+                            }
+                            
+                            .company_job_mark{
+                                margin-top: 10px;
+                                .company_job_location{
+                                    @media screen and (max-width: 600px){
+                                        float: none;
+                                    }
+                                    float: left;
+                                    font-size: 13px;
+                                    a{
+                                        padding-top: 4px;
+                                        padding-bottom: 4px;
+                                        padding-left: 8px;
+                                        padding-right: 8px;
+                                        margin-right: 6px;
+                                        border: 1px solid #dfe1e5;
+                                        border-radius: 30px;
+                                        background-color: #fff;
+                                        color: #333;
+                                        i{
+                                            font-size: 18px;
+                                            margin-right: 3px;
+                                            color: #8a8888;
+                                            position: relative;
+                                            position: relative;
+                                            top: 5px;
+                                        }
+                                    }
+                                }
+    
+                                .company_job_tech{
+                                    @media screen and (max-width: 600px){
+                                        display: none;
+                                    }
+                                    float: none;
+                                    font-size: 13px;
+                                    a{
+                                        padding-top: 4px;
+                                        padding-bottom: 4px;
+                                        padding-left: 8px;
+                                        padding-right: 8px;
+                                        margin-right: 10px;
+                                        border: 1px solid #dfe1e5;
+                                        border-radius: 30px;
+                                        background-color: #fff;
+                                        color: #333;
+                                        i{
+                                            font-size: 18px;
+                                            margin-right: 3px;
+                                            color: #8a8888;
+                                            position: relative;
+                                            position: relative;
+                                            top: 5px;
+                                        }
+                                    }
+                                }
+                    
+                                .company_job_salary{
+                                    float: left;
+                                    @media screen and (max-width: 600px){
+                                        float: none;
+                                    }
+                                    margin-top: 10px;
+                                    margin-right: 6px;
+                                    font-size: 13px;
+                                    color: #333;
+                                    a{
+                                        padding-top: 4px;
+                                        padding-bottom: 4px;
+                                        padding-right: 8px;
+                                        border: 1px solid #dfe1e5;
+                                        border-radius: 30px;
+                                        background-color: #fff;
+                                        // margin-left: 10px;
+                                        i{
+                                            padding-left: 8px;
+                                            margin-right: 3px;
+                                            font-size: 18px;
+                                            color: #8a8888;
+                                            position: relative;
+                                            top: 4px;
+                                        }
+                                    }
+                                }
+    
+                                .company_job_type{
+                                    font-size: 13px;
+                                    color: #333;
+                                    float: none;
+                                    margin-top: 10px;
+                                    @media screen and (max-width: 600px){
+                                        display: none;
+                                    }
+                                    a{
+                                        padding-top: 4px;
+                                        padding-bottom: 4px;
+                                        padding-right: 8px;
+                                        border: 1px solid #dfe1e5;
+                                        border-radius: 30px;
+                                        background-color: #fff;
+                                        // margin-left: 10px;
+                                        i{
+                                            padding-left: 8px;
+                                            margin-right: 3px;
+                                            font-size: 18px;
+                                            color: #8a8888;
+                                            position: relative;
+                                            top: 4px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .company_job_info{
+                            .company_job_date{
+                                width: 60%;
+                                margin-top: 20px;
+                                font-size: 13px;
+                                float: left;
+                                a{
+                                    font-size: 13px;
+                                    color: #1877f2;
+                                }
+                                span{
+                                    font-size: 13px;
+                                    color: #ea1e30;
+                                }
+                            }
+                            .company_job_hot_save{
+                                /*display: none;*/
+                                float: right;
+                                width: 40%;
+                                padding-top: 10px;
+                                .company_job_button_save{
+                                    text-align: right;
+                                    .hot_label{
+                                        display: none;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                        padding-left: 8px;
+                                        padding-right: 8px;
+                                        border-radius: 2px;
+                                        font-size: 12px;
+                                        color: #fff;
+                                        background-color: #ff5a5f;
+                                    }
+                                    button{
+                                        border: none;
+                                        background-color: transparent;
+                                        i{
+                                            color: #8a8888;
+                                            font-size: 22px;
+                                            position: relative;
+                                            top: 7px;
+                                        }
+                                        &:focus {outline:none;}
+                                    }
+                                    
+                                    .save_btn_highlight{ 
+                                        i{
+                                            color: #1877f2;
+                                        }
+                                        &:focus {outline:none;}
+                                    }
+        
+                                    .save_btn{
+                                        i{
+                                            color: #888;
+                                        }
+                                        &:focus {outline:none;}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    clear: left;
+                    clear: right;
+                }
+            }
+        }
+
+        .company_apply_job_tab{
+            .company_apply_job_tab_title{
+                font-size: 20px;
+                font-weight: 550;
+				margin-top: 10px;
+                padding-bottom: 20px;
+                padding-left: 20px;
+            }
+            .company_apply_job{
+                .single_company_job_block {
+                    height: 230px;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    background-color: #fff;
+                    border: 1px solid #dfe1e5;
+                    border-radius: 3px;
+                    @media screen and (max-width: 600px){
+                        padding-left: 0px;
+                        padding-right: 0px;
+                        border: none;
+                        border-top: 1px solid #dfe1e5;
+                        border-bottom: 1px solid #dfe1e5;
+                        margin-bottom: 0px;
+                        border-radius: 0px;
+                    }
+                    display: block;
+                    &:hover{
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        background-color: #fff;
+                        @media screen and (max-width: 600px){
+                            box-shadow: none;
+                        }
+                    }
+                
+                    .company_job_left
+                    {
+                        height: 200px;
+                        float: left;
+                        .company_avatar {
+                            img{ 
+                                border-radius: 0px;
+                                width: 60px;
+                                height: 60px;
+                                border: 1px solid #efefef;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                    
+                    .company_job_right{
+                        margin-left: 75px;
+                        .company_job_des{
+                            min-height: 160px;
+                            .company_job_title{
+                                a{
+                                    text-decoration: none !important ;
+                                    font-size: 19px;
+                                    color: #444;
+                                    position: relative;
+                                    top: -5px;
+                                    font-weight: 550;
+                                }
+                                a:hover{
+                                    color: #1877f2;
+                                }
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2; /* number of lines to show */
+                                -webkit-box-orient: vertical;
+                            }
+    
+                            .company_job_company_rate{
+                                a{
+                                    font-size: 15px;
+                                    color: #333;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 1; /* number of lines to show */
+                                    -webkit-box-orient: vertical;
+                                    i{
+                                        color: #febb02;
+                                        font-size: 18px;
+                                        position: relative;
+                                        top: 3px;
+                                        padding-left: 3px;
+                                        // background-color: #febb02;
+                                    }
+                                }
+                            }
+                
+                            .company_job_description{
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2; /* number of lines to show */
+                                -webkit-box-orient: vertical;
+                                font-size: 14px;
+                                // margin-bottom: 10px;
+                                color: #555;
+                                display: none;
+                                @media screen and (max-width: 600px){
+                                    display: none;
+                                }
+                            }
+                            
+                            .company_job_mark{
+                                margin-top: 10px;
+                                .company_job_location{
+                                    @media screen and (max-width: 600px){
+                                        float: none;
+                                    }
+                                    float: left;
+                                    font-size: 13px;
+                                    a{
+                                        padding-top: 4px;
+                                        padding-bottom: 4px;
+                                        padding-left: 8px;
+                                        padding-right: 8px;
+                                        margin-right: 6px;
+                                        border: 1px solid #dfe1e5;
+                                        border-radius: 30px;
+                                        background-color: #fff;
+                                        color: #333;
+                                        i{
+                                            font-size: 18px;
+                                            margin-right: 3px;
+                                            color: #8a8888;
+                                            position: relative;
+                                            position: relative;
+                                            top: 5px;
+                                        }
+                                    }
+                                }
+    
+                                .company_job_tech{
+                                    @media screen and (max-width: 600px){
+                                        display: none;
+                                    }
+                                    float: none;
+                                    font-size: 13px;
+                                    a{
+                                        padding-top: 4px;
+                                        padding-bottom: 4px;
+                                        padding-left: 8px;
+                                        padding-right: 8px;
+                                        margin-right: 10px;
+                                        border: 1px solid #dfe1e5;
+                                        border-radius: 30px;
+                                        background-color: #fff;
+                                        color: #333;
+                                        i{
+                                            font-size: 18px;
+                                            margin-right: 3px;
+                                            color: #8a8888;
+                                            position: relative;
+                                            position: relative;
+                                            top: 5px;
+                                        }
+                                    }
+                                }
+                    
+                                .company_job_salary{
+                                    float: left;
+                                    @media screen and (max-width: 600px){
+                                        float: none;
+                                    }
+                                    margin-top: 10px;
+                                    margin-right: 6px;
+                                    font-size: 13px;
+                                    color: #333;
+                                    a{
+                                        padding-top: 4px;
+                                        padding-bottom: 4px;
+                                        padding-right: 8px;
+                                        border: 1px solid #dfe1e5;
+                                        border-radius: 30px;
+                                        background-color: #fff;
+                                        // margin-left: 10px;
+                                        i{
+                                            padding-left: 8px;
+                                            margin-right: 3px;
+                                            font-size: 18px;
+                                            color: #8a8888;
+                                            position: relative;
+                                            top: 4px;
+                                        }
+                                    }
+                                }
+    
+                                .company_job_type{
+                                    font-size: 13px;
+                                    color: #333;
+                                    float: none;
+                                    margin-top: 10px;
+                                    @media screen and (max-width: 600px){
+                                        display: none;
+                                    }
+                                    a{
+                                        padding-top: 4px;
+                                        padding-bottom: 4px;
+                                        padding-right: 8px;
+                                        border: 1px solid #dfe1e5;
+                                        border-radius: 30px;
+                                        background-color: #fff;
+                                        // margin-left: 10px;
+                                        i{
+                                            padding-left: 8px;
+                                            margin-right: 3px;
+                                            font-size: 18px;
+                                            color: #8a8888;
+                                            position: relative;
+                                            top: 4px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .company_job_info{
+                            .company_job_date{
+                                width: 60%;
+                                margin-top: 20px;
+                                font-size: 13px;
+                                float: left;
+                                a{
+                                    font-size: 13px;
+                                    color: #1877f2;
+                                }
+                                span{
+                                    font-size: 13px;
+                                    color: #ea1e30;
+                                }
+                            }
+                            .company_job_hot_save{
+                                /*display: none;*/
+                                float: right;
+                                width: 40%;
+                                padding-top: 10px;
+                                .company_job_button_save{
+                                    text-align: right;
+                                    .hot_label{
+                                        display: none;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                        padding-left: 8px;
+                                        padding-right: 8px;
+                                        border-radius: 2px;
+                                        font-size: 12px;
+                                        color: #fff;
+                                        background-color: #ff5a5f;
+                                    }
+                                    button{
+                                        border: none;
+                                        background-color: transparent;
+                                        i{
+                                            color: #8a8888;
+                                            font-size: 22px;
+                                            position: relative;
+                                            top: 7px;
+                                        }
+                                        &:focus {outline:none;}
+                                    }
+                                    
+                                    .save_btn_highlight{ 
+                                        i{
+                                            color: #1877f2;
+                                        }
+                                        &:focus {outline:none;}
+                                    }
+        
+                                    .save_btn{
+                                        i{
+                                            color: #888;
+                                        }
+                                        &:focus {outline:none;}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    clear: left;
+                    clear: right;
+                }
+            }
+        }
+        
+        .user_profile_follow_company_tab{
+            .user_profile_follow_company_tab_title{
+                padding-bottom: 10px;
+                font-size: 20px;
+                font-weight: 550;
+            }
+            .user_profile_follow_company_list{
+                .row{
+                    padding-bottom: 50px;
+                    .col-sm-3{
+                        float: left;
+                        display: block;
+                        padding: 10px;
+                        .single_company_block{
+                            border: 1px solid #dfe1e5;
+                            border-radius: 2px;
+                            background-color: #fff;
+                            min-height: 300px;
+                            &:hover{
+                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                                background-color: #fff;
+                            }
+                            
+                            .company_wall{
+                                width: 100%;
+                                height: 150px;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                                display: block;
+                                float: left;
+                            }
+                    
+                            .company_thumbnail
+                            {
+                                height: 140px;
+                                padding-top: 135px;
+                                padding-left: 15px;
+                                position: absolute; 
+                                img{ 
+                                    display: block;
+                                    width: 66px;
+                                    height: 66px;
+                                    border: 1px solid #efefef;
+                                    object-fit: cover;
+                                }
+                                display: block;
+                                float: left;
+                            }
+                    
+                            .company_love_button{
+                                position: absolute;
+                                right: 15px;
+                                top: 18px;
+                                button{
+                                    border: none;
+                                    color: #666;
+                                    background: none;
+                                    i{
+                                        background-color: #fff;
+                                        border-radius: 30px;
+                                        font-size: 20px;
+                                        color: #dfe1e5;
+                                        position: relative;
+                                        &:hover{
+                                            color: #1877f2;
+                                        }
+                                        padding: 2px;
+                                        padding-left: 3px;
+                                        padding-right: 3px;
+                                        padding-top: 4px;
+                                    }
+        
+                                    &:hover{
+                                        background-color: transparent;
+                                        color: #fff;
+                                    }
+                                    &:focus {outline:none;}
+                                }
+                                
+                                .follow_btn_highlight{ 
+                                    i{
+                                        color: #1877f2;
+                                    }
+                                    &:focus {outline:none;}
+                                }
+        
+                                .follow_btn{
+                                    i{
+                                        color: #dfe1e5;
+                                    }
+                                    &:focus {outline:none;}
+                                }
+                            }
+                            
+                            .company_title{
+                                padding-left: 90px;
+                                .company_name
+                                {
+                                    padding-left: 3px;
+                                    clear: both;
+                                    text-align: left;
+                                    color: #333;
+                                    font-size: 17px;
+                                    font-weight: 550;
+                                    padding-top: 5px;
+                                    // height: 50px;
+                                    .company_name_label{
+                                        color: #333;
+                                        text-decoration: none !important;overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        display: -webkit-box;
+                                        -webkit-line-clamp: 1; /* number of lines to show */
+                                        -webkit-box-orient: vertical;
+                                    }
+                                    
+                                    a:hover{
+                                        color: #1877f2;
+                                    }
+                                }
+        
+                                .company_rating
+                                {
+                                    width: 100%;
+                                    height: 100%;
+                                    margin-top: 3px;
+                                    .review_score_star
+                                    {
+                                        i{
+                                            font-size: 20px;
+                                            margin-right: -4px !important;
+                                        }
+                            
+                                        .checked {
+                                            color: #febb02;
+                                        }
+        
+                                        .checked_out {
+                                            color: #999;
+                                        }
+                                    }
+                                }
+                            }
+                    
+                            .company_summary
+                            {
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+                                width: 100%;
+                                padding-top: 15px;;
+                                .company_point{
+                                    .review_point{
+                                        width: 33%;
+                                        float: left;
+                                        .company_point_content{
+                                            text-align: center;
+                                            font-size: 14px;
+                                            color: #333;
+                                        }
+                                        .company_point_label{
+                                            text-align: center;
+                                            a{
+                                                color: #444;
+                                                font-size: 13px;
+                                                text-decoration: none !important;
+                                            }
+                                            a:link{
+                                                color: #444;
+                                                font-size: 13px;
+                                                text-decoration: none !important ;
+                                            }
+                                            a:hover{
+                                                color: #1877f2;
+                                            }
+                                        }
+                                    }
+                                    .interview_point{
+                                        width: 33%;
+                                        float: left;
+                                        .company_point_content{
+                                            text-align: center;
+                                            font-size: 14px;
+                                            color: #333;
+                                        }
+                                        .company_point_label{
+                                            text-align: center;
+                                            a{
+                                                color: #444;
+                                                font-size: 13px;
+                                                text-decoration: none !important;
+                                            }
+                                            a:link{
+                                                color: #444;
+                                                font-size: 13px;
+                                                text-decoration: none !important ;
+                                            }
+                                            a:hover{
+                                                color: #1877f2;
+                                            }
+                                        }
+                                    }
+                                    .job_point{
+                                        .company_point_content{
+                                            text-align: center;
+                                            font-size: 14px;
+                                            color: #333;
+                                        }
+                                        .company_point_label{
+                                            text-align: center;
+                                            a{
+                                                color: #444;
+                                                font-size: 13px;
+                                                text-decoration: none !important;
+                                            }
+                                            a:link{
+                                                color: #444;
+                                                font-size: 13px;
+                                                text-decoration: none !important ;
+                                            }
+                                            a:hover{
+                                                color: #1877f2;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .user_profile_notification_tab{
+            padding-bottom: 20px;
+            .user_profile_notification_block{
+                border-bottom: 1px solid #dfe1e5;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                .user_profile_notification_left{  
+                    float: left;
+                    .user_profile_notification_date{
+                        a{
+                            font-size: 14px;
+                            font-style: italic;
+                            color: #888;
+                        }
+                    }
+                }
+                .user_profile_notification_right{
+                    padding-left: 100px;
+                    .user_profile_notification_user{
+                        float: left;
+                        a{
+                            font-size: 14px;
+                            font-style: italic;
+                        }
+                        span{
+                            margin-left: 3px;
+                            margin-right: 5px;
+                            font-size: 13px;
+                            font-style: italic;
+                            color: #555;
+                        }
+                    }
+                    .user_profile_notification_title{
+                        a{
+                            font-size: 14px;
+                            word-break: break-word; 
+                        }
+                    }
+                    .user_profile_notification_content{
+                        margin-top: 10px;
+                        a{
+                            font-size: 14px;
+                            word-break: break-word; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -48,7 +48,7 @@
                         <%end%>
                     </div>
                     <div class="user_action">
-                        <%= button_to user_path(current_user), :method => :get do%>
+                        <%= button_to edit_user_path(current_user), :method => :get do%>
                             <i><%= bootstrap_icon "gear", width: 22, height: 22%></i> <span>Cài đặt tài khoản</span>
                         <%end%>
                     </div>
@@ -113,7 +113,7 @@
                             <%end%>
                         </div>
                         <div class="user_action">
-                            <%= button_to user_path(current_user), :method => :get do%>
+                            <%= button_to edit_user_path(current_user), :method => :get do%>
                                 <i><%= bootstrap_icon "gear", width: 22, height: 22%></i> <span>Cài đặt tài khoản</span>
                             <%end%>
                         </div>
