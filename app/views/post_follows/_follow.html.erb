@@ -1,0 +1,16 @@
+<div id="post_index_follow_<%=@post.id%>">
+    <%if current_user.present?%>
+        <% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
+    <%end%>
+    <% if pre_follow %>  
+        <%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true do%>
+            <i><%= bootstrap_icon "bookmark-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
+            <span>Save</span>
+        <%end%> 
+    <%else%>
+        <%= button_to post_post_follows_path(@post), method: :post, remote: true do%>
+            <i><%= bootstrap_icon "bookmark", width: 20, height: 20, fill: "#888" %></i>
+            <span>Save</span>
+        <%end%> 
+    <%end%>
+</div>

@@ -11,7 +11,7 @@
                 <a><%=owner_user.name%><span> · </span></a>
             </div>
 
-            <div class="post_index_user_follow" id="post_index_follow_<%=@post.id%>">
+            <div class="post_index_user_follow" id="post_index_user_follow_<%=@post.id%>">
                 <%if current_user.present?%>
                     <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
                 <%end%>
@@ -25,6 +25,7 @@
                     <%end%>
                 <%end%>
             </div>
+            
             <div class="post_index_create">
                 <span><%=time_ago_in_words(@post.created_at)%></span>
             </div>
@@ -44,8 +45,8 @@
     </div>
 
     <div class="post_index_toolbar_block">
-        <div class="post_index_vote_unvote_block">
-            <div class="post_index_vote_block" id="post_index_vote_<%=@post.id%>">
+        <div class="post_index_vote_unvote_block" id="post_index_vote_unvote_<%=@post.id%>">
+            <div class="post_index_vote_block">
                 <%if current_user.present?%>
                     <% pre_vote = @post.post_votes.find { |vote| vote.user_id == current_user.id} %>
                 <%end%>
@@ -64,7 +65,7 @@
                 <span><%=@post.post_votes.count - @post.post_unvotes.count%></span>
             </div>
 
-            <div class="post_index_unvote_block" id="post_index_unvote_<%=@post.id%>">
+            <div class="post_index_unvote_block">
                 <%if current_user.present?%>
                     <% pre_unvote = @post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
                 <%end%>
@@ -87,19 +88,19 @@
             <%end%> 
         </div>
 
-        <div class="post_index_save_block">
+        <div class="post_index_follow_block" id="post_index_follow_<%=@post.id%>">
             <%if current_user.present?%>
-                <% pre_unvote = @post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
+                <% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
             <%end%>
-            <% if pre_unvote %>  
-                <%= button_to post_post_unvote_path(@post, pre_unvote), method: :delete, remote: true do%>
+            <% if pre_follow %>  
+                <%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true do%>
                     <i><%= bootstrap_icon "bookmark-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
-                    <a>Saves</a>
+                    <span>Save</span>
                 <%end%> 
             <%else%>
-                <%= button_to post_post_unvotes_path(@post), method: :post, remote: true do%>
+                <%= button_to post_post_follows_path(@post), method: :post, remote: true do%>
                     <i><%= bootstrap_icon "bookmark", width: 20, height: 20, fill: "#888" %></i>
-                    <a>Saves</a>
+                    <span>Save</span>
                 <%end%> 
             <%end%>
         </div>

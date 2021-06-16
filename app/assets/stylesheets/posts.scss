@@ -90,7 +90,7 @@
 
             .post_index_user_follow{
                 position: relative;
-                top:  -2px;
+                top:  -4px;
                 button{
                     border: none;
                     font-size: 13px;
@@ -218,7 +218,7 @@
             }
         }
 
-        .post_index_save_block{
+        .post_index_follow_block{
             float: left;
             color: #555;
             margin-right: 20px;
@@ -229,7 +229,7 @@
                 &:focus {outline:none;}
             }
             
-            a{
+            span{
                 margin-left: 2px;
                 color: #666;
                 font-size: 14px;
