@@ -32,7 +32,7 @@ class UserFollowsController < ApplicationController
     
     def destroy
         @user = User.find(params[:user_id])
-        @user_follow = @user.user_follows.find(params[:id])
+        @user_follow = @user.following_users.find(params[:id])
         @user_follow.destroy
 
         respond_to do |format|

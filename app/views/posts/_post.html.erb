@@ -11,12 +11,12 @@
                 <a><%=owner_user.name%><span> · </span></a>
             </div>
 
-            <div class="post_index_user_follow" id="post_index_user_follow_<%=@post.id%>">
+            <div class="post_index_user_follow" id="post_index_user_follow_<%=owner_user.id%>">
                 <%if current_user.present?%>
                     <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
                 <%end%>
                 <% if pre_follow %>  
-                    <%= button_to user_user_follows_path(owner_user, pre_follow), method: :delete, remote: true do%>
+                    <%= button_to user_user_follow_path(owner_user, pre_follow), method: :delete, remote: true do%>
                         <a>Followed</a>
                     <%end%> 
                 <%else%>
@@ -40,7 +40,7 @@
 
     <div class='post_index_tag'>
         <%post.tags.each do |tag|%>
-            <a># <%= link_to (tag.name), tag_path(tag) %></a>
+            <a><span>#</span> <%= link_to (tag.name), tag_path(tag) %></a>
         <%end%>
     </div>
 

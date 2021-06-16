@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   # GET /pages or /pages.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order('created_at DESC')
     @tags = Tag.all
 
     @tab_id = "default"
