@@ -80,17 +80,16 @@
         .post_index_info_right{
             padding-left: 44px;
             position: relative;
-            top: -3px;
             .post_index_user_name{
-                font-size: 13px;
+                font-size: 14px;
                 font-weight: 600;
-                color: #666;
+                color: #555;
                 float: left;
             }
 
             .post_index_user_follow{
                 position: relative;
-                top:  -4px;
+                top:  -2px;
                 button{
                     border: none;
                     font-size: 13px;
@@ -100,6 +99,8 @@
                 }
             }
             .post_index_create{
+                position: relative;
+                top: -7px;
                 font-size: 12px;
                 font-weight: 400;
                 color: #666;
@@ -107,9 +108,9 @@
         }
     }
     .post_index_title{
-        font-size: 22px;
+        font-size: 20px;
         font-weight: 600;
-        padding-top: 5px;
+        // padding-top: 5px;
         // padding-bottom: 10px;
         padding-left: 44px;
         @media screen and (max-width: 600px){
@@ -117,7 +118,7 @@
         }
         a{
             text-decoration: none;
-            color: #222;
+            color: #333;
             &:hover{
                 color: #4f46e5;
             };
@@ -138,7 +139,7 @@
     }
 
     .post_index_tag{
-        margin-top: 10px;
+        margin-top: 5px;
         padding-left: 44px;
         a{
             span{
@@ -155,7 +156,7 @@
         @media screen and (max-width: 600px){
             padding-left: 0px;
         }
-        padding-top: 10px;
+        padding-top: 5px;
         .post_index_vote_unvote_block{
             background-color: #fff;
             position: relative;
