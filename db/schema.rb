@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_16_040940) do
+ActiveRecord::Schema.define(version: 2021_06_16_143743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,14 +28,6 @@ ActiveRecord::Schema.define(version: 2021_06_16_040940) do
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "post_comment_saves", force: :cascade do |t|
-    t.bigint "post_comment_id", null: false
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_comment_id"], name: "index_post_comment_saves_on_post_comment_id"
   end
 
   create_table "post_comment_unvotes", force: :cascade do |t|
@@ -61,14 +53,6 @@ ActiveRecord::Schema.define(version: 2021_06_16_040940) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-  end
-
-  create_table "post_saves", force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_post_saves_on_post_id"
   end
 
   create_table "post_unvotes", force: :cascade do |t|
@@ -177,10 +161,8 @@ ActiveRecord::Schema.define(version: 2021_06_16_040940) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  add_foreign_key "post_comment_saves", "post_comments"
   add_foreign_key "post_comment_unvotes", "post_comments"
   add_foreign_key "post_comment_votes", "post_comments"
-  add_foreign_key "post_saves", "posts"
   add_foreign_key "post_unvotes", "posts"
   add_foreign_key "post_votes", "posts"
   add_foreign_key "tag_follows", "tags"
