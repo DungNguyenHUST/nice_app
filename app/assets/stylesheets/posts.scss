@@ -85,6 +85,19 @@
                 font-size: 13px;
                 font-weight: 600;
                 color: #666;
+                float: left;
+            }
+
+            .post_index_user_follow{
+                position: relative;
+                top:  -2px;
+                button{
+                    border: none;
+                    font-size: 13px;
+                    background-color: #fff;
+                    color: #4f46e5;
+                    &:focus {outline:none;}
+                }
             }
             .post_index_create{
                 font-size: 12px;

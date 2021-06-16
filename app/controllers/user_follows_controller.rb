@@ -3,7 +3,6 @@ class UserFollowsController < ApplicationController
     
     def index 
         @user = User.find(params[:user_id])
-        @user_follows = @user.user_follows
     end
 
     def new
@@ -15,7 +14,7 @@ class UserFollowsController < ApplicationController
         @user = User.find(params[:user_id])
         @user_follow = UserFollow.new
         if !already_followed?
-            @user_follow = @user.user_follows.build(user_id: current_user.id)
+            @user_follow = UserFollow.create(follower_id: current_user.id, followee_id: params[:user_id])
             @user_follow.save!
         end
 
@@ -48,6 +47,6 @@ class UserFollowsController < ApplicationController
 private
 
     def already_followed?
-        UserFollow.where(followee_id: current_user.id, followee_id: params[:user_id]).exists?
+        current_user.following_users.find { |follow| follow.followee_id == current_user.id }
     end
 end

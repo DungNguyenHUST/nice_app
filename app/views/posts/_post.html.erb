@@ -8,7 +8,22 @@
         </div>
         <div class='post_index_info_right'>
             <div class="post_index_user_name">
-                <a><%=owner_user.name%></a>
+                <a><%=owner_user.name%><span> · </span></a>
+            </div>
+
+            <div class="post_index_user_follow" id="post_index_follow_<%=@post.id%>">
+                <%if current_user.present?%>
+                    <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
+                <%end%>
+                <% if pre_follow %>  
+                    <%= button_to user_user_follows_path(owner_user, pre_follow), method: :delete, remote: true do%>
+                        <a>Followed</a>
+                    <%end%> 
+                <%else%>
+                    <%= button_to user_user_follows_path(owner_user), method: :post, remote: true do%>
+                        <a>Follow</a>
+                    <%end%>
+                <%end%>
             </div>
             <div class="post_index_create">
                 <span><%=time_ago_in_words(@post.created_at)%></span>

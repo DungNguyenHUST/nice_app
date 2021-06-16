@@ -7,9 +7,11 @@ class User < ApplicationRecord
 
   has_many :user_notifications, dependent: :destroy
 
+  # List follower of current user
   has_many :followed_users, foreign_key: :follower_id, class_name: "UserFollow"
   has_many :followees, through: :followed_users, source: :person_being_followed
 
+  # List following of current user
   has_many :following_users, foreign_key: :followee_id, class_name: "UserFollow"
   has_many :followers, through: :following_users, source: :person_doing_the_following
 
