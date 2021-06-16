@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   # GET /pages or /pages.json
   def index
     @posts = Post.all
+    @tags = Tag.all
 
     @tab_id = "default"
     if(params.has_key?(:tab_id))

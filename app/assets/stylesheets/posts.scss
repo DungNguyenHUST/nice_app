@@ -209,31 +209,17 @@
             float: left;
             color: #555;
             margin-right: 20px;
+            padding-top: 8px;
             button{
                 border: none;
                 background-color: #fff;
                 &:focus {outline:none;}
             }
+            
             a{
-                font-size: 14px;
+                margin-left: 2px;
                 color: #666;
-                span{
-                    margin-left: 2px;
-                }
-
-                @media screen and (max-width: 600px){
-                    display: none;
-                }
-            }
-            .post_index_save
-            {
-                border: none;
-                background-color: #fff;
-                i{
-                    color: #555;
-                    font-size: 24px;
-                }
-                &:focus {outline:none;}
+                font-size: 14px;
             }
         }
 

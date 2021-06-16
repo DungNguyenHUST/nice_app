@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :user_notifications
+    resources :user_follows
   end
   
   resources :posts do
