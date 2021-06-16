@@ -1,0 +1,2 @@
+class PostFollowsController < ApplicationController
+end

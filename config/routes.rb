@@ -16,11 +16,10 @@ Rails.application.routes.draw do
   resources :posts do
     resources :post_votes
     resources :post_unvotes
-    resources :post_saves
+    resources :post_follows
     resources :post_comments do
       resources :post_comment_votes
       resources :post_comment_unvotes
-      resources :post_comment_saves
     end
   end
 

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PostSaveTest < ActiveSupport::TestCase
+class PostFollowsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
