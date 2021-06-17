@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include PostsHelper
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 
@@ -9,6 +10,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    @owner_user = find_owner_user_for_post(@post)
+    @owner_post = find_owner_post_for_user(@owner_user)
   end
 
   # GET /posts/new

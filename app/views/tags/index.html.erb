@@ -1,5 +1,10 @@
 <div class='tag_index_container'>
 	<div class='container'>
+		<div class='tag_index_new'>
+			<%= button_to new_tag_path, method: :get do%>
+                New Tag
+            <%end%>
+		</div>
 		<div class='row'>
 		    <%@tags.each do |tag|%>
 				<div class='col-sm-4'>

@@ -58,27 +58,33 @@
 				    </div>
 				 </div>	
 			</div>	
-			<div class='col-sm-7'>
+			<div class='col-sm-8'>
 				<div class='post_show_middle_block'>
 				    <div class='post_show_info'>
-				        <%owner_user = find_owner_user(@post.user_id)%>
 				        <div class='post_show_info_left'>
-				            <div class="post_show_user_avatar checked_<%=find_user_color(owner_user.name)%>">
-				                <a><%= link_to owner_user.name[0], user_session_path(owner_user), class: "post_show_user_name_label"%></a>
+				            <div class="post_show_user_avatar checked_<%=find_user_color(@owner_user.name)%>">
+				                <a><%= link_to @owner_user.name[0], user_session_path(@owner_user), class: "post_show_user_name_label"%></a>
 				            </div>
 				        </div>
 				        <div class='post_show_info_right'>
 				            <div class="post_show_user_name">
-				                <a><%=owner_user.name%></a>
+				                <a><%=@owner_user.name%></a>
 				            </div>
 				            <div class="post_show_create">
-				                <span><%=time_ago_in_words(owner_user.created_at)%></span>
+				                <span><%=time_ago_in_words(@owner_user.created_at)%></span>
 				            </div>
 				        </div>
 				    </div>
 				    <div class='post_show_title'>
 				        <a><%= @post.title%></a>
 				    </div>
+
+			        <%@post.tags.each do |tag|%>
+				    	<div class='post_show_tag_link'>
+				            <a><%= link_to ("#" + tag.name), tag_path(tag) %></a>
+				    	</div>
+			        <%end%>
+
 				    <div class='post_show_content'>
 				        <a><%=@post.content%></a>
 				    </div>
@@ -116,10 +122,82 @@
 				    </script>
 				</div>
 			</div>
-			<div class='col-sm-4'>
-				<div class='post_show_right_block'>
-					<a> About </a>
+			<div class='col-sm-3'>
+				<div class='post_show_right_block_user'>
+					<div class='post_show_right_info'>
+				        <div class='post_show_right_info_left'>
+				            <div class="post_show_right_user_avatar checked_<%=find_user_color(@owner_user.name)%>">
+				                <a><%= link_to @owner_user.name[0].upcase, user_session_path(@owner_user), class: "post_show_right_user_name_label"%></a>
+				            </div>
+				        </div>
+				        <div class='post_show_right_info_right'>
+				            <div class="post_show_right_user_name">
+				                <a><%=@owner_user.name%></a>
+				            </div>
+				        </div>
+				    </div>
+
+		            <div class="post_show_right_user_info">
+		            	<div class="post_show_right_user_info_label">
+		                	<a>ĐỊA CHỈ</a>
+		                </div>
+		                <div class="post_show_right_user_info_des">
+		                	<%if @owner_user.address.present?%>
+		                		<span><%=@owner_user.address%></span>
+		                	<%else%>
+		                		<span>---</span>
+		                	<%end%>
+		                </div>
+		            </div>
+
+		            <div class="post_show_right_user_info">
+		                <div class="post_show_right_user_info_label">
+		                	<a>VIỆC LÀM</a>
+		                </div>
+		                <div class="post_show_right_user_info_des">
+		                	<%if @owner_user.job.present?%>
+		                		<span><%=@owner_user.job%></span>
+		                	<%else%>
+		                		<span>---</span>
+		                	<%end%>
+		                </div>
+		            </div>
+
+				    <div class="post_show_right_user_info">
+		                <div class="post_show_right_user_info_label">
+		                	<a>NGÀY THAM GIA</a>
+		                </div>
+		                <div class="post_show_right_user_info_des">
+		                	<span><%=@owner_user.created_at.strftime("%B %d, %Y")%></span>
+		                </div>
+		            </div>
+
+		            <div class="post_show_right_user_follow" id="post_show_right_user_follow<%=@owner_user.id%>">
+		                <%if current_user.present?%>
+		                    <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
+		                <%end%>
+		                <% if pre_follow %>  
+		                    <%= button_to user_user_follow_path(@owner_user, pre_follow), method: :delete, remote: true do%>
+		                        <a>Followed</a>
+		                    <%end%> 
+		                <%else%>
+		                    <%= button_to user_user_follows_path(@owner_user), method: :post, remote: true do%>
+		                        <a>Follow</a>
+		                    <%end%>
+		                <%end%>
+		            </div>
 				</div>
+
+	            <div class='post_show_right_user_post'>
+                    <div class='post_show_right_title'>
+                        <a>Bài viết khác từ <%=@owner_user.name%></a>
+                    </div>
+                    <%@owner_post.each do |post|%>
+                        <div class='post_show_right_content'>
+                            <a><%= link_to (post.title), post_path(post) %></a>
+                        </div>
+                    <%end%>
+                </div>
 			</div>
 		</div>
 	</div>

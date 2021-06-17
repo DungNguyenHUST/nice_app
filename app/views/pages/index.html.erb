@@ -32,7 +32,7 @@
                     <%if current_user.present?%>
                         <div class="home_new_post">
                             <div class="home_new_post_user_avatar checked_<%=find_user_color(current_user.name)%>">
-                                <a><%= link_to current_user.name[0], user_session_path(current_user), class: "home_new_post_user_name_label"%></a>
+                                <a><%= link_to current_user.name[0].upcase, user_session_path(current_user), class: "home_new_post_user_name_label"%></a>
                             </div>
                             <div class="home_new_post_editor">
                                 <%= button_to new_post_path(tab_id: 'PostID'), method: :get do%>

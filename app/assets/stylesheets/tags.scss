@@ -1,6 +1,7 @@
 // Place all the styles related to the Tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+///////////////////////////show////////////////////////
 .tag_show_index_container{
     background-color: #eef0f1;
     min-height: 900px;
@@ -112,12 +113,28 @@
     }
 }
 
+///////////////////////index///////////////////////////
 .tag_index_container{
 	background-color: #eef0f1;
 	min-height: 700px;
+    .tag_index_new{
+        button{
+            margin-top: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            background-color: #4f46e5;
+            height: 40px;
+            color: #fff;
+            font-size:14px;
+            font-weight: 600;
+            &:focus {outline:none;}
+        }
+    }
 	.tag_index_block{
 		min-height: 150px;
 		border: 1px solid #dbdbdb;
+        border-top: 20px solid #555;
 		margin-top: 20px;
 		border-radius: 5px;
 		padding: 15px;

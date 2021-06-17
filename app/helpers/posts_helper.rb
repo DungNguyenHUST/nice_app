@@ -1,10 +1,18 @@
 module PostsHelper
-    def find_owner_user(user_id)
+    def find_owner_user_for_post(post)
         @owner_user = User.first
-        if user_id.present?
-            @owner_user = User.find_by(id: user_id)
+        if post.user_id.present?
+            @owner_user = User.find_by(id: post.user_id)
         end
         return @owner_user
+    end
+
+    def find_owner_post_for_user(user)
+        @owner_post = Post.first
+        if user.id.present?
+            @owner_post = Post.where(user_id: user.id)
+        end
+        return @owner_post
     end
 
     def find_user_color(user_name)
