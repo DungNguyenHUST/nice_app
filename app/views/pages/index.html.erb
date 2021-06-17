@@ -16,13 +16,24 @@
                     </div>
 
                     <div class='home_left_my_tag'>
-                        <div class='home_left_my_tag_title'>
-                            <a>My Tag</a>
-                        </div>
-                        <%@tags.each do |tag|%>
-                            <div class="home_left_my_tag_block">
-                                <a># <%= link_to (tag.name), tag_path(tag) %></a>
+                        <%if current_user.present?%>
+                            <div class='home_left_my_tag_title'>
+                                <a>My Tag</a>
                             </div>
+                            <%@tags.each do |tag|%>
+                                <div class="home_left_my_tag_block">
+                                    <a># <%= link_to (tag.name), tag_path(tag) %></a>
+                                </div>
+                            <%end%>
+                        <%else%>
+                            <div class='home_left_my_tag_title'>
+                                <a>Hot Tag</a>
+                            </div>
+                            <%@tags.each do |tag|%>
+                                <div class="home_left_my_tag_block">
+                                    <a># <%= link_to (tag.name), tag_path(tag) %></a>
+                                </div>
+                            <%end%>
                         <%end%>
                     </div>
                 </div>

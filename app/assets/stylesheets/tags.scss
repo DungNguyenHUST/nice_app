@@ -13,12 +13,26 @@
         border-radius: 5px;
         min-height: 100px;
         padding: 15px;
-        .tag_show_info_title{
-            font-size: 22px;
-            font-weight: 600;
+        .tag_show_info_avatar{
+            float: left;
+            img{ 
+                display: block;
+                width: 60px;
+                height: 60px;
+                border: 1px solid #efefef;
+                object-fit: cover;
+            }
+            display: block;
         }
-        .tag_show_info_des{
-            font-size: 14px;
+        .tag_show_info_data{
+            padding-left: 80px;
+            .tag_show_info_title{
+                font-size: 22px;
+                font-weight: 600;
+            }
+            .tag_show_info_des{
+                font-size: 14px;
+            }
         }
 
         .tag_show_follow_block{
@@ -181,8 +195,44 @@
 		border-radius: 5px;
 		padding: 15px;
 		background-color: #fff;
+
+        .tag_index_info{
+            width: 70%;
+            float: left;
+            .tag_index_name{
+                a{
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #333;
+                    text-decoration: none;
+                }
+            }
+            .tag_index_count{
+                padding-top: 10px;
+                font-size: 13px;
+                color: #666;
+            }
+        }
+        .tag_index_avatar{
+            float: right;
+            img{ 
+                display: block;
+                width: 60px;
+                height: 60px;
+                border: 1px solid #efefef;
+                object-fit: cover;
+            }
+            display: block;
+        }
+        .tag_index_description{
+            clear: both;
+            padding-top: 10px;
+            font-size: 14px;
+            color: #444;
+
+        }
 		.tag_index_follow_block{
-			margin-top: 20px;
+			margin-top: 10px;
             color: #555;
             margin-right: 20px;
             border: 1px solid #dbdbdb;
@@ -217,4 +267,110 @@
             }
         }
 	}
+}
+
+//////////////////////////new/////////////////////////
+.new_tag_form
+{
+    margin-bottom: 50px;
+    .new_tag_title{
+        font-size: 22px;
+        color: #333;
+        text-align: left;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-weight: 550;
+    }
+    
+    .new_tag_title_sub{
+        span{
+            font-size: 13px;
+            text-align: left;
+            color: #333;
+            font-style: italic;
+        }
+    }
+
+    .new_tag_section
+    {
+		border: 1px solid #e5e7ec;
+		padding: 15px;
+		border-radius: 3px;
+		@media screen and (max-width: 600px){
+			border: none;
+			border-top: 1px solid #e5e7ec;
+			padding: 0px;
+			padding-top: 20px;
+			border-radius: 0px;
+		}
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+        .new_tag_content{
+            .new_tag_label{
+                font-weight: 550;
+                font-size: 16px;
+                color: #333;
+                text-align: left;
+                padding-top: 10px;
+            }
+
+            .new_tag_input{
+                left: 0px;
+                margin-top: 5px;
+                margin-bottom: 20px;
+                width: 100%;
+                height: auto;
+                .new_tag_form_input{
+                    margin-left: 0px;
+                    height: 40px;
+                    width: 100%;
+                    border: 1px solid #dfe1e5;
+                    border-radius: 3px;
+                }
+
+                .form-control{
+                    margin-left: 0px;
+                    height: 40px;
+                    width: 100%;
+                    border: 1px solid #dfe1e5;
+                    border-radius: 3px;
+                    &:focus{
+                        border: 2px solid #1877f2;
+                        border-radius: 3px;
+                    }
+                }
+
+                .form-control-rich-text{
+                    min-height: 150px;
+                    height: auto;
+                    margin-left: 0px;
+                    width: 100%;
+                    border: 1px solid #dfe1e5;
+                    border-radius: 3px;
+                }
+            }
+        }
+    }
+
+    .new_tag_submit{
+        width: 100%;
+        padding-top: 20px;
+        .new_tag_form_submit{
+            height: 50px;
+            width: 100%;
+            border-radius: 3px;
+            padding: 6px;
+            background: #1877f2;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            color: #fff;
+            
+            &:hover{
+                background-color: #1877f2;
+            }
+        }
+    }
 }
