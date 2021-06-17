@@ -5,16 +5,57 @@
 .tag_show_index_container{
     background-color: #eef0f1;
     min-height: 900px;
-    .tag_show_left{
+    padding-top: 20px;
+    .tag_show_info{
         border: 1px solid #dbdbdb;
+        border-top: 10px solid #666;
         background-color: #fff;
-        margin-top: 20px;
         border-radius: 5px;
-        min-height: 300px;
-        .tag_show_left_title{
+        min-height: 100px;
+        padding: 15px;
+        .tag_show_info_title{
             font-size: 22px;
             font-weight: 600;
-            padding: 15px;
+        }
+        .tag_show_info_des{
+            font-size: 14px;
+        }
+
+        .tag_show_follow_block{
+            color: #555;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+            width: 100px;
+            padding: 5px;
+            float: right;
+            button{
+                border: none;
+                text-align: center;
+                background-color: #fff;
+                &:focus {outline:none;}
+            }
+            a{
+                font-size: 14px;
+                color: #666;
+                text-align: center;
+                span{
+                    margin-left: 2px;
+                }
+
+                @media screen and (max-width: 600px){
+                    display: none;
+                }
+            }
+            .tag_show_follow
+            {
+                border: none;
+                background-color: #fff;
+                i{
+                    color: #555;
+                    font-size: 24px;
+                }
+                &:focus {outline:none;}
+            }
         }
     }
     .tag_show_middle{
@@ -43,13 +84,14 @@
             }
 
         }
-        .tag_show_tag_sort{
+        .tag_show_post_sort{
             border: 1px solid #dbdbdb;
             background-color: #fff;
             padding: 15px;
             border-radius: 5px;
             margin-top: 20px;
-            .tag_show_tag_tab_link{
+            margin-bottom: 20px;
+            .tag_show_post_tab_link{
                 overflow: hidden;
                 position: relative;
                 display: block;
@@ -120,7 +162,7 @@
     .tag_index_new{
         button{
             margin-top: 15px;
-            width: 100%;
+            width: 100px;
             border: none;
             border-radius: 5px;
             background-color: #4f46e5;
