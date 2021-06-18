@@ -5,11 +5,11 @@
                 <% pre_vote = @post.post_votes.find { |vote| vote.user_id == current_user.id} %>
             <%end%>
             <% if pre_vote %>  
-                <%= button_to post_post_vote_path(@post, pre_vote), method: :delete, remote: true do%>
+                <%= button_to post_post_vote_path(@post, pre_vote, type_param: 'index'), method: :delete, remote: true do%>
                     <i><%= bootstrap_icon "arrow-up-circle-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
                 <%end%> 
             <%else%>
-                <%= button_to post_post_votes_path(@post), method: :post, remote: true do%>
+                <%= button_to post_post_votes_path(@post, type_param: 'index'), method: :post, remote: true do%>
                     <i><%= bootstrap_icon "arrow-up-circle", width: 20, height: 20, fill: "#888" %></i>
                 <%end%> 
             <%end%>
@@ -24,11 +24,11 @@
                 <% pre_unvote = @post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
             <%end%>
             <% if pre_unvote %>  
-                <%= button_to post_post_unvote_path(@post, pre_unvote), method: :delete, remote: true do%>
+                <%= button_to post_post_unvote_path(@post, pre_unvote, type_param: 'index'), method: :delete, remote: true do%>
                     <i><%= bootstrap_icon "arrow-down-circle-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
                 <%end%> 
             <%else%>
-                <%= button_to post_post_unvotes_path(@post), method: :post, remote: true do%>
+                <%= button_to post_post_unvotes_path(@post, type_param: 'index'), method: :post, remote: true do%>
                     <i><%= bootstrap_icon "arrow-down-circle", width: 20, height: 20, fill: "#888" %></i>
                 <%end%> 
             <%end%>
