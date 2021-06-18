@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
+  mount_uploader :avatar, ImageUploader
+
   has_many :user_notifications, dependent: :destroy
 
   # List follower of current user

@@ -41,7 +41,8 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find params[:id]
-        @user.update(user_params)
+        @user.update_without_password(user_params)
+        redirect_to edit_user_path(@user)
     end
 
     def try(arg)
@@ -50,6 +51,7 @@ class UsersController < ApplicationController
 
 private
     def user_params
-        params.require(:user).permit :name, :email, :password, :password_confirmation, :phone, :address, :cover_letter , :cover_letter_attach, :avatar, :root, :admin, :user, :employer, :company, :company_id
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :phone, :address, :sign, :education,
+                                    :job, :site, :birth_day, :company, :school, :introduce)
     end
 end

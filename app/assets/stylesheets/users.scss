@@ -563,23 +563,22 @@
 
 ////////////////////////show-setting///////////////////////
 .user_setting_dasboard{
+    background-color: #eef0f1;
     .user_setting_title{
         padding-top: 30px;
         padding-bottom: 20px;
-        span{
-            font-size: 22px;
-            font-weight: 600px;
-        }
+        font-size: 24px;
+        font-weight: 600px;
     }
 
     .user_setting_tab_link{
-        padding-top: 20px;
         clear: left;
         overflow: hidden;
         position: relative;
         display: block;
         background-color: #fff;
-        border-bottom: 1px solid #dfe1e5;
+        border: 1px solid #dfe1e5;
+        border-radius: 5px;
         .nav {
             overflow-x: auto;
             overflow-y: hidden;
@@ -621,20 +620,19 @@
 
     .user_setting_tab_content{
         min-height: 800px;
-        padding-top: 10px;
+        padding-top: 20px;
         .user_setting_personal_tab{
             .user_setting_form{
-                .user_setting_title{
-                    padding-top: 30px;
-                    padding-bottom: 30px;
-                    font-size: 22px;
-                    font-weight: 550;
-                }
-            
                 .user_setting_section{
+                    background-color: #fff;
                     padding: 15px;
                     border-radius: 3px;
                     border: 1px solid #e5e7ec;
+                    .user_setting_description{
+                        font-size: 24px;
+                        font-weight: 600;
+                        padding-bottom: 15px;
+                    }
                     @media screen and (max-width: 600px){
                         border: none;
                         border-top: 1px solid #e5e7ec;
@@ -650,6 +648,7 @@
                         .user_setting_label{
                             font-size: 16px;
                             font-weight: 550;
+                            color: #555;
                         }
                         .user_setting_input{
                             padding-bottom: 10px;
@@ -785,6 +784,7 @@
 
 ///////////////////////show-profile//////////////////////
 .user_profile_dasboard{
+    background-color: #eef0f1;
     .user_profile_title{
         padding-top: 30px;
         padding-bottom: 20px;
@@ -794,14 +794,39 @@
         }
     }
 
+    .user_show_info_avatar{
+        margin-top: 20px;
+        img{ 
+            display: block;
+            width: 60px;
+            height: 60px;
+            border: 1px solid #efefef;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        display: block;
+        float: left;
+    }
+
+    .user_show_info_data{
+        padding-top: 30px;
+        padding-left: 70px;
+        .user_show_info_title{
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+    }
+
     .user_profile_tab_link{
-        padding-top: 20px;
+        margin-top: 20px;
         clear: left;
         overflow: hidden;
         position: relative;
         display: block;
         background-color: #fff;
-        border-bottom: 1px solid #dfe1e5;
+        border: 1px solid #dfe1e5;
+        border-radius: 5px;
         .nav {
             overflow-x: auto;
             overflow-y: hidden;
@@ -843,7 +868,11 @@
 
     .user_profile_tab_content{
         min-height: 800px;
-        padding-top: 10px;
+        background-color: #fff;
+        border: 1px solid #dfe1e5;
+        border-radius: 5px;
+        margin-top: 20px;
+        padding: 15px;
         .user_profile_personal_tab{
             .user_profile_info{
                 margin-top: 10px;

@@ -60,7 +60,13 @@
                                 </div>  
                             </div>
 
-                            <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                            <div class="new_post_section">
+                                <div class="new_post_content">
+                                    <div class="new_post_input">
+                                        <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="new_post_submit">
                                 <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>
@@ -88,6 +94,14 @@
                                             <i><%= bootstrap_icon "plus", width: 18, height: 18%>Upload</i>
                                         </label>
                                         <%= f.file_field :image, id:"file-input" %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="new_image_section">
+                                <div class="new_image_content">
+                                    <div class="new_image_input">
+                                        <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
                                     </div>
                                 </div>
                             </div>
