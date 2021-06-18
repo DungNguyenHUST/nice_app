@@ -76,7 +76,7 @@
 		background-color: #eef0f1;
 		border: 1px solid #dbdbdb;
 		width: 100%;
-		border-radius: 3px;
+		border-radius: 5px;
 		i{
 			font-size: 20px;
 			color: #888;
@@ -104,7 +104,7 @@
 	.nav_signup{
 		span{
 			border: 1px solid #111;
-			border-radius: 5px;
+			border-radius: 20px;
 			padding: 6px;
 			&:hover{
 				background-color: #4f46e5;
@@ -114,39 +114,16 @@
 		}
 	}
 
-	.nav_new_post{
-		display: block;
-		span{
-			border: none;
-			border-radius: 5px;
-			padding: 8px;
-			background-color: #4f46e5;
-			color: #fff;
-			position: relative;
-			top: -1px;
-			font-size: 14px;
-			font-weight: 600;
-			@media screen and (max-width: 600px){
-				top: -5px;
-			}	
-			&:hover{
-				background-color: #222;
-				color: #fff;
-				border: none;
-			}
-		}
-	}
-	
 	.nav_signin{
 		display: block;
 		span{
 			border: none;
-			border-radius: 5px;
+			border-radius: 20px;
 			padding: 7px;
 			background-color: #4f46e5;
 			color: #fff;
 			position: relative;
-			top: -5px;
+			top: -4px;
 			font-size: 16px;
 			@media screen and (max-width: 600px){
 				top: -5px;
@@ -160,6 +137,30 @@
 				position: relative;
 				// top: 5px;
 			}
+			&:hover{
+				background-color: #222;
+				color: #fff;
+				border: none;
+			}
+		}
+	}
+
+	
+	.nav_new_post{
+		display: block;
+		span{
+			border: none;
+			border-radius: 20px;
+			padding: 8px;
+			background-color: #4f46e5;
+			color: #fff;
+			position: relative;
+			top: -1px;
+			font-size: 14px;
+			font-weight: 600;
+			@media screen and (max-width: 600px){
+				top: -5px;
+			}	
 			&:hover{
 				background-color: #222;
 				color: #fff;

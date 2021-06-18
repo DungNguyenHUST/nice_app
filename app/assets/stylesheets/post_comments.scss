@@ -8,7 +8,18 @@
     /*border-top: 1px solid #dfe1e5;*/
     .post_comment_left_block{
         float: left;
-        .post_comment_avatar{
+        .post_comment_user_avatar{
+            border: none;
+            margin-right: 5px;
+            img{
+                border: 1px solid #dbdbdb;
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+        .post_comment_user_text{
             .post_comment_name_label{
                 border-radius: 50%;
                 background-color: #dfe1e5;

@@ -5,11 +5,11 @@
         <%end%>
         <% if pre_follow %>  
             <%= button_to user_user_follow_path(owner_user, pre_follow, type_param: 'index'), method: :delete, remote: true do%>
-                <a>Followed</a>
+                <a>Đã theo dõi</a>
             <%end%> 
         <%else%>
             <%= button_to user_user_follows_path(owner_user, type_param: 'index'), method: :post, remote: true do%>
-                <a>Follow</a>
+                <a>Theo dõi</a>
             <%end%>
         <%end%>
     </div>
@@ -20,11 +20,11 @@
         <%end%>
         <% if pre_follow %>  
             <%= button_to user_user_follow_path(@owner_user, pre_follow), method: :delete, remote: true do%>
-                <a>Followed</a>
+                <a>Đã theo dõi</a>
             <%end%> 
         <%else%>
             <%= button_to user_user_follows_path(@owner_user), method: :post, remote: true do%>
-                <a>Follow</a>
+                <a>Theo dõi</a>
             <%end%>
         <%end%>
     </div>

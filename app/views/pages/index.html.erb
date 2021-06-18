@@ -27,7 +27,7 @@
                             <%end%>
                         <%else%>
                             <div class='home_left_my_tag_title'>
-                                <a>Hot Tag</a>
+                                <a>Gợi ý theo dõi</a>
                             </div>
                             <%@tags.each do |tag|%>
                                 <div class="home_left_my_tag_block">
@@ -42,12 +42,18 @@
                 <div class='home_middle_block'>
                     <%if current_user.present?%>
                         <div class="home_new_post">
-                            <div class="home_new_post_user_avatar checked_<%=find_user_color(current_user.name)%>">
-                                <a><%= link_to current_user.name[0].upcase, user_session_path(current_user), class: "home_new_post_user_name_label"%></a>
-                            </div>
+                            <%if current_user.avatar?%>
+                                <div class="home_new_post_user_avatar">
+                                    <%= image_tag current_user.avatar.url %>
+                                </div>
+                            <%else%>
+                                <div class="home_new_post_user_text checked_<%=find_user_color(current_user.name)%>">
+                                    <a><%= link_to current_user.name[0].upcase, user_session_path(current_user), class: "home_new_post_user_name_label"%></a>
+                                </div>
+                            <%end%>
                             <div class="home_new_post_editor">
                                 <%= button_to new_post_path(tab_id: 'PostID'), method: :get do%>
-                                    <%=current_user.name%>, bạn đang nghĩ gì?
+                                    <%=current_user.name%>, hôm nay bạn thế nào?
                                 <%end%>
                             </div>
                             <div class="home_new_post_image">
@@ -121,7 +127,7 @@
             <div class="col-sm-3">
                 <div class='home_right_block'>
                     <div class='home_right_title'>
-                        <a>Today's Trending</a>
+                        <a>Trending hôm nay</a>
                     </div>
                     <%@posts.each do |post|%>
                         <div class='home_right_content'>
