@@ -14,7 +14,11 @@
                 <%= link_to (image_tag(("logo.png"))), image_path(url_for(("logo.png"))), rel: "gallery" , :href => pages_path%>
             </div>
             -->
-            <a href="<%=pages_path %>">#home </a>
+            <div class="rounded">
+                <a href="<%=pages_path%>">
+                    <span>HOME</span>
+                </a>
+            </div>
         </div>
 
         <%if user_signed_in?%>
@@ -64,13 +68,6 @@
             </div>
         <%end%>
 
-        <%if false%>
-        <a href="<%=posts_path %>">#home </a>
-        <a href="<%=posts_path %>">#tag </a>
-        <a href="<%=posts_path %>">#communication </a>
-        <a href="<%=posts_path %>">#create post</a>
-        <%end%>
-
         <%=form_tag posts_path, :method => "get" do%>
             <div class="post_search_input">
                 <div class="post_search_what">
@@ -80,54 +77,57 @@
             </div>
         <%end%>
 
-        <div class="nav_right">
-            <%if user_signed_in?%>
-                <div class="nav_user">
-                    <div class="user_notification">                     
-                        <%= link_to user_path(current_user, :tab_id => "NotificationID") do %>
-                            <%if current_user.user_notifications.count < 10%>
-                                <i><%= bootstrap_icon "bell", width: 22, height: 22%></i><span><%=current_user.user_notifications.count%></span>
+        <%if user_signed_in?%>
+            <div class="nav_right">
+                <a class="nav_new_post" href="<%=new_post_path%>">
+                    <span><i><%= bootstrap_icon "plus", width: 18, height: 18 %></i>Bài viết mới</span>
+                </a>
+                <div class="user_notification">                     
+                    <%= link_to user_path(current_user, :tab_id => "NotificationID") do %>
+                        <%if current_user.user_notifications.count < 10%>
+                            <i><%= bootstrap_icon "bell", width: 22, height: 22%></i><span><%=current_user.user_notifications.count%></span>
+                        <%else%>
+                            <i><%= bootstrap_icon "bell", width: 22, height: 22%></i><span>9+</span>
+                        <%end%>
+                    <%end%>
+                </div>
+
+                <button class="user_avatar_small" onclick="openUserActionMenu()">
+                    <%if current_user.avatar?%>
+                        <div class="user_avatar_small_img">
+                            <%= image_tag current_user.avatar.url %>
+                        </div>
+                    <%else%>
+                        <div class="user_avatar_small_text checked_<%=find_user_color(current_user.name)%>">
+                            <%if current_user.name.present?%>
+                                <span><%=current_user.name[0].upcase%></span>
                             <%else%>
-                                <i><%= bootstrap_icon "bell", width: 22, height: 22%></i><span>9+</span>
+                                <span>A</span>
                             <%end%>
+                        </div>
+                    <%end%>
+                </button>
+
+                <div class="user_action_select" id ="user_action_menu">
+                    <div class="user_action">
+                        <%= button_to user_path(current_user), :method => :get do%>
+                            <i><%= bootstrap_icon "person", width: 22, height: 22%></i> <span>Thông tin cá nhân</span>
                         <%end%>
                     </div>
-
-                    <button class="user_avatar_small" onclick="openUserActionMenu()">
-                        <%if current_user.avatar?%>
-                            <div class="user_avatar_small_img">
-                                <%= image_tag current_user.avatar.url %>
-                            </div>
-                        <%else%>
-                            <div class="user_avatar_small_text checked_<%=find_user_color(current_user.name)%>">
-                                <%if current_user.name.present?%>
-                                    <span><%=current_user.name[0].upcase%></span>
-                                <%else%>
-                                    <span>A</span>
-                                <%end%>
-                            </div>
+                    <div class="user_action">
+                        <%= button_to edit_user_path(current_user), :method => :get do%>
+                            <i><%= bootstrap_icon "gear", width: 22, height: 22%></i> <span>Cài đặt tài khoản</span>
                         <%end%>
-                    </button>
-
-                    <div class="user_action_select" id ="user_action_menu">
-                        <div class="user_action">
-                            <%= button_to user_path(current_user), :method => :get do%>
-                                <i><%= bootstrap_icon "person", width: 22, height: 22%></i> <span>Thông tin cá nhân</span>
-                            <%end%>
-                        </div>
-                        <div class="user_action">
-                            <%= button_to edit_user_path(current_user), :method => :get do%>
-                                <i><%= bootstrap_icon "gear", width: 22, height: 22%></i> <span>Cài đặt tài khoản</span>
-                            <%end%>
-                        </div>
-                        <div class="user_action">
-                            <%= button_to destroy_user_session_path, method: :delete do%>
-                                <i><%= bootstrap_icon "box-arrow-right", width: 22, height: 22%></i> <span>Đăng xuất</span>
-                            <%end%>
-                        </div>
+                    </div>
+                    <div class="user_action">
+                        <%= button_to destroy_user_session_path, method: :delete do%>
+                            <i><%= bootstrap_icon "box-arrow-right", width: 22, height: 22%></i> <span>Đăng xuất</span>
+                        <%end%>
                     </div>
                 </div>
-            <%else%>
+            </div>
+        <%else%>
+            <div class="nav_right">
                 <a class="nav_signup" href="<%=new_user_registration_path%>">
                     <span>Tạo tài khoản</span>
                 </a>
@@ -136,8 +136,8 @@
                         <i><%= bootstrap_icon "person", width: 22, height: 22%></i> Đăng nhập
                     </span>
                 </a>
-            <%end%>
-        </div>
+            </div>
+        <%end%>
     </div>
 </div>
 
