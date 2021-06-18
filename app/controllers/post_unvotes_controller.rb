@@ -18,6 +18,12 @@ class PostUnvotesController < ApplicationController
             @post_unvote = @post.post_unvotes.build(user_id: current_user.id)
             @post_unvote.save!
         end
+        @type_param = params[:type_param]
+
+        respond_to do |format|
+            format.html {}
+            format.js
+        end
     end
 
     def edit
@@ -30,6 +36,7 @@ class PostUnvotesController < ApplicationController
         @post = Post.find(params[:post_id])
         @post_unvote = @post.post_unvotes.find(params[:id])
         @post_unvote.destroy
+        @type_param = params[:type_param]
 
         respond_to do |format|
             format.html {}

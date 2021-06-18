@@ -17,6 +17,7 @@ class UserFollowsController < ApplicationController
             @user_follow = UserFollow.create(follower_id: current_user.id, followee_id: params[:user_id])
             @user_follow.save!
         end
+        @type_param = params[:type_param]
 
         respond_to do |format|
             format.html {}
@@ -34,7 +35,8 @@ class UserFollowsController < ApplicationController
         @user = User.find(params[:user_id])
         @user_follow = @user.following_users.find(params[:id])
         @user_follow.destroy
-
+        @type_param = params[:type_param]
+        
         respond_to do |format|
             format.html {}
             format.js

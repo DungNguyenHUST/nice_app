@@ -1,16 +1,36 @@
-<div id="post_index_follow_<%=@post.id%>">
-    <%if current_user.present?%>
-        <% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
-    <%end%>
-    <% if pre_follow %>  
-        <%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true do%>
-            <i><%= bootstrap_icon "bookmark-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
-            <span>Save</span>
-        <%end%> 
-    <%else%>
-        <%= button_to post_post_follows_path(@post), method: :post, remote: true do%>
-            <i><%= bootstrap_icon "bookmark", width: 20, height: 20, fill: "#888" %></i>
-            <span>Save</span>
-        <%end%> 
-    <%end%>
-</div>
+<%if @type_param == "index" %>
+    <div id="post_follow_<%=@post.id%>">
+        <%if current_user.present?%>
+            <% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
+        <%end%>
+        <% if pre_follow %>  
+            <%= button_to post_post_follow_path(@post, pre_follow, type_param: 'index'), method: :delete, remote: true do%>
+                <i><%= bootstrap_icon "bookmark-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
+                <span>Save</span>
+            <%end%> 
+        <%else%>
+            <%= button_to post_post_follows_path(@post, type_param: 'index'), method: :post, remote: true do%>
+                <i><%= bootstrap_icon "bookmark", width: 20, height: 20, fill: "#888" %></i>
+                <span>Save</span>
+            <%end%> 
+        <%end%>
+    </div>
+<%else%>
+    <div id="post_follow_<%=@post.id%>">
+        <%if current_user.present?%>
+            <% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
+        <%end%>
+        <% if pre_follow %>  
+            <%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true do%>
+                <i><%= bootstrap_icon "bookmark-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
+            <%end%> 
+        <%else%>
+            <%= button_to post_post_follows_path(@post), method: :post, remote: true do%>
+                <i><%= bootstrap_icon "bookmark", width: 20, height: 20, fill: "#888" %></i>
+            <%end%> 
+        <%end%>
+        <a class="post_show_follow_count">
+            <span><%=@post.post_follows.count%></span>
+        </a>
+    </div>
+<%end%>

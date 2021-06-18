@@ -4,7 +4,7 @@
 			<div class='col-sm-1'>
 				<div class="post_show_left_block">
 					<div class="post_show_toolbar_block">
-				        <div class="post_show_vote_unvote_block">
+				        <div class="post_show_vote_unvote_block" id="post_vote_unvote_<%=@post.id%>">
 				            <div class="post_show_vote_block">
 				                <% pre_vote = @post.post_votes.find { |vote| vote.user_id == current_user.id} %>
 				                <% if pre_vote %>  
@@ -43,11 +43,23 @@
 				            <%end%> 
 				        </div>
 
-				        <div class="post_show_save_block">
-				            <%= button_to post_path(@post), method: :get, form_class: "post_show_save" do%>
-				                <i><%= bootstrap_icon "bookmark", width: 22, height: 22, fill: "#666" %></i>
-				                <span><%= @post.post_comments.count%></span> 
-				            <%end%> 
+				        <div class="post_show_follow_block" id="post_follow_<%=@post.id%>">
+				            <%if current_user.present?%>
+				                <% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
+				            <%end%>
+				            <% if pre_follow %>  
+				                <%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true do%>
+				                    <i><%= bootstrap_icon "bookmark-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
+				                <%end%> 
+				            <%else%>
+				                <%= button_to post_post_follows_path(@post), method: :post, remote: true do%>
+				                    <i><%= bootstrap_icon "bookmark", width: 20, height: 20, fill: "#666" %></i>
+				                <%end%> 
+				            <%end%>
+
+				            <a class="post_show_follow_count">
+				                <span><%=@post.post_follows.count%></span>
+				            </a>
 				        </div>
 
 				        <div class="post_show_share_block">
@@ -172,7 +184,7 @@
 		                </div>
 		            </div>
 
-		            <div class="post_show_right_user_follow" id="post_show_right_user_follow<%=@owner_user.id%>">
+		            <div class="post_show_right_user_follow" id="user_follow<%=@owner_user.id%>">
 		                <%if current_user.present?%>
 		                    <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
 		                <%end%>

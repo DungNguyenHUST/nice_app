@@ -18,6 +18,7 @@ class PostVotesController < ApplicationController
             @post_vote = @post.post_votes.build(user_id: current_user.id)
             @post_vote.save!
         end
+        @type_param = params[:type_param]
 
         respond_to do |format|
             format.html {}
@@ -35,6 +36,7 @@ class PostVotesController < ApplicationController
         @post = Post.find(params[:post_id])
         @post_vote = @post.post_votes.find(params[:id])
         @post_vote.destroy
+        @type_param = params[:type_param]
 
         respond_to do |format|
             format.html {}

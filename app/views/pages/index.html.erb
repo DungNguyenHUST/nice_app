@@ -10,7 +10,7 @@
                         <div class='home_left_view_tag_button'>
                             <%= button_to tags_path, method: :get do%>
                                 <i><%= bootstrap_icon "plus", width: 18, height: 18 %></i>
-                                Discover tag
+                                <a>Khám phá</a>
                             <%end%>
                         </div>
                     </div>
@@ -111,7 +111,8 @@
 
                         <%if @tab_id == "PostNewID"%>
                             <%@posts.reverse.each do |post|%>
-                                <%= render post%>
+                                <%@post = post%>
+                                <%= render @post%>
                             <%end%>
                         <%end%>
                     </div>
@@ -120,7 +121,7 @@
             <div class="col-sm-3">
                 <div class='home_right_block'>
                     <div class='home_right_title'>
-                        <a>Listings</a>
+                        <a>Today's Trending</a>
                     </div>
                     <%@posts.each do |post|%>
                         <div class='home_right_content'>

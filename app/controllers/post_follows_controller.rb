@@ -18,6 +18,7 @@ class PostFollowsController < ApplicationController
             @post_follow = @post.post_follows.build(user_id: current_user.id)
             @post_follow.save!
         end
+        @type_param = params[:type_param]
 
         respond_to do |format|
             format.html {}
@@ -35,6 +36,7 @@ class PostFollowsController < ApplicationController
         @post = Post.find(params[:post_id])
         @post_follow = @post.post_follows.find(params[:id])
         @post_follow.destroy
+        @type_param = params[:type_param]
 
         respond_to do |format|
             format.html {}

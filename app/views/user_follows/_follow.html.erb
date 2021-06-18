@@ -1,14 +1,31 @@
-<div id="post_index_user_follow_<%=@user.id%>">
-    <%if current_user.present?%>
-        <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
-    <%end%>
-    <% if pre_follow %>  
-        <%= button_to user_user_follow_path(@user, pre_follow), method: :delete, remote: true do%>
-            <a>Followed</a>
-        <%end%> 
-    <%else%>
-        <%= button_to user_user_follows_path(@user), method: :post, remote: true do%>
-            <a>Follow</a>
+<%if @type_param == "index"%>
+    <div id="user_follow_<%=owner_user.id%>">
+        <%if current_user.present?%>
+            <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
         <%end%>
-    <%end%>
-</div>
+        <% if pre_follow %>  
+            <%= button_to user_user_follow_path(owner_user, pre_follow, type_param: 'index'), method: :delete, remote: true do%>
+                <a>Followed</a>
+            <%end%> 
+        <%else%>
+            <%= button_to user_user_follows_path(owner_user, type_param: 'index'), method: :post, remote: true do%>
+                <a>Follow</a>
+            <%end%>
+        <%end%>
+    </div>
+<%else%>
+    <div id="user_follow<%=@owner_user.id%>">
+        <%if current_user.present?%>
+            <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
+        <%end%>
+        <% if pre_follow %>  
+            <%= button_to user_user_follow_path(@owner_user, pre_follow), method: :delete, remote: true do%>
+                <a>Followed</a>
+            <%end%> 
+        <%else%>
+            <%= button_to user_user_follows_path(@owner_user), method: :post, remote: true do%>
+                <a>Follow</a>
+            <%end%>
+        <%end%>
+    </div>
+<%end%>

@@ -148,6 +148,8 @@
             border-radius: 5px; 
             background-color: #e1ecf4;
             padding: 3px;
+            padding-left: 5px;
+            padding-right: 5px;
             font-size: 13px;
             a{
                 text-decoration: none;
@@ -344,9 +346,9 @@
                 }
             }
 
-            .post_show_save_block{
+            .post_show_follow_block{
                 padding-top: 15px;
-                color: #555;
+                color: #333;
                 button{
                     border: none;
                     background-color: #eef0f1;
@@ -366,10 +368,21 @@
                     }
                     &:focus {outline:none;}
                 }
+
+                .post_show_follow_count{
+                    span{
+                        padding-left: 12px;
+                        font-size: 14px;
+                        color: #666;
+                    }
+                    margin-top: 3px;
+                    text-align: center;
+                    text-decoration: none;
+                }
             }
 
             .post_show_share_block{
-                padding-top: 15px;
+                padding-top: 10px;
                 color: #555;
                 button{
                     border: none;

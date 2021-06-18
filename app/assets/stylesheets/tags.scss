@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 ///////////////////////////show////////////////////////
-.tag_show_index_container{
+.tag_show_container{
     background-color: #eef0f1;
     min-height: 900px;
     padding-top: 20px;
@@ -24,6 +24,7 @@
             }
             display: block;
         }
+
         .tag_show_info_data{
             padding-left: 80px;
             .tag_show_info_title{
@@ -36,42 +37,35 @@
         }
 
         .tag_show_follow_block{
-            color: #555;
-            border: 1px solid #dbdbdb;
-            border-radius: 5px;
-            width: 100px;
-            padding: 5px;
             float: right;
             button{
-                border: none;
+                width: 100px;
                 text-align: center;
-                background-color: #fff;
+                margin-top: 10px;
+                border: 1px solid #dbdbdb;
+                border-radius: 5px;
+                padding: 5px;
+                font-size: 13px;
+                font-weight: 600;
                 &:focus {outline:none;}
             }
-            a{
-                font-size: 14px;
-                color: #666;
-                text-align: center;
-                span{
-                    margin-left: 2px;
-                }
-
-                @media screen and (max-width: 600px){
-                    display: none;
-                }
-            }
-            .tag_show_follow
+            .follow_btn_highlight
             {
-                border: none;
-                background-color: #fff;
-                i{
-                    color: #555;
-                    font-size: 24px;
+                button{
+                    background-color: #4f46e5;
+                    color: #fff;
                 }
-                &:focus {outline:none;}
+            }
+
+            .follow_btn{
+                button{
+                    background-color: #fff;
+                    color: #555;
+                }
             }
         }
     }
+
     .tag_show_middle{
         margin-top: 20px;
         .tag_show_tag_new{
@@ -204,7 +198,12 @@
                     font-size: 20px;
                     font-weight: 600;
                     color: #333;
-                    text-decoration: none;
+                    text-decoration: none !important;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3; /* number of lines to show */
+                    -webkit-box-orient: vertical;
                 }
             }
             .tag_index_count{
@@ -232,38 +231,30 @@
 
         }
 		.tag_index_follow_block{
-			margin-top: 10px;
-            color: #555;
-            margin-right: 20px;
-            border: 1px solid #dbdbdb;
-            border-radius: 5px;
-            width: 100px;
-            padding: 5px;
             button{
-                border: none;
-                background-color: #fff;
+                width: 100px;
+                text-align: center;
+                margin-top: 10px;
+                border: 1px solid #dbdbdb;
+                border-radius: 5px;
+                padding: 5px;
+                font-size: 13px;
+                font-weight: 600;
                 &:focus {outline:none;}
             }
-            a{
-                font-size: 14px;
-                color: #666;
-                span{
-                    margin-left: 2px;
-                }
-
-                @media screen and (max-width: 600px){
-                    display: none;
-                }
-            }
-            .tag_index_follow
+            .follow_btn_highlight
             {
-                border: none;
-                background-color: #fff;
-                i{
-                    color: #555;
-                    font-size: 24px;
+                button{
+                    background-color: #4f46e5;
+                    color: #fff;
                 }
-                &:focus {outline:none;}
+            }
+
+            .follow_btn{
+                button{
+                    background-color: #fff;
+                    color: #555;
+                }
             }
         }
 	}

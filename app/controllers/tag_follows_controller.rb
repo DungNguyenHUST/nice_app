@@ -19,6 +19,8 @@ class TagFollowsController < ApplicationController
             @tag_follow.save!
         end
 
+        @type_param = params[:type_param]
+
         respond_to do |format|
             format.html {}
             format.js
@@ -35,7 +37,8 @@ class TagFollowsController < ApplicationController
         @tag = Tag.find(params[:tag_id])
         @tag_follow = @tag.tag_follows.find(params[:id])
         @tag_follow.destroy
-
+        @type_param = params[:type_param]
+        
         respond_to do |format|
             format.html {}
             format.js
