@@ -3,14 +3,29 @@
         <div class="row">
             <div class="col-sm-2">
                 <div class='home_left_block'>
-                    <div class='home_left_view_tag'>
-                        <div class='home_left_view_tag_title'>
-                            <a>Tag</a>
+                    <div class='home_left_view_menu'>
+                        <div class='home_left_view_menu_section'>
+                            <%= button_to pages_path, method: :get do%>
+                                <i><%= bootstrap_icon "house", width: 24, height: 24 %></i>
+                                <a>Trang chủ</a>
+                            <%end%>
                         </div>
-                        <div class='home_left_view_tag_button'>
+                        <div class='home_left_view_menu_section'>
                             <%= button_to tags_path, method: :get do%>
-                                <i><%= bootstrap_icon "plus", width: 18, height: 18 %></i>
+                                <i><%= bootstrap_icon "pip", width: 24, height: 24 %></i>
                                 <a>Khám phá</a>
+                            <%end%>
+                        </div>
+                        <div class='home_left_view_menu_section'>
+                            <%= button_to pages_path, method: :get do%>
+                                <i><%= bootstrap_icon "card-list", width: 24, height: 24 %></i>
+                                <a>Reading list</a>
+                            <%end%>
+                        </div>
+                        <div class='home_left_view_menu_section'>
+                            <%= button_to user_path(current_user), method: :get do%>
+                                <i><%= bootstrap_icon "person-square", width: 24, height: 24 %></i>
+                                <a>Cá nhân</a>
                             <%end%>
                         </div>
                     </div>
@@ -44,7 +59,7 @@
                         <div class="home_new_post">
                             <%if current_user.avatar?%>
                                 <div class="home_new_post_user_avatar">
-                                    <%= image_tag current_user.avatar.url %>
+                                    <%= link_to (image_tag(current_user.avatar.url)), image_path(url_for(current_user.avatar.url)), rel: "gallery" , :href => user_path(current_user)%>
                                 </div>
                             <%else%>
                                 <div class="home_new_post_user_text checked_<%=find_user_color(current_user.name)%>">
@@ -129,9 +144,19 @@
                     <div class='home_right_title'>
                         <a>Trending hôm nay</a>
                     </div>
+
                     <%@posts.each do |post|%>
                         <div class='home_right_content'>
-                            <a><%= link_to (post.title), post_path(post) %></a>
+							<div class='home_right_post_block'>
+                            	<a><%= link_to (post.title), post_path(post) %></a>
+							</div>
+							<div class='home_right_tag_block'>
+								<%post.tags.each do |tag|%>
+									<%= button_to tag_path(tag), method: :get do %>
+										<a><span>#</span><%=tag.name%></a>
+									<%end%>
+								<%end%>
+							</div>
                         </div>
                     <%end%>
                 </div>

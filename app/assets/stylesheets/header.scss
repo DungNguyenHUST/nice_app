@@ -1,7 +1,7 @@
 .topnav {
 	overflow: hidden;
 	background-color: #fff;
-	border-bottom: 1px solid #dbdbdb;
+	border-bottom: 1px solid #dfe1e5;
 	height: 50px;
 }
 
@@ -64,7 +64,7 @@
 		color: #4f46e5;
 	}
 	@media screen and (max-width: 600px){
-		border-bottom: 1px solid #dbdbdb;
+		border-bottom: 1px solid #dfe1e5;
 	}
 }
 
@@ -74,7 +74,7 @@
 	margin-top: 6px;
 	.post_search_what{
 		background-color: #eef0f1;
-		border: 1px solid #dbdbdb;
+		border: 1px solid #dfe1e5;
 		width: 100%;
 		border-radius: 5px;
 		i{
@@ -251,7 +251,7 @@
 			position: relative;
 			top: 6px;
 			img{
-				border: 1px solid #dbdbdb;
+				border: 1px solid #eee;
 				width: 36px;
 				height: 36px;
 				border-radius: 50%;
@@ -266,7 +266,7 @@
 		top: 66px;
 		right: 8%;
 		background-color: #fff;
-		border: 1px solid #dbdbdb;
+		border: 1px solid #dfe1e5;
 		border-radius: 5px;
 		z-index: 10;
 		width: 200px;
@@ -392,7 +392,7 @@
 			top: 12px;
 			border: none;
 			img{
-				border: 1px solid #dbdbdb;
+				border: 1px solid #eee;
 				width: 32px;
 				height: 32px;
 				border-radius: 50%;
@@ -404,7 +404,7 @@
 	.user_action_select_mobile{
 		display: none;
 		background-color: #fff;
-		border: 1px solid #dbdbdb;
+		border: 1px solid #dfe1e5;
 		border-radius: 5px;
 		position: absolute;
 		z-index: 10;

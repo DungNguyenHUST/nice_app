@@ -7,7 +7,7 @@
     min-height: 900px;
     padding-top: 20px;
     .tag_show_info{
-        border: 1px solid #dbdbdb;
+        border: 1px solid #dfe1e5;
         border-top: 10px solid #666;
         background-color: #fff;
         border-radius: 5px;
@@ -19,7 +19,7 @@
                 display: block;
                 width: 60px;
                 height: 60px;
-                border: 1px solid #efefef;
+                border: 1px solid #eee;
                 object-fit: cover;
             }
             display: block;
@@ -42,7 +42,7 @@
                 width: 100px;
                 text-align: center;
                 margin-top: 10px;
-                border: 1px solid #dbdbdb;
+                border: 1px solid #dfe1e5;
                 border-radius: 20px;
                 padding: 5px;
                 font-size: 13px;
@@ -69,30 +69,30 @@
     .tag_show_middle{
         margin-top: 20px;
         .tag_show_tag_new{
-            border: 1px dashed #dbdbdb;
+            border: 1px dashed #dfe1e5;
             background-color: #fff;
             padding: 15px;
             .tag_show_new_tag{
                 button{
                     width: 100%;
-                    height: 50px;
-                    border-radius: 20px;
+                    height: 44px;
+                    border-radius: 22px;
                     padding: 6px;
                     background: #fff;
                     font-size: 16px;
                     border: none;
                     cursor: pointer;
                     text-align: center;
-                    color: #369;
+                    color: #4f46e5;
                     i{
-                        color: #369;
+                        color: #4f46e5;
                     }
                 }
             }
 
         }
         .tag_show_post_sort{
-            border: 1px solid #dbdbdb;
+            border: 1px solid #dfe1e5;
             background-color: #fff;
             padding: 15px;
             border-radius: 5px;
@@ -136,7 +136,7 @@
         }
     }
     .tag_show_right{
-        border: 1px solid #dbdbdb;
+        border: 1px solid #dfe1e5;
         background-color: #fff;
         margin-top: 20px;
         border-radius: 5px;
@@ -148,14 +148,14 @@
         }
 
         .tag_show_right_content{
-            border-top: 1px solid #dbdbdb;
+            border-top: 1px solid #dfe1e5;
             padding: 15px;
             a{
                 text-decoration: none;
                 color: #222;
                 font-size: 16px;
                 &:hover{
-                    color: #1817f2;
+                    color: #4f46e5;
                 };
             }
         }
@@ -182,7 +182,7 @@
     }
 	.tag_index_block{
 		min-height: 150px;
-		border: 1px solid #dbdbdb;
+		border: 1px solid #dfe1e5;
         border-top: 20px solid #555;
 		margin-top: 20px;
 		border-radius: 5px;
@@ -217,7 +217,7 @@
                 display: block;
                 width: 60px;
                 height: 60px;
-                border: 1px solid #efefef;
+                border: 1px solid #eee;
                 object-fit: cover;
             }
             display: block;
@@ -234,7 +234,7 @@
                 width: 100px;
                 text-align: center;
                 margin-top: 10px;
-                border: 1px solid #dbdbdb;
+                border: 1px solid #dfe1e5;
                 border-radius: 20px;
                 padding: 5px;
                 font-size: 13px;
@@ -285,7 +285,7 @@
     {
 		border: 1px solid #e5e7ec;
 		padding: 15px;
-		border-radius: 3px;
+		border-radius: 5px;
 		@media screen and (max-width: 600px){
 			border: none;
 			border-top: 1px solid #e5e7ec;
@@ -316,7 +316,7 @@
                     height: 40px;
                     width: 100%;
                     border: 1px solid #dfe1e5;
-                    border-radius: 3px;
+                    border-radius: 5px;
                 }
 
                 .form-control{
@@ -324,10 +324,10 @@
                     height: 40px;
                     width: 100%;
                     border: 1px solid #dfe1e5;
-                    border-radius: 3px;
+                    border-radius: 5px;
                     &:focus{
-                        border: 2px solid #1877f2;
-                        border-radius: 3px;
+                        border: 2px solid #4f46e5;
+                        border-radius: 5px;
                     }
                 }
 
@@ -337,7 +337,7 @@
                     margin-left: 0px;
                     width: 100%;
                     border: 1px solid #dfe1e5;
-                    border-radius: 3px;
+                    border-radius: 5px;
                 }
             }
         }
@@ -347,11 +347,11 @@
         width: 100%;
         padding-top: 20px;
         .new_tag_form_submit{
-            height: 50px;
+            height: 44px;
             width: 100%;
-            border-radius: 3px;
+            border-radius: 22px;
             padding: 6px;
-            background: #1877f2;
+            background: #4f46e5;
             font-size: 16px;
             border: none;
             cursor: pointer;
@@ -359,7 +359,7 @@
             color: #fff;
             
             &:hover{
-                background-color: #1877f2;
+                background-color: #4f46e5;
             }
         }
     }

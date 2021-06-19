@@ -20,15 +20,12 @@
         <%end%>
         <% if pre_follow %>  
             <%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true do%>
-                <i><%= bootstrap_icon "bookmark-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
+                <i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17, fill: "#4f46e5" %></i>
             <%end%> 
         <%else%>
             <%= button_to post_post_follows_path(@post), method: :post, remote: true do%>
-                <i><%= bootstrap_icon "bookmark", width: 20, height: 20, fill: "#666" %></i>
+                <i><%= bootstrap_icon "bookmark", width: 17, height: 17, fill: "#666" %></i>
             <%end%> 
         <%end%>
-        <a class="post_show_follow_count">
-            <span><%=@post.post_follows.count%></span>
-        </a>
     </div>
 <%end%>

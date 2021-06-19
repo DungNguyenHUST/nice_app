@@ -1,6 +1,7 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+//////////////////index///////////////////////////////
 .home_index_container{
     background-color: #eef0f1;
     min-height: 900px;
@@ -8,43 +9,61 @@
         margin-top: 20px;
         border-radius: 5px;
         min-height: 300px;
-        .home_left_view_tag{
-            .home_left_view_tag_title{
+        .home_left_view_menu{
+            .home_left_view_menu_title{
                 font-size: 22px;
                 font-weight: 600;
                 display: none;
             }
 
-            .home_left_view_tag_button{
+            .home_left_view_menu_section{
+                margin-bottom: 10px;
                 button{
-                    padding: 5px;
-                    min-width: 120px;
-                    text-align: center;
-                    font-size: 14px;
-                    border-radius: 5px;
-                    background-color: #dbdbdb;
+                    text-align: left;
+                    font-size: 18px;
+                    font-weight: 600;
+                    background-color: #eef0f1;
                     border: none; 
+                    color: #444;
                     i{
+                        font-size: 30px;
                         position: relative;
-                        top: -2px;
+                        left: -2px;
                         font-weight: 600;
+                        padding-right: 10px;
+                        color: #444;
+                    }
+
+                    &:hover{
+                        color: #4f46e5;
+                        i{
+                            color: #4f46e5;
+                        }
                     }
                 }
             }
         }
 
         .home_left_my_tag{
-            margin-top: 20px;
+            margin-top: 40px;
             .home_left_my_tag_title{
                 font-size: 22px;
                 font-weight: 600;
+                padding-bottom: 10px;
             }
             .home_left_my_tag_block{
                 padding-top: 5px;
                 padding-bottom: 5px;
+                margin-bottom: 5px;
                 a{
                     text-decoration: none;
                     color: #333;
+                }
+                &:hover{
+                    color: #4f46e5;
+                    a{
+                        color: #4f46e5;
+                    }
                 }
             }
         }
@@ -52,18 +71,18 @@
     .home_middle_block{
         margin-top: 20px;
         .home_new_post{
-            border: 1px dashed #dbdbdb;
+            border: 1px dashed #dfe1e5;
             background-color: #fff;
             padding: 15px;
             border-radius: 5px;
-            min-height: 80px;
+            min-height: 75px;
             .home_new_post_user_avatar{
                 border: none;
                 float: left;
                 position: relative;
                 top: 3px;
                 img{
-                    border: 1px solid #dbdbdb;
+                    border: 1px solid #eee;
                     width: 36px;
                     height: 36px;
                     border-radius: 50%;
@@ -144,17 +163,17 @@
                 button{
                     color: #aaa;
                     width: 100%;
-                    height: 40px;
+                    height: 44px;
                     border-radius: 5px;
                     padding: 6px;
                     background: #f9fafa;
                     font-size: 16px;
                     font-weight: 600;
-                    border: 1px solid #dbdbdb;
+                    border: 1px solid #dfe1e5;
                     cursor: pointer;
                     text-align: left;
                     i{
-                        color: #369;
+                        color: #4f46e5;
                     }
                 }
             }
@@ -163,7 +182,7 @@
                 width: 5%;
                 float: left;
                 position: relative;
-                top:  -5px;
+                top:  -3px;
                 padding-left: 10px;
                 button{
                     width: 100%;
@@ -175,9 +194,9 @@
                     border: none;
                     cursor: pointer;
                     text-align: center;
-                    color: #369;
+                    color: #4f46e5;
                     i{
-                        color: #369;
+                        color: #4f46e5;
                     }
                 }
             }
@@ -186,10 +205,9 @@
                 width: 5%;
                 float: right;
                 position: relative;
-                top:  -5px;
                 button{
                     width: 100%;
-                    height: 50px;
+                    height: 44px;
                     border-radius: 5px;
                     padding: 6px;
                     background: #fff;
@@ -197,16 +215,16 @@
                     border: none;
                     cursor: pointer;
                     text-align: center;
-                    color: #369;
+                    color: #4f46e5;
                     i{
-                        color: #369;
+                        color: #4f46e5;
                     }
                 }
             }
 
         }
         .home_post_sort{
-            border: 1px solid #dbdbdb;
+            border: 1px solid #dfe1e5;
             background-color: #fff;
             padding: 15px;
             border-radius: 5px;
@@ -223,7 +241,7 @@
                 .nav .nav-link {
                     white-space: nowrap;
                     font-size: 16px;
-                    color: #333;
+                    color: #555;
                     text-align: left;
                     i{
                         position: relative;
@@ -233,12 +251,12 @@
                 }
                 .nav .nav-link, .nav .nav-link.active, .nav .nav-link:hover {
                     border: none;
-                    color: #333;
+                    color: #555;
                     font-size: 16px;
                 }
                 .nav .nav-link.active {
-                    border-radius: 0;
-                    border-bottom: 3px solid #4f46e5;
+                    background-color: #eee;
+                    border-radius: 20px;
                     font-weight: 500;
                     color: #4f46e5;
                 }
@@ -249,7 +267,7 @@
         }
     }
     .home_right_block{
-        border: 1px solid #dbdbdb;
+        border: 1px solid #dfe1e5;
         background-color: #f9fafa;
         margin-top: 20px;
         border-radius: 5px;
@@ -261,15 +279,45 @@
         }
 
         .home_right_content{
-            border-top: 1px solid #dbdbdb;
+            border-top: 1px solid #dfe1e5;
             padding: 15px;
-            a{
-                text-decoration: none;
-                color: #222;
-                font-size: 16px;
-                &:hover{
-                    color: #1817f2;
-                };
+            padding-bottom: 10px;
+            padding-top: 10px;
+            display: block;
+            clear: both;
+            .home_right_post_block{
+                a{
+                    text-decoration: none;
+                    color: #222;
+                    font-size: 16px;
+                    &:hover{
+                        color: #4f46e5;
+                    };
+                }
+            }
+
+            .home_right_tag_block{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                display: block;
+                min-height: 20px;
+                button{
+                    margin-bottom: 5px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #f9fafa;
+                    padding: 3px;
+                    color: #4f46e5;
+                    font-size: 14px;
+                    font-weight: 500;
+                    &:focus {outline:none;}
+                    float: left;
+                    margin-right: 5px;
+                    &:hover{
+                        background-color: #4f46e5;
+                        color: #fff;
+                    }
+                }
             }
         }
     }

@@ -1,82 +1,13 @@
 <div class='post_show_container'>
 	<div class='container'>
 		<div class='row'>
-			<div class='col-sm-1'>
-				<div class="post_show_left_block">
-					<div class="post_show_toolbar_block">
-				        <div class="post_show_vote_unvote_block" id="post_vote_unvote_<%=@post.id%>">
-				            <div class="post_show_vote_block">
-				                <% pre_vote = @post.post_votes.find { |vote| vote.user_id == current_user.id} %>
-				                <% if pre_vote %>  
-				                    <%= button_to post_post_vote_path(@post, pre_vote), method: :delete, remote: true do%>
-				                        <i><%= bootstrap_icon "arrow-up-circle-fill", width: 24, height: 24, fill: "#4f46e5" %></i>
-				                    <%end%> 
-				                <%else%>
-				                    <%= button_to post_post_votes_path(@post), method: :@post, remote: true do%>
-				                        <i><%= bootstrap_icon "arrow-up-circle", width: 24, height: 24, fill: "#888" %></i>
-				                    <%end%> 
-				                <%end%>
-				            </div>
-
-				            <a class="post_show_vote_unvote_count">
-				                <span><%=@post.post_votes.count - @post.post_unvotes.count%></span>
-				            </a>
-
-				            <div class="post_show_unvote_block">
-				                <% pre_unvote = @post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
-				                <% if pre_unvote %>  
-				                    <%= button_to post_post_unvote_path(@post, pre_unvote), method: :delete, remote: true do%>
-				                        <i><%= bootstrap_icon "arrow-down-circle-fill", width: 24, height: 24, fill: "#4f46e5" %></i>
-				                    <%end%> 
-				                <%else%>
-				                    <%= button_to post_post_unvotes_path(@post), method: :@post, remote: true do%>
-				                        <i><%= bootstrap_icon "arrow-down-circle", width: 24, height: 24, fill: "#888" %></i>
-				                    <%end%> 
-				                <%end%>
-				            </div>
-				        </div>
-
-				        <div class="post_show_comment_block">
-				            <%= button_to post_path(@post), method: :get, form_class: "post_show_comment" do%>
-				                <i><%= bootstrap_icon "chat", width: 22, height: 22, fill: "#666" %></i>
-				                <span><%= @post.post_comments.count%></span> 
-				            <%end%> 
-				        </div>
-
-				        <div class="post_show_follow_block" id="post_follow_<%=@post.id%>">
-				            <%if current_user.present?%>
-				                <% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
-				            <%end%>
-				            <% if pre_follow %>  
-				                <%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true do%>
-				                    <i><%= bootstrap_icon "bookmark-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
-				                <%end%> 
-				            <%else%>
-				                <%= button_to post_post_follows_path(@post), method: :post, remote: true do%>
-				                    <i><%= bootstrap_icon "bookmark", width: 20, height: 20, fill: "#666" %></i>
-				                <%end%> 
-				            <%end%>
-
-				            <a class="post_show_follow_count">
-				                <span><%=@post.post_follows.count%></span>
-				            </a>
-				        </div>
-
-				        <div class="post_show_share_block">
-				            <%= button_to post_path(@post), method: :get, form_class: "post_show_share" do%>
-				                <i><%= bootstrap_icon "arrow-repeat", width: 26, height: 26, fill: "#666" %></i>
-				            <%end%> 
-				        </div>
-				    </div>
-				 </div>	
-			</div>	
 			<div class='col-sm-8'>
-				<div class='post_show_middle_block'>
+				<div class='post_show_left_block'>
 				    <div class='post_show_info'>
 				        <div class='post_show_info_left'>
 							<%if @owner_user.avatar?%>
                                 <div class="post_show_user_avatar">
-                                    <%= image_tag @owner_user.avatar.url %>
+                                    <%= link_to (image_tag(@owner_user.avatar.url)), image_path(url_for(@owner_user.avatar.url)), rel: "gallery" , :href => user_path(@owner_user)%>
                                 </div>
 							<%else%>
 								<div class="post_show_user_text checked_<%=find_user_color(@owner_user.name)%>">
@@ -109,9 +40,73 @@
 						</div>
 					<%end%>
 
-				    <div class='post_show_content'>
-				        <a><%=@post.content%></a>
-				    </div>
+					<%if @post.content.present?%>
+						<div class='post_show_content'>
+							<a><%=@post.content.html_safe%></a>
+						</div>
+					<%end%>
+
+					<div class="post_show_toolbar_block">
+						<div class="post_show_vote_unvote_block" id="post_vote_unvote_<%=@post.id%>">
+							<div class="post_show_vote_block">
+								<% pre_vote = @post.post_votes.find { |vote| vote.user_id == current_user.id} %>
+								<% if pre_vote %>  
+									<%= button_to post_post_vote_path(@post, pre_vote), method: :delete, remote: true do%>
+										<i><%= bootstrap_icon "arrow-up-circle-fill", width: 18, height: 18, fill: "#4f46e5" %></i>
+									<%end%> 
+								<%else%>
+									<%= button_to post_post_votes_path(@post), method: :@post, remote: true do%>
+										<i><%= bootstrap_icon "arrow-up-circle", width: 18, height: 18, fill: "#888" %></i>
+									<%end%> 
+								<%end%>
+							</div>
+
+							<a class="post_show_vote_unvote_count">
+								<span><%=@post.post_votes.count - @post.post_unvotes.count%></span>
+							</a>
+
+							<div class="post_show_unvote_block">
+								<% pre_unvote = @post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
+								<% if pre_unvote %>  
+									<%= button_to post_post_unvote_path(@post, pre_unvote), method: :delete, remote: true do%>
+										<i><%= bootstrap_icon "arrow-down-circle-fill", width: 18, height: 18, fill: "#4f46e5" %></i>
+									<%end%> 
+								<%else%>
+									<%= button_to post_post_unvotes_path(@post), method: :@post, remote: true do%>
+										<i><%= bootstrap_icon "arrow-down-circle", width: 18, height: 18, fill: "#888" %></i>
+									<%end%> 
+								<%end%>
+							</div>
+						</div>
+
+						<div class="post_show_comment_block">
+							<%= button_to post_path(@post), method: :get, form_class: "post_show_comment" do%>
+								<i><%= bootstrap_icon "chat", width: 18, height: 18, fill: "#666" %></i>
+								<span><%= @post.post_comments.count%></span> 
+							<%end%> 
+						</div>
+
+						<div class="post_show_follow_block" id="post_follow_<%=@post.id%>">
+							<%if current_user.present?%>
+								<% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
+							<%end%>
+							<% if pre_follow %>  
+								<%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true do%>
+									<i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17, fill: "#4f46e5" %></i>
+								<%end%> 
+							<%else%>
+								<%= button_to post_post_follows_path(@post), method: :post, remote: true do%>
+									<i><%= bootstrap_icon "bookmark", width: 17, height: 17, fill: "#666" %></i>
+								<%end%> 
+							<%end%>
+						</div>
+
+						<div class="post_show_share_block">
+							<%= button_to post_path(@post), method: :get, form_class: "post_show_share" do%>
+								<i><%= bootstrap_icon "arrow-repeat", width: 20, height: 20, fill: "#666" %></i>
+							<%end%> 
+						</div>
+					</div>
 
 				    <div class="post_show_new_comment_block">
 				        <%= form_for([@post, PostComment.new], remote: true) do |f| %>
@@ -146,13 +141,13 @@
 				    </script>
 				</div>
 			</div>
-			<div class='col-sm-3'>
+			<div class='col-sm-4'>
 				<div class='post_show_right_block_user'>
 					<div class='post_show_right_info'>
 				        <div class='post_show_right_info_left'>
 							<%if @owner_user.avatar?%>
                                 <div class="post_show_right_user_avatar">
-                                    <%= image_tag @owner_user.avatar.url %>
+                                    <%= link_to (image_tag(@owner_user.avatar.url)), image_path(url_for(@owner_user.avatar.url)), rel: "gallery" , :href => user_path(@owner_user)%>
                                 </div>
 							<%else%>
 				            	<div class="post_show_right_user_text checked_<%=find_user_color(@owner_user.name)%>">
@@ -168,21 +163,8 @@
 				    </div>
 
 		            <div class="post_show_right_user_info">
-		            	<div class="post_show_right_user_info_label">
-		                	<a>ĐỊA CHỈ</a>
-		                </div>
-		                <div class="post_show_right_user_info_des">
-		                	<%if @owner_user.address.present?%>
-		                		<span><%=@owner_user.address%></span>
-		                	<%else%>
-		                		<span>---</span>
-		                	<%end%>
-		                </div>
-		            </div>
-
-		            <div class="post_show_right_user_info">
 		                <div class="post_show_right_user_info_label">
-		                	<a>VIỆC LÀM</a>
+		                	<a><i><%= bootstrap_icon "briefcase", width: 20, height: 20%></i>VIỆC LÀM</a>
 		                </div>
 		                <div class="post_show_right_user_info_des">
 		                	<%if @owner_user.job.present?%>
@@ -193,9 +175,35 @@
 		                </div>
 		            </div>
 
+					<div class="post_show_right_user_info">
+		                <div class="post_show_right_user_info_label">
+		                	<a><i><%= bootstrap_icon "book", width: 20, height: 20%></i>HỌC VẤN</a>
+		                </div>
+		                <div class="post_show_right_user_info_des">
+		                	<%if @owner_user.school.present?%>
+		                		<span><%=@owner_user.school%></span>
+		                	<%else%>
+		                		<span>---</span>
+		                	<%end%>
+		                </div>
+		            </div>
+
+		            <div class="post_show_right_user_info">
+		            	<div class="post_show_right_user_info_label">
+		                	<a><i><%= bootstrap_icon "geo-alt", width: 20, height: 20%></i>ĐỊA CHỈ</a>
+		                </div>
+		                <div class="post_show_right_user_info_des">
+		                	<%if @owner_user.address.present?%>
+		                		<span><%=@owner_user.address%></span>
+		                	<%else%>
+		                		<span>---</span>
+		                	<%end%>
+		                </div>
+		            </div>
+
 				    <div class="post_show_right_user_info">
 		                <div class="post_show_right_user_info_label">
-		                	<a>NGÀY THAM GIA</a>
+		                	<a><i><%= bootstrap_icon "calendar", width: 18, height: 18%></i>NGÀY THAM GIA</a>
 		                </div>
 		                <div class="post_show_right_user_info_des">
 		                	<span><%=@owner_user.created_at.strftime("%B %d, %Y")%></span>
@@ -220,11 +228,20 @@
 
 	            <div class='post_show_right_user_post'>
                     <div class='post_show_right_title'>
-                        <a>Bài viết khác từ <%=@owner_user.name%></a>
+                        <a>Bài viết khác từ <%=link_to (@owner_user.name), user_path(@owner_user) %></a>
                     </div>
                     <%@owner_post.each do |post|%>
                         <div class='post_show_right_content'>
-                            <a><%= link_to (post.title), post_path(post) %></a>
+							<div class='post_show_right_post_block'>
+                            	<a><%= link_to (post.title), post_path(post) %></a>
+							</div>
+							<div class='post_show_right_tag_block'>
+								<%post.tags.each do |tag|%>
+									<%= button_to tag_path(tag), method: :get do %>
+										<a><span>#</span><%=tag.name%></a>
+									<%end%>
+								<%end%>
+							</div>
                         </div>
                     <%end%>
                 </div>
