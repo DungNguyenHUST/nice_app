@@ -8,11 +8,55 @@ module PostsHelper
     end
 
     def find_owner_post_for_user(user)
-        @owner_post = Post.first
+        @owner_posts = Post.first
         if user.id.present?
-            @owner_post = Post.where(user_id: user.id)
+            @owner_posts = Post.where(user_id: user.id)
         end
-        return @owner_post
+        return @owner_posts
+    end
+
+    def find_owner_post_comment_for_user(user)
+        @owner_posts = []
+        if user.id.present?
+            @owner_post_comments = PostComment.where(user_id: user.id)
+            @owner_post_comments.each do |post_comment|
+                @owner_posts.push(post_comment.commentable)
+            end
+        end
+        return @owner_posts
+    end
+
+    def find_owner_post_vote_for_user(user)
+        @owner_posts = []
+        if user.id.present?
+            @owner_post_votes = PostVote.where(user_id: user.id)
+            @owner_post_votes.each do |post_vote|
+                @owner_posts.push(post_vote.post)
+            end
+        end
+        return @owner_posts
+    end
+
+    def find_owner_post_unvote_for_user(user)
+        @owner_posts = []
+        if user.id.present?
+            @owner_post_unvotes = PostUnvote.where(user_id: user.id)
+            @owner_post_unvotes.each do |post_unvote|
+                @owner_posts.push(post_unvote.post)
+            end
+        end
+        return @owner_posts
+    end
+
+    def find_owner_post_save_for_user(user)
+        @owner_posts = []
+        if user.id.present?
+            @owner_post_saves = PostFollow.where(user_id: user.id)
+            @owner_post_saves.each do |post_save|
+                @owner_posts.push(post_save.post)
+            end
+        end
+        return @owner_posts
     end
 
     def find_user_color(user_name)
