@@ -121,15 +121,11 @@
                                     <div class="new_post_input">
                                         <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="new_post_section">
-                                <div class="new_post_content">
+                                    
                                     <div class="new_post_input">
-                                        <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "mini", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
+                                        <%= f.text_field :link, :required => true, class: "form-control", placeholder: "Dán link của bạn tại đây"  %>
                                     </div>
-                                </div>  
+                                </div>
                             </div>
 
                             <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>

@@ -68,6 +68,6 @@ private
 
     # Only allow a list of trusted parameters through.
     def post_params
-        params.require(:post).permit(:title, :content, :image, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+        params.require(:post).permit(:title, :content, :image, :link, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
     end
 end
