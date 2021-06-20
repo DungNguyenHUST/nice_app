@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   def index
     @posts = Post.all.order('created_at DESC')
     
-    if current_user.present?
+    if user_signed_in?
       # @tag_follows = TagFollow.where(user_id: current_user.id)
       @tags = Tag.all
     else

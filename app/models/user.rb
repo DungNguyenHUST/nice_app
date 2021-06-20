@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   mount_uploader :avatar, ImageUploader
+  mount_uploader :cover_image, ImageUploader
 
   has_many :user_notifications, dependent: :destroy
 

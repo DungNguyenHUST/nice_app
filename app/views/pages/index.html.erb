@@ -22,16 +22,18 @@
                                 <a>Reading list</a>
                             <%end%>
                         </div>
-                        <div class='home_left_view_menu_section'>
-                            <%= button_to user_path(current_user), method: :get do%>
-                                <i><%= bootstrap_icon "person-square", width: 24, height: 24 %></i>
-                                <a>Cá nhân</a>
-                            <%end%>
-                        </div>
+                        <%if user_signed_in?%>
+                            <div class='home_left_view_menu_section'>
+                                <%= button_to user_path(current_user), method: :get do%>
+                                    <i><%= bootstrap_icon "person-square", width: 24, height: 24 %></i>
+                                    <a>Cá nhân</a>
+                                <%end%>
+                            </div>
+                        <%end%>
                     </div>
 
                     <div class='home_left_my_tag'>
-                        <%if current_user.present?%>
+                        <%if user_signed_in?%>
                             <div class='home_left_my_tag_title'>
                                 <a>My Tag</a>
                             </div>
@@ -55,7 +57,7 @@
             </div>
             <div class="col-sm-7">
                 <div class='home_middle_block'>
-                    <%if current_user.present?%>
+                    <%if user_signed_in?%>
                         <div class="home_new_post">
                             <%if current_user.avatar?%>
                                 <div class="home_new_post_user_avatar">

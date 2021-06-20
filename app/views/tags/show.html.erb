@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="tag_show_follow_block" id="tag_follow_<%=@tag.id%>">
-                        <%if current_user.present?%>
+                        <%if user_signed_in?%>
                             <% pre_follow = @tag.tag_follows.find { |follow| follow.user_id == current_user.id} %>
                         <%end%>
                         <% if pre_follow %>  
@@ -97,11 +97,18 @@
             <div class="col-sm-4">
                 <div class='tag_show_right'>
                     <div class='tag_show_right_title'>
-                        <a># Bài viết cùng chủ đề</a>
+                        <a>Bài viết khác về <%=link_to ('#'+ @tag.name), tag_path(@tag)%></a>
                     </div>
                     <%@posts.each do |post|%>
-                        <div class='tag_show_right_content'>
+                        <div class='tag_show_right_post_block'>
                             <a><%= link_to (post.title), post_path(post) %></a>
+                        </div>
+                        <div class='tag_show_right_tag_block'>
+                            <%post.tags.each do |tag|%>
+                                <%= button_to tag_path(tag), method: :get do %>
+                                    <a><span>#</span><%=tag.name%></a>
+                                <%end%>
+                            <%end%>
                         </div>
                     <%end%>
                 </div>

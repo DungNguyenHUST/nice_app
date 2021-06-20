@@ -1,3 +1,3 @@
 class PostVote < ApplicationRecord
-    belongs_to :posts, optional: true 
+    belongs_to :post, optional: true 
 end

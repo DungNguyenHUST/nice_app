@@ -1,5 +1,5 @@
 <div id="post_comment_index_vote_<%=post_comment.id%>">
-    <%if current_user.present?%>
+    <%if user_signed_in?%>
         <% pre_comment_vote = post_comment.post_comment_votes.find { |vote| vote.user_id == current_user.id} %>
     <%end%>
     <% if pre_comment_vote %>  

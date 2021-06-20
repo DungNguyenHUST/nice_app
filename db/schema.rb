@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_073652) do
+ActiveRecord::Schema.define(version: 2021_06_20_082350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 2021_06_18_073652) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
     t.string "avatar"
+    t.string "cover_image"
   end
 
   create_table "user_follows", force: :cascade do |t|
@@ -168,6 +169,15 @@ ActiveRecord::Schema.define(version: 2021_06_18_073652) do
     t.string "company"
     t.string "school"
     t.text "introduce"
+    t.string "cover_image"
+    t.boolean "noti_when_comment", default: true
+    t.boolean "noti_when_message", default: true
+    t.boolean "noti_when_tagging", default: true
+    t.boolean "noti_when_follow", default: true
+    t.boolean "noti_when_vote", default: false
+    t.boolean "noti_when_unvote", default: false
+    t.boolean "noti_when_report", default: true
+    t.boolean "noti_weekly", default: true
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

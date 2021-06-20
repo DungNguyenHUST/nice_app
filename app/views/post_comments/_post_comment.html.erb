@@ -25,7 +25,7 @@
             <div class="post_comment_reply_toolbar">
                 <div class="post_comment_index_vote_unvote_block">
                     <div class="post_comment_index_vote_block" id="post_comment_index_vote_<%=post_comment.id%>">
-                        <%if current_user.present?%>
+                        <%if user_signed_in?%>
                             <% pre_comment_vote = post_comment.post_comment_votes.find { |vote| vote.user_id == current_user.id} %>
                         <%end%>
                         <% if pre_comment_vote %>  
@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="post_comment_index_unvote_block" id="post_comment_index_unvote_<%=post_comment.id%>">
-                        <%if current_user.present?%>
+                        <%if user_signed_in?%>
                             <% pre_comment_unvote = post_comment.post_comment_unvotes.find { |vote| unvote.user_id == current_user.id} %>
                         <%end%>
                         <% if pre_comment_unvote %>  

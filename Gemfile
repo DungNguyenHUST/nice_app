@@ -69,3 +69,6 @@ gem 'mini_magick'
 gem 'image_processing'
 
 gem 'ckeditor'
+
+# Form input
+gem 'simple_form'

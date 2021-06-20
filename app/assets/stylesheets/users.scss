@@ -14,8 +14,8 @@
         background-color: #fff;
         @media screen and (min-width: 600px)
         {
-            margin-left: 30%;
-            margin-right: 30%;
+            margin-left: 33%;
+            margin-right: 33%;
             padding: 15px;
             border: 1px solid #dfe1e5;
         }
@@ -223,8 +223,8 @@
         background-color: #fff;
         @media screen and (min-width: 600px)
         {
-            margin-left: 30%;
-            margin-right: 30%;
+            margin-left: 33%;
+            margin-right: 33%;
             padding: 15px;
             border: 1px solid #dfe1e5;
         }
@@ -625,6 +625,7 @@
     .user_setting_tab_content{
         min-height: 800px;
         padding-top: 20px;
+        padding-bottom: 20px;
         .user_setting_personal_tab{
             .user_setting_form{
                 .user_setting_section{
@@ -669,34 +670,9 @@
                                     border-radius: 5px;
                                 }
                             }
-                        }
-                    }
-                }
-            
-                .user_setting_section_content{
-                    // padding: 15px;
-                    border-radius: 5px;
-                    // border: 1px solid #e5e7ec;
-                    @media screen and (max-width: 600px){
-                        border: none;
-                        border-top: 1px solid #e5e7ec;
-                        padding: 0px;
-                        padding-top: 20px;
-                        border-radius: 0px;
-                    }
-                    width: 100%;
-                    height: auto;
-                    margin-bottom: 20px;
-                    margin-top: 20px;
-                    .user_setting_content{
-                        .user_setting_label{
-                            font-size: 16px;
-                            font-weight: 550;
-                        }
-                        .user_setting_input{
-                            padding-bottom: 10px;
-                            .form-control{
-                                min-height: 40px;
+
+                            .form-control-rich-text{
+                                min-height: 100px;
                                 height: auto;
                                 margin-left: 0px;
                                 width: 100%;
@@ -717,7 +693,7 @@
                         width: 100%;
                         margin-top: 10px;
                         height: 44px;
-                        border-radius: 5px;
+                        border-radius: 22px;
                         padding: 6px;
                         background: #4f46e5;
                         font-size: 16px;
@@ -735,49 +711,56 @@
             }
         }
 
-        .user_setting_notification_tab{
-            padding-bottom: 20px;
-            .user_setting_notification_block{
-                border-bottom: 1px solid #dfe1e5;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                .user_setting_notification_left{  
-                    float: left;
-                    .user_setting_notification_date{
-                        a{
-                            font-size: 14px;
-                            font-style: italic;
-                            color: #888;
+        .user_setting_noti_tab{
+            .user_setting_form{
+                .user_setting_section{
+                    background-color: #fff;
+                    padding: 15px;
+                    border-radius: 5px;
+                    border: 1px solid #e5e7ec;
+                    .user_setting_description{
+                        font-size: 24px;
+                        font-weight: 600;
+                        padding-bottom: 15px;
+                    }
+                    @media screen and (max-width: 600px){
+                        border: none;
+                        border-top: 1px solid #e5e7ec;
+                        padding: 0px;
+                        padding-top: 20px;
+                        border-radius: 0px;
+                    }
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 20px;
+                    
+                    .user_setting_content{
+                        .user_setting_check_box{
+                            padding-top: 10px;
+                            span{
+                                // font-size: 30px;
+                            }
                         }
                     }
                 }
-                .user_setting_notification_right{
-                    padding-left: 100px;
-                    .user_setting_notification_user{
-                        float: left;
-                        a{
-                            font-size: 14px;
-                            font-style: italic;
-                        }
-                        span{
-                            margin-left: 3px;
-                            margin-right: 5px;
-                            font-size: 13px;
-                            font-style: italic;
-                            color: #555;
-                        }
-                    }
-                    .user_setting_notification_title{
-                        a{
-                            font-size: 14px;
-                            word-break: break-word; 
-                        }
-                    }
-                    .user_setting_notification_content{
+
+                .user_setting_submit{
+                    .user_setting_form_submit{
+                        width: 100%;
                         margin-top: 10px;
-                        a{
-                            font-size: 14px;
-                            word-break: break-word; 
+                        height: 44px;
+                        border-radius: 22px;
+                        padding: 6px;
+                        background: #4f46e5;
+                        font-size: 16px;
+                        border: none;
+                        cursor: pointer;
+                        text-align: center;
+                        color: #fff;
+                        
+                        &:hover{
+                            background-color: #4f46e5;
+                            color: #fff;
                         }
                     }
                 }
@@ -789,36 +772,104 @@
 ///////////////////////show-profile//////////////////////
 .user_profile_dasboard{
     background-color: #eef0f1;
-    .user_profile_title{
-        padding-top: 30px;
-        padding-bottom: 20px;
-        span{
-            font-size: 22px;
-            font-weight: 600px;
-        }
-    }
-
-    .user_show_info_avatar{
+    .user_show_info_block{
         margin-top: 20px;
-        img{ 
-            display: block;
-            width: 60px;
-            height: 60px;
-            border: 1px solid #eee;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        display: block;
-        float: left;
-    }
+        background-color: #fff;
+        border: 1px solid #dfe1e5;
+        min-height: 200px;
+        border-radius: 5px;
+        .user_show_info{
+            .user_show_info_cover_image{
+                img{ 
+                    display: block;
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                }
+                display: block;
+            }
+            .user_show_info_avatar{
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                padding-left: 15px;
+                position: relative;
+                top: -40px;
+                float: left;
+                img{ 
+                    display: block;
+                    width: 100px;
+                    height: 100px;
+                    border: 1px solid #eee;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+                display: block;
+            }
 
-    .user_show_info_data{
-        padding-top: 30px;
-        padding-left: 70px;
-        .user_show_info_title{
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
+            .user_show_info_follow{
+                float: right;
+                padding-right: 20px;
+                button{
+                    margin-top: 15px;
+                    width: 100px;
+                    border: none;
+                    border-radius: 20px;
+                    background-color: #4f46e5;
+                    height: 40px;
+                    color: #fff;
+                    font-size:14px;
+                    font-weight: 600;
+                    &:focus {outline:none;}
+                }
+            }
+        }
+
+        .user_show_info_data{
+            position: relative;
+            top: -30px;
+            clear: both;
+            padding: 15px;
+            padding-bottom: 0px;
+            .user_show_info_name{
+                font-size: 20px;
+                font-weight: 600;
+                color: #333;
+            }
+
+            .user_show_info_introduce{
+                padding-top: 10px;
+                clear: both;
+                font-size: 14px;
+                font-weight: 500;
+                color: #333;
+            }
+
+            .user_show_info_des{
+                padding-top: 10px;
+                i{
+                    margin-right: 5px;
+                    color: #64707d;
+                    position: relative;
+                    top: -2px;
+                }
+                span{
+                    font-size: 14px;
+                    color: #333;
+                }
+            }
+
+            .user_show_info_follow{
+                margin-top: 10px;
+                span{
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #555;
+                }
+                a{
+                    font-size: 14px;
+                    padding-right: 10px;
+                }
+            }
         }
     }
 
@@ -872,80 +923,12 @@
 
     .user_profile_tab_content{
         min-height: 800px;
-        background-color: #fff;
-        border: 1px solid #dfe1e5;
-        border-radius: 5px;
+        // background-color: #fff;
+        // border: 1px solid #dfe1e5;
+        // border-radius: 5px;
         margin-top: 20px;
-        padding: 15px;
-        .user_profile_personal_tab{
-            .user_profile_info{
-                margin-top: 10px;
-                margin-bottom: 50px;
-                
-                .user_profile_info_wellcome_label{  
-                    font-size: 22px;
-                    color: #4f46e5;
-                }
-            
-                .user_profile_info_des_label{
-                    font-size: 20px;
-                    margin-top: 0px;
-                }
-            
-                .user_profile_info_about{
-                    // border-top: 1px solid #dfe1e5;
-            
-                    .user_profile_info_label{
-                        font-size: 16px;
-                        margin-top: 40px;
-                    }
-                    .user_profile_info_des{
-                        font-size: 16px;
-                        float: left;
-                    }
-            
-                    .user_profile_info_edit_button{
-                        float: right;
-                        font-size: 16px;
-                        &:focus {outline:none;}
-                        i{
-                            color: #4f46e5;
-                        }
-                        .user_profile_info_edit_link_to{
-                            color: #4f46e5;
-                            text-decoration: none !important;
-                        }
-                    }
-                }
-            
-                .user_profile_log_out{
-                    clear: both;
-                    margin-top: 50px;
-                    button{
-                        padding: 6px;
-                        height: 40px;
-                        width: 150px;
-                        margin-right: 10px;
-                        background: #4f46e5;
-                        font-size: 16px;
-                        border: none;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        text-align: center;
-                        color: #fff;
-                        &:focus {outline:none;}
-                        i{
-                            position: relative;
-                            top: 5px;
-                        }
-                        
-                        &:hover{
-                            background-color: #4f46e5;
-                            color: #fff;
-                        }
-                    }
-                }
-            }
+        // padding: 15px;
+        .user_profile_post_tab{
         }
     }
 }

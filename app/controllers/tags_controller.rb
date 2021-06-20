@@ -33,7 +33,7 @@ class TagsController < ApplicationController
 
 private
 	def tag_params
-      	params.require(:tag).permit(:name, :description, :avatar)
+      	params.require(:tag).permit(:name, :description, :avatar, :cover_image)
     end
 
 	def set_tag

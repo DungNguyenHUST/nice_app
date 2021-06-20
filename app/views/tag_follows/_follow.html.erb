@@ -1,6 +1,6 @@
 <%if @type_param == "index" %>
     <div id="tag_follow_<%=tag.id%>">
-        <%if current_user.present?%>
+        <%if user_signed_in?%>
             <% pre_follow = tag.tag_follows.find { |follow| follow.user_id == current_user.id} %>
         <%end%>
         <% if pre_follow %>  
@@ -15,7 +15,7 @@
     </div>
 <%else%>
     <div id="tag_follow_<%=@tag.id%>">
-        <%if current_user.present?%>
+        <%if user_signed_in?%>
             <% pre_follow = @tag.tag_follows.find { |follow| follow.user_id == current_user.id} %>
         <%end%>
         <% if pre_follow %>  

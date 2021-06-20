@@ -18,7 +18,7 @@
             </div>
 
             <div class="post_index_user_follow" id="user_follow_<%=owner_user.id%>">
-                <%if current_user.present?%>
+                <%if user_signed_in?%>
                     <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
                 <%end%>
                 <% if pre_follow %>  
@@ -62,7 +62,7 @@
     <div class="post_index_toolbar_block">
         <div class="post_index_vote_unvote_block" id="post_vote_unvote_<%=@post.id%>">
             <div class="post_index_vote_block">
-                <%if current_user.present?%>
+                <%if user_signed_in?%>
                     <% pre_vote = @post.post_votes.find { |vote| vote.user_id == current_user.id} %>
                 <%end%>
                 <% if pre_vote %>  
@@ -81,7 +81,7 @@
             </div>
 
             <div class="post_index_unvote_block">
-                <%if current_user.present?%>
+                <%if user_signed_in?%>
                     <% pre_unvote = @post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
                 <%end%>
                 <% if pre_unvote %>  
@@ -104,7 +104,7 @@
         </div>
 
         <div class="post_index_follow_block" id="post_follow_<%=@post.id%>">
-            <%if current_user.present?%>
+            <%if user_signed_in?%>
                 <% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
             <%end%>
             <% if pre_follow %>  

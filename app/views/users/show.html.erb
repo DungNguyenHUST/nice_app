@@ -1,20 +1,81 @@
 <div class='user_profile_dasboard'>
     <div class="container">
-        <div class='user_show_info'>
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class='user_show_info_avatar'>
-                        <%if current_user.avatar?%>
-                            <%= link_to (image_tag(current_user.avatar.url)), image_path(url_for(current_user.avatar.url)), rel: "gallery" , :href => user_path(current_user)%>
-                        <%end%>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class='user_show_info_block'>
+                    <div class='user_show_info'>
+                        <div class='user_show_info_cover_image'>
+                            <%if current_user.cover_image?%>
+                                <%= link_to (image_tag(current_user.cover_image.url)), image_path(url_for(current_user.cover_image.url)), rel: "gallery" , :href => user_path(current_user)%>
+                            <%end%>
+                        </div>
+
+                        <div class='user_show_info_avatar'>
+                            <%if current_user.avatar?%>
+                                <%= link_to (image_tag(current_user.avatar.url)), image_path(url_for(current_user.avatar.url)), rel: "gallery" , :href => user_path(current_user)%>
+                            <%end%>
+                        </div>
+
+                        <div class="user_show_info_follow" id="user_follow<%=current_user.id%>">
+                            <%if user_signed_in?%>
+                                <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
+                            <%end%>
+                            <% if pre_follow %>  
+                                <%= button_to user_user_follow_path(current_user, pre_follow), method: :delete, remote: true do%>
+                                    <a>Đã theo dõi</a>
+                                <%end%> 
+                            <%else%>
+                                <%= button_to user_user_follows_path(current_user), method: :post, remote: true do%>
+                                    <a>Theo dõi</a>
+                                <%end%>
+                            <%end%>
+                        </div>
                     </div>
 
                     <div class='user_show_info_data'>
-                        <div class='user_show_info_title'>
+                        <div class='user_show_info_name'>
                             <a><%=current_user.name%></a>
                         </div>
-                        <div class='user_show_info_des'>
-                            <a><%=current_user.address%></a>
+
+                        <div class='user_show_info_introduce'>
+                            <a><%=current_user.introduce%></a>
+                        </div>
+
+                        <div class="user_show_info_des">
+                            <i><%= bootstrap_icon "briefcase", width: 20, height: 20%></i>
+                            <%if current_user.job.present?%>
+                                <span><%=current_user.job%></span>
+                            <%else%>
+                                <span>---</span>
+                            <%end%>
+                        </div>
+
+                        <div class="user_show_info_des">
+                            <i><%= bootstrap_icon "book", width: 20, height: 20%></i>
+                            <%if current_user.school.present?%>
+                                <span><%=current_user.school%></span>
+                            <%else%>
+                                <span>---</span>
+                            <%end%>
+                        </div>
+
+                        <div class="user_show_info_des">
+                            <i><%= bootstrap_icon "geo-alt", width: 20, height: 20%></i>
+                            <%if current_user.address.present?%>
+                                <span><%=current_user.address%></span>
+                            <%else%>
+                                <span>---</span>
+                            <%end%>
+                        </div>
+
+                        <div class="user_show_info_des">
+                            <i><%= bootstrap_icon "calendar", width: 20, height: 20%></i>
+                            <span><%="Tham gia " + current_user.created_at.strftime("%B %d, %Y")%></span>
+                        </div>
+                        
+                        <div class="user_show_info_follow">
+                            <span><%=current_user.followed_users.count%></span> <a>người theo dõi</a>
+                            <span><%=current_user.following_users.count%></span> <a>đang theo dõi</a>
                         </div>
                     </div>
                 </div>
@@ -26,20 +87,12 @@
                 <div class="user_profile_tab_link">
                     <ul class="nav">
                         <li class="nav-item">
-                            <%if @tab_id == "default" || @tab_id == "UserOverviewID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>                                 
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserOverviewID')%>"><i><%= bootstrap_icon "person", width: 24, height: 24%></i>Overview</a>
-                        </li>
-                        <li class="nav-item">
-                            <%if @tab_id == "UserPostID"%>
+                            <%if @tab_id == "default" || @tab_id == "UserPostID"%>
                                 <%active = "active"%>
                             <%else%> 
                                 <%active = ""%>
                             <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserPostID')%>"><i><%= bootstrap_icon "sticky", width: 20, height: 20%></i>Bài viết</a>
+                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserPostID')%>"><i><%= bootstrap_icon "card-list", width: 20, height: 20%></i>Bài viết</a>
                         </li>
                         <li class="nav-item">
                             <%if @tab_id == "UserCommentID"%>
@@ -47,7 +100,7 @@
                             <%else%> 
                                 <%active = ""%>
                             <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserCommentID')%>"><i><%= bootstrap_icon "chat", width: 20, height: 20%></i>Comments</a>
+                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserCommentID')%>"><i><%= bootstrap_icon "chat", width: 20, height: 20%></i>Bình luận</a>
                         </li>
                         <li class="nav-item">
                             <%if @tab_id == "UserVoteID"%>
@@ -71,14 +124,14 @@
                             <%else%> 
                                 <%active = ""%>
                             <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserSaveID')%>"><i><%= bootstrap_icon "save", width: 20, height: 20%></i>Save</a>
+                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserSaveID')%>"><i><%= bootstrap_icon "save", width: 20, height: 20%></i>Đã lưu</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="user_profile_tab_content">
-                    <%if @tab_id == "default" || @tab_id == "UserOverviewID"%>
-                        <div class="user_profile_overview_tab">
+                    <%if @tab_id == "default" || @tab_id == "UserPostID"%>
+                        <div class="user_profile_post_tab">
                             <%find_owner_post_for_user(current_user).each do |post|%>
                                 <%@post = post%>
                                 <%= render @post%>
@@ -86,17 +139,44 @@
                         </div>
                     <%end%>
 
-                    <%if @tab_id == "UserPostID"%>
-                        <div class="user_profile_save_job_tab">
-                            <div class="user_profile_save_job_label">
-                                <strong>Việc làm bạn đang theo dõi</strong>
-                            </div>
+                    <%if @tab_id == "UserCommentID"%>
+                        <div class="user_profile_comment_tab">
+                            <%find_owner_post_for_user(current_user).each do |post|%>
+                                <%@post = post%>
+                                <%= render @post%>
+                            <%end%>
                         </div>
                     <%end%>
 
-                    <%if @tab_id == "UserCommentID"%>
+                    <%if @tab_id == "UserVoteID"%>
+                        <div class="user_profile_vote_tab">
+                            <%find_owner_post_for_user(current_user).each do |post|%>
+                                <%@post = post%>
+                                <%= render @post%>
+                            <%end%>
+                        </div>
+                    <%end%>
+
+                    <%if @tab_id == "UserUnvoteID"%>
+                        <div class="user_profile_unvote_tab">
+                            <%find_owner_post_for_user(current_user).each do |post|%>
+                                <%@post = post%>
+                                <%= render @post%>
+                            <%end%>
+                        </div>
+                    <%end%>
+
+                    <%if @tab_id == "UserSaveID"%>
+                        <div class="user_profile_save_tab">
+                            <%find_owner_post_for_user(current_user).each do |post|%>
+                                <%@post = post%>
+                                <%= render @post%>
+                            <%end%>
+                        </div>
                     <%end%>
                 </div>
+            </div>
+            <div class="col-sm-4">
             </div>
         </div>
     </div>

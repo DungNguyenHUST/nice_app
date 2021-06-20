@@ -51,7 +51,9 @@ class UsersController < ApplicationController
 
 private
     def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :phone, :address, :sign, :education,
-                                    :job, :site, :birth_day, :company, :school, :introduce)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :phone,:address, 
+                                    :sign, :education,:job, :site, :birth_day, :company, :school, :introduce, :cover_image,
+                                    :noti_when_message, :noti_when_tagging, :noti_when_follow, :noti_when_vote,
+                                    :noti_when_unvote, :noti_when_report, :noti_weekly)
     end
 end

@@ -1,3 +1,3 @@
 class TagFollow < ApplicationRecord
-	belongs_to :tags, optional: true 
+	belongs_to :tag, optional: true 
 end

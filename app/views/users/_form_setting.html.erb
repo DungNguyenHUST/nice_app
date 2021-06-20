@@ -17,14 +17,6 @@
 		                    <a class="nav-link <%=active%>" href="<%=edit_user_path(current_user, tab_id: 'UserSettingPersonalID')%>"><i><%= bootstrap_icon "person", width: 24, height: 24%></i>Thông tin cá nhân</a>
 		                </li>
 		                <li class="nav-item">
-		                    <%if @tab_id == "UserSettingPrivacyID"%>
-		                        <%active = "active"%>
-		                    <%else%> 
-		                        <%active = ""%>
-		                    <%end%>                                     
-		                    <a class="nav-link <%=active%>" href="<%=edit_user_path(current_user, tab_id: 'UserSettingPrivacyID')%>"><i><%= bootstrap_icon "shield", width: 20, height: 20%></i>Quyền riêng tư</a>
-		                </li>
-		                <li class="nav-item">
 		                    <%if @tab_id == "UserSettingNotiID"%>
 		                        <%active = "active"%>
 		                    <%else%> 
@@ -36,14 +28,14 @@
 		        </div>
 		    </div>
 		</div>	
-
-        <div class="user_setting_tab_content">
-            <%if @tab_id == "default" || @tab_id == "UserSettingPersonalID"%>
-				<div class="user_setting_personal_tab">
-					<%= form_for @user, html: {class: "form-horizontal"} do |f| %>
-						<div class="user_setting_form">
-							<div class="row">
-								<div class="col-sm-8">
+		
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="user_setting_tab_content">
+					<%if @tab_id == "default" || @tab_id == "UserSettingPersonalID"%>
+						<div class="user_setting_personal_tab">
+							<%= form_for @user, html: {class: "form-horizontal"} do |f| %>
+								<div class="user_setting_form">
 									<div class="user_setting_section">
 										<div class="user_setting_description">
 											<a>Thông tin cá nhân</a>
@@ -74,7 +66,7 @@
 											</div>
 
 											<div class="user_setting_input">
-												<%= f.text_field :introduce, class: "form-control", placeholder: "Mô tả ngắn vê bản thân" %>
+												<%= f.text_area :introduce, class: "form-control-rich-text", placeholder: "Mô tả ngắn vê bản thân" %>
 											</div>
 										</div>
 
@@ -85,6 +77,16 @@
 
 											<div class="user_setting_input">
 												<%= f.file_field :avatar, class: "form-control", placeholder: "Thay đổi ảnh đại diện" %>
+											</div>
+										</div>
+
+										<div class="user_setting_content">
+											<div class="user_setting_label">
+												<a><%= f.label :cover_image, "Ảnh bìa", class: "user_setting_label_name" %></a>
+											</div>
+
+											<div class="user_setting_input">
+												<%= f.file_field :cover_image, class: "form-control", placeholder: "Thay đổi ảnh bìa" %>
 											</div>
 										</div>
 									</div>
@@ -182,7 +184,7 @@
 											</div>
 
 											<div class="user_setting_input">
-												<%= f.text_field :sign, class: "form-control", placeholder: "Thêm chữ kí của bạn" %>
+												<%= f.text_area :sign, class: "form-control-rich-text", placeholder: "Thêm chữ kí của bạn" %>
 											</div>
 										</div>
 									</div>
@@ -191,24 +193,63 @@
 										<%= f.submit "Lưu thay đổi", class: "user_setting_form_submit" %>
 									</div>
 								</div>
+							<%end%>
+						</div>
+					<%end%>
+
+					<%if @tab_id == "UserSettingNotiID"%>
+						<div class="user_setting_noti_tab">
+							<div class="user_setting_form">
+								<%= simple_form_for @user, html: {class: "form-horizontal"} do |f| %>
+									<div class="user_setting_section">
+										<div class="user_setting_description">
+											<a>Cài đặt thông báo</a>
+										</div>
+										<div class="user_setting_content">
+											<div class="user_setting_check_box">
+												<span><%= f.input_field :noti_when_message, as: :boolean %></span>
+												<a><%= f.label :noti_when_message, "Gửi thông báo khi có tin nhắn", class: "user_setting_label_name" %></a>
+											</div>
+											<div class="user_setting_check_box">
+												<span><%= f.input_field :noti_when_comment, as: :boolean %></span>
+												<a><%= f.label :noti_when_comment, "Gửi thông báo khi ai đó bình luận nội dung của tôi", class: "user_setting_label_name" %></a>
+											</div>
+											<div class="user_setting_check_box">
+												<span><%= f.input_field :noti_when_tagging, as: :boolean %></span>
+												<a><%= f.label :noti_when_tagging, "Gửi thông báo khi ai đó nhắc tới tôi", class: "user_setting_label_name" %></a>
+											</div>
+											<div class="user_setting_check_box">
+												<span><%= f.input_field :noti_when_follow, as: :boolean %></span>
+												<a><%= f.label :noti_when_follow, "Gửi thông báo khi ai đó theo dõi tôi", class: "user_setting_label_name" %></a>
+											</div>
+											<div class="user_setting_check_box">
+												<span><%= f.input_field :noti_when_vote, as: :boolean %></span>
+												<a><%= f.label :noti_when_vote, "Gửi thông báo khi ai đó vote bài đăng của tôi", class: "user_setting_label_name" %></a>
+											</div>
+											<div class="user_setting_check_box">
+												<span><%= f.input_field :noti_when_unvote, as: :boolean %></span>
+												<a><%= f.label :noti_when_unvote, "Gửi thông báo khi ai đó unvote bài đăng của tôi", class: "user_setting_label_name" %></a>
+											</div>
+											<div class="user_setting_check_box">
+												<span><%= f.input_field :noti_when_report, as: :boolean %></span>
+												<a><%= f.label :noti_when_report, "Gửi thông báo khi ai đó report bài đăng của tôi", class: "user_setting_label_name" %></a>
+											</div>
+											<div class="user_setting_check_box">
+												<span><%= f.input_field :noti_weekly, as: :boolean %></span>
+												<a><%= f.label :noti_weekly, "Gửi cho tôi những bài đăng gợi ý về chủ để tôi quan tâm", class: "user_setting_label_name" %></a>
+											</div>
+										</div>
+									</div>
+
+									<div class="user_setting_submit">
+										<%= f.submit "Lưu thay đổi", class: "user_setting_form_submit" %>
+									</div>
+								<%end%>
 							</div>
 						</div>
 					<%end%>
 				</div>
-            <%end%>
-
-            <%if @tab_id == "UserSettingPrivacyID"%>
-                <div class="user_setting_privacy_tab">
-                    <div class="user_setting_privacy_label">
-                        <strong>Cài đặt quyền riêng tư dành cho bạn</strong>
-                    </div>
-                </div>
-            <%end%>
-
-            <%if @tab_id == "UserSettingNotiID"%>
-				<div class="user_setting_noti_tab">
-				</div>
-            <%end%>
-        </div>
+			</div>
+		</div>
     </div>
 </div>

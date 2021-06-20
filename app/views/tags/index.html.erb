@@ -27,7 +27,7 @@
 							<a><%= tag.description %></a>
 						</div>
 		    			<div class="tag_index_follow_block" id="tag_follow_<%=tag.id%>">
-			                <%if current_user.present?%>
+			                <%if user_signed_in?%>
 			                    <% pre_follow = tag.tag_follows.find { |follow| follow.user_id == current_user.id} %>
 			                <%end%>
 			                <% if pre_follow %>  

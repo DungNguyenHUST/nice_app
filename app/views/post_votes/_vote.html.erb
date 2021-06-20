@@ -1,7 +1,7 @@
 <%if @type_param == "index" %>
     <div id="post_vote_unvote_<%=@post.id%>">
         <div class="post_index_vote_block">
-            <%if current_user.present?%>
+            <%if user_signed_in?%>
                 <% pre_vote = @post.post_votes.find { |vote| vote.user_id == current_user.id} %>
             <%end%>
             <% if pre_vote %>  
@@ -20,7 +20,7 @@
         </div>
 
         <div class="post_index_unvote_block">
-            <%if current_user.present?%>
+            <%if user_signed_in?%>
                 <% pre_unvote = @post.post_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
             <%end%>
             <% if pre_unvote %>  
