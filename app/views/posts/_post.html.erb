@@ -67,7 +67,7 @@
                 <%end%>
                 <% if pre_vote %>  
                     <%= button_to post_post_vote_path(@post, pre_vote, type_param: 'index'), method: :delete, remote: true do%>
-                        <i><%= bootstrap_icon "arrow-up-circle-fill", width: 18, height: 18, fill: "#4f46e5" %></i>
+                        <i><%= bootstrap_icon "arrow-up-circle-fill", width: 18, height: 18, fill: "#0071e3" %></i>
                     <%end%> 
                 <%else%>
                     <%= button_to post_post_votes_path(@post, type_param: 'index'), method: :post, remote: true do%>
@@ -86,7 +86,7 @@
                 <%end%>
                 <% if pre_unvote %>  
                     <%= button_to post_post_unvote_path(@post, pre_unvote, type_param: 'index'), method: :delete, remote: true do%>
-                        <i><%= bootstrap_icon "arrow-down-circle-fill", width: 18, height: 18, fill: "#4f46e5" %></i>
+                        <i><%= bootstrap_icon "arrow-down-circle-fill", width: 18, height: 18, fill: "#0071e3" %></i>
                     <%end%> 
                 <%else%>
                     <%= button_to post_post_unvotes_path(@post, type_param: 'index'), method: :post, remote: true do%>
@@ -109,7 +109,7 @@
             <%end%>
             <% if pre_follow %>  
                 <%= button_to post_post_follow_path(@post, pre_follow, type_param: 'index'), method: :delete, remote: true do%>
-                    <i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17, fill: "#4f46e5" %></i>
+                    <i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17, fill: "#0071e3" %></i>
                 <%end%> 
             <%else%>
                 <%= button_to post_post_follows_path(@post, type_param: 'index'), method: :post, remote: true do%>

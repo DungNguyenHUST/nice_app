@@ -4,7 +4,7 @@
             <div class="col-sm-8">
             <div class="new_post_title">
                 <%if !@is_edit%>
-                    <a>Bài viết mới</a>
+                    <a>Bài viết mới của <%= link_to current_user.name, user_path(current_user)%></a>
                 <%else%>
                     <a>Update bài viết <%=@post.title%></a>
                 <%end%>
@@ -55,7 +55,7 @@
                             <div class="new_post_section">
                                 <div class="new_post_content">
                                     <div class="new_post_input">
-                                        <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "full", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
+                                        <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "mini", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
                                     </div>
                                 </div>  
                             </div>
@@ -127,7 +127,7 @@
                             <div class="new_post_section">
                                 <div class="new_post_content">
                                     <div class="new_post_input">
-                                        <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "full", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
+                                        <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "mini", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
                                     </div>
                                 </div>  
                             </div>

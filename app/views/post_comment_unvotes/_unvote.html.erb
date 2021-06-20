@@ -4,7 +4,7 @@
     <%end%>
     <% if pre_vote %>  
         <%= button_to post_post_vote_path(@post, pre_vote), method: :delete, remote: true do%>
-            <i><%= bootstrap_icon "arrow-up-circle-fill", width: 20, height: 20, fill: "#4f46e5" %></i>
+            <i><%= bootstrap_icon "arrow-up-circle-fill", width: 20, height: 20, fill: "#0071e3" %></i>
         <%end%> 
     <%else%>
         <%= button_to post_post_votes_path(@post), method: :post, remote: true do%>

@@ -5,7 +5,7 @@
         <%end%>
         <% if pre_follow %>  
             <%= button_to post_post_follow_path(@post, pre_follow, type_param: 'index'), method: :delete, remote: true do%>
-                <i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17, fill: "#4f46e5" %></i>
+                <i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17, fill: "#0071e3" %></i>
             <%end%> 
         <%else%>
             <%= button_to post_post_follows_path(@post, type_param: 'index'), method: :post, remote: true do%>
@@ -20,7 +20,7 @@
         <%end%>
         <% if pre_follow %>  
             <%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true do%>
-                <i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17, fill: "#4f46e5" %></i>
+                <i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17, fill: "#0071e3" %></i>
             <%end%> 
         <%else%>
             <%= button_to post_post_follows_path(@post), method: :post, remote: true do%>
