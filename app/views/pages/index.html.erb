@@ -70,7 +70,7 @@
                             <%end%>
                             <div class="home_new_post_editor">
                                 <%= button_to new_post_path(tab_id: 'PostID'), method: :get do%>
-                                    <%=current_user.name%>, hôm nay bạn thế nào?
+                                    <%=current_user.name%>, bạn đang nghĩ gì?
                                 <%end%>
                             </div>
                             <div class="home_new_post_image">
@@ -127,15 +127,13 @@
                     <div class="home_post_tab_content">
                         <%if @tab_id == "default" || @tab_id == "PostHotID"%>
                             <%@posts.each do |post|%>
-                                <%@post = post%>
-                                <%= render @post%>
+                                <%= render post%>
                             <%end%>
                         <%end%>
 
                         <%if @tab_id == "PostNewID"%>
                             <%@posts.reverse.each do |post|%>
-                                <%@post = post%>
-                                <%= render @post%>
+                                <%= render post%>
                             <%end%>
                         <%end%>
                     </div>

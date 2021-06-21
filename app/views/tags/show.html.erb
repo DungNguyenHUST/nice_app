@@ -89,15 +89,13 @@
                     <div class="tag_show_post_tab_content">
                         <%if @tab_id == "default" || @tab_id == "TagPostHotID"%>
                             <%@posts.each do |post|%>
-                                <%@post = post%>
-                                <%= render @post%>
+                                <%= render post%>
                             <%end%>
                         <%end%>
 
                         <%if @tab_id == "TagPostNewID"%>
                             <%@posts.reverse.each do |post|%>
-                                <%@post = post%>
-                                <%= render @post%>
+                                <%= render post%>
                             <%end%>
                         <%end%>
                     </div>

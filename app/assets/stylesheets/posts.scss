@@ -95,28 +95,15 @@
             position: relative;
             .post_index_user_name{
                 position: relative;
-                top:  -3px;
+                top:  -5px;
                 a{
-                    font-size: 13px;
+                    font-size: 14px;
                     font-weight: 600;
-                    color: #333;
+                    color: #555;
                     text-decoration: none;
                 }
-                float: left;
             }
 
-            .post_index_user_follow{
-                position: relative;
-                top:  -3px;
-                button{
-                    border: none;
-                    font-size: 12px;
-                    font-weight: 600;
-                    background-color: #fff;
-                    color: #0071e3;
-                    &:focus {outline:none;}
-                }
-            }
             .post_index_create{
                 position: relative;
                 top: -6px;
@@ -128,8 +115,9 @@
     }
     .post_index_title{
         padding-left: 15px;
+        padding-top: 10px;
         padding-right: 15px;
-        padding-left: 62px;
+        padding-left: 64px;
         @media screen and (max-width: 600px){
             padding-left: 0px;
         }
@@ -173,7 +161,7 @@
     }
 
     .post_index_tag_block{
-        padding-left: 62px;
+        padding-left: 64px;
         margin-top: 10px;
         margin-bottom: 10px;
         display: block;

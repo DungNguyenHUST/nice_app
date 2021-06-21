@@ -103,6 +103,14 @@
                             <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserPostID')%>">Bài viết <span><%= find_owner_post_for_user(current_user).count%><span></a>
                         </li>
                         <li class="nav-item">
+                            <%if @tab_id == "UserTagID"%>
+                                <%active = "active"%>
+                            <%else%> 
+                                <%active = ""%>
+                            <%end%>                                     
+                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserTagID')%>">Tag <span><%= find_owner_tag_for_user(current_user).count%><span></a>
+                        </li>
+                        <li class="nav-item">
                             <%if @tab_id == "UserCommentID"%>
                                 <%active = "active"%>
                             <%else%> 
@@ -157,8 +165,15 @@
                     <%if @tab_id == "default" || @tab_id == "UserPostID"%>
                         <div class="user_profile_post_tab">
                             <%find_owner_post_for_user(current_user).each do |post|%>
-                                <%@post = post%>
-                                <%= render @post%>
+                                <%= render post%>
+                            <%end%>
+                        </div>
+                    <%end%>
+
+                    <%if @tab_id == "UserTagID"%>
+                        <div class="user_profile_tag_tab">
+                            <%find_owner_tag_for_user(current_user).each do |tag|%>
+                                <%= render tag%>
                             <%end%>
                         </div>
                     <%end%>
@@ -175,8 +190,7 @@
                     <%if @tab_id == "UserVoteID"%>
                         <div class="user_profile_vote_tab">
                             <%find_owner_post_vote_for_user(current_user).each do |post|%>
-                                <%@post = post%>
-                                <%= render @post%>
+                                <%= render post%>
                             <%end%>
                         </div>
                     <%end%>
@@ -184,8 +198,7 @@
                     <%if @tab_id == "UserUnvoteID"%>
                         <div class="user_profile_unvote_tab">
                             <%find_owner_post_unvote_for_user(current_user).each do |post|%>
-                                <%@post = post%>
-                                <%= render @post%>
+                                <%= render post%>
                             <%end%>
                         </div>
                     <%end%>
@@ -193,8 +206,7 @@
                     <%if @tab_id == "UserSaveID"%>
                         <div class="user_profile_save_tab">
                             <%find_owner_post_save_for_user(current_user).each do |post|%>
-                                <%@post = post%>
-                                <%= render @post%>
+                                <%= render post%>
                             <%end%>
                         </div>
                     <%end%>

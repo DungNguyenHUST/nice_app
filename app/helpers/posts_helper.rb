@@ -15,6 +15,17 @@ module PostsHelper
         return @owner_posts
     end
 
+    def find_owner_tag_for_user(user)
+        @owner_tags = []
+        if user.id.present?
+            @owner_tag_follows = TagFollow.where(user_id: user.id)
+            @owner_tag_follows.each do |tag_follow|
+                @owner_tags.push(tag_follow.tag)
+            end
+        end
+        return @owner_tags
+    end
+
     def find_owner_post_comment_for_user(user)
         @owner_posts = []
         if user.id.present?

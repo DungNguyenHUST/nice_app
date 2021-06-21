@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
+  include PostsHelper
   # GET /pages or /pages.json
   def index
     @posts = Post.all.order('created_at DESC')
     
     if user_signed_in?
-      # @tag_follows = TagFollow.where(user_id: current_user.id)
-      @tags = Tag.all
+      @tags = find_owner_tag_for_user(current_user)
     else
       @tags = Tag.all
     end

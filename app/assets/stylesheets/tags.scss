@@ -217,83 +217,86 @@
             &:focus {outline:none;}
         }
     }
-	.tag_index_block{
-		min-height: 150px;
-		border: 1px solid #dfe1e5;
-        border-top: 20px solid #555;
-		margin-top: 20px;
-		border-radius: 5px;
-		padding: 15px;
-		background-color: #fff;
+}
 
-        .tag_index_info{
-            width: 70%;
-            float: left;
-            .tag_index_name{
-                a{
-                    font-size: 20px;
-                    font-weight: 600;
-                    color: #333;
-                    text-decoration: none !important;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3; /* number of lines to show */
-                    -webkit-box-orient: vertical;
-                }
-            }
-            .tag_index_count{
-                padding-top: 10px;
-                font-size: 13px;
-                color: #666;
-            }
-        }
-        .tag_index_avatar{
-            float: right;
-            img{ 
-                display: block;
-                width: 60px;
-                height: 60px;
-                border: 1px solid #eee;
-                object-fit: cover;
-            }
-            display: block;
-        }
-        .tag_index_description{
-            clear: both;
-            padding-top: 10px;
-            font-size: 14px;
-            color: #444;
+///////////////////////tag///////////////////////////
 
-        }
-		.tag_index_follow_block{
-            button{
-                width: 100px;
-                text-align: center;
-                margin-top: 10px;
-                border: 1px solid #dfe1e5;
-                border-radius: 20px;
-                padding: 5px;
-                font-size: 13px;
+.tag_index_block{
+    min-height: 150px;
+    border: 1px solid #dfe1e5;
+    border-top: 20px solid #555;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+
+    .tag_index_info{
+        width: 70%;
+        float: left;
+        .tag_index_name{
+            a{
+                font-size: 20px;
                 font-weight: 600;
-                &:focus {outline:none;}
-            }
-            .follow_btn_highlight
-            {
-                button{
-                    background-color: #0071e3;
-                    color: #fff;
-                }
-            }
-
-            .follow_btn{
-                button{
-                    background-color: #fff;
-                    color: #555;
-                }
+                color: #333;
+                text-decoration: none !important;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3; /* number of lines to show */
+                -webkit-box-orient: vertical;
             }
         }
-	}
+        .tag_index_count{
+            padding-top: 10px;
+            font-size: 13px;
+            color: #666;
+        }
+    }
+    .tag_index_avatar{
+        float: right;
+        img{ 
+            display: block;
+            width: 60px;
+            height: 60px;
+            border: 1px solid #eee;
+            object-fit: cover;
+        }
+        display: block;
+    }
+    .tag_index_description{
+        clear: both;
+        padding-top: 10px;
+        font-size: 14px;
+        color: #444;
+
+    }
+    .tag_index_follow_block{
+        button{
+            width: 100px;
+            text-align: center;
+            margin-top: 10px;
+            border: 1px solid #dfe1e5;
+            border-radius: 20px;
+            padding: 5px;
+            font-size: 13px;
+            font-weight: 600;
+            &:focus {outline:none;}
+        }
+        .follow_btn_highlight
+        {
+            button{
+                background-color: #0071e3;
+                color: #fff;
+            }
+        }
+
+        .follow_btn{
+            button{
+                background-color: #fff;
+                color: #555;
+            }
+        }
+    }
 }
 
 //////////////////////////new/////////////////////////
