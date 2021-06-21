@@ -65,7 +65,7 @@
                                 </div>
                             <%else%>
                                 <div class="home_new_post_user_text checked_<%=find_user_color(current_user.name)%>">
-                                    <a><%= link_to current_user.name[0].upcase, user_session_path(current_user), class: "home_new_post_user_name_label"%></a>
+                                    <a><%= link_to current_user.name[0].upcase, user_path(current_user), class: "home_new_post_user_name_label"%></a>
                                 </div>
                             <%end%>
                             <div class="home_new_post_editor">

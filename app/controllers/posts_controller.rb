@@ -36,8 +36,10 @@ class PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.user_id = current_user.id
         if @post.save
-            params[:post_images]['image'].each do |a|
-                @post_image = @post.post_images.create!(:image => a, :post_id => @post.id)
+            if(params.has_key?(:post_images))
+                params[:post_images]['image'].each do |a|
+                    @post_image = @post.post_images.create!(:image => a, :post_id => @post.id)
+                end
             end
             redirect_to root_path
         end
@@ -46,8 +48,10 @@ class PostsController < ApplicationController
     # PATCH/PUT /posts/1 or /posts/1.json
     def update
         if @post.update(post_params)
-            params[:post_images]['image'].each do |a|
-                @post_image = @post.post_images.create!(:image => a, :post_id => @post.id)
+            if(params.has_key?(:post_images))
+                params[:post_images]['image'].each do |a|
+                    @post_image = @post.post_images.create!(:image => a, :post_id => @post.id)
+                end
             end
         end
         redirect_to post_path(@post)

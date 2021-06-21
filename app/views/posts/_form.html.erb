@@ -88,12 +88,8 @@
 
                             <div class="new_image_section_upload">
                                 <div class="new_image_content">
-                                    <div class="image-upload">
-                                        <label for="file-input">
-                                            <span>Drag image or upload here</span>
-                                            <i><%= bootstrap_icon "plus", width: 18, height: 18%>Upload</i>
-                                        </label>
-                                        <%= f.file_field :image, :multiple => true, name: "post_images[image][]", id:"file-input" %>
+                                    <div class="new_image_input">
+                                        <%= f.file_field :image, :multiple => true, name: "post_images[image][]"%>
                                     </div>
                                 </div>
                             </div>
