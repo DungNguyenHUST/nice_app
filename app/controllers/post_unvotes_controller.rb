@@ -14,10 +14,20 @@ class PostUnvotesController < ApplicationController
     def create
         @post = Post.find(params[:post_id])
         @post_unvote = PostUnvote.new
+
         if !already_unvoted?
+            # Delete voted
+            pre_vote = @post.post_votes.find { |vote| vote.user_id == current_user.id}
+            if pre_vote
+                @post_vote = @post.post_votes.find(pre_vote.id)
+                @post_vote.destroy
+            end
+
+            # Create unvoted
             @post_unvote = @post.post_unvotes.build(user_id: current_user.id)
             @post_unvote.save!
         end
+
         @type_param = params[:type_param]
 
         respond_to do |format|

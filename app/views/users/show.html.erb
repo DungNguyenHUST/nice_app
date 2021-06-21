@@ -24,7 +24,7 @@
                             </div>
                         <%end%>
 
-                        <div class="user_show_info_follow" id="user_follow<%=current_user.id%>">
+                        <div class="user_show_info_follow" id="user_follow_<%=current_user.id%>">
                             <%if user_signed_in?%>
                                 <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
                             <%end%>

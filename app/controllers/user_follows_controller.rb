@@ -12,6 +12,7 @@ class UserFollowsController < ApplicationController
 
     def create
         @user = User.find(params[:user_id])
+        @owner_user = current_user
         @user_follow = UserFollow.new
         if !already_followed?
             @user_follow = UserFollow.create(follower_id: current_user.id, followee_id: params[:user_id])
@@ -33,6 +34,7 @@ class UserFollowsController < ApplicationController
     
     def destroy
         @user = User.find(params[:user_id])
+        @owner_user = current_user
         @user_follow = @user.following_users.find(params[:id])
         @user_follow.destroy
         @type_param = params[:type_param]

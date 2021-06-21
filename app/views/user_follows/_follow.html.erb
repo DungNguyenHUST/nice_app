@@ -1,29 +1,29 @@
 <%if @type_param == "index"%>
-    <div id="user_follow_<%=owner_user.id%>">
+    <div id="user_follow_<%=current_user.id%>">
         <%if user_signed_in?%>
             <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
         <%end%>
         <% if pre_follow %>  
-            <%= button_to user_user_follow_path(owner_user, pre_follow, type_param: 'index'), method: :delete, remote: true do%>
+            <%= button_to user_user_follow_path(current_user, pre_follow, type_param: "index"), method: :delete, remote: true do%>
                 <a>Đã theo dõi</a>
             <%end%> 
         <%else%>
-            <%= button_to user_user_follows_path(owner_user, type_param: 'index'), method: :post, remote: true do%>
+            <%= button_to user_user_follows_path(current_user, type_param: "index"), method: :post, remote: true do%>
                 <a>Theo dõi</a>
             <%end%>
         <%end%>
     </div>
 <%else%>
-    <div id="user_follow<%=@owner_user.id%>">
+    <div id="user_follow_<%=current_user.id%>">
         <%if user_signed_in?%>
             <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
         <%end%>
         <% if pre_follow %>  
-            <%= button_to user_user_follow_path(@owner_user, pre_follow), method: :delete, remote: true do%>
+            <%= button_to user_user_follow_path(current_user, pre_follow), method: :delete, remote: true do%>
                 <a>Đã theo dõi</a>
             <%end%> 
         <%else%>
-            <%= button_to user_user_follows_path(@owner_user), method: :post, remote: true do%>
+            <%= button_to user_user_follows_path(current_user), method: :post, remote: true do%>
                 <a>Theo dõi</a>
             <%end%>
         <%end%>
