@@ -1,9 +1,11 @@
 class Post < ApplicationRecord
-    mount_uploader :image, ImageUploader
     has_many :post_votes, dependent: :destroy
     has_many :post_unvotes, dependent: :destroy
     has_many :post_follows, dependent: :destroy
     has_many :post_comments, as: :commentable
+
+    has_many :post_images
+    accepts_nested_attributes_for :post_images
 
     has_many :taggings
     has_many :tags, through: :taggings

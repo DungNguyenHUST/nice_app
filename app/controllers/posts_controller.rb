@@ -6,18 +6,20 @@ class PostsController < ApplicationController
     # GET /posts or /posts.json
     def index
         @posts = Post.all
+        @post_images = @post.post_images.all
     end
 
     # GET /posts/1 or /posts/1.json
     def show
         @owner_user = find_owner_user_for_post(@post)
         @owner_post = find_owner_post_for_user(@owner_user)
+        @post_images = @post.post_images.all
     end
 
     # GET /posts/new
     def new
         @post = Post.new
-        
+        @post_image = @post.post_images.build
         if(params.has_key?(:tab_id))
             @tab_id = params[:tab_id]
         else
@@ -34,21 +36,21 @@ class PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.user_id = current_user.id
         if @post.save
-        redirect_to root_path
+            params[:post_images]['image'].each do |a|
+                @post_image = @post.post_images.create!(:image => a, :post_id => @post.id)
+            end
+            redirect_to root_path
         end
     end
 
     # PATCH/PUT /posts/1 or /posts/1.json
     def update
-        respond_to do |format|
-            if @post.update(post_params)
-                format.html { redirect_to @post, notice: "Post was successfully updated." }
-                format.json { render :show, status: :ok, location: @post }
-            else
-                format.html { render :edit, status: :unprocessable_entity }
-                format.json { render json: @post.errors, status: :unprocessable_entity }
+        if @post.update(post_params)
+            params[:post_images]['image'].each do |a|
+                @post_image = @post.post_images.create!(:image => a, :post_id => @post.id)
             end
         end
+        redirect_to post_path(@post)
     end
 
     # DELETE /posts/1 or /posts/1.json
@@ -68,6 +70,8 @@ private
 
     # Only allow a list of trusted parameters through.
     def post_params
-        params.require(:post).permit(:title, :content, :image, :link, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+        params.require(:post).permit(:title, :content, :link, 
+                                    :tag_list, :tag, { tag_ids: [] }, :tag_ids, 
+                                    post_images_attributes: [:id, :post_id, :image])
     end
 end
