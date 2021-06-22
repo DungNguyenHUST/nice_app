@@ -22,7 +22,7 @@
                 <a><%= post_comment.content %></a>
             </div>
 
-            <div class="post_comment_reply_toolbar">
+            <div class="post_comment_right_toolbar">
                 <div class="post_comment_index_vote_unvote_block" id="post_comment_index_vote_unvote_<%=post_comment.id%>">
                     <div class="post_comment_index_vote_block">
                         <%if user_signed_in?%>
@@ -45,7 +45,7 @@
 
                     <div class="post_comment_index_unvote_block">
                         <%if user_signed_in?%>
-                            <% pre_comment_unvote = post_comment.post_comment_unvotes.find { |vote| unvote.user_id == current_user.id} %>
+                            <% pre_comment_unvote = post_comment.post_comment_unvotes.find { |unvote| unvote.user_id == current_user.id} %>
                         <%end%>
                         <% if pre_comment_unvote %>  
                             <%= button_to post_comment_post_comment_unvote_path(post_comment, pre_comment_unvote), method: :delete, remote: true do%>

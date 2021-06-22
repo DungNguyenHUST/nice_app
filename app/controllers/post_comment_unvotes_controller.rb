@@ -2,20 +2,15 @@ class PostCommentUnvotesController < ApplicationController
 	before_action :find_post_comment
     before_action :find_post_comment_unvote, only: [:destroy]
     
-    def index 
-        @post = Post.find(params[:post_id])
-        @post_comments = @post.post_comments
-        @post_comment_unvotes = @post_comments.post_comment_unvotes
+    def index
     end
 
     def new
-        @post = Post.find(params[:post_id])
-        @post_comment = @post.post_comments.find(params[:post_comment_id])
+        @post_comment = PostComment.find(params[:post_comment_id])
         @post_comment_unvote = PostCommentUnvote.new
     end
 
     def create
-        @post = Post.find(params[:post_id])
         @post_comment = PostComment.find(params[:post_comment_id])
         if !already_unvoted?
             @post_comment_unvote = @post_comment.post_comment_unvotes.create(user_id: current_user.id)
@@ -34,8 +29,7 @@ class PostCommentUnvotesController < ApplicationController
     end
     
     def destroy
-        @post = Post.find(params[:post_id])
-        @post_comment = @post.post_comments.find(params[:post_comment_id])
+        @post_comment = PostComment.find(params[:post_comment_id])
         @post_comment_unvote = @post_comment.post_comment_unvotes.find(params[:id])
         @post_comment_unvote.destroy
 
@@ -46,9 +40,6 @@ class PostCommentUnvotesController < ApplicationController
     end
 
     def show
-        @post = Post.find(params[:post_id])
-        @post_comment = @post.post_comments.find(params[:post_comment_id])
-        @post_comment_unvote = @post_comment.post_comment_unvotes.find(params[:id])
     end
 
     private
