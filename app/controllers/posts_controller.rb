@@ -14,6 +14,7 @@ class PostsController < ApplicationController
         @owner_user = find_owner_user_for_post(@post)
         @owner_post = find_owner_post_for_user(@owner_user)
         @post_images = @post.post_images.all
+        @link = LinkThumbnailer.generate(@post.link)
     end
 
     # GET /posts/new

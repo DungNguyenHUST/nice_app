@@ -72,3 +72,6 @@ gem 'ckeditor'
 
 # Form input
 gem 'simple_form'
+
+# Link preview
+gem 'link_thumbnailer'

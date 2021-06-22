@@ -34,6 +34,25 @@
 				    	</div>
 			        <%end%>
 
+					<%if @post.link.present?%>
+						<div class='post_show_link_block'>
+							<%if @link.images.count > 0%>
+								<div class='post_show_link_image'>
+									<%=image_tag(@link.images.first.src.to_s)%>
+								</div>
+							<%end%>
+
+							<div class='post_show_link_right'>
+								<div class='post_show_link_title'>
+									<%=@link.title%>
+								</div>
+								<div class='post_show_link_description'>
+									<%=@link.description%>
+								</div>
+							</div>
+						</div>
+					<%end%>
+
 					<%if @post.post_images.count > 0%>
 						<%@post.post_images.each do |post_image|%>
 							<div class='post_show_image'>
