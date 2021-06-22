@@ -43,12 +43,8 @@
                             <%= image_tag current_user.avatar.url %>
                         </div>
                     <%else%>
-                        <div class="user_avatar_small_text checked_<%=find_user_color(current_user.name)%>">
-                            <%if current_user.name.present?%>
-                                <span><%=current_user.name[0].upcase%></span>
-                            <%else%>
-                                <span>A</span>
-                            <%end%>
+                        <div class="user_avatar_small_img">
+                            <%= image_tag ("default-user.png") %>
                         </div>
                     <%end%>
                 </button>

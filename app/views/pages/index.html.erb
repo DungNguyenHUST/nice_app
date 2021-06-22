@@ -1,7 +1,7 @@
 <div class="home_index_container">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class='home_left_block'>
                     <div class='home_left_view_menu'>
                         <div class='home_left_view_menu_section'>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-7">
                 <div class='home_middle_block'>
                     <%if user_signed_in?%>
                         <div class="home_new_post">
@@ -64,8 +64,8 @@
                                     <%= link_to (image_tag(current_user.avatar.url)), image_path(url_for(current_user.avatar.url)), rel: "gallery" , :href => user_path(current_user)%>
                                 </div>
                             <%else%>
-                                <div class="home_new_post_user_text checked_<%=find_user_color(current_user.name)%>">
-                                    <a><%= link_to current_user.name[0].upcase, user_path(current_user), class: "home_new_post_user_name_label"%></a>
+                                <div class="home_new_post_user_avatar">
+                                    <%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(current_user)%>
                                 </div>
                             <%end%>
                             <div class="home_new_post_editor">

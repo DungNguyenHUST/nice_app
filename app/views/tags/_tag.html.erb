@@ -8,11 +8,11 @@
             <a><%= tag.tag_follows.count %> người theo dõi</a>
         </div>
     </div>
-    <div class='tag_index_avatar'>
-        <%if tag.avatar?%>
+    <%if tag.avatar?%>
+        <div class='tag_index_avatar'>
             <%= link_to (image_tag(tag.avatar.url)), image_path(url_for(tag.avatar.url)), rel: "gallery" , :href => tag_path(tag)%>
-        <%end%>
-    </div>
+        </div>
+    <%end%>
     <div class='tag_index_description'>
         <a><%= tag.description %></a>
     </div>

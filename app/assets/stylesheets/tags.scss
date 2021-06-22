@@ -25,6 +25,8 @@
         }
         .tag_show_info_avatar{
             float: left;
+            margin-right: 20px;
+            height: 100%;
             img{ 
                 display: block;
                 width: 60px;
@@ -36,7 +38,6 @@
         }
 
         .tag_show_info_data{
-            padding-left: 80px;
             .tag_show_info_title{
                 font-size: 22px;
                 font-weight: 600;
@@ -136,7 +137,7 @@
                 .nav .nav-link.active {
                     border-radius: 0;
                     border-bottom: 3px solid #0071e3;
-                    font-weight: 500;
+                    font-weight: 600;
                     color: #0071e3;
                 }
             }
