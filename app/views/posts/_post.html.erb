@@ -44,15 +44,20 @@
         <%post.post_links.each do |post_link|%>
             <div class='post_index_link_block'>
                 <div class='post_index_link_image'>
-                    <%= link_to (image_tag(post_link.image.to_s)), image_path(url_for(post_link.image.to_s)), rel: "gallery" , :href => post_path(post)%>
+                    <%= link_to (image_tag(post_link.image.to_s)), image_path(url_for(post_link.image.to_s)), rel: "gallery" , :href => url_for(post.link), target: :_blank%>
                 </div>
 
                 <div class='post_index_link_right'>
                     <div class='post_index_link_title'>
-                        <a><%= link_to post_link.title, post_path(post)%></a>
+                        <a><%= link_to post_link.title, url_for(post.link), target: :_blank%></a>
                     </div>
                     <div class='post_index_link_description'>
-                        <a><%= link_to post_link.description, post_path(post)%></a>
+                        <a><%= link_to post_link.description, url_for(post.link), target: :_blank%></a>
+                    </div>
+
+                    <div class='post_index_link_url'>
+                        <i><%= bootstrap_icon "box-arrow-in-up-right", width: 14, height: 14%></i>
+                        <a><%= link_to get_domain_name(post.link.to_s), url_for(post.link), target: :_blank%></a>
                     </div>
                 </div>
             </div>

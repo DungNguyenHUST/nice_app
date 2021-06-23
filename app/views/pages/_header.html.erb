@@ -21,19 +21,19 @@
             <div class="nav_right_block">
                 <div class="nav_post">
                     <%= link_to new_post_path do %>
-                        <i><%= bootstrap_icon "plus-square", width: 26, height: 26 %></i>
+                        <i><%= bootstrap_icon "plus-circle", width: 20, height: 20 %></i>
                     <%end%>
                 </div>
 
                 <div class="nav_tag">
                     <%= link_to tags_path do %>
-                        <i><%= bootstrap_icon "caret-right-square", width: 26, height: 26 %></i>
+                        <i><%= bootstrap_icon "arrow-up-right-circle", width: 20, height: 20 %></i>
                     <%end%>
                 </div>
 
                 <div class="nav_user_notification">                     
                     <%= link_to user_path(current_user, :tab_id => "NotificationID") do %>
-                        <i><%= bootstrap_icon "bell", width: 26, height: 26%></i><span><%=current_user.user_notifications.count%></span>
+                        <i><%= bootstrap_icon "bell", width: 20, height: 20%></i><span><%=current_user.user_notifications.count%></span>
                     <%end%>
                 </div>
 

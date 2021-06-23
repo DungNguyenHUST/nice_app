@@ -75,33 +75,25 @@
 
     .post_index_link_block{
         clear: both;
-        min-height: 230px;
-        border: 1px solid #dfe1e5;
-        border-radius: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-left: 15px;
-        margin-right: 15px;
-        padding: 15px;
         .post_index_link_image{
-            border-radius: 5px;
-            float: left;
-            height: 100%;
+            margin-top: 10px;
             img{
-                width: 300px;
-                height: 200px;
+                width: 100%;
+                height: 100%;
                 // border: 1px solid #0071e3;
                 object-fit: cover;
             }
         }
 
         .post_index_link_right{
-            padding-left: 320px;
+            padding-left: 64px;
+            margin-top: 10px;
             .post_index_link_title{
                 font-size: 18px;
                 font-weight: 600;
                 a{
                     text-decoration: none;
+                    color: #444;
                 }
             }
 
@@ -110,6 +102,17 @@
                 a{
                     text-decoration: none;
                     color: #666;
+                }
+            }
+
+            .post_index_link_url{
+                a{
+                    font-size: 13px;
+                    text-decoration: none;
+                    color: #666;
+                    &:hover{
+                        color: #0071e3;
+                    };
                 }
             }
         }
@@ -381,40 +384,44 @@
 
         .post_show_link_block{
             clear: both;
-            min-height: 230px;
-            border: 1px solid #dfe1e5;
-            border-radius: 5px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            padding: 15px;
             .post_show_link_image{
-                border-radius: 5px;
-                float: left;
-                height: 100%;
+                margin-top: 10px;
                 img{
-                    width: 300px;
-                    height: 200px;
-                    border: 1px solid #0071e3;
+                    width: 100%;
+                    height: 100%;
+                    // border: 1px solid #0071e3;
                     object-fit: cover;
                 }
             }
-
+    
             .post_show_link_right{
-                padding-left: 320px;
+                padding-top: 10px;
+                padding-bottom: 10px;
                 .post_show_link_title{
                     font-size: 18px;
                     font-weight: 600;
                     a{
                         text-decoration: none;
+                        color: #444;
                     }
                 }
-
+    
                 .post_show_link_description{
                     font-size: 14px;
-                    color: #666;
                     a{
                         text-decoration: none;
                         color: #666;
+                    }
+                }
+    
+                .post_show_link_url{
+                    a{
+                        font-size: 13px;
+                        text-decoration: none;
+                        color: #666;
+                        &:hover{
+                            color: #0071e3;
+                        };
                     }
                 }
             }
