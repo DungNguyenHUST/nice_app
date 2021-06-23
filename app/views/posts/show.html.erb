@@ -34,23 +34,23 @@
 				    	</div>
 			        <%end%>
 
-					<%if @post.link.present?%>
-						<div class='post_show_link_block'>
-							<%if @link.images.count > 0%>
+					<%if @post.post_links.count > 0%>
+						<%@post.post_links.each do |post_link|%>
+							<div class='post_show_link_block'>
 								<div class='post_show_link_image'>
-									<%=image_tag(@link.images.first.src.to_s)%>
+									<%= link_to (image_tag(post_link.image.to_s)), image_path(url_for(post_link.image.to_s)), rel: "gallery" , :href => post_path(@post)%>
 								</div>
-							<%end%>
 
-							<div class='post_show_link_right'>
-								<div class='post_show_link_title'>
-									<%=@link.title%>
-								</div>
-								<div class='post_show_link_description'>
-									<%=@link.description%>
+								<div class='post_show_link_right'>
+									<div class='post_show_link_title'>
+										<a><%= link_to post_link.title, post_path(@post)%></a>
+									</div>
+									<div class='post_show_link_description'>
+										<a><%= link_to post_link.description, post_path(@post)%></a>
+									</div>
 								</div>
 							</div>
-						</div>
+						<%end%>
 					<%end%>
 
 					<%if @post.post_images.count > 0%>

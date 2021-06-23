@@ -7,6 +7,8 @@ class Post < ApplicationRecord
     has_many :post_images
     accepts_nested_attributes_for :post_images
 
+    has_many :post_links
+
     has_many :taggings
     has_many :tags, through: :taggings
 

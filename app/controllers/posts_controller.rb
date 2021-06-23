@@ -14,13 +14,13 @@ class PostsController < ApplicationController
         @owner_user = find_owner_user_for_post(@post)
         @owner_post = find_owner_post_for_user(@owner_user)
         @post_images = @post.post_images.all
-        @link = LinkThumbnailer.generate(@post.link)
     end
 
     # GET /posts/new
     def new
         @post = Post.new
         @post_image = @post.post_images.build
+        @post_link = @post.post_links.build
         if(params.has_key?(:tab_id))
             @tab_id = params[:tab_id]
         else
@@ -37,11 +37,43 @@ class PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.user_id = current_user.id
         if @post.save
+            # save image
             if(params.has_key?(:post_images))
                 params[:post_images]['image'].each do |a|
                     @post_image = @post.post_images.create!(:image => a, :post_id => @post.id)
                 end
             end
+
+            # save link data
+            if(@post.link.present?)
+                @link = LinkThumbnailer.generate(@post.link)
+                if @link.present?
+                    image = ""
+                    favicon = ""
+                    title = ""
+                    description = ""
+
+                    if !@link.images.first.nil?
+                        image = @link.images.first.src.to_s
+                    end
+                    if !@link.favicon.nil?
+                        favicon = @link.favicon.to_s
+                    end
+                    if @link.title.present?
+                        title = @link.title
+                    end
+                    if @link.description.present?
+                        description = @link.description
+                    end
+
+                    @post_link = @post.post_links.create!(:image => image,
+                                                            :favicon => favicon,
+                                                            :title => title,
+                                                            :description => description,
+                                                            :post_id => @post.id)
+                end
+            end
+
             redirect_to root_path
         end
     end
