@@ -3,12 +3,7 @@ class PagesController < ApplicationController
   # GET /pages or /pages.json
   def index
     @posts = Post.all.order('created_at DESC')
-    
-    if user_signed_in?
-      @tags = find_owner_tag_for_user(current_user)
-    else
-      @tags = Tag.all
-    end
+    @tags = Tag.all
 
     @tab_id = "default"
     if(params.has_key?(:tab_id))

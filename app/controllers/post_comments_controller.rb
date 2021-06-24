@@ -1,5 +1,5 @@
 class PostCommentsController < ApplicationController
-include ApplicationHelper
+    include ApplicationHelper
     before_action :find_commentable, only: :create
 
     def new

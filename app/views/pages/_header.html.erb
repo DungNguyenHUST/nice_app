@@ -12,6 +12,14 @@
         </div>
 
         <div class="nav_search_block">
+            <%=form_tag page_search_path, :method => "get" do%>
+                <div class="nav_search_input">
+                    <a><%= text_field_tag :search, params[:search], required: true, class: 'form-control', placeholder: "Tìm kiếm..."%></a>
+                </div>
+            <%end%>
+        </div>
+
+        <div class="nav_search_block_moblie">
             <%= link_to page_search_path do %>
                 <i><%= bootstrap_icon "search", width: 18, height: 18 %></i>
             <%end%>

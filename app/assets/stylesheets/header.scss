@@ -1,7 +1,7 @@
 .nav_block {
 	overflow: hidden;
 	background-color: #fff;
-	// border-bottom: 1px solid #dfe1e5;
+	// border-bottom: 1px solid #dddddd;
 	height: 50px;
 	.nav_logo{
 		float: left;
@@ -17,7 +17,7 @@
 			font-weight: 550;
 			border: none;
 			justify-content: center;
-			background-color: #555;
+			background-color: #333;
 			&:hover{
 				color: #0071e3;
 			}
@@ -25,11 +25,33 @@
 	}
 
 	.nav_search_block{
+		display: block;
+		@media screen and (max-width: 600px){
+			display: none;
+		}
+		margin-top: 5px;
+		float: left;
+		width: 30%;
+		.nav_search_input{
+			.form-control{
+				padding-left: 10px;
+				padding-right: 10px;
+				width: 100%;
+				font-size: 14px;
+				height: 40px;
+			}
+		}
+	}
+
+	.nav_search_block_moblie{
+		display: none;
+		@media screen and (max-width: 600px){
+			display: block;
+		}
 		margin-top: 6px;
 		padding: 7px;
 		padding-left: 10px;
 		padding-right: 10px;
-		display: block;
 		border-radius: 20px;
 		background-color: #dfe1e5;
 		float: left;
@@ -172,7 +194,7 @@
 			top: 66px;
 			right: 8%;
 			background-color: #fff;
-			border: 1px solid #dfe1e5;
+			border: 1px solid #dddddd;
 			border-radius: 5px;
 			z-index: 10;
 			width: 200px;

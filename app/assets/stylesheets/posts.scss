@@ -3,9 +3,12 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 /////////////////////index///////////////////////
 .post_index_block{
-    border: 1px solid #dfe1e5;
+    border: 1px solid #dddddd;
     background-color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    @media screen and (max-width: 600px){
+        margin-bottom: 10px;
+    }
     border-radius: 5px;
     height: auto;
     padding-top: 15px;
@@ -319,9 +322,9 @@
 
 ////////////////////////show////////////////////
 .post_show_container{
-    background-color: #f1f1f1;
+    background-color: #f0f2f5;
     .post_show_left_block{
-        border: 1px solid #dfe1e5;
+        border: 1px solid #dddddd;
         background-color: #fff;
         margin-bottom: 10px;
         border-radius: 5px;
@@ -452,8 +455,8 @@
         }
 
         .post_show_toolbar_block{
-            border-bottom: 1px solid #dfe1e5;
-            border-top: 1px solid #dfe1e5;
+            border-bottom: 1px solid #dddddd;
+            border-top: 1px solid #dddddd;
             padding-bottom: 10px;
             clear: left;
             padding-top: 5px;
@@ -622,7 +625,7 @@
     }
 
     .post_show_right_block_user{
-        border: 1px solid #dfe1e5;
+        border: 1px solid #dddddd;
         border-top: 40px solid #444;
         background-color: #f9fafa;
         margin-bottom: 10px;
@@ -701,7 +704,7 @@
     }
 
     .post_show_right_user_post{
-        border: 1px solid #dfe1e5;
+        border: 1px solid #dddddd;
         background-color: #f9fafa;
         margin-top: 20px;
         padding-bottom: 30px;
@@ -717,7 +720,7 @@
         }
 
         .post_show_right_content{
-            border-top: 1px solid #dfe1e5;
+            border-top: 1px solid #dddddd;
             padding: 15px;
             padding-top: 10px;
             padding-bottom: 10px;
@@ -765,9 +768,9 @@
 }
 //////////////////////new////////////////////
 .new_post_container{
-    background-color: #f1f1f1;
+    background-color: #f0f2f5;
     .new_post_title{
-        font-size: 20px;
+        font-size: 22px;
         color: #333;
         text-align: left;
         margin-top: 20px;
@@ -784,7 +787,7 @@
         position: relative;
         display: block;
         background-color: #fff;
-        border: 1px solid #dfe1e5;
+        border: 1px solid #dddddd;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         .nav {
@@ -827,10 +830,11 @@
     }
 
     .new_post_tab_content{
-        
+        display: block;
+        min-height: 700px;
         .new_post_form
         {
-            border: 1px solid #dfe1e5;
+            border: 1px solid #dddddd;
             border-top: none;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
@@ -844,7 +848,7 @@
                     .new_post_input{
                         left: 0px;
                         margin-top: 5px;
-                        margin-bottom: 20px;
+                        margin-bottom: 10px;
                         width: 100%;
                         height: auto;
                         .form-control-rich-text{
@@ -852,14 +856,14 @@
                             height: auto;
                             margin-left: 0px;
                             width: 100%;
-                            border: 1px solid #dfe1e5;
+                            border: 1px solid #dddddd;
                             border-radius: 5px;
                         }
                         .form-control{
                             margin-left: 0px;
                             min-height: 40px;
                             width: 100%;
-                            border: 1px solid #dfe1e5;
+                            border: 1px solid #dddddd;
                             border-radius: 5px;
                             &:focus{
                                 border: 2px solid #0071e3;
@@ -871,11 +875,13 @@
             }
 
             .new_post_submit{
-                width: 100%;
                 margin-top: 30px;
                 .new_post_form_submit{
                     height: 44px;
-                    width: 100%;
+                    width: 150px;
+                    @media screen and (max-width: 600px){
+                        width: 100%;
+                    }
                     border-radius: 22px;
                     padding: 6px;
                     background: #0071e3;
@@ -892,8 +898,8 @@
             }
         }
 
-        .new_image_form{
-            border: 1px solid #dfe1e5;
+        .new_post_image_form{
+            border: 1px solid #dddddd;
             border-top: none;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
@@ -916,14 +922,14 @@
                             height: auto;
                             margin-left: 0px;
                             width: 100%;
-                            border: 1px solid #dfe1e5;
+                            border: 1px solid #dddddd;
                             border-radius: 5px;
                         }
                         .form-control{
                             margin-left: 0px;
                             min-height: 40px;
                             width: 100%;
-                            border: 1px solid #dfe1e5;
+                            border: 1px solid #dddddd;
                             border-radius: 5px;
                             &:focus{
                                 border: 2px solid #0071e3;
@@ -939,7 +945,7 @@
                 min-height: 400px;
                 margin-top: 10px;
                 padding-top: 10px;
-                border: 1px dashed #dfe1e5;
+                border: 1px dashed #dddddd;
                 border-radius: 5px;
                 padding: 15px;
                 .new_image_content{
@@ -954,14 +960,14 @@
                             height: auto;
                             margin-left: 0px;
                             width: 100%;
-                            border: 1px solid #dfe1e5;
+                            border: 1px solid #dddddd;
                             border-radius: 5px;
                         }
                         .form-control{
                             margin-left: 0px;
                             min-height: 40px;
                             width: 100%;
-                            border: 1px solid #dfe1e5;
+                            border: 1px solid #dddddd;
                             border-radius: 5px;
                             &:focus{
                                 border: 2px solid #0071e3;
@@ -977,7 +983,76 @@
                 margin-top: 20px;
                 .new_image_form_submit{
                     height: 44px;
-                    width: 100%;
+                    width: 150px;
+                    @media screen and (max-width: 600px){
+                        width: 100%;
+                    }
+                    border-radius: 22px;
+                    padding: 6px;
+                    background: #0071e3;
+                    font-size: 14px;
+                    border: none;
+                    cursor: pointer;
+                    text-align: center;
+                    color: #fff;
+                    
+                    &:hover{
+                        background-color: #0071e3;
+                    }
+                }
+            }
+        }
+
+        .new_post_link_form
+        {
+            border: 1px solid #dddddd;
+            border-top: none;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            padding: 15px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            .new_post_section
+            {
+                padding-top: 10px;
+                .new_post_content{
+                    .new_post_input{
+                        left: 0px;
+                        margin-top: 5px;
+                        margin-bottom: 10px;
+                        width: 100%;
+                        height: auto;
+                        .form-control-rich-text{
+                            min-height: 150px;
+                            height: auto;
+                            margin-left: 0px;
+                            width: 100%;
+                            border: 1px solid #dddddd;
+                            border-radius: 5px;
+                        }
+                        .form-control{
+                            margin-left: 0px;
+                            min-height: 40px;
+                            width: 100%;
+                            border: 1px solid #dddddd;
+                            border-radius: 5px;
+                            &:focus{
+                                border: 2px solid #0071e3;
+                                border-radius: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .new_post_submit{
+                margin-top: 30px;
+                .new_post_form_submit{
+                    height: 44px;
+                    width: 150px;
+                    @media screen and (max-width: 600px){
+                        width: 100%;
+                    }
                     border-radius: 22px;
                     padding: 6px;
                     background: #0071e3;

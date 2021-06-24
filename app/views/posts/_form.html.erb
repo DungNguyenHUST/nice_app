@@ -4,6 +4,7 @@
             <div class="col-sm-8">
             <div class="new_post_title">
                 <%if !@is_edit%>
+                    <i><%= bootstrap_icon "pencil-square", width: 24, height: 24%></i>
                     <a>Bài viết mới của <%= link_to current_user.name, user_path(current_user)%></a>
                 <%else%>
                     <a>Update bài viết <%=@post.title%></a>
@@ -76,7 +77,7 @@
                 <%end%>
 
                 <%if @tab_id == "ImageID"%>
-                    <div class="new_image_form">
+                    <div class="new_post_image_form">
                         <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
                             <div class="new_image_section">
                                 <div class="new_image_content">
@@ -103,14 +104,14 @@
                             </div>
 
                             <div class="new_image_submit">
-                                <%= f.submit "Submit", class: "new_image_form_submit" %>
+                                <%= f.submit "Post", class: "new_image_form_submit" %>
                             </div>
                         <%end%>
                     </div>
                 <%end%>
 
                 <%if @tab_id == "LinkID"%>
-                    <div class="new_post_form">
+                    <div class="new_post_link_form">
                         <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
                             <div class="new_post_section">
                                 <div class="new_post_content">
@@ -119,7 +120,7 @@
                                     </div>
                                     
                                     <div class="new_post_input">
-                                        <%= f.text_field :link, :required => true, class: "form-control", placeholder: "Dán link của bạn tại đây"  %>
+                                        <%= f.text_area :link, :required => true, class: "form-control-rich-text", placeholder: "Dán link của bạn tại đây"  %>
                                     </div>
                                 </div>
                             </div>

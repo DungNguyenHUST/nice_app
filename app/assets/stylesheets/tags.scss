@@ -3,12 +3,12 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 ///////////////////////////show////////////////////////
 .tag_show_container{
-    background-color: #f1f1f1;
+    background-color: #f0f2f5;
     min-height: 900px;
     padding-top: 20px;
     padding-bottom: 20px;
     .tag_show_info{
-        border: 1px solid #dfe1e5;
+        border: 1px solid #dddddd;
         border-top: 10px solid #666;
         background-color: #fff;
         border-radius: 5px;
@@ -53,7 +53,7 @@
                 width: 100px;
                 text-align: center;
                 margin-top: 10px;
-                border: 1px solid #dfe1e5;
+                border: 1px solid #dddddd;
                 border-radius: 20px;
                 padding: 5px;
                 font-size: 13px;
@@ -80,7 +80,7 @@
     .tag_show_middle{
         margin-top: 20px;
         .tag_show_tag_new{
-            border: 1px dashed #dfe1e5;
+            border: 1px dashed #dddddd;
             background-color: #fff;
             padding: 15px;
             .tag_show_new_tag{
@@ -103,7 +103,7 @@
 
         }
         .tag_show_post_sort{
-            border: 1px solid #dfe1e5;
+            border: 1px solid #dddddd;
             background-color: #fff;
             padding: 15px;
             border-radius: 5px;
@@ -147,7 +147,7 @@
         }
     }
     .tag_show_right{
-        border: 1px solid #dfe1e5;
+        border: 1px solid #dddddd;
         background-color: #fff;
         margin-top: 20px;
         border-radius: 5px;
@@ -162,7 +162,7 @@
         }
 
         .tag_show_right_post_block{
-            border-top: 1px solid #dfe1e5;
+            border-top: 1px solid #dddddd;
             padding: 15px;
             a{
                 text-decoration: none;
@@ -201,7 +201,7 @@
 
 ///////////////////////index///////////////////////////
 .tag_index_container{
-	background-color: #f1f1f1;
+	background-color: #f0f2f5;
 	min-height: 700px;
     padding-bottom: 20px;
     .tag_index_new{
@@ -224,7 +224,7 @@
 
 .tag_index_block{
     min-height: 150px;
-    border: 1px solid #dfe1e5;
+    border: 1px solid #dddddd;
     border-top: 20px solid #555;
     margin-top: 20px;
     border-radius: 5px;
@@ -276,7 +276,7 @@
             width: 100px;
             text-align: center;
             margin-top: 10px;
-            border: 1px solid #dfe1e5;
+            border: 1px solid #dddddd;
             border-radius: 20px;
             padding: 5px;
             font-size: 13px;
@@ -356,7 +356,7 @@
                     margin-left: 0px;
                     height: 40px;
                     width: 100%;
-                    border: 1px solid #dfe1e5;
+                    border: 1px solid #dddddd;
                     border-radius: 5px;
                 }
 
@@ -364,7 +364,7 @@
                     margin-left: 0px;
                     height: 40px;
                     width: 100%;
-                    border: 1px solid #dfe1e5;
+                    border: 1px solid #dddddd;
                     border-radius: 5px;
                     &:focus{
                         border: 2px solid #0071e3;
@@ -377,7 +377,7 @@
                     height: auto;
                     margin-left: 0px;
                     width: 100%;
-                    border: 1px solid #dfe1e5;
+                    border: 1px solid #dddddd;
                     border-radius: 5px;
                 }
             }
