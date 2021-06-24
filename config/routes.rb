@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+
+  get 'user_wellcome' => 'users#wellcome'
   
   resources :users do
     resources :user_notifications

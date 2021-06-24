@@ -1,0 +1,16 @@
+<div class='wellcome_tag_index_container'>
+	<div class='container'>
+		<div class='tag_index_new'>
+			<%= button_to new_tag_path, method: :get do%>
+                Wellcome, <%=current_user.name%>, hãy theo dõi ít nhất 5 tag mà bạn thích
+            <%end%>
+		</div>
+		<div class='row'>
+		    <%@tags.each do |tag|%>
+				<div class='col-sm-4'>
+					<%= render tag%>
+		    	</div>
+		    <%end%>
+		</div>
+	</div>
+</div>

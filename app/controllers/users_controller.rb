@@ -49,6 +49,10 @@ class UsersController < ApplicationController
         self[arg] rescue nil
     end
 
+    def wellcome
+        @tags = Tag.all
+    end
+
 private
     def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :phone,:address, 
