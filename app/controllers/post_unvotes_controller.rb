@@ -26,6 +26,17 @@ class PostUnvotesController < ApplicationController
             # Create unvoted
             @post_unvote = @post.post_unvotes.build(user_id: current_user.id)
             @post_unvote.save!
+
+            # Notify user
+            if(find_owner_user(@post).present?)
+                destination_user = find_owner_user(@post)
+                trigger_user = current_user
+                title = @post.title
+                content = @post.content
+                original_url = post_path(@post)
+                type = "PostUnvote"
+                UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
+            end
         end
 
         @type_param = params[:type_param]

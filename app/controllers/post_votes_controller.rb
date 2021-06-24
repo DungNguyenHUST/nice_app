@@ -1,4 +1,5 @@
 class PostVotesController < ApplicationController
+include ApplicationHelper
     before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
     
     def index 
@@ -26,6 +27,17 @@ class PostVotesController < ApplicationController
             # Created voted
             @post_vote = @post.post_votes.build(user_id: current_user.id)
             @post_vote.save!
+            
+            # Notify user
+            if(find_owner_user(@post).present?)
+                destination_user = find_owner_user(@post)
+                trigger_user = current_user
+                title = @post.title
+                content = @post.content
+                original_url = post_path(@post)
+                type = "PostVote"
+                UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
+            end
         end
 
         @type_param = params[:type_param]

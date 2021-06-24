@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_23_023609) do
+ActiveRecord::Schema.define(version: 2021_06_24_093217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,10 @@ ActiveRecord::Schema.define(version: 2021_06_23_023609) do
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "original_url"
+    t.integer "trigger_user_id"
+    t.boolean "readed", default: false
+    t.string "noti_type"
     t.index ["user_id"], name: "index_user_notifications_on_user_id"
   end
 

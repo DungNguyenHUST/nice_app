@@ -158,6 +158,15 @@
                             <%end%>                                     
                             <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserFollowedID')%>"></i>Đã theo dõi <span><%= find_owner_post_for_user(current_user).count%><span></a>
                         </li>
+
+                        <li class="nav-item">
+                            <%if @tab_id == "UserNotificationID"%>
+                                <%active = "active"%>
+                            <%else%> 
+                                <%active = ""%>
+                            <%end%>                                     
+                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserNotificationID')%>"></i>Thông báo<span><%= current_user.user_notifications.count%><span></a>
+                        </li>
                     </ul>
                 </div>
 
@@ -207,6 +216,14 @@
                         <div class="user_profile_save_tab">
                             <%find_owner_post_save_for_user(current_user).each do |post|%>
                                 <%= render post%>
+                            <%end%>
+                        </div>
+                    <%end%>
+
+                    <%if @tab_id == "UserNotificationID"%>
+                        <div class="user_notification_tab">
+                            <%current_user.user_notifications.each do |user_notification|%>
+                                <%= render user_notification%>
                             <%end%>
                         </div>
                     <%end%>
