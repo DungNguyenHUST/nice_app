@@ -61,6 +61,7 @@
         padding-left: 64px;
         @media screen and (max-width: 600px){
             padding-left: 15px;
+            padding-right: 15px;
         }
         a{
             font-weight: 600;
@@ -87,6 +88,11 @@
 
         .post_index_link_right{
             padding-left: 64px;
+            padding-right: 15px;
+            @media screen and (max-width: 600px){
+                padding-left: 15px;
+                padding-right: 15px;
+            }
             margin-top: 10px;
             .post_index_link_title{
                 font-size: 18px;

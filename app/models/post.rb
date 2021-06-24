@@ -29,4 +29,13 @@ class Post < ApplicationRecord
           Tag.where(name: n.strip).first_or_create!
         end
     end
+
+    def self.search(search)
+        if search
+            target_search = Post.where("title ILIKE?", "%#{search}%")
+            if(target_search)
+                self.where(id: target_search)
+            end
+        end
+    end
 end

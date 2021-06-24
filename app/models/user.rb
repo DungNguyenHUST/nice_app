@@ -29,4 +29,13 @@ class User < ApplicationRecord
       # user.skip_confirmation!
     end
   end
+
+  def self.search(search)
+    if search
+        target_search = Post.where("name ILIKE?", "%#{search}%")
+        if(target_search)
+            self.where(id: target_search)
+        end
+    end
+  end
 end

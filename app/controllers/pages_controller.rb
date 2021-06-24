@@ -16,6 +16,20 @@ class PagesController < ApplicationController
     end
   end
 
+  def search
+    if(params.has_key?(:search))
+      @search = params[:search]
+      @posts_search = Post.search(@search)
+      @users_searchs = User.search(@search)
+      @tags_search = Tag.search(@search)
+    end
+
+    @tab_id = "default"
+    if(params.has_key?(:tab_id))
+        @tab_id = params[:tab_id]
+    end
+  end
+
   # GET /pages/1 or /pages/1.json
   def show
   end
