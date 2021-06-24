@@ -14,7 +14,9 @@
                     <%elsif user_notification.noti_type.to_s == "PostUnvote"%>
                         <span> đã không bình chọn cho bài viết của bạn </span>
                     <%elsif user_notification.noti_type.to_s == "PostComment"%>
-                        <span> đã trả bình luận bài viết của bạn </span>
+                        <span> đã bình luận về bài viết của bạn </span>
+                    <%elsif user_notification.noti_type.to_s == "PostReplyComment"%>
+                        <span> đã trả lời bình luận cảu bạn </span>
                     <%else%>
                         <span> đã trả lời trong chủ đề </span>
                     <%end%>

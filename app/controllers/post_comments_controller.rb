@@ -14,13 +14,23 @@ include ApplicationHelper
 
             if @is_post_comment
                 # Notify user
-                if(find_owner_user(@post).present?)
-                    destination_user = find_owner_user(@post)
+                if(find_owner_user(@commentable).present?)
+                    destination_user = find_owner_user(@commentable)
                     trigger_user = current_user
-                    title = @post.title
-                    content = @post.content
-                    original_url = post_path(@post)
+                    title = @commentable.title
+                    content = @commentable.content
+                    original_url = post_path(@commentable)
                     type = "PostComment"
+                    UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
+                end
+            else
+                if(find_owner_user(@commentable).present?)
+                    destination_user = find_owner_user(@commentable)
+                    trigger_user = current_user
+                    title = @commentable.commentable.title
+                    content = @commentable.content
+                    original_url = post_path(@commentable.commentable)
+                    type = "PostReplyComment"
                     UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
                 end
             end
