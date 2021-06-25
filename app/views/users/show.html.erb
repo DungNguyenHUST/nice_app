@@ -230,17 +230,25 @@
 
                     <%if @tab_id == "UserFollowingID"%>
                         <div class="user_following_tab">
-                            <%current_user.followers.each do |user|%>
-                                <%= render user%>
-                            <%end%>
+                            <div class="row">
+                                <%current_user.followers.each do |user|%>
+                                    <div class="col-sm-4">
+                                        <%= render user%>
+                                    </div>
+                                <%end%>
+                            </div>
                         </div>
                     <%end%>
 
                     <%if @tab_id == "UserFollowedID"%>
                         <div class="user_followed_tab">
-                            <%current_user.followees.each do |user|%>
-                                <%= render user%>
-                            <%end%>
+                            <div class="row">
+                                <%current_user.followees.each do |user|%>
+                                    <div class="col-sm-4">
+                                        <%= render user%>
+                                    </div>
+                                <%end%>
+                            </div>
                         </div>
                     <%end%>
                 </div>
