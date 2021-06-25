@@ -4,23 +4,36 @@ class PagesController < ApplicationController
   # GET /pages or /pages.json
   def index
     @posts = Post.all.page(params[:page]).per(10)
-
-    @buffers = Post.all.sort_by{|post| cal_post_top_point(post)}.reverse
-    @post_tops = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
-
-    @post_news = Post.all.order('created_at DESC').page(params[:page]).per(10)
-
-    @buffers = Post.all.sort_by{|post| cal_post_hot_point(post)}.reverse
-    @post_hots = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
-
-    @post_trends = Post.all.page(params[:page]).per(10)
-
-    @tags = Tag.all
+    @tags = Tag.all.sort_by{|tag| tag.tag_follows.count}.reverse.first(10)
 
     @tab_id = "default"
     if(params.has_key?(:tab_id))
         @tab_id = params[:tab_id]
     end
+
+    if "PostTopID" == @tab_id
+      @buffers = Post.all.sort_by{|post| cal_post_top_point(post)}.reverse
+      @post_tops = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+    end
+
+    if "PostNewID" == @tab_id
+      @post_news = Post.all.order('created_at DESC').page(params[:page]).per(10)
+    end
+
+    if "PostHotID" == @tab_id
+      @buffers = Post.all.sort_by{|post| cal_post_hot_point(post)}.reverse
+      @post_hots = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+    end
+
+    if "PostTrendID" == @tab_id
+      @buffers = Post.where("created_at >= ?", 1.week.ago.utc)
+      @buffers = @buffers.sort_by{|post| cal_post_trend_point(post)}.reverse
+      @post_trends = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+    end
+
+    @buffers = Post.where("created_at >= ?", 1.day.ago.utc)
+    @post_trend_todays = @buffers.sort_by{|post| cal_post_trend_point(post)}.reverse.first(10)
+
   end
 
   def search

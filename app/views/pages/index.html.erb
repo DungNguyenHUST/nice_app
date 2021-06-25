@@ -104,7 +104,7 @@
                         <a>Trending hôm nay</a>
                     </div>
 
-                    <%@posts.limit(5).each do |post|%>
+                    <%@post_trend_todays.each do |post|%>
                         <div class='home_right_content'>
 							<div class='home_right_post_block'>
                             	<a><%= link_to (post.title), post_path(post) %></a>
@@ -125,7 +125,7 @@
                         <a>Top Tag</a>
                     </div>
 
-                    <%@tags.limit(5).each do |tag|%>
+                    <%@tags.each do |tag|%>
                         <div class='home_right_content'>
 							<div class='home_right_tag_block'>
                             	<a><%= link_to ('#' + tag.name.downcase), tag_path(tag) %></a>

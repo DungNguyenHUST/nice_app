@@ -88,4 +88,14 @@ module PostsHelper
         point = (vote_count - unvote_count) + view_count
         return point
     end
+
+    def cal_post_trend_point(post)
+        if post.view_count.present?
+            view_count = post.view_count
+        else
+            view_count = 0
+        end
+        point = view_count
+        return point
+    end
 end
