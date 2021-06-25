@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     end
 
     def edit
-        @user = User.find params[:id]
+        @user = User.friendly.find params[:id]
         
         if(params.has_key?(:tab_id))
             @tab_id = params[:tab_id]
@@ -34,13 +34,13 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        @user = User.find params[:id]
+        @user = User.friendly.find params[:id]
         @user.destroy
         redirect_to pages_path
     end
 
     def update
-        @user = User.find params[:id]
+        @user = User.friendly.find params[:id]
         @user.update_without_password(user_params)
         redirect_to edit_user_path(@user)
     end

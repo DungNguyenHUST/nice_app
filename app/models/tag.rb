@@ -1,4 +1,7 @@
 class Tag < ApplicationRecord
+    extend FriendlyId
+    friendly_id :name, use: :slugged
+    
 	mount_uploader :avatar, ImageUploader
 	mount_uploader :cover_image, ImageUploader
 	

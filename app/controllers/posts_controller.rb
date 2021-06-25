@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
     # GET /posts/1 or /posts/1.json
     def show
-        @post = Post.find(params[:id])
+        @post = Post.friendly.find(params[:id])
         @post.increment!(:view_count)
         @owner_user = find_owner_user_for_post(@post)
         @owner_post = find_owner_post_for_user(@owner_user)
@@ -104,7 +104,7 @@ class PostsController < ApplicationController
 private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-        @post = Post.find(params[:id])
+        @post = Post.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

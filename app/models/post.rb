@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+    extend FriendlyId
+    friendly_id :title, use: :slugged
+
     has_many :post_votes, dependent: :destroy
     has_many :post_unvotes, dependent: :destroy
     has_many :post_follows, dependent: :destroy

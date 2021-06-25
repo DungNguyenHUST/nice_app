@@ -78,3 +78,6 @@ gem 'link_thumbnailer'
 
 # pagination
 gem 'kaminari'
+
+# link
+gem 'friendly_id', '~> 5.4.0'
