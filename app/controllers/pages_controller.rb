@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   include PostsHelper
   # GET /pages or /pages.json
   def index
-    @posts = Post.all.order('created_at DESC')
+    @posts = Post.all.order('created_at DESC').page(params[:page]).per(10)
     @tags = Tag.all
 
     @tab_id = "default"

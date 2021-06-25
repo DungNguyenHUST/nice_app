@@ -64,12 +64,18 @@
                             <%@posts.each do |post|%>
                                 <%= render post%>
                             <%end%>
+                            <div id="paginate">
+                                <%= paginate @posts, window: 1, outer_window: 1%>
+                            </div>
                         <%end%>
 
                         <%if @tab_id == "PostNewID"%>
                             <%@posts.reverse.each do |post|%>
                                 <%= render post%>
                             <%end%>
+                            <div id="paginate">
+                                <%= paginate @posts, window: 1, outer_window: 1%>
+                            </div>
                         <%end%>
                     </div>
                 </div>

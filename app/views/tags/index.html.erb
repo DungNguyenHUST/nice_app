@@ -11,6 +11,9 @@
 					<%= render tag%>
 		    	</div>
 		    <%end%>
+			<div id="paginate">
+				<%= paginate @tags, window: 1, outer_window: 1%>
+			</div>
 		</div>
 	</div>
 </div>
