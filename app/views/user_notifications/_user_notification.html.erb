@@ -29,7 +29,7 @@
         </div>
 
         <div class="user_notification_content">
-            <a><%=user_notification.content%></a>
+            <a><%=truncate(strip_tags(user_notification.content), length: 300)%></a>
         </div>
     </div>
 </div>

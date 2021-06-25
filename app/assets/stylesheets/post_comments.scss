@@ -5,7 +5,8 @@
     clear: right;
     clear: left;
     margin-top: 20px;
-    /*border-top: 1px solid #dddddd;*/
+    background-color: #fff;
+    border-radius: 5px;
     .post_comment_left_block{
         float: left;
         .post_comment_user_avatar{
@@ -46,43 +47,52 @@
             
             .post_comment_right_toolbar{
                 padding-bottom: 10px;
-                .post_comment_index_vote_unvote_block{
-                    background-color: #fff;
+                .post_comment_vote_unvote_block{
                     position: relative;
-                    top: 6px;
-                    .post_comment_index_vote_block{
-                        float: left;
+                    top: 5px;
+                    margin-left: 5px;
+                    background-color: #f0f2f5;
+                    border-radius: 20px;
+                    padding-bottom: 3px;
+                    padding-top: 1px;
+                    padding-left: 3px;
+                    padding-right: 3px;
+                    float: left;
+                    .post_comment_vote_block{
+                        display:inline-block;
                         button{
-                            background-color: #fff;
                             border: none;
                             &:focus {outline:none;}
+                            background-color: #f0f2f5;
+                            border-radius: 20px;
                         }
                     }
-                    .post_comment_index_vote_unvote_count{
-                        background-color: #fff;
-                        float: left;
-                        font-size: 13px;
-                        font-weight: 600;
+                    .post_comment_vote_unvote_count{
+                        display:inline-block;
+                        font-size: 14px;
                         text-decoration: none;
                         color: #666;
                         padding-left: 3px;
                         padding-right: 3px;
                         position: relative;
-                        top: 5px;
+                        top: 2px;
+                        font-weight: 600;
                     }
-                    .post_comment_index_unvote_block{
-                        float: left;
+                    .post_comment_unvote_block{
+                        display:inline-block;
                         button{
-                            background-color: #fff;
                             border: none;
                             &:focus {outline:none;}
+                            background-color: #f0f2f5;
+                            border-radius: 20px;
                         }
                     }
                 }
                 .post_comment_reply_block{
                     position: relative;
                     top: 4px;
-                    padding-left: 10%;
+                    padding-left: 10px;
+                    display:inline-block;
                     .post_comment_reply_btn
                     {
                         border: none;

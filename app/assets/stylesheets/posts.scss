@@ -189,35 +189,42 @@
         }
         padding-top: 5px;
         .post_index_vote_unvote_block{
-            background-color: #fff;
             position: relative;
-            top: 6px;
+            top: 5px;
+            float: left;
+            background-color: #f0f2f5;
+            border-radius: 20px;
+            padding-bottom: 3px;
+            padding-top: 1px;
+            padding-left: 3px;
+            padding-right: 3px;
             .post_index_vote_block{
-                float: left;
+                display:inline-block;
                 button{
-                    background-color: #fff;
                     border: none;
                     &:focus {outline:none;}
+                    background-color: #f0f2f5;
+                    border-radius: 20px;
                 }
             }
             .post_index_vote_unvote_count{
-                background-color: #fff;
-                float: left;
+                display:inline-block;
                 font-size: 14px;
-                // font-weight: 600;
                 text-decoration: none;
                 color: #666;
                 padding-left: 3px;
                 padding-right: 3px;
                 position: relative;
-                top: 5px;
+                top: 2px;
+                font-weight: 600;
             }
             .post_index_unvote_block{
-                float: left;
+                display:inline-block;
                 button{
-                    background-color: #fff;
                     border: none;
                     &:focus {outline:none;}
+                    background-color: #f0f2f5;
+                    border-radius: 20px;
                 }
             }
         }
@@ -358,6 +365,7 @@
                 }
             }
         }
+
         .post_show_title{
             font-size: 28px;
             font-weight: 600;
@@ -367,6 +375,7 @@
                 text-decoration: none;
             }
         }
+
         .post_show_tag_link{
             float: left;
             margin-right: 10px;
@@ -451,41 +460,49 @@
         }
 
         .post_show_toolbar_block{
-            border-bottom: 1px solid #dddddd;
-            border-top: 1px solid #dddddd;
-            padding-bottom: 10px;
+            border-bottom: 1px solid #e1ecf4;
+            border-top: 1px solid #e1ecf4;
             clear: left;
-            padding-top: 5px;
+            margin-top: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
             .post_show_vote_unvote_block{
-                background-color: #fff;
                 position: relative;
-                top: 6px;
+                top: 5px;
+                float: left;
+                background-color: #f0f2f5;
+                border-radius: 20px;
+                padding-bottom: 3px;
+                padding-top: 1px;
+                padding-left: 3px;
+                padding-right: 3px;
                 .post_show_vote_block{
-                    float: left;
+                    display:inline-block;
                     button{
-                        background-color: #fff;
                         border: none;
                         &:focus {outline:none;}
+                        background-color: #f0f2f5;
+                        border-radius: 20px;
                     }
                 }
                 .post_show_vote_unvote_count{
-                    background-color: #fff;
-                    float: left;
+                    display:inline-block;
                     font-size: 14px;
-                    // font-weight: 600;
                     text-decoration: none;
                     color: #666;
                     padding-left: 3px;
                     padding-right: 3px;
                     position: relative;
-                    top: 5px;
+                    top: 2px;
+                    font-weight: 600;
                 }
                 .post_show_unvote_block{
-                    float: left;
+                    display:inline-block;
                     button{
-                        background-color: #fff;
                         border: none;
                         &:focus {outline:none;}
+                        background-color: #f0f2f5;
+                        border-radius: 20px;
                     }
                 }
             }
@@ -502,11 +519,13 @@
                     background-color: #fff;
                     &:focus {outline:none;}
                 }
-                a{
+                span{
                     font-size: 14px;
                     color: #666;
                     span{
                         margin-left: 2px;
+                        font-size: 14px;
+                        color: #666;
                     }
     
                     @media screen and (max-width: 600px){
@@ -518,7 +537,7 @@
                     border: none;
                     background-color: #fff;
                     i{
-                        color: #555;
+                        color: #333;
                         font-size: 24px;
                     }
                     &:focus {outline:none;}
@@ -542,6 +561,7 @@
                     i{
                         position: relative;
                         top: -1px;
+                        color: #333;
                     }
                 }
                 
@@ -575,7 +595,7 @@
                     border: none;
                     background-color: #fff;
                     i{
-                        color: #555;
+                        color: #333;
                         font-size: 24px;
                     }
                     &:focus {outline:none;}
@@ -770,9 +790,13 @@
     }
 
 }
+
 //////////////////////new////////////////////
 .new_post_container{
     background-color: #f0f2f5;
+    @media screen and (min-width: 600px){
+        min-height: 900px;
+    }
     .new_post_title{
         font-size: 22px;
         color: #333;
@@ -835,9 +859,6 @@
 
     .new_post_tab_content{
         display: block;
-        @media screen and (min-width: 600px){
-            min-height: 700px;
-        }
         .new_post_form
         {
             border: 1px solid #dddddd;

@@ -102,7 +102,7 @@
         }
     }
 
-    .home_right_block{
+    .home_right_trend_block{
         border: 1px solid #dddddd;
         background-color: #f9fafa;
         margin-top: 20px;
@@ -112,6 +112,7 @@
             font-size: 22px;
             font-weight: 600;
             padding: 15px;
+            color: #333;
         }
 
         .home_right_content{
@@ -153,6 +154,44 @@
                         background-color: #0071e3;
                         color: #fff;
                     }
+                }
+            }
+        }
+    }
+
+    .home_right_top_block{
+        border: 1px solid #dddddd;
+        background-color: #f9fafa;
+        margin-top: 20px;
+        border-radius: 5px;
+        min-height: 300px;
+        .home_right_title{
+            font-size: 22px;
+            font-weight: 600;
+            padding: 15px;
+            color: #333;
+        }
+
+        .home_right_content{
+            border-top: 1px solid #dddddd;
+            padding: 15px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            display: block;
+            clear: both;
+
+            .home_right_tag_block{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                display: block;
+                min-height: 20px;
+                a{
+                    text-decoration: none;
+                    color: #555;
+                    font-size: 16px;
+                    &:hover{
+                        color: #0071e3;
+                    };
                 }
             }
         }

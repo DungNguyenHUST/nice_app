@@ -14,7 +14,7 @@
         </div>
     <%end%>
     <div class='tag_index_description'>
-        <a><%= tag.description %></a>
+        <a><%= truncate(strip_tags(tag.description), length: 300)%></a>
     </div>
     <div class="tag_index_follow_block" id="tag_follow_<%=tag.id%>">
         <%if user_signed_in?%>

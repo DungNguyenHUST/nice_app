@@ -29,11 +29,11 @@
                                 <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
                             <%end%>
                             <% if pre_follow %>  
-                                <%= button_to user_user_follow_path(current_user, pre_follow), method: :delete, remote: true do%>
+                                <%= button_to user_user_follow_path(current_user, pre_follow), method: :delete, remote: true, form_class: "follow_btn_highlight" do%>
                                     <a>Đã theo dõi</a>
                                 <%end%> 
                             <%else%>
-                                <%= button_to user_user_follows_path(current_user), method: :post, remote: true do%>
+                                <%= button_to user_user_follows_path(current_user), method: :post, remote: true, form_class: "follow_btn" do%>
                                     <a>Theo dõi</a>
                                 <%end%>
                             <%end%>
@@ -82,8 +82,8 @@
                         </div>
                         
                         <div class="user_show_info_follow">
-                            <span><%=current_user.followed_users.count%></span> <a>người theo dõi</a>
-                            <span><%=current_user.following_users.count%></span> <a>đang theo dõi</a>
+                            <span><%=current_user.followers.count%></span> <a>người theo dõi</a>
+                            <span><%=current_user.followees.count%></span> <a>đang theo dõi</a>
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                             <%else%> 
                                 <%active = ""%>
                             <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserFollowingID')%>">Đang theo dõi <span><%= find_owner_post_for_user(current_user).count%><span></a>
+                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserFollowingID')%>">Đang theo dõi <span><%= current_user.followers.count%><span></a>
                         </li>
                         <li class="nav-item">
                             <%if @tab_id == "UserFollowedID"%>
@@ -156,7 +156,7 @@
                             <%else%> 
                                 <%active = ""%>
                             <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserFollowedID')%>"></i>Đã theo dõi <span><%= find_owner_post_for_user(current_user).count%><span></a>
+                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserFollowedID')%>"></i>Đã theo dõi <span><%= current_user.followees.count%><span></a>
                         </li>
 
                         <li class="nav-item">
@@ -224,6 +224,22 @@
                         <div class="user_notification_tab">
                             <%current_user.user_notifications.each do |user_notification|%>
                                 <%= render user_notification%>
+                            <%end%>
+                        </div>
+                    <%end%>
+
+                    <%if @tab_id == "UserFollowingID"%>
+                        <div class="user_following_tab">
+                            <%current_user.followers.each do |user|%>
+                                <%= render user%>
+                            <%end%>
+                        </div>
+                    <%end%>
+
+                    <%if @tab_id == "UserFollowedID"%>
+                        <div class="user_followed_tab">
+                            <%current_user.followees.each do |user|%>
+                                <%= render user%>
                             <%end%>
                         </div>
                     <%end%>

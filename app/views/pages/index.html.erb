@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class='home_right_block'>
+                <div class='home_right_trend_block'>
                     <div class='home_right_title'>
                         <a>Trending hôm nay</a>
                     </div>
@@ -102,14 +102,14 @@
                     <%end%>
                 </div>
 
-                <div class='home_right_block'>
+                <div class='home_right_top_block'>
                     <div class='home_right_title'>
                         <a>Top Tag</a>
                     </div>
 
                     <%@tags.limit(5).each do |tag|%>
                         <div class='home_right_content'>
-							<div class='home_right_post_block'>
+							<div class='home_right_tag_block'>
                             	<a><%= link_to ('#' + tag.name.downcase), tag_path(tag) %></a>
 							</div>
                         </div>

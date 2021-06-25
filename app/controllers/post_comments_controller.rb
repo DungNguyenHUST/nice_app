@@ -17,8 +17,16 @@ class PostCommentsController < ApplicationController
                 if(find_owner_user(@commentable).present?)
                     destination_user = find_owner_user(@commentable)
                     trigger_user = current_user
-                    title = @commentable.title
-                    content = @commentable.content
+                    if @commentable.title.empty?
+                        title = @commentable.title
+                    else
+                        title = ''
+                    end
+                    if @commentable.content.empty?
+                        content = @commentable.content
+                    else
+                        content = ''
+                    end
                     original_url = post_path(@commentable)
                     type = "PostComment"
                     UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
@@ -27,8 +35,12 @@ class PostCommentsController < ApplicationController
                 if(find_owner_user(@commentable).present?)
                     destination_user = find_owner_user(@commentable)
                     trigger_user = current_user
-                    title = @commentable.commentable.title
-                    content = @commentable.content
+                    title = ''
+                    if @commentable.content.empty?
+                        content = @commentable.content
+                    else
+                        content = ''
+                    end
                     original_url = post_path(@commentable.commentable)
                     type = "PostReplyComment"
                     UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)

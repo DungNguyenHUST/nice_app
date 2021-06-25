@@ -813,6 +813,20 @@
                     font-weight: 600;
                     &:focus {outline:none;}
                 }
+                .follow_btn_highlight
+                {
+                    button{
+                        background-color: #0071e3;
+                        color: #fff;
+                    }
+                }
+
+                .follow_btn{
+                    button{
+                        background-color: #dddddd;
+                        color: #555;
+                    }
+                }
             }
         }
 
@@ -939,6 +953,55 @@
         margin-top: 20px;
         // padding: 15px;
         .user_profile_post_tab{
+        }
+    }
+}
+
+//////////////index///////////////////////////////////////
+.user_index_block{
+    background-color: #fff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    .user_index_name{
+        text-align: center;
+        a{
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            color: #0071e3;
+            font-weight: 600;
+        }
+    }
+
+    .user_index_avatar{
+        display: flex;
+        justify-content: center;
+        img{
+            width: 80px;
+            height: 80px;
+            border-radius: 50px;
+            border: 1px solid #dddddd;
+        }
+    }
+    .user_index_nickname{
+        text-align: center;
+    }
+
+    .user_index_follow{
+        text-align: center;
+        margin-top: 10px;
+        button{
+            width: 150px;
+            border: none;
+            border-radius: 20px;
+            background-color: #0071e3;
+            height: 40px;
+            color: #fff;
+            font-size:14px;
+            font-weight: 600;
+            &:focus {outline:none;}
         }
     }
 }

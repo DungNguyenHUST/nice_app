@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-sm-4">
+        <div class='user_index_block'>
+            <%if user.avatar?%>
+                <div class='user_index_avatar'>
+                    <%= link_to (image_tags(user.avatar.url)), image_path(url_for(user.avatar.url)), rel: "gallery" , :href => user_path(user)%>
+                </div>
+            <%else%>
+                <div class="user_index_avatar">
+                    <%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(user)%>
+                </div>		
+            <%end%>
+            <div class='user_index_name'>
+                <a><%= link_to (user.name), user_path(user) %></a>
+            </div>
+
+            <div class='user_index_nickname'>
+                <a>@<%= user.name.downcase%></a>
+            </div>
+
+            <div class="user_index_follow" id="user_follow_<%=current_user.id%>">
+                <%if user_signed_in?%>
+                    <% pre_follow = user.following_users.find { |follow| follow.followee_id == current_user.id} %>
+                <%end%>
+                <% if pre_follow %>  
+                    <%= button_to user_user_follow_path(current_user, pre_follow, type_param: "index"), method: :delete, remote: true do%>
+                        <a>Đã theo dõi</a>
+                    <%end%> 
+                <%else%>
+                    <%= button_to user_user_follows_path(current_user, type_param: "index"), method: :post, remote: true do%>
+                        <a>Theo dõi</a>
+                    <%end%>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</div>
