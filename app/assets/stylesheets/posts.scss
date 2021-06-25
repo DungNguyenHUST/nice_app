@@ -639,6 +639,8 @@
                 float: left;
                 .post_show_right_user_avatar{
                     border: none;
+                    position: relative;
+                    top: -30px;
                     img{
                         border: 1px solid #eee;
                         width: 50px;
@@ -652,44 +654,44 @@
             .post_show_right_info_right{
                 padding-left: 60px;
                 .post_show_right_user_name{
-                    font-size: 16px;
+                    font-size: 18px;
                     font-weight: 600;
-                    padding-top: 15px;
+                    position: relative;
+                    top: -15px;
                     color: #444;
-                }
-                .post_show_right_create{
-                    font-size: 12px;
-                    font-weight: 400;
-                    color: #666;
                 }
             }
         }
 
-        .post_show_right_user_info{
-            clear: left;
-            padding-top: 10px;
-            .post_show_right_user_info_label{
-                i{
-                    padding-right: 5px;
+        .post_show_right_user_info_block{
+            position: relative;
+            top: -20px;
+            .post_show_right_user_info{
+                padding-left: 5px;
+                clear: left;
+                padding-top: 10px;
+                .post_show_right_user_info_label{
+                    i{
+                        padding-right: 5px;
+                    }
+                    a{
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #666;
+                    }
                 }
-                a{
-                    font-size: 14px;
-                    font-weight: 600;
-                    color: #666;
-                }
-            }
 
-            .post_show_right_user_info_des{
-                span{
-                    font-size: 16px;
-                    color: #333;
+                .post_show_right_user_info_des{
+                    span{
+                        font-size: 16px;
+                        color: #333;
+                    }
                 }
             }
         }
 
         .post_show_right_user_follow{
             button{
-                margin-top: 15px;
                 width: 100%;
                 border: none;
                 border-radius: 20px;
@@ -773,7 +775,7 @@
         font-size: 22px;
         color: #333;
         text-align: left;
-        margin-top: 20px;
+        margin-top: 30px;
         font-weight: 666;
         a{
             text-decoration: none;
@@ -831,7 +833,9 @@
 
     .new_post_tab_content{
         display: block;
-        min-height: 700px;
+        @media screen and (min-width: 600px){
+            min-height: 700px;
+        }
         .new_post_form
         {
             border: 1px solid #dddddd;
@@ -840,7 +844,6 @@
             border-bottom-right-radius: 5px;
             padding: 15px;
             background-color: #fff;
-            margin-bottom: 20px;
             .new_post_section
             {
                 padding-top: 10px;
@@ -873,29 +876,6 @@
                     }
                 }
             }
-
-            .new_post_submit{
-                margin-top: 30px;
-                .new_post_form_submit{
-                    height: 44px;
-                    width: 150px;
-                    @media screen and (max-width: 600px){
-                        width: 100%;
-                    }
-                    border-radius: 22px;
-                    padding: 6px;
-                    background: #0071e3;
-                    font-size: 14px;
-                    border: none;
-                    cursor: pointer;
-                    text-align: center;
-                    color: #fff;
-                    
-                    &:hover{
-                        background-color: #0071e3;
-                    }
-                }
-            }
         }
 
         .new_post_image_form{
@@ -905,8 +885,6 @@
             border-bottom-right-radius: 5px;
             padding: 15px;
             background-color: #fff;
-            margin-bottom: 20px;
-            min-height: 700px;
             .new_image_section
             {
                 padding-top: 10px;
@@ -942,7 +920,7 @@
 
             .new_image_section_upload
             {
-                min-height: 400px;
+                min-height: 300px;
                 margin-top: 10px;
                 padding-top: 10px;
                 border: 1px dashed #dddddd;
@@ -977,30 +955,6 @@
                     }
                 }
             }
-
-            .new_image_submit{
-                width: 100%;
-                margin-top: 20px;
-                .new_image_form_submit{
-                    height: 44px;
-                    width: 150px;
-                    @media screen and (max-width: 600px){
-                        width: 100%;
-                    }
-                    border-radius: 22px;
-                    padding: 6px;
-                    background: #0071e3;
-                    font-size: 14px;
-                    border: none;
-                    cursor: pointer;
-                    text-align: center;
-                    color: #fff;
-                    
-                    &:hover{
-                        background-color: #0071e3;
-                    }
-                }
-            }
         }
 
         .new_post_link_form
@@ -1011,7 +965,6 @@
             border-bottom-right-radius: 5px;
             padding: 15px;
             background-color: #fff;
-            margin-bottom: 20px;
             .new_post_section
             {
                 padding-top: 10px;
@@ -1044,28 +997,65 @@
                     }
                 }
             }
-
-            .new_post_submit{
-                margin-top: 30px;
-                .new_post_form_submit{
-                    height: 44px;
-                    width: 150px;
-                    @media screen and (max-width: 600px){
-                        width: 100%;
-                    }
-                    border-radius: 22px;
-                    padding: 6px;
-                    background: #0071e3;
-                    font-size: 14px;
-                    border: none;
-                    cursor: pointer;
-                    text-align: center;
-                    color: #fff;
-                    
-                    &:hover{
-                        background-color: #0071e3;
-                    }
+        }
+        
+        .new_post_submit{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            .new_post_form_submit{
+                height: 44px;
+                width: 150px;
+                @media screen and (max-width: 600px){
+                    width: 100%;
                 }
+                border-radius: 22px;
+                padding: 6px;
+                background: #0071e3;
+                font-size: 14px;
+                font-weight: 600;
+                border: none;
+                cursor: pointer;
+                text-align: center;
+                color: #fff;
+                
+                &:hover{
+                    background-color: #0071e3;
+                }
+            }
+        }
+    }
+
+    .new_post_policy{
+        border: 1px solid #dddddd;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #fff;
+        margin-top: 80px;
+        @media screen and (max-width: 600px){
+            margin-top: 20px;
+        }
+        .new_post_policy_title{
+            a{
+                text-align: left;
+                font-size: 22px;
+                color: #333;
+                font-weight: 550;
+            }
+            padding-bottom: 5px;
+            border-bottom: 1px solid #dfe1e5;
+        }
+
+        .new_post_policy_content{
+            .new_post_policy_content_index{
+                font-size: 16px;
+                padding-top: 10px;
+                // padding-bottom: 5px;
+            }
+
+            .new_post_policy_content_link{
+                font-weight: 600;
+                font-size: 16px;
+                padding-top: 15px;
             }
         }
     }

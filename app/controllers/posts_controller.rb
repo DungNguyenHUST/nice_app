@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 
     # GET /posts/1 or /posts/1.json
     def show
+        @post = Post.find(params[:id])
         @owner_user = find_owner_user_for_post(@post)
         @owner_post = find_owner_post_for_user(@owner_user)
         @post_images = @post.post_images.all

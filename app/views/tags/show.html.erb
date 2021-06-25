@@ -17,7 +17,7 @@
 
                     <div class='tag_show_info_data'>
                         <div class='tag_show_info_title'>
-                            <a>#<%=@tag.name%></a>
+                            <a>#<%=@tag.name.downcase%></a>
                         </div>
                         <div class='tag_show_info_des'>
                             <a><%=@tag.description%></a>
@@ -101,7 +101,7 @@
             <div class="col-sm-4">
                 <div class='tag_show_right'>
                     <div class='tag_show_right_title'>
-                        <a>Bài viết khác về <%=link_to ('#'+ @tag.name), tag_path(@tag)%></a>
+                        <a>Bài viết khác về <%=link_to ('#'+ @tag.name.downcase), tag_path(@tag)%></a>
                     </div>
                     <%@posts.each do |post|%>
                         <div class='tag_show_right_post_block'>
@@ -110,7 +110,7 @@
                         <div class='tag_show_right_tag_block'>
                             <%post.tags.each do |tag|%>
                                 <%= button_to tag_path(tag), method: :get do %>
-                                    <a><span>#</span><%=tag.name%></a>
+                                    <a><span>#</span><%=tag.name.downcase%></a>
                                 <%end%>
                             <%end%>
                         </div>

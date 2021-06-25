@@ -2,137 +2,164 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8">
-            <div class="new_post_title">
-                <%if !@is_edit%>
-                    <i><%= bootstrap_icon "pencil-square", width: 24, height: 24%></i>
-                    <a>Bài viết mới của <%= link_to current_user.name, user_path(current_user)%></a>
-                <%else%>
-                    <a>Update bài viết <%=@post.title%></a>
-                <%end%>
-            </div>
+                <div class="new_post_title">
+                    <%if !@is_edit%>
+                        <i><%= bootstrap_icon "pencil-square", width: 24, height: 24%></i>
+                        <a>Bài viết mới của <%= link_to current_user.name, user_path(current_user)%></a>
+                    <%else%>
+                        <a>Update bài viết <%=@post.title%></a>
+                    <%end%>
+                </div>
 
-            <div class="new_post_tab_link">
-                <ul class="nav nav-justified">
-                    <li class="nav-item">
-                        <%if @tab_id == "default" || @tab_id == "PostID"%>
-                            <%active = "active"%>
-                        <%else%> 
-                            <%active = ""%>
-                        <%end%>                                 
-                        <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'PostID')%>"><i><%= bootstrap_icon "card-list", width: 20, height: 20%></i>Bài viết</a>
-                    </li>
-                    <li class="nav-item">
-                        <%if @tab_id == "ImageID"%>
-                            <%active = "active"%>
-                        <%else%> 
-                            <%active = ""%>
-                        <%end%>                                     
-                        <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'ImageID')%>"><i><%= bootstrap_icon "camera", width: 20, height: 20%></i>Hình ảnh</a>
-                    </li>
+                <div class="new_post_tab_link">
+                    <ul class="nav nav-justified">
+                        <li class="nav-item">
+                            <%if @tab_id == "default" || @tab_id == "PostID"%>
+                                <%active = "active"%>
+                            <%else%> 
+                                <%active = ""%>
+                            <%end%>                                 
+                            <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'PostID')%>"><i><%= bootstrap_icon "card-list", width: 20, height: 20%></i>Bài viết</a>
+                        </li>
+                        <li class="nav-item">
+                            <%if @tab_id == "ImageID"%>
+                                <%active = "active"%>
+                            <%else%> 
+                                <%active = ""%>
+                            <%end%>                                     
+                            <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'ImageID')%>"><i><%= bootstrap_icon "camera", width: 20, height: 20%></i>Hình ảnh</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <%if @tab_id == "LinkID"%>
-                            <%active = "active"%>
-                        <%else%> 
-                            <%active = ""%>
-                        <%end%>                                     
-                        <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'LinkID')%>"><i><%= bootstrap_icon "link", width: 24, height: 24%></i>Link</a>
-                    </li>
-                </ul>
-            </div>
+                        <li class="nav-item">
+                            <%if @tab_id == "LinkID"%>
+                                <%active = "active"%>
+                            <%else%> 
+                                <%active = ""%>
+                            <%end%>                                     
+                            <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'LinkID')%>"><i><%= bootstrap_icon "link", width: 24, height: 24%></i>Link</a>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="new_post_tab_content">
-                <%if @tab_id == "default" || @tab_id == "PostID"%>
-                    <div class="new_post_form">
+                <div class="new_post_tab_content">
+                    <%if @tab_id == "default" || @tab_id == "PostID"%>
                         <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-                            <div class="new_post_section">
-                                <div class="new_post_content">
-                                    <div class="new_post_input">
-                                        <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                            <div class="new_post_form">
+                                <div class="new_post_section">
+                                    <div class="new_post_content">
+                                        <div class="new_post_input">
+                                            <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="new_post_section">
+                                    <div class="new_post_content">
+                                        <div class="new_post_input">
+                                            <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "mini", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
+                                        </div>
+                                    </div>  
+                                </div>
+
+                                <div class="new_post_section">
+                                    <div class="new_post_content">
+                                        <div class="new_post_input">
+                                            <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="new_post_section">
-                                <div class="new_post_content">
-                                    <div class="new_post_input">
-                                        <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "mini", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
-                                    </div>
-                                </div>  
+                            <div class="new_post_submit">
+                                <%= f.submit "Post", class: "new_post_form_submit" %>
                             </div>
+                        <%end%>
+                    <%end%>
 
-                            <div class="new_post_section">
-                                <div class="new_post_content">
-                                    <div class="new_post_input">
-                                        <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                    <%if @tab_id == "ImageID"%>
+                        <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+                            <div class="new_post_image_form">
+                                <div class="new_image_section">
+                                    <div class="new_image_content">
+                                        <div class="new_image_input">
+                                            <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="new_image_section_upload">
+                                    <div class="new_image_content">
+                                        <div class="new_image_input">
+                                            <%= f.file_field :image, :multiple => true, name: "post_images[image][]"%>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="new_image_section">
+                                    <div class="new_image_content">
+                                        <div class="new_image_input">
+                                            <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="new_post_submit">
+                                <%= f.submit "Post", class: "new_post_form_submit" %>
+                            </div>
+                        <%end%>
+                    <%end%>
 
+                    <%if @tab_id == "LinkID"%>
+                        <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+                            <div class="new_post_link_form">
+                                <div class="new_post_section">
+                                    <div class="new_post_content">
+                                        <div class="new_post_input">
+                                            <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                                        </div>
+                                        
+                                        <div class="new_post_input">
+                                            <%= f.text_area :link, :required => true, class: "form-control-rich-text", placeholder: "Dán link của bạn tại đây"  %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                            </div>
                             <div class="new_post_submit">
                                 <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>
                             </div>
                         <%end%>
+                    <%end%>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="new_post_policy">
+                    <div class="new_post_policy_title">
+                        <a>Những lưu ý trước khi viết bài</a>
                     </div>
-                <%end%>
-
-                <%if @tab_id == "ImageID"%>
-                    <div class="new_post_image_form">
-                        <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-                            <div class="new_image_section">
-                                <div class="new_image_content">
-                                    <div class="new_image_input">
-                                        <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="new_image_section_upload">
-                                <div class="new_image_content">
-                                    <div class="new_image_input">
-                                        <%= f.file_field :image, :multiple => true, name: "post_images[image][]"%>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="new_image_section">
-                                <div class="new_image_content">
-                                    <div class="new_image_input">
-                                        <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="new_image_submit">
-                                <%= f.submit "Post", class: "new_image_form_submit" %>
-                            </div>
-                        <%end%>
+                    <div class="new_post_policy_content">
+                        <div class="new_post_policy_content_index">
+                            · Không sử dụng từ ngữ mang ý xúc phạm, miệt thị người khác
+                        </div>
+                        <div class="new_post_policy_content_index">
+                            · Không sử dụng từ ngữ mang tính chất kích động, bạo lực
+                        </div>
+                        <div class="new_post_policy_content_index">
+                            · Cư xử và hành động như những gì bạn làm ngoài đời thực
+                        </div>
+                        <div class="new_post_policy_content_index">
+                            · Nhớ ghi nguồn nội dung bạn chia sẻ nếu có
+                        </div>
+                        <div class="new_post_policy_content_index">
+                            · Không đăng tin sai sự thật, vi phạm pháp luật
+                        </div>
+                        <div class="new_post_policy_content_link">
+                            Đọc các quy tắc khi tham gia cộng đồng tại
+                            <a href="https://www.firework.vn/posts/policy">thỏa thuận sử dụng </a>
+                        </div>
                     </div>
-                <%end%>
-
-                <%if @tab_id == "LinkID"%>
-                    <div class="new_post_link_form">
-                        <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-                            <div class="new_post_section">
-                                <div class="new_post_content">
-                                    <div class="new_post_input">
-                                        <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
-                                    </div>
-                                    
-                                    <div class="new_post_input">
-                                        <%= f.text_area :link, :required => true, class: "form-control-rich-text", placeholder: "Dán link của bạn tại đây"  %>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
-
-                            <div class="new_post_submit">
-                                <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>
-                            </div>
-                        <%end%>
-                    </div>
-                <%end%>
+                </div>
             </div>
         </div>  
     </div>

@@ -88,7 +88,7 @@
 							<div class='home_right_tag_block'>
 								<%post.tags.each do |tag|%>
 									<%= button_to tag_path(tag), method: :get do %>
-										<a><span>#</span><%=tag.name%></a>
+										<a><span>#</span><%=tag.name.downcase%></a>
 									<%end%>
 								<%end%>
 							</div>
@@ -104,7 +104,7 @@
                     <%@tags.limit(5).each do |tag|%>
                         <div class='home_right_content'>
 							<div class='home_right_post_block'>
-                            	<a><%= link_to ('#' + tag.name), tag_path(tag) %></a>
+                            	<a><%= link_to ('#' + tag.name.downcase), tag_path(tag) %></a>
 							</div>
                         </div>
                     <%end%>

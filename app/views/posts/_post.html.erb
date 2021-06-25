@@ -67,7 +67,7 @@
     <div class='post_index_tag_block'>
         <%post.tags.each do |tag|%>
             <%= button_to tag_path(tag), method: :get do %>
-                <a><span>#</span><%=tag.name%></a>
+                <a><span>#</span><%=tag.name.downcase%></a>
             <%end%>
         <%end%>
     </div>

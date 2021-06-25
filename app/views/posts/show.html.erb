@@ -30,7 +30,7 @@
 
 			        <%@post.tags.each do |tag|%>
 				    	<div class='post_show_tag_link'>
-				            <a><%= link_to ("#" + tag.name), tag_path(tag) %></a>
+				            <a><%= link_to ("#" + tag.name.downcase), tag_path(tag) %></a>
 				    	</div>
 			        <%end%>
 
@@ -188,53 +188,55 @@
 				        </div>
 				    </div>
 
-		            <div class="post_show_right_user_info">
-		                <div class="post_show_right_user_info_label">
-		                	<a><i><%= bootstrap_icon "briefcase", width: 20, height: 20%></i>VIỆC LÀM</a>
-		                </div>
-		                <div class="post_show_right_user_info_des">
-		                	<%if @owner_user.job.present?%>
-		                		<span><%=@owner_user.job%></span>
-		                	<%else%>
-		                		<span>---</span>
-		                	<%end%>
-		                </div>
-		            </div>
+					<div class="post_show_right_user_info_block">
+						<div class="post_show_right_user_info">
+							<div class="post_show_right_user_info_label">
+								<a><i><%= bootstrap_icon "briefcase", width: 20, height: 20%></i>VIỆC LÀM</a>
+							</div>
+							<div class="post_show_right_user_info_des">
+								<%if @owner_user.job.present?%>
+									<span><%=@owner_user.job%></span>
+								<%else%>
+									<span>---</span>
+								<%end%>
+							</div>
+						</div>
 
-					<div class="post_show_right_user_info">
-		                <div class="post_show_right_user_info_label">
-		                	<a><i><%= bootstrap_icon "book", width: 20, height: 20%></i>HỌC VẤN</a>
-		                </div>
-		                <div class="post_show_right_user_info_des">
-		                	<%if @owner_user.school.present?%>
-		                		<span><%=@owner_user.school%></span>
-		                	<%else%>
-		                		<span>---</span>
-		                	<%end%>
-		                </div>
-		            </div>
+						<div class="post_show_right_user_info">
+							<div class="post_show_right_user_info_label">
+								<a><i><%= bootstrap_icon "book", width: 20, height: 20%></i>HỌC VẤN</a>
+							</div>
+							<div class="post_show_right_user_info_des">
+								<%if @owner_user.school.present?%>
+									<span><%=@owner_user.school%></span>
+								<%else%>
+									<span>---</span>
+								<%end%>
+							</div>
+						</div>
 
-		            <div class="post_show_right_user_info">
-		            	<div class="post_show_right_user_info_label">
-		                	<a><i><%= bootstrap_icon "geo-alt", width: 20, height: 20%></i>ĐỊA CHỈ</a>
-		                </div>
-		                <div class="post_show_right_user_info_des">
-		                	<%if @owner_user.address.present?%>
-		                		<span><%=@owner_user.address%></span>
-		                	<%else%>
-		                		<span>---</span>
-		                	<%end%>
-		                </div>
-		            </div>
+						<div class="post_show_right_user_info">
+							<div class="post_show_right_user_info_label">
+								<a><i><%= bootstrap_icon "geo-alt", width: 20, height: 20%></i>ĐỊA CHỈ</a>
+							</div>
+							<div class="post_show_right_user_info_des">
+								<%if @owner_user.address.present?%>
+									<span><%=@owner_user.address%></span>
+								<%else%>
+									<span>---</span>
+								<%end%>
+							</div>
+						</div>
 
-				    <div class="post_show_right_user_info">
-		                <div class="post_show_right_user_info_label">
-		                	<a><i><%= bootstrap_icon "calendar", width: 18, height: 18%></i>NGÀY THAM GIA</a>
-		                </div>
-		                <div class="post_show_right_user_info_des">
-		                	<span><%=@owner_user.created_at.strftime("%B %d, %Y")%></span>
-		                </div>
-		            </div>
+						<div class="post_show_right_user_info">
+							<div class="post_show_right_user_info_label">
+								<a><i><%= bootstrap_icon "calendar", width: 18, height: 18%></i>NGÀY THAM GIA</a>
+							</div>
+							<div class="post_show_right_user_info_des">
+								<span><%=@owner_user.created_at.strftime("%B %d, %Y")%></span>
+							</div>
+						</div>
+					</div>
 
 		            <div class="post_show_right_user_follow" id="user_follow_<%=current_user.id%>">
 						<%if user_signed_in?%>
@@ -264,7 +266,7 @@
 							<div class='post_show_right_tag_block'>
 								<%post.tags.each do |tag|%>
 									<%= button_to tag_path(tag), method: :get do %>
-										<a><span>#</span><%=tag.name%></a>
+										<a><span>#</span><%=tag.name.downcase%></a>
 									<%end%>
 								<%end%>
 							</div>

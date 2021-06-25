@@ -4,9 +4,9 @@
             <div class="col-sm-8">
 	            <div class="new_tag_title">
 	                <%if !@is_edit%>
-	                    <h3>New tag</h3>
+	                    <a>Thêm tag mới</a>
 	                <%else%>
-	                    <h3>Update bài viết <%=@tag.name%></h3>
+	                    <a>Update #<%=@tag.name.downcase%></a>
 	                <%end%>
 	            </div>
 
