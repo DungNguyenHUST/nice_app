@@ -75,3 +75,6 @@ gem 'simple_form'
 
 # Link preview
 gem 'link_thumbnailer'
+
+# pagination
+gem 'kaminari'

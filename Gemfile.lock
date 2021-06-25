@@ -149,6 +149,18 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.5.1)
     jwt (2.2.3)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     link_thumbnailer (3.4.0)
       activesupport (>= 3.0)
       image_info (~> 1.0, >= 1.2.0)
@@ -344,6 +356,7 @@ DEPENDENCIES
   image_processing
   jbuilder (~> 2.7)
   jquery-rails
+  kaminari
   link_thumbnailer
   listen (~> 3.3)
   mini_magick
