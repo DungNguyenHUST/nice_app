@@ -61,20 +61,38 @@
                     </div>
                     <div class="home_post_tab_content">
                         <%if @tab_id == "default" || @tab_id == "PostHotID"%>
-                            <%@posts.each do |post|%>
+                            <%@post_hots.each do |post|%>
                                 <%= render post%>
                             <%end%>
                             <div id="paginate">
-                                <%= paginate @posts, window: 1, outer_window: 1%>
+                                <%= paginate @post_hots, window: 1, outer_window: 1%>
                             </div>
                         <%end%>
 
                         <%if @tab_id == "PostNewID"%>
-                            <%@posts.reverse.each do |post|%>
+                            <%@post_news.reverse.each do |post|%>
                                 <%= render post%>
                             <%end%>
                             <div id="paginate">
-                                <%= paginate @posts, window: 1, outer_window: 1%>
+                                <%= paginate @post_news, window: 1, outer_window: 1%>
+                            </div>
+                        <%end%>
+
+                        <%if @tab_id == "default" || @tab_id == "PostTopID"%>
+                            <%@post_tops.each do |post|%>
+                                <%= render post%>
+                            <%end%>
+                            <div id="paginate">
+                                <%= paginate @post_tops, window: 1, outer_window: 1%>
+                            </div>
+                        <%end%>
+
+                        <%if @tab_id == "default" || @tab_id == "PostTrendID"%>
+                            <%@post_trends.each do |post|%>
+                                <%= render post%>
+                            <%end%>
+                            <div id="paginate">
+                                <%= paginate @post_trends, window: 1, outer_window: 1%>
                             </div>
                         <%end%>
                     </div>

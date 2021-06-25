@@ -1,59 +1,61 @@
 <div class="home_search_block">
     <div class="container">
-        <div class="col-sm-8 col-nopadding">
-            <%=form_tag page_search_path, :method => "get" do%>
-                <div class="home_search_input">
-                    <div class="home_search_what">
-                        <%= text_field_tag :search, params[:search], required: true, class: 'form-control', placeholder: "Tìm kiếm bài viết, người dùng, tag ..."%>
+        <div class="row">
+            <div class="col-sm-8 col-nopadding">
+                <%=form_tag page_search_path, :method => "get" do%>
+                    <div class="home_search_input">
+                        <div class="home_search_what">
+                            <%= text_field_tag :search, params[:search], required: true, class: 'form-control', placeholder: "Tìm kiếm bài viết, người dùng, tag ..."%>
+                        </div>
                     </div>
+                <%end%>
+
+                <div class="home_search_tab_link">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <%if @tab_id == "default" || @tab_id == "PostSearchID"%>
+                                <%active = "active"%>
+                            <%else%> 
+                                <%active = ""%>
+                            <%end%>
+                            <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'PostSearchID')%>">Bài viết </a>
+                        </li>
+                        <li class="nav-item">
+                            <%if @tab_id == "UserSearchID"%>
+                                <%active = "active"%>
+                            <%else%> 
+                                <%active = ""%>
+                            <%end%>
+                            <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'UserSearchID')%>">Người dùng</a>
+                        </li>
+                        <li class="nav-item">
+                            <%if @tab_id == "TagSearchID"%>
+                                <%active = "active"%>
+                            <%else%> 
+                                <%active = ""%>
+                            <%end%>
+                            <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'TagSearchID')%>"><i>Tag</a>
+                        </li>
+                    </ul>
                 </div>
-            <%end%>
 
-            <div class="home_search_tab_link">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <%if @tab_id == "default" || @tab_id == "PostSearchID"%>
-                            <%active = "active"%>
-                        <%else%> 
-                            <%active = ""%>
-                        <%end%>
-                        <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'PostSearchID')%>">Bài viết </a>
-                    </li>
-                    <li class="nav-item">
-                        <%if @tab_id == "UserSearchID"%>
-                            <%active = "active"%>
-                        <%else%> 
-                            <%active = ""%>
-                        <%end%>
-                        <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'UserSearchID')%>">Người dùng</a>
-                    </li>
-                    <li class="nav-item">
-                        <%if @tab_id == "TagSearchID"%>
-                            <%active = "active"%>
-                        <%else%> 
-                            <%active = ""%>
-                        <%end%>
-                        <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'TagSearchID')%>"><i>Tag</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="home_search_tab_content">
-                <%if @tab_id == "default" || @tab_id == "PostSearchID"%>
-                    <%if @posts_search.present?%>
-                        <%@posts_search.each do |post|%>
-                            <%= render post%>
+                <div class="home_search_tab_content">
+                    <%if @tab_id == "default" || @tab_id == "PostSearchID"%>
+                        <%if @posts_search.present?%>
+                            <%@posts_search.each do |post|%>
+                                <%= render post%>
+                            <%end%>
                         <%end%>
                     <%end%>
-                <%end%>
 
-                <%if @tab_id == "default" || @tab_id == "PostSearchID"%>
-                    <%if @tags_search.present?%>
-                        <%@tags_search.each do |tag|%>
-                            <%= render tag%>
+                    <%if @tab_id == "default" || @tab_id == "PostSearchID"%>
+                        <%if @tags_search.present?%>
+                            <%@tags_search.each do |tag|%>
+                                <%= render tag%>
+                            <%end%>
                         <%end%>
                     <%end%>
-                <%end%>
+                </div>
             </div>
         </div>
     </div>

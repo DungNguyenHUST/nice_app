@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     # GET /posts/1 or /posts/1.json
     def show
         @post = Post.find(params[:id])
+        @post.increment!(:view_count)
         @owner_user = find_owner_user_for_post(@post)
         @owner_post = find_owner_post_for_user(@owner_user)
         @post_images = @post.post_images.all
@@ -108,7 +109,7 @@ private
 
     # Only allow a list of trusted parameters through.
     def post_params
-        params.require(:post).permit(:title, :content, :link, 
+        params.require(:post).permit(:title, :content, :link, :view_count,
                                     :tag_list, :tag, { tag_ids: [] }, :tag_ids, 
                                     post_images_attributes: [:id, :post_id, :image])
     end
