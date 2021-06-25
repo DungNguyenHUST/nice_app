@@ -48,7 +48,7 @@
 										<a><%= link_to post_link.title, url_for(@post.link), target: :_blank%></a>
 									</div>
 									<div class='post_show_link_description'>
-										<a><%= link_to post_link.description, url_for(@post.link), target: :_blank%></a>
+										<a><%= link_to truncate(strip_tags(post_link.description), length: 300), url_for(@post.link), target: :_blank%></a>
 									</div>
 
 									<div class='post_show_link_url'>

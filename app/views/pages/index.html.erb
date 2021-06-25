@@ -78,7 +78,7 @@
                             </div>
                         <%end%>
 
-                        <%if @tab_id == "default" || @tab_id == "PostTopID"%>
+                        <%if @tab_id == "PostTopID"%>
                             <%@post_tops.each do |post|%>
                                 <%= render post%>
                             <%end%>
@@ -87,7 +87,7 @@
                             </div>
                         <%end%>
 
-                        <%if @tab_id == "default" || @tab_id == "PostTrendID"%>
+                        <%if @tab_id == "PostTrendID"%>
                             <%@post_trends.each do |post|%>
                                 <%= render post%>
                             <%end%>

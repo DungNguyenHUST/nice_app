@@ -11,18 +11,18 @@ class PagesController < ApplicationController
         @tab_id = params[:tab_id]
     end
 
-    if "PostTopID" == @tab_id
-      @buffers = Post.all.sort_by{|post| cal_post_top_point(post)}.reverse
-      @post_tops = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+    if "default" == @tab_id || "PostHotID" == @tab_id
+      @buffers = Post.all.sort_by{|post| cal_post_hot_point(post)}.reverse
+      @post_hots = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
     if "PostNewID" == @tab_id
       @post_news = Post.all.order('created_at DESC').page(params[:page]).per(10)
     end
 
-    if "PostHotID" == @tab_id
-      @buffers = Post.all.sort_by{|post| cal_post_hot_point(post)}.reverse
-      @post_hots = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+    if "PostTopID" == @tab_id
+      @buffers = Post.all.sort_by{|post| cal_post_top_point(post)}.reverse
+      @post_tops = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
     if "PostTrendID" == @tab_id
