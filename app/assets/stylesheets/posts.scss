@@ -599,6 +599,12 @@
                     .form-control{
                         border-radius: 5px;
                         height: 100px;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        &:focus{
+                            border: 2px solid #0071e3;
+                            border-radius: 5px;
+                        }
                     }
                 }
                 .post_show_comment_submit{
