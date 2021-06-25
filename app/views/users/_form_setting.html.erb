@@ -1,7 +1,7 @@
 <div class='user_setting_dasboard'>
 	<div class="container">
     	<div class="row">
-			<div class="col-sm-8">
+			<div class="col-sm-8 col-nopadding">
 		        <div class='user_setting_title'>
 		            <a>Cài đặt thông tin cá nhân cho @<%=current_user.name%></a>
 		        </div>
@@ -30,7 +30,7 @@
 		</div>	
 		
 		<div class="row">
-			<div class="col-sm-8">
+			<div class="col-sm-8 col-nopadding">
 				<div class="user_setting_tab_content">
 					<%if @tab_id == "default" || @tab_id == "UserSettingPersonalID"%>
 						<div class="user_setting_personal_tab">
@@ -202,7 +202,7 @@
 							<div class="user_setting_form">
 								<%= simple_form_for @user, html: {class: "form-horizontal"} do |f| %>
 									<div class="user_setting_section">
-										<div class="user_setting_description">
+										<div class="user_setting_label">
 											<a>Cài đặt thông báo</a>
 										</div>
 										<div class="user_setting_content">

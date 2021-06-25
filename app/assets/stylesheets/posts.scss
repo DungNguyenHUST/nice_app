@@ -4,11 +4,16 @@
 /////////////////////index///////////////////////
 .post_index_block{
     border: 1px solid #dddddd;
-    background-color: #fff;
-    margin-bottom: 20px;
     @media screen and (max-width: 600px){
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+        border-radius: 0px;
         margin-bottom: 10px;
     }
+    background-color: #fff;
+    margin-bottom: 20px;
     border-radius: 5px;
     height: auto;
     padding-top: 15px;
@@ -328,6 +333,13 @@
     background-color: #f0f2f5;
     .post_show_left_block{
         border: 1px solid #dddddd;
+        @media screen and (max-width: 600px){
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0px;
+        }
         background-color: #fff;
         margin-bottom: 10px;
         border-radius: 5px;
@@ -664,6 +676,13 @@
 
     .post_show_right_block_user{
         border: 1px solid #dddddd;
+        @media screen and (max-width: 600px){
+            border-left: none;
+            border-right: none;
+            border-top: 40px solid #444;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0px;
+        }
         border-top: 40px solid #444;
         background-color: #f9fafa;
         margin-bottom: 10px;
@@ -745,6 +764,13 @@
 
     .post_show_right_user_post{
         border: 1px solid #dddddd;
+        @media screen and (max-width: 600px){
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0px;
+        }
         background-color: #f9fafa;
         margin-top: 20px;
         padding-bottom: 30px;
@@ -832,6 +858,13 @@
         display: block;
         background-color: #fff;
         border: 1px solid #dddddd;
+        @media screen and (max-width: 600px){
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0px;
+        }
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         .nav {
@@ -878,6 +911,13 @@
         .new_post_form
         {
             border: 1px solid #dddddd;
+            @media screen and (max-width: 600px){
+                border-left: none;
+                border-right: none;
+                border-top: 1px solid #dddddd;
+                border-bottom: 1px solid #dddddd;
+                border-radius: 0px;
+            }
             border-top: none;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
@@ -919,6 +959,13 @@
 
         .new_post_image_form{
             border: 1px solid #dddddd;
+            @media screen and (max-width: 600px){
+                border-left: none;
+                border-right: none;
+                border-top: 1px solid #dddddd;
+                border-bottom: 1px solid #dddddd;
+                border-radius: 0px;
+            }
             border-top: none;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
@@ -999,6 +1046,13 @@
         .new_post_link_form
         {
             border: 1px solid #dddddd;
+            @media screen and (max-width: 600px){
+                border-left: none;
+                border-right: none;
+                border-top: 1px solid #dddddd;
+                border-bottom: 1px solid #dddddd;
+                border-radius: 0px;
+            }
             border-top: none;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
@@ -1066,6 +1120,13 @@
 
     .new_post_policy{
         border: 1px solid #dddddd;
+        @media screen and (max-width: 600px){
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0px;
+        }
         padding: 15px;
         border-radius: 5px;
         background-color: #fff;

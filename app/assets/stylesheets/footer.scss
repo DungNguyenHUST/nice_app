@@ -4,6 +4,13 @@
 	padding: 10px;
 	background-color: #fff;
 	border: 1px solid #dddddd;
+	@media screen and (max-width: 600px){
+		border-left: none;
+		border-right: none;
+		border-top: 1px solid #dddddd;
+		border-bottom: 1px solid #dddddd;
+		border-radius: 0px;
+	}
 	border-radius: 5px;
 	.footer_copyright{
 	    a{
@@ -11,6 +18,9 @@
 	        color: #333;
 	    }
 	    text-align: left;
+		@media screen and (max-width: 600px){
+			text-align: center;
+		}
 	    font-weight: 500;
 	    i{
 	        font-size: 20px;

@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 //////////////////index///////////////////////////////
+@media screen and (max-width: 600px){
+    .col-nopadding {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
 .home_index_container{
     background-color: #f0f2f5;
     min-height: 900px;
@@ -9,9 +15,15 @@
         margin-top: 20px;
         .home_new_post{
             border: 1px dashed #dddddd;
+            @media screen and (max-width: 600px){
+                border-left: none;
+                border-right: none;
+                border-top: 1px dashed #dddddd;
+                border-bottom: 1px dashed #dddddd;
+                border-radius: 0px;
+            }
             background-color: #fff;
             padding: 15px;
-            border-radius: 5px;
             min-height: 75px;
             .home_new_post_user_avatar{
                 border: none;
@@ -60,6 +72,13 @@
 
         .home_post_sort{
             border: 1px solid #dddddd;
+            @media screen and (max-width: 600px){
+                border-left: none;
+                border-right: none;
+                border-top: 1px solid #dddddd;
+                border-bottom: 1px solid #dddddd;
+                border-radius: 0px;
+            }
             background-color: #fff;
             padding: 15px;
             border-radius: 5px;
@@ -104,6 +123,13 @@
 
     .home_right_trend_block{
         border: 1px solid #dddddd;
+        @media screen and (max-width: 600px){
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0px;
+        }
         background-color: #f9fafa;
         margin-top: 20px;
         border-radius: 5px;
@@ -161,6 +187,13 @@
 
     .home_right_top_block{
         border: 1px solid #dddddd;
+        @media screen and (max-width: 600px){
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0px;
+        }
         background-color: #f9fafa;
         margin-top: 20px;
         border-radius: 5px;
@@ -223,6 +256,13 @@
         position: relative;
         display: block;
         border: 1px solid #dddddd;
+        @media screen and (max-width: 600px){
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0px;
+        }
         border-radius: 5px;
         padding-left: 10px;
         padding-right: 10px;

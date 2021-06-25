@@ -581,6 +581,13 @@
         display: block;
         background-color: #fff;
         border: 1px solid #dddddd;
+        @media screen and (max-width: 600px){
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0px;
+        }
         border-radius: 5px;
         .nav {
             overflow-x: auto;
@@ -631,7 +638,14 @@
                     background-color: #fff;
                     padding: 15px;
                     border-radius: 5px;
-                    border: 1px solid #e5e7ec;
+                    border: 1px solid #dddddd;
+                    @media screen and (max-width: 600px){
+                        border-left: none;
+                        border-right: none;
+                        border-top: 1px solid #dddddd;
+                        border-bottom: 1px solid #dddddd;
+                        border-radius: 0px;
+                    }
                     .user_setting_description{
                         font-size: 24px;
                         font-weight: 600;
@@ -709,16 +723,17 @@
                     background-color: #fff;
                     padding: 15px;
                     border-radius: 5px;
-                    border: 1px solid #e5e7ec;
-                    .user_setting_description{
+                    border: 1px solid #dddddd;
+                    .user_setting_label{
                         font-size: 24px;
                         font-weight: 600;
                         padding-bottom: 15px;
                     }
                     @media screen and (max-width: 600px){
                         border: none;
-                        border-top: 1px solid #e5e7ec;
-                        padding: 0px;
+                        border-top: 1px solid #dddddd;
+                        border-bottom: 1px solid #dddddd;
+                        padding: 15px;
                         padding-top: 20px;
                         border-radius: 0px;
                     }
@@ -768,6 +783,13 @@
         margin-top: 20px;
         background-color: #fff;
         border: 1px solid #dddddd;
+        @media screen and (max-width: 600px){
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0px;
+        }
         min-height: 200px;
         border-radius: 5px;
         .user_show_info{
@@ -887,6 +909,13 @@
         display: block;
         background-color: #fff;
         border: 1px solid #dddddd;
+        @media screen and (max-width: 600px){
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0px;
+        }
         border-radius: 5px;
         .nav {
             overflow-x: auto;
@@ -961,6 +990,13 @@
 .user_index_block{
     background-color: #fff;
     border: 1px solid #dddddd;
+    @media screen and (max-width: 600px){
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+        border-radius: 0px;
+    }
     border-radius: 5px;
     margin-bottom: 20px;
     padding: 15px;

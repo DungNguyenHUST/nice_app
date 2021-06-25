@@ -1,7 +1,7 @@
 <div class='user_profile_dasboard'>
     <div class="container">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-8 col-nopadding">
                 <div class='user_show_info_block'>
                     <div class='user_show_info'>
                         <%if current_user.cover_image?%>
@@ -91,7 +91,7 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-8 col-nopadding">
                 <div class="user_profile_tab_link">
                     <ul class="nav">
                         <li class="nav-item">
@@ -232,7 +232,7 @@
                         <div class="user_following_tab">
                             <div class="row">
                                 <%current_user.followers.each do |user|%>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-nopadding">
                                         <%= render user%>
                                     </div>
                                 <%end%>
@@ -244,7 +244,7 @@
                         <div class="user_followed_tab">
                             <div class="row">
                                 <%current_user.followees.each do |user|%>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 col-nopadding">
                                         <%= render user%>
                                     </div>
                                 <%end%>
@@ -253,7 +253,7 @@
                     <%end%>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 col-nopadding">
             </div>
         </div>
     </div>
