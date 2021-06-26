@@ -273,6 +273,24 @@
             flex-wrap: nowrap;
             border: none;
         }
+        @media screen and (min-width: 600px){
+            .nav::-webkit-scrollbar {
+                width: 1px;
+                height: 6px;
+            }
+    
+            .nav::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 2px rgba(83, 82, 82, 0.1); 
+                border-radius: 10px;
+            }
+    
+            .nav::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                // -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,1);
+                background-color: #c5c5c5; 
+                width: 100px;
+            }
+        }
         .nav .nav-link {
             white-space: nowrap;
             font-size: 16px;
@@ -280,16 +298,16 @@
         .nav .nav-link, .nav .nav-link.active, .nav .nav-link:hover {
             border: none;
             color: #333;
-            text-align: center;
+            text-align: left;
             i{
                 position: relative;
-                top: -1px;
+                // top: 5px;
                 padding-right: 3px;
             }
             span{
-                position: absolute;
-                top: 1px;
-                right: 15px;
+                position: relative;
+                top: -10px;
+                // right: 15px;
                 font-size: 12px;
                 color: #999;
             }

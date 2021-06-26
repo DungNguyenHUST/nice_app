@@ -12,30 +12,36 @@
 
                 <div class="home_search_tab_link">
                     <ul class="nav">
-                        <li class="nav-item">
-                            <%if @tab_id == "default" || @tab_id == "PostSearchID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>
-                            <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'PostSearchID')%>">Bài viết </a>
-                        </li>
-                        <li class="nav-item">
-                            <%if @tab_id == "UserSearchID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>
-                            <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'UserSearchID')%>">Người dùng</a>
-                        </li>
-                        <li class="nav-item">
-                            <%if @tab_id == "TagSearchID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>
-                            <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'TagSearchID')%>"><i>Tag</a>
-                        </li>
+                        <%if @posts_search.present?%>
+                            <li class="nav-item">
+                                <%if @tab_id == "default" || @tab_id == "PostSearchID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>
+                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'PostSearchID')%>">Bài viết <span><%= @posts_search.count%><span></a>
+                            </li>
+                        <%end%>
+                        <%if @users_search.present?%>
+                            <li class="nav-item">
+                                <%if @tab_id == "PeopleSearchID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>
+                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'UserSearchID')%>">Người dùng <span><%= @users_search.count%><span></a>
+                            </li>
+                        <%end%>
+                        <%if @tags_search.present?%>
+                            <li class="nav-item">
+                                <%if @tab_id == "TagSearchID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>
+                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'TagSearchID')%>">Tag <span><%= @tags_search.count%><span></a>
+                            </li>
+                        <%end%>
                     </ul>
                 </div>
 
@@ -48,7 +54,15 @@
                         <%end%>
                     <%end%>
 
-                    <%if @tab_id == "default" || @tab_id == "PostSearchID"%>
+                    <%if @tab_id == "PeopleSearchID"%>
+                        <%if @users_search.present?%>
+                            <%@users_search.each do |user|%>
+                                <%= render user%>
+                            <%end%>
+                        <%end%>
+                    <%end%>
+
+                    <%if @tab_id == "PostSearchID"%>
                         <%if @tags_search.present?%>
                             <%@tags_search.each do |tag|%>
                                 <%= render tag%>

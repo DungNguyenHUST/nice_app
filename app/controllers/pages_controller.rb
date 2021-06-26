@@ -40,7 +40,7 @@ class PagesController < ApplicationController
     if(params.has_key?(:search))
       @search = params[:search]
       @posts_search = Post.search(@search)
-      @users_searchs = User.search(@search)
+      @users_search = User.search(@search)
       @tags_search = Tag.search(@search)
     end
 
