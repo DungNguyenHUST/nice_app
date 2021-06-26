@@ -73,6 +73,7 @@ GEM
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
     bcrypt (3.1.16)
+    bcrypt_pbkdf (1.1.0)
     bindex (0.8.1)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
@@ -130,6 +131,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    ed25519 (1.2.4)
     erubi (1.10.0)
     ethon (0.14.0)
       ffi (>= 1.15.0)
@@ -397,6 +399,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt_pbkdf (>= 1.0, < 2.0)
   bootsnap (>= 1.4.4)
   bootstrap (~> 4.6.0)
   bootstrap-icons-helper
@@ -409,6 +412,7 @@ DEPENDENCIES
   carrierwave
   ckeditor
   devise
+  ed25519 (>= 1.2, < 2.0)
   friendly_id (~> 5.4.0)
   image_processing
   jbuilder (~> 2.7)
@@ -417,6 +421,7 @@ DEPENDENCIES
   link_thumbnailer
   listen (~> 3.3)
   mini_magick
+  net-ssh (>= 6.0.2)
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
