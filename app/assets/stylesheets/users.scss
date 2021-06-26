@@ -445,6 +445,10 @@
 .user_change_pass_password{
     min-height: 700px;
     padding-top: 30px;
+    @media screen and (max-width: 600px){
+        padding-left: 15px;
+        padding-right: 15px;
+    } 
     .user_reset_pass_content{
         padding-top: 10px;
        .user_reset_pass_label{
@@ -507,6 +511,10 @@
 .user_reset_password{
     min-height: 700px;
     padding-top: 30px;
+    @media screen and (max-width: 600px){
+        padding-left: 15px;
+        padding-right: 15px;
+    }   
     .user_reset_pass_content{
         padding-top: 10px;
        .user_reset_pass_label{

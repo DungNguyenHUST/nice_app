@@ -60,13 +60,11 @@
                 </div>
                 
                 <div class="post_comment_reply_block">
-                    <%if user_signed_in?%>
-                        <button class="post_comment_reply_btn" onclick="myFunctionReplyPostComment(<%=post_comment.id%>)">
-                            <i><%= bootstrap_icon "chat", width: 18, height: 18%></i>
-                            <span><%= post_comment.post_comments.count%></span> 
-                            <a>Trả lời</a> 
-                        </button>
-                    <%end%>
+                    <button class="post_comment_reply_btn" onclick="myFunctionReplyPostComment(<%=post_comment.id%>)">
+                        <i><%= bootstrap_icon "chat", width: 18, height: 18%></i>
+                        <span><%= post_comment.post_comments.count%></span> 
+                        <a>Trả lời</a> 
+                    </button>
                 </div>
             </div>
 

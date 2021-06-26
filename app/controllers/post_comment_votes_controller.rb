@@ -1,4 +1,5 @@
 class PostCommentVotesController < ApplicationController
+    before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 	before_action :find_post_comment
     before_action :find_post_comment_vote, only: [:destroy]
     

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :require_login, only: [:index, :show, :edit, :update, :destroy]
+    before_action :require_login, only: [:index, :edit, :update, :destroy]
     
     def index
         @users = User.all
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = current_user
+        @user = User.friendly.find params[:id]
 
         if(params.has_key?(:tab_id))
             @tab_id = params[:tab_id]

@@ -40,8 +40,10 @@
         }
 
         .post_index_info_right{
-            padding-left: 50px;
+            padding-left: 10px;
             position: relative;
+            top: 3px;
+            display: inline-block;
             .post_index_user_name{
                 position: relative;
                 top:  -5px;
@@ -356,8 +358,8 @@
                     border: none;
                     img{
                         border: 1px solid #eee;
-                        width: 42px;
-                        height: 42px;
+                        width: 50px;
+                        height: 50px;
                         border-radius: 50%;
                         object-fit: cover;
                     }
@@ -365,13 +367,17 @@
             }
 
             .post_show_info_right{
-                padding-left: 50px;
+                padding-left: 10px;
                 position: relative;
-                top: 2px;
+                top: 4px;
+                display: inline-block;
                 .post_show_user_name{
-                    font-size: 14px;
-                    font-weight: 600;
-                    color: #333;
+                    a{
+                        text-decoration: none;
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #444;
+                    }
                 }
                 .post_show_create{
                     font-size: 12px;
@@ -697,11 +703,11 @@
                 .post_show_right_user_avatar{
                     border: none;
                     position: relative;
-                    top: -30px;
+                    top: -33px;
                     img{
                         border: 1px solid #eee;
-                        width: 50px;
-                        height: 50px;
+                        width: 55px;
+                        height: 55px;
                         border-radius: 50%;
                         object-fit: cover;
                     }
@@ -740,7 +746,7 @@
 
                 .post_show_right_user_info_des{
                     span{
-                        font-size: 16px;
+                        font-size: 14px;
                         color: #333;
                     }
                 }

@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+	before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 	before_action :set_tag, only: %i[ show edit update destroy ]
 
 	def index

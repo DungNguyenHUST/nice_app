@@ -1,260 +1,402 @@
-<div class='user_profile_dasboard'>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-nopadding">
-                <div class='user_show_info_block'>
-                    <div class='user_show_info'>
-                        <%if current_user.cover_image?%>
-                            <div class='user_show_info_cover_image'>
-                                <%= link_to (image_tag(current_user.cover_image.url)), image_path(url_for(current_user.cover_image.url)), rel: "gallery" , :href => user_path(current_user)%>
-                            </div>
-                        <%else%>
-                            <div class='user_show_info_cover_image'>
-                                <%= link_to (image_tag("default-cover.jpg")), image_path(url_for("default-cover.jpg")), rel: "gallery" , :href => user_path(current_user)%>
-                            </div>
-                        <%end%>
-
-                        <%if current_user.avatar?%>
-                            <div class='user_show_info_avatar'>
-                                <%= link_to (image_tag(current_user.avatar.url)), image_path(url_for(current_user.avatar.url)), rel: "gallery" , :href => user_path(current_user)%>
-                            </div>
-                        <%else%>
-                            <div class='user_show_info_avatar'>
-                                <%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(current_user)%>
-                            </div>
-                        <%end%>
-
-                        <div class="user_show_info_follow" id="user_follow_<%=current_user.id%>">
-                            <%if user_signed_in?%>
-                                <% pre_follow = current_user.following_users.find { |follow| follow.followee_id == current_user.id} %>
-                            <%end%>
-                            <% if pre_follow %>  
-                                <%= button_to user_user_follow_path(current_user, pre_follow), method: :delete, remote: true, form_class: "follow_btn_highlight" do%>
-                                    <a>Đã theo dõi</a>
-                                <%end%> 
+<%if user_signed_in? && (current_user.id == @user.id)%>
+    <div class='user_profile_dasboard'>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-nopadding">
+                    <div class='user_show_info_block'>
+                        <div class='user_show_info'>
+                            <%if @user.cover_image?%>
+                                <div class='user_show_info_cover_image'>
+                                    <%= link_to (image_tag(@user.cover_image.url)), image_path(url_for(@user.cover_image.url)), rel: "gallery" , :href => user_path(@user)%>
+                                </div>
                             <%else%>
-                                <%= button_to user_user_follows_path(current_user), method: :post, remote: true, form_class: "follow_btn" do%>
-                                    <a>Theo dõi</a>
+                                <div class='user_show_info_cover_image'>
+                                    <%= link_to (image_tag("default-cover.jpg")), image_path(url_for("default-cover.jpg")), rel: "gallery" , :href => user_path(@user)%>
+                                </div>
+                            <%end%>
+
+                            <%if @user.avatar?%>
+                                <div class='user_show_info_avatar'>
+                                    <%= link_to (image_tag(@user.avatar.url)), image_path(url_for(@user.avatar.url)), rel: "gallery" , :href => user_path(@user)%>
+                                </div>
+                            <%else%>
+                                <div class='user_show_info_avatar'>
+                                    <%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(@user)%>
+                                </div>
+                            <%end%>
+
+                            <div class="user_show_info_follow" id="user_follow_<%=@user.id%>">
+                                <%if user_signed_in?%>
+                                    <% pre_follow = @user.following_users.find { |follow| follow.followee_id == @user.id} %>
                                 <%end%>
-                            <%end%>
-                        </div>
-                    </div>
-
-                    <div class='user_show_info_data'>
-                        <div class='user_show_info_name'>
-                            <a><%=current_user.name%></a>
-                        </div>
-
-                        <div class='user_show_info_introduce'>
-                            <a><%=current_user.introduce%></a>
-                        </div>
-
-                        <div class="user_show_info_des">
-                            <i><%= bootstrap_icon "briefcase", width: 20, height: 20%></i>
-                            <%if current_user.job.present?%>
-                                <span><%=current_user.job%></span>
-                            <%else%>
-                                <span>---</span>
-                            <%end%>
+                                <% if pre_follow %>  
+                                    <%= button_to user_user_follow_path(@user, pre_follow), method: :delete, remote: true, form_class: "follow_btn_highlight" do%>
+                                        <a>Đã theo dõi</a>
+                                    <%end%> 
+                                <%else%>
+                                    <%= button_to user_user_follows_path(@user), method: :post, remote: true, form_class: "follow_btn" do%>
+                                        <a>Theo dõi</a>
+                                    <%end%>
+                                <%end%>
+                            </div>
                         </div>
 
-                        <div class="user_show_info_des">
-                            <i><%= bootstrap_icon "book", width: 20, height: 20%></i>
-                            <%if current_user.school.present?%>
-                                <span><%=current_user.school%></span>
-                            <%else%>
-                                <span>---</span>
-                            <%end%>
-                        </div>
+                        <div class='user_show_info_data'>
+                            <div class='user_show_info_name'>
+                                <a><%=@user.name%></a>
+                            </div>
 
-                        <div class="user_show_info_des">
-                            <i><%= bootstrap_icon "geo-alt", width: 20, height: 20%></i>
-                            <%if current_user.address.present?%>
-                                <span><%=current_user.address%></span>
-                            <%else%>
-                                <span>---</span>
-                            <%end%>
-                        </div>
+                            <div class='user_show_info_introduce'>
+                                <a><%=@user.introduce%></a>
+                            </div>
 
-                        <div class="user_show_info_des">
-                            <i><%= bootstrap_icon "calendar", width: 20, height: 20%></i>
-                            <span><%="Tham gia " + current_user.created_at.strftime("%B %d, %Y")%></span>
-                        </div>
-                        
-                        <div class="user_show_info_follow">
-                            <span><%=current_user.followers.count%></span> <a>người theo dõi</a>
-                            <span><%=current_user.followees.count%></span> <a>đang theo dõi</a>
+                            <div class="user_show_info_des">
+                                <i><%= bootstrap_icon "briefcase", width: 20, height: 20%></i>
+                                <%if @user.job.present?%>
+                                    <span><%=@user.job%></span>
+                                <%else%>
+                                    <span>---</span>
+                                <%end%>
+                            </div>
+
+                            <div class="user_show_info_des">
+                                <i><%= bootstrap_icon "book", width: 20, height: 20%></i>
+                                <%if @user.school.present?%>
+                                    <span><%=@user.school%></span>
+                                <%else%>
+                                    <span>---</span>
+                                <%end%>
+                            </div>
+
+                            <div class="user_show_info_des">
+                                <i><%= bootstrap_icon "geo-alt", width: 20, height: 20%></i>
+                                <%if @user.address.present?%>
+                                    <span><%=@user.address%></span>
+                                <%else%>
+                                    <span>---</span>
+                                <%end%>
+                            </div>
+
+                            <div class="user_show_info_des">
+                                <i><%= bootstrap_icon "calendar", width: 20, height: 20%></i>
+                                <span><%="Tham gia " + @user.created_at.strftime("%B %d, %Y")%></span>
+                            </div>
+                            
+                            <div class="user_show_info_follow">
+                                <span><%=@user.followers.count%></span> <a>người theo dõi</a>
+                                <span><%=@user.followees.count%></span> <a>đang theo dõi</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-sm-8 col-nopadding">
-                <div class="user_profile_tab_link">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <%if @tab_id == "default" || @tab_id == "UserPostID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserPostID')%>">Bài viết <span><%= find_owner_post_for_user(current_user).count%><span></a>
-                        </li>
-                        <li class="nav-item">
-                            <%if @tab_id == "UserTagID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserTagID')%>">Tag <span><%= find_owner_tag_for_user(current_user).count%><span></a>
-                        </li>
-                        <li class="nav-item">
-                            <%if @tab_id == "UserCommentID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserCommentID')%>">Bình luận <span><%= find_owner_post_comment_for_user(current_user).count%><span></a>
-                        </li>
-                        <li class="nav-item">
-                            <%if @tab_id == "UserVoteID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserVoteID')%>">Vote <span><%= find_owner_post_vote_for_user(current_user).count%><span></a>
-                        </li>
-                        <li class="nav-item">
-                            <%if @tab_id == "UserUnvoteID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserUnvoteID')%>">Unvote <span><%= find_owner_post_unvote_for_user(current_user).count%><span></a>
-                        </li>
-                        <li class="nav-item">
-                            <%if @tab_id == "UserSaveID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserSaveID')%>">Đã lưu <span><%= find_owner_post_save_for_user(current_user).count%><span></a>
-                        </li>
-                        <li class="nav-item">
-                            <%if @tab_id == "UserFollowingID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserFollowingID')%>">Đang theo dõi <span><%= current_user.followers.count%><span></a>
-                        </li>
-                        <li class="nav-item">
-                            <%if @tab_id == "UserFollowedID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserFollowedID')%>"></i>Đã theo dõi <span><%= current_user.followees.count%><span></a>
-                        </li>
+            <div class="row">
+                <div class="col-sm-8 col-nopadding">
+                    <div class="user_profile_tab_link">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <%if @tab_id == "default" || @tab_id == "UserPostID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserPostID')%>">Bài viết <span><%= find_owner_post_for_user(@user).count%><span></a>
+                            </li>
+                            <li class="nav-item">
+                                <%if @tab_id == "UserTagID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserTagID')%>">Tag <span><%= find_owner_tag_for_user(@user).count%><span></a>
+                            </li>
+                            <li class="nav-item">
+                                <%if @tab_id == "UserCommentID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserCommentID')%>">Bình luận <span><%= find_owner_post_comment_for_user(@user).count%><span></a>
+                            </li>
+                            <li class="nav-item">
+                                <%if @tab_id == "UserVoteID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserVoteID')%>">Vote <span><%= find_owner_post_vote_for_user(@user).count%><span></a>
+                            </li>
+                            <li class="nav-item">
+                                <%if @tab_id == "UserUnvoteID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserUnvoteID')%>">Unvote <span><%= find_owner_post_unvote_for_user(@user).count%><span></a>
+                            </li>
+                            <li class="nav-item">
+                                <%if @tab_id == "UserSaveID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserSaveID')%>">Đã lưu <span><%= find_owner_post_save_for_user(@user).count%><span></a>
+                            </li>
+                            <li class="nav-item">
+                                <%if @tab_id == "UserFollowingID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserFollowingID')%>">Đang theo dõi <span><%= @user.followers.count%><span></a>
+                            </li>
+                            <li class="nav-item">
+                                <%if @tab_id == "UserFollowedID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserFollowedID')%>"></i>Đã theo dõi <span><%= @user.followees.count%><span></a>
+                            </li>
 
-                        <li class="nav-item">
-                            <%if @tab_id == "UserNotificationID"%>
-                                <%active = "active"%>
-                            <%else%> 
-                                <%active = ""%>
-                            <%end%>                                     
-                            <a class="nav-link <%=active%>" href="<%=user_path(current_user, tab_id: 'UserNotificationID')%>"></i>Thông báo<span><%= current_user.user_notifications.count%><span></a>
-                        </li>
-                    </ul>
-                </div>
+                            <li class="nav-item">
+                                <%if @tab_id == "UserNotificationID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserNotificationID')%>"></i>Thông báo<span><%= @user.user_notifications.count%><span></a>
+                            </li>
+                        </ul>
+                    </div>
 
-                <div class="user_profile_tab_content">
-                    <%if @tab_id == "default" || @tab_id == "UserPostID"%>
-                        <div class="user_profile_post_tab">
-                            <%find_owner_post_for_user(current_user).each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                        </div>
-                    <%end%>
-
-                    <%if @tab_id == "UserTagID"%>
-                        <div class="user_profile_tag_tab">
-                            <%find_owner_tag_for_user(current_user).each do |tag|%>
-                                <%= render tag%>
-                            <%end%>
-                        </div>
-                    <%end%>
-
-                    <%if @tab_id == "UserCommentID"%>
-                        <div class="user_profile_comment_tab">
-                            <%find_owner_post_comment_for_user(current_user).each do |post|%>
-                                <%@post = post%>
-                                <%= render @post%>
-                            <%end%>
-                        </div>
-                    <%end%>
-
-                    <%if @tab_id == "UserVoteID"%>
-                        <div class="user_profile_vote_tab">
-                            <%find_owner_post_vote_for_user(current_user).each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                        </div>
-                    <%end%>
-
-                    <%if @tab_id == "UserUnvoteID"%>
-                        <div class="user_profile_unvote_tab">
-                            <%find_owner_post_unvote_for_user(current_user).each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                        </div>
-                    <%end%>
-
-                    <%if @tab_id == "UserSaveID"%>
-                        <div class="user_profile_save_tab">
-                            <%find_owner_post_save_for_user(current_user).each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                        </div>
-                    <%end%>
-
-                    <%if @tab_id == "UserNotificationID"%>
-                        <div class="user_notification_tab">
-                            <%current_user.user_notifications.each do |user_notification|%>
-                                <%= render user_notification%>
-                            <%end%>
-                        </div>
-                    <%end%>
-
-                    <%if @tab_id == "UserFollowingID"%>
-                        <div class="user_following_tab">
-                            <div class="row">
-                                <%current_user.followers.each do |user|%>
-                                    <div class="col-sm-4 col-nopadding">
-                                        <%= render user%>
-                                    </div>
+                    <div class="user_profile_tab_content">
+                        <%if @tab_id == "default" || @tab_id == "UserPostID"%>
+                            <div class="user_profile_post_tab">
+                                <%find_owner_post_for_user(@user).each do |post|%>
+                                    <%= render post%>
                                 <%end%>
                             </div>
-                        </div>
-                    <%end%>
+                        <%end%>
 
-                    <%if @tab_id == "UserFollowedID"%>
-                        <div class="user_followed_tab">
-                            <div class="row">
-                                <%current_user.followees.each do |user|%>
-                                    <div class="col-sm-4 col-nopadding">
-                                        <%= render user%>
-                                    </div>
+                        <%if @tab_id == "UserTagID"%>
+                            <div class="user_profile_tag_tab">
+                                <%find_owner_tag_for_user(@user).each do |tag|%>
+                                    <%= render tag%>
                                 <%end%>
                             </div>
-                        </div>
-                    <%end%>
+                        <%end%>
+
+                        <%if @tab_id == "UserCommentID"%>
+                            <div class="user_profile_comment_tab">
+                                <%find_owner_post_comment_for_user(@user).each do |post|%>
+                                    <%@post = post%>
+                                    <%= render @post%>
+                                <%end%>
+                            </div>
+                        <%end%>
+
+                        <%if @tab_id == "UserVoteID"%>
+                            <div class="user_profile_vote_tab">
+                                <%find_owner_post_vote_for_user(@user).each do |post|%>
+                                    <%= render post%>
+                                <%end%>
+                            </div>
+                        <%end%>
+
+                        <%if @tab_id == "UserUnvoteID"%>
+                            <div class="user_profile_unvote_tab">
+                                <%find_owner_post_unvote_for_user(@user).each do |post|%>
+                                    <%= render post%>
+                                <%end%>
+                            </div>
+                        <%end%>
+
+                        <%if @tab_id == "UserSaveID"%>
+                            <div class="user_profile_save_tab">
+                                <%find_owner_post_save_for_user(@user).each do |post|%>
+                                    <%= render post%>
+                                <%end%>
+                            </div>
+                        <%end%>
+
+                        <%if @tab_id == "UserNotificationID"%>
+                            <div class="user_notification_tab">
+                                <%@user.user_notifications.each do |user_notification|%>
+                                    <%= render user_notification%>
+                                <%end%>
+                            </div>
+                        <%end%>
+
+                        <%if @tab_id == "UserFollowingID"%>
+                            <div class="user_following_tab">
+                                <div class="row">
+                                    <%@user.followers.each do |user|%>
+                                        <div class="col-sm-4 col-nopadding">
+                                            <%= render user%>
+                                        </div>
+                                    <%end%>
+                                </div>
+                            </div>
+                        <%end%>
+
+                        <%if @tab_id == "UserFollowedID"%>
+                            <div class="user_followed_tab">
+                                <div class="row">
+                                    <%@user.followees.each do |user|%>
+                                        <div class="col-sm-4 col-nopadding">
+                                            <%= render user%>
+                                        </div>
+                                    <%end%>
+                                </div>
+                            </div>
+                        <%end%>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4 col-nopadding">
+                <div class="col-sm-4 col-nopadding">
+                </div>
             </div>
         </div>
     </div>
-</div>
+<%else%>
+    <div class='user_profile_dasboard'>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-nopadding">
+                    <div class='user_show_info_block'>
+                        <div class='user_show_info'>
+                            <%if @user.cover_image?%>
+                                <div class='user_show_info_cover_image'>
+                                    <%= link_to (image_tag(@user.cover_image.url)), image_path(url_for(@user.cover_image.url)), rel: "gallery" , :href => user_path(@user)%>
+                                </div>
+                            <%else%>
+                                <div class='user_show_info_cover_image'>
+                                    <%= link_to (image_tag("default-cover.jpg")), image_path(url_for("default-cover.jpg")), rel: "gallery" , :href => user_path(@user)%>
+                                </div>
+                            <%end%>
+
+                            <%if @user.avatar?%>
+                                <div class='user_show_info_avatar'>
+                                    <%= link_to (image_tag(@user.avatar.url)), image_path(url_for(@user.avatar.url)), rel: "gallery" , :href => user_path(@user)%>
+                                </div>
+                            <%else%>
+                                <div class='user_show_info_avatar'>
+                                    <%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(@user)%>
+                                </div>
+                            <%end%>
+
+                            <div class="user_show_info_follow" id="user_follow_<%=@user.id%>">
+                                <%if user_signed_in?%>
+                                    <% pre_follow = @user.following_users.find { |follow| follow.followee_id == @user.id} %>
+                                <%end%>
+                                <% if pre_follow %>  
+                                    <%= button_to user_user_follow_path(@user, pre_follow), method: :delete, remote: true, form_class: "follow_btn_highlight" do%>
+                                        <a>Đã theo dõi</a>
+                                    <%end%> 
+                                <%else%>
+                                    <%= button_to user_user_follows_path(@user), method: :post, remote: true, form_class: "follow_btn" do%>
+                                        <a>Theo dõi</a>
+                                    <%end%>
+                                <%end%>
+                            </div>
+                        </div>
+
+                        <div class='user_show_info_data'>
+                            <div class='user_show_info_name'>
+                                <a><%=@user.name%></a>
+                            </div>
+
+                            <div class='user_show_info_introduce'>
+                                <a><%=@user.introduce%></a>
+                            </div>
+
+                            <div class="user_show_info_des">
+                                <i><%= bootstrap_icon "briefcase", width: 20, height: 20%></i>
+                                <%if @user.job.present?%>
+                                    <span><%=@user.job%></span>
+                                <%else%>
+                                    <span>---</span>
+                                <%end%>
+                            </div>
+
+                            <div class="user_show_info_des">
+                                <i><%= bootstrap_icon "book", width: 20, height: 20%></i>
+                                <%if @user.school.present?%>
+                                    <span><%=@user.school%></span>
+                                <%else%>
+                                    <span>---</span>
+                                <%end%>
+                            </div>
+
+                            <div class="user_show_info_des">
+                                <i><%= bootstrap_icon "geo-alt", width: 20, height: 20%></i>
+                                <%if @user.address.present?%>
+                                    <span><%=@user.address%></span>
+                                <%else%>
+                                    <span>---</span>
+                                <%end%>
+                            </div>
+
+                            <div class="user_show_info_des">
+                                <i><%= bootstrap_icon "calendar", width: 20, height: 20%></i>
+                                <span><%="Tham gia " + @user.created_at.strftime("%B %d, %Y")%></span>
+                            </div>
+                            
+                            <div class="user_show_info_follow">
+                                <span><%=@user.followers.count%></span> <a>người theo dõi</a>
+                                <span><%=@user.followees.count%></span> <a>đang theo dõi</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8 col-nopadding">
+                    <div class="user_profile_tab_link">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <%if @tab_id == "default" || @tab_id == "UserPostID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserPostID')%>">Bài viết <span><%= find_owner_post_for_user(@user).count%><span></a>
+                            </li>
+                            <li class="nav-item">
+                                <%if @tab_id == "UserCommentID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserCommentID')%>">Bình luận <span><%= find_owner_post_comment_for_user(@user).count%><span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="user_profile_tab_content">
+                        <%if @tab_id == "default" || @tab_id == "UserPostID"%>
+                            <div class="user_profile_post_tab">
+                                <%find_owner_post_for_user(@user).each do |post|%>
+                                    <%= render post%>
+                                <%end%>
+                            </div>
+                        <%end%>
+
+                        <%if @tab_id == "UserCommentID"%>
+                            <div class="user_profile_comment_tab">
+                                <%find_owner_post_comment_for_user(@user).each do |post|%>
+                                    <%@post = post%>
+                                    <%= render @post%>
+                                <%end%>
+                            </div>
+                        <%end%>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-nopadding">
+                </div>
+            </div>
+        </div>
+    </div>
+<%end%>
