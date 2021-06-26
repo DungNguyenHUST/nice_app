@@ -81,3 +81,6 @@ gem 'kaminari'
 
 # link
 gem 'friendly_id', '~> 5.4.0'
+
+# admin
+gem 'rails_admin', '~> 2.0'

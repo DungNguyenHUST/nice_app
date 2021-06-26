@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions',
+    registrations: 'admins/registrations',
+    passwords: 'admins/passwords'
+  }
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -7,6 +11,9 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount Ckeditor::Engine => '/ckeditor'
 
   get 'user_wellcome' => 'users#wellcome'
   
