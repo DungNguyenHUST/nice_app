@@ -3,17 +3,17 @@ class PostVotesController < ApplicationController
     before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
     
     def index 
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_votes = @post.post_votes
     end
 
     def new
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_vote = PostVote.new
     end
 
     def create
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_vote = PostVote.new
 
         if !already_voted?
@@ -55,7 +55,7 @@ class PostVotesController < ApplicationController
     end
     
     def destroy
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_vote = @post.post_votes.find(params[:id])
         @post_vote.destroy
         @type_param = params[:type_param]

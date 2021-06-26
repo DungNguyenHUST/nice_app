@@ -3,17 +3,17 @@ class PostUnvotesController < ApplicationController
     before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
     
     def index 
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_unvotes = @post.post_unvotes
     end
 
     def new
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_unvote = PostUnvote.new
     end
 
     def create
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_unvote = PostUnvote.new
 
         if !already_unvoted?
@@ -55,7 +55,7 @@ class PostUnvotesController < ApplicationController
     end
     
     def destroy
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_unvote = @post.post_unvotes.find(params[:id])
         @post_unvote.destroy
         @type_param = params[:type_param]

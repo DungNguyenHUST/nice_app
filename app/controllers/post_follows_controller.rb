@@ -2,17 +2,17 @@ class PostFollowsController < ApplicationController
     before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
     
     def index 
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_follows = @post.post_follows
     end
 
     def new
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_follow = PostFollow.new
     end
 
     def create
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_follow = PostFollow.new
         if !already_followed?
             @post_follow = @post.post_follows.build(user_id: current_user.id)
@@ -33,7 +33,7 @@ class PostFollowsController < ApplicationController
     end
     
     def destroy
-        @post = Post.find(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
         @post_follow = @post.post_follows.find(params[:id])
         @post_follow.destroy
         @type_param = params[:type_param]

@@ -2,16 +2,16 @@ class UserFollowsController < ApplicationController
 	before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
     
     def index 
-        @user = User.find(params[:user_id])
+        @user = User.friendly.find(params[:user_id])
     end
 
     def new
-        @user = User.find(params[:user_id])
+        @user = User.friendly.find(params[:user_id])
         @user_follow = UserFollow.new
     end
 
     def create
-        @user = User.find(params[:user_id])
+        @user = User.friendly.find(params[:user_id])
         @owner_user = current_user
         @user_follow = UserFollow.new
         if !already_followed?
@@ -33,7 +33,7 @@ class UserFollowsController < ApplicationController
     end
     
     def destroy
-        @user = User.find(params[:user_id])
+        @user = User.friendly.find(params[:user_id])
         @owner_user = current_user
         @user_follow = @user.following_users.find(params[:id])
         @user_follow.destroy

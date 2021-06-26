@@ -67,7 +67,7 @@ class PostCommentsController < ApplicationController
             @commentable = PostComment.find_by_id(params[:post_comment_id]) 
             @post_comment = @commentable
         elsif params[:post_id]
-            @commentable = Post.find_by_id(params[:post_id])
+            @commentable = Post.friendly.find_by_id(params[:post_id])
             @post = @commentable
             @is_post_comment = true
         end

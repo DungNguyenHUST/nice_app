@@ -6,12 +6,12 @@ class UserNotificationsController < ApplicationController
     end
   
     def new
-      @user = User.find(params[:user_id])
+      @user = User.friendly.find(params[:user_id])
       @user_notification = UserNotification.new
     end
   
     def create
-      @user = User.find(params[:user_id])
+      @user = User.friendly.find(params[:user_id])
       @user_notification = @user.user_notifications.build(user_notification_param)
       @user_notification.save
     end
@@ -22,24 +22,24 @@ class UserNotificationsController < ApplicationController
     end
   
     def edit
-      @user = User.find params[:user_id]
+      @user = User.friendly.find params[:user_id]
       @user_notification = @user.user_notifications.find(params[:id])
     end
   
     def update
-      @user = User.find params[:user_id]
+      @user = User.friendly.find params[:user_id]
       @user_notification = @user.user_notifications.find(params[:id])
       @user_notification.update(user_notification_param)
     end
     
     def destroy
-      @user = User.find(params[:user_id])
+      @user = User.friendly.find(params[:user_id])
       @user_notification = @user.user_notifications.find(params[:id])
       @user_notification.destroy
     end
   
     def show
-      @user = User.find(params[:user_id])
+      @user = User.friendly.find(params[:user_id])
       @user_notification = @user.user_notifications.find(params[:id])
     end
   
