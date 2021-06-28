@@ -69,6 +69,13 @@
         </div>
     <%end%>
 
+    <%if post.post_shared_id?%>
+        <div class='post_index_shared'>
+            <%@post_shared = Post.friendly.find(post.post_shared_id)%>
+            <%=render @post_shared%>
+        </div>
+    <%end%>
+
     <%if post.post_links.count > 0%>
         <%post.post_links.each do |post_link|%>
             <div class='post_index_link_block'>
@@ -161,7 +168,7 @@
         </div>
 
         <div class="post_index_share_block">
-            <%= button_to post_path(post), method: :get, form_class: "post_index_share" do%>
+            <%= link_to new_post_path(:post_shared_id => post.id, :tab_id => 'PostID'), method: :get, form_class: "post_index_share" do%>
                 <i><%= bootstrap_icon "arrow-repeat", width: 20, height: 20, fill: "#333" %></i>
             <%end%> 
         </div>

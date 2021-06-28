@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_040337) do
+ActiveRecord::Schema.define(version: 2021_06_28_100741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(version: 2021_06_26_040337) do
     t.string "link"
     t.integer "view_count"
     t.string "slug"
+    t.integer "post_shared_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 

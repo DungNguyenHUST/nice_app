@@ -43,6 +43,11 @@
 
                 <div class="new_post_tab_content">
                     <%if @tab_id == "default" || @tab_id == "PostID"%>
+                        <%if @post_shared.present?%>
+                            <div class="new_post_share_section">
+                                <%= render @post_shared %>
+                            </div>
+                        <%end%>
                         <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
                             <div class="new_post_form">
                                 <div class="new_post_section">
@@ -52,14 +57,18 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="new_post_section">
-                                    <div class="new_post_content">
-                                        <div class="new_post_input">
-                                            <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "mini", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
-                                        </div>
-                                    </div>  
-                                </div>
+                                
+                                <%if @post_shared.present?%>
+                                    <%= f.hidden_field :post_shared_id, :value => @post_shared.id %>
+                                <%else%>
+                                    <div class="new_post_section">
+                                        <div class="new_post_content">
+                                            <div class="new_post_input">
+                                                <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "mini", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                <%end%>
 
                                 <div class="new_post_section">
                                     <div class="new_post_content">

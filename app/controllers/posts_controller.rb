@@ -23,6 +23,12 @@ class PostsController < ApplicationController
         @post = Post.new
         @post_image = @post.post_images.build
         @post_link = @post.post_links.build
+
+        # handle share
+        if (params.has_key?(:post_shared_id))
+            @post_shared = Post.friendly.find(params[:post_shared_id])
+        end
+
         if(params.has_key?(:tab_id))
             @tab_id = params[:tab_id]
         else
@@ -38,6 +44,7 @@ class PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         @post.user_id = current_user.id
+
         if @post.save
             # save image
             if(params.has_key?(:post_images))
@@ -109,7 +116,7 @@ private
 
     # Only allow a list of trusted parameters through.
     def post_params
-        params.require(:post).permit(:title, :content, :link, :view_count,
+        params.require(:post).permit(:title, :content, :link, :view_count, :post_shared_id,
                                     :tag_list, :tag, { tag_ids: [] }, :tag_ids, 
                                     post_images_attributes: [:id, :post_id, :image])
     end

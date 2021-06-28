@@ -102,6 +102,13 @@
 						</div>
 					<%end%>
 
+					<%if @post.post_shared_id?%>
+						<div class='post_show_shared'>
+							<%@post_shared = Post.friendly.find(@post.post_shared_id)%>
+							<%=render @post_shared%>
+						</div>
+					<%end%>
+
 					<div class="post_show_toolbar_block">
 						<div class="post_show_vote_unvote_block" id="post_vote_unvote_<%=@post.id%>">
 							<div class="post_show_vote_block">
@@ -169,9 +176,9 @@
 						</div>
 
 						<div class="post_show_share_block">
-							<%= button_to post_path(@post), method: :get, form_class: "post_show_share" do%>
+							<%= link_to new_post_path(:post_shared_id => @post.id, :tab_id => 'PostID'), method: :get, form_class: "post_show_share" do%>
 								<i><%= bootstrap_icon "arrow-repeat", width: 20, height: 20, fill: "#333" %></i>
-							<%end%> 
+							<%end%>  
 						</div>
 					</div>
 
