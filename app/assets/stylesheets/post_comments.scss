@@ -111,6 +111,8 @@
                         a{
                             font-size: 13px;
                             color: #666;
+                            position: relative;
+                            top: 1px;
                             @media screen and (max-width: 600px){
                                 display: none;
                             }
@@ -124,13 +126,15 @@
                         span{
                             font-size: 13px;
                             color: #666;
+                            position: relative;
+                            top: 1px;
                         }
                     }
                 }
             }
 
             .post_reply_comment_new{
-                display: block;
+                display: none;
                 padding-left: 8px;
                 .post_reply_comment_section{
                     margin-bottom: 15px;
@@ -141,9 +145,10 @@
                         margin-top: 10px;
                         .form-control{
                             border-radius: 5px;
-                            height: 30px;
+                            min-height: 100px;
                             padding-left: 15px;
                             padding-right: 15px;
+                            font-size: 14px;
                             &:focus{
                                 border: 2px solid #0071e3;
                                 border-radius: 5px;

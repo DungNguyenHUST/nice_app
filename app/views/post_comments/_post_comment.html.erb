@@ -60,15 +60,23 @@
                 </div>
                 
                 <div class="post_comment_reply_block">
-                    <button class="post_comment_reply_btn" onclick="myFunctionReplyPostComment(<%=post_comment.id%>)">
-                        <i><%= bootstrap_icon "chat", width: 18, height: 18%></i>
-                        <span><%= post_comment.post_comments.count%></span> 
-                        <a>Trả lời</a> 
-                    </button>
+                    <%if user_signed_in?%>
+                        <button class="post_comment_reply_btn" onclick="myFunctionReplyPostComment('post_comment_input_reply_' + <%=post_comment.id.to_s%>)">
+                            <i><%= bootstrap_icon "chat", width: 18, height: 18%></i>
+                            <span><%= post_comment.post_comments.count%></span> 
+                            <a>Trả lời</a> 
+                        </button>
+                    <%else%>
+                        <%= button_to new_user_session_path, :method => :get, form_class: "post_comment_reply_btn" do%>
+                            <i><%= bootstrap_icon "chat", width: 18, height: 18%></i>
+                            <span><%= post_comment.post_comments.count%></span> 
+                            <a>Trả lời</a> 
+                        <%end%>
+                    <%end%>
                 </div>
             </div>
 
-            <div class="post_reply_comment_new">
+            <div class="post_reply_comment_new" id="post_comment_input_reply_<%=post_comment.id.to_s%>">
                 <%= form_for([post_comment, PostComment.new], remote: true) do |f| %>
                     <div class="post_reply_comment_section">
                         <div class="post_reply_comment_input">
