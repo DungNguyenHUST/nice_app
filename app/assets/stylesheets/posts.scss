@@ -553,6 +553,11 @@
                     background-color: #fff;
                     &:focus {outline:none;}
                 }
+                button{
+                    border: none;
+                    background-color: #fff;
+                    &:focus {outline:none;}
+                }
                 span{
                     margin-left: 2px;
                     font-size: 14px;
@@ -805,7 +810,7 @@
                 a{
                     text-decoration: none;
                     color: #222;
-                    font-size: 18px;
+                    font-size: 16px;
                     &:hover{
                         color: #0071e3;
                     };
