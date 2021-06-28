@@ -28,11 +28,11 @@
             a{
                 font-size: 14px;
                 font-weight: 600;
-                color: #666;
+                color: #536471;
             }
             span{
                 font-size: 12px;
-                color: #888;
+                color: #536471;
             }
         }
 
@@ -71,7 +71,7 @@
                         display:inline-block;
                         font-size: 14px;
                         text-decoration: none;
-                        color: #666;
+                        color: #536471;
                         padding-left: 3px;
                         padding-right: 3px;
                         position: relative;
@@ -97,20 +97,20 @@
                     {
                         border: none;
                         background-color: #fff;
-                        color: #555;
+                        color: #536471;
                         font-size: 13px;
                         &:focus {outline:none;}
         
                         button{
                             border: none;
                             background-color: #fff;
-                            color: #555;
+                            color: #536471;
                             font-size: 13px;
                             &:focus {outline:none;}
                         } 
                         a{
                             font-size: 13px;
-                            color: #666;
+                            color: #536471;
                             position: relative;
                             top: 1px;
                             @media screen and (max-width: 600px){
@@ -121,11 +121,11 @@
                         i{
                             font-size: 18px;
                             position: relative;
-                            color: #555;
+                            color: #536471;
                         }
                         span{
                             font-size: 13px;
-                            color: #666;
+                            color: #536471;
                             position: relative;
                             top: 1px;
                         }

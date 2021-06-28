@@ -31,7 +31,7 @@ class PagesController < ApplicationController
       @post_trends = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
-    @buffers = Post.where("created_at >= ?", 1.day.ago.utc)
+    @buffers = Post.where("created_at >= ?", 1.week.ago.utc)
     @post_trend_todays = @buffers.sort_by{|post| cal_post_trend_point(post)}.reverse.first(10)
 
   end

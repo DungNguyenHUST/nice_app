@@ -16,7 +16,7 @@
             border-bottom: 1px solid #dddddd;
             border-radius: 0px;
         }
-        border-top: 10px solid #666;
+        border-top: 10px solid #536471;
         background-color: #fff;
         border-radius: 5px;
         min-height: 100px;
@@ -78,7 +78,7 @@
             .follow_btn{
                 button{
                     background-color: #fff;
-                    color: #555;
+                    color: #536471;
                 }
             }
         }
@@ -135,7 +135,7 @@
                 .nav .nav-link {
                     white-space: nowrap;
                     font-size: 16px;
-                    color: #333;
+                    color: #0f1419;
                     text-align: left;
                     i{
                         position: relative;
@@ -145,7 +145,7 @@
                 }
                 .nav .nav-link, .nav .nav-link.active, .nav .nav-link:hover {
                     border: none;
-                    color: #333;
+                    color: #0f1419;
                     font-size: 16px;
                 }
                 .nav .nav-link.active {
@@ -187,7 +187,7 @@
             padding: 15px;
             a{
                 text-decoration: none;
-                color: #222;
+                color: #0f1419;
                 font-size: 16px;
                 &:hover{
                     color: #0071e3;
@@ -203,7 +203,7 @@
                 margin-bottom: 5px;
                 border: none;
                 border-radius: 5px;
-                background-color: #f9fafa;
+                background-color: #fff;
                 padding: 3px;
                 color: #0071e3;
                 font-size: 14px;
@@ -250,11 +250,11 @@
     @media screen and (max-width: 600px){
         border-left: none;
         border-right: none;
-        border-top: 20px solid #555;
+        border-top: 20px solid #536471;
         border-bottom: 1px solid #dddddd;
         border-radius: 0px;
     }
-    border-top: 20px solid #555;
+    border-top: 20px solid #536471;
     margin-top: 20px;
     border-radius: 5px;
     padding: 15px;
@@ -267,7 +267,7 @@
             a{
                 font-size: 20px;
                 font-weight: 600;
-                color: #333;
+                color: #0f1419;
                 text-decoration: none !important;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -279,7 +279,7 @@
         .tag_index_count{
             padding-top: 10px;
             font-size: 13px;
-            color: #666;
+            color: #536471;
         }
     }
     .tag_index_avatar{
@@ -297,7 +297,7 @@
         clear: both;
         padding-top: 10px;
         font-size: 14px;
-        color: #444;
+        color: #596976;
         height: 150px;
     }
     .tag_index_follow_block{
@@ -323,7 +323,7 @@
         .follow_btn{
             button{
                 background-color: #dddddd;
-                color: #555;
+                color: #536471;
             }
         }
     }
@@ -337,7 +337,7 @@
     .new_tag_title{
         font-size: 24px;
         font-weight: 600;
-        color: #333;
+        color: #0f1419;
         text-align: left;
         margin-top: 30px;
         margin-bottom: 20px;
@@ -356,7 +356,7 @@
             .new_tag_label{
                 font-weight: 550;
                 font-size: 16px;
-                color: #333;
+                color: #0f1419;
                 text-align: left;
             }
 
