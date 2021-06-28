@@ -1,20 +1,20 @@
 
 <div class="post_comment_block">
-    <%owner_user = find_owner_user_for_post_comment(post_comment)%>
+    <%@owner_post_comment_user = find_owner_user_for_post_comment(post_comment)%>
     <div class="post_comment_left_block">
-        <%if owner_user.avatar?%>
+        <%if @owner_post_comment_user.avatar?%>
             <div class="post_comment_user_avatar">
-                <%= link_to (image_tag(owner_user.avatar.url)), image_path(url_for(owner_user.avatar.url)), rel: "gallery" , :href => user_path(owner_user)%>
+                <%= link_to (image_tag(@owner_post_comment_user.avatar.url)), image_path(url_for(@owner_post_comment_user.avatar.url)), rel: "gallery" , :href => user_path(@owner_post_comment_user)%>
             </div>
         <%else%>
             <div class="post_comment_user_avatar">
-                <%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(owner_user)%>
+                <%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(@owner_post_comment_user)%>
             </div>
         <%end%>
     </div>
     <div class="post_comment_right_block">
         <div class="post_comment_info">
-            <a><%=owner_user.name%></a> · 
+            <a><%=@owner_post_comment_user.name%></a> · 
             <span><%=time_ago_in_words(post_comment.created_at)%></span>
         </div>
         <div class="post_comment_right">

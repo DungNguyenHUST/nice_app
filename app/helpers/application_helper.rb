@@ -10,7 +10,7 @@ module ApplicationHelper
     def find_owner_user(object)
         @owner_user = nil
         if object.user_id.present?
-            @owner_user = User.find_by(id: object.user_id)
+            @owner_user = User.friendly.find(object.user_id)
         end
         return @owner_user
     end
@@ -18,7 +18,7 @@ module ApplicationHelper
     def find_trigger_user(object)
         @trigger_user = nil
         if object.trigger_user_id.present?
-            @trigger_user = User.find_by(id: object.trigger_user_id)
+            @trigger_user = User.friendly.find(object.trigger_user_id)
         end
         return @trigger_user
     end

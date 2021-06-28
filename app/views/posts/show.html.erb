@@ -5,22 +5,23 @@
 				<div class='post_show_left_block'>
 				    <div class='post_show_info'>
 				        <div class='post_show_info_left'>
-							<%if @owner_user.avatar?%>
+							<%@owner_post_user = find_owner_user(@post)%>
+							<%if @owner_post_user.avatar?%>
                                 <div class="post_show_user_avatar">
-                                    <%= link_to (image_tag(@owner_user.avatar.url)), image_path(url_for(@owner_user.avatar.url)), rel: "gallery" , :href => user_path(@owner_user)%>
+                                    <%= link_to (image_tag(@owner_post_user.avatar.url)), image_path(url_for(@owner_post_user.avatar.url)), rel: "gallery" , :href => user_path(@owner_post_user)%>
                                 </div>
 							<%else%>
 								<div class="post_show_user_avatar">
-									<%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(@owner_user)%>
+									<%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(@owner_post_user)%>
                                 </div>
 							<%end%>
 				        </div>
 				        <div class='post_show_info_right'>
 				            <div class="post_show_user_name">
-				                <a><%= link_to @owner_user.name, user_path(@owner_user)%></a>
+				                <a><%= link_to @owner_post_user.name, user_path(@owner_post_user)%></a>
 				            </div>
 				            <div class="post_show_create">
-				                <span><%=time_ago_in_words(@owner_user.created_at)%></span>
+				                <span><%=time_ago_in_words(@owner_post_user.created_at)%></span>
 				            </div>
 				        </div>
 				    </div>
@@ -219,19 +220,19 @@
 				<div class='post_show_right_block_user'>
 					<div class='post_show_right_info'>
 				        <div class='post_show_right_info_left'>
-							<%if @owner_user.avatar?%>
+							<%if @owner_post_user.avatar?%>
                                 <div class="post_show_right_user_avatar">
-                                    <%= link_to (image_tag(@owner_user.avatar.url)), image_path(url_for(@owner_user.avatar.url)), rel: "gallery" , :href => user_path(@owner_user)%>
+                                    <%= link_to (image_tag(@owner_post_user.avatar.url)), image_path(url_for(@owner_post_user.avatar.url)), rel: "gallery" , :href => user_path(@owner_post_user)%>
                                 </div>
 							<%else%>
 				            	<div class="post_show_right_user_avatar">
-									<%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(@owner_user)%>
+									<%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(@owner_post_user)%>
                                 </div>		
 							<%end%>
 				        </div>
 				        <div class='post_show_right_info_right'>
 				            <div class="post_show_right_user_name">
-				                <a><%=@owner_user.name%></a>
+				                <a><%=@owner_post_user.name%></a>
 				            </div>
 				        </div>
 				    </div>
@@ -242,8 +243,8 @@
 								<a><i><%= bootstrap_icon "briefcase", width: 20, height: 20%></i>VIỆC LÀM</a>
 							</div>
 							<div class="post_show_right_user_info_des">
-								<%if @owner_user.job.present?%>
-									<span><%=@owner_user.job%></span>
+								<%if @owner_post_user.job.present?%>
+									<span><%=@owner_post_user.job%></span>
 								<%else%>
 									<span>---</span>
 								<%end%>
@@ -255,8 +256,8 @@
 								<a><i><%= bootstrap_icon "book", width: 20, height: 20%></i>HỌC VẤN</a>
 							</div>
 							<div class="post_show_right_user_info_des">
-								<%if @owner_user.school.present?%>
-									<span><%=@owner_user.school%></span>
+								<%if @owner_post_user.school.present?%>
+									<span><%=@owner_post_user.school%></span>
 								<%else%>
 									<span>---</span>
 								<%end%>
@@ -268,8 +269,8 @@
 								<a><i><%= bootstrap_icon "geo-alt", width: 20, height: 20%></i>ĐỊA CHỈ</a>
 							</div>
 							<div class="post_show_right_user_info_des">
-								<%if @owner_user.address.present?%>
-									<span><%=@owner_user.address%></span>
+								<%if @owner_post_user.address.present?%>
+									<span><%=@owner_post_user.address%></span>
 								<%else%>
 									<span>---</span>
 								<%end%>
@@ -281,7 +282,7 @@
 								<a><i><%= bootstrap_icon "calendar", width: 18, height: 18%></i>NGÀY THAM GIA</a>
 							</div>
 							<div class="post_show_right_user_info_des">
-								<span><%=@owner_user.created_at.strftime("%B %d, %Y")%></span>
+								<span><%=@owner_post_user.created_at.strftime("%B %d, %Y")%></span>
 							</div>
 						</div>
 					</div>
@@ -310,8 +311,9 @@
 
 	            <div class='post_show_right_user_post'>
                     <div class='post_show_right_title'>
-                        <a>Bài viết khác từ <%=link_to (@owner_user.name), user_path(@owner_user) %></a>
+                        <a>Bài viết khác từ <%=link_to (@owner_post_user.name), user_path(@owner_post_user) %></a>
                     </div>
+					<%@owner_post = find_owner_post_for_user(@owner_user)%>
                     <%@owner_post.each do |post|%>
                         <div class='post_show_right_content'>
 							<div class='post_show_right_post_block'>

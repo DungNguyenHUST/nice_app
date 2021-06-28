@@ -13,8 +13,6 @@ class PostsController < ApplicationController
     def show
         @post = Post.friendly.find(params[:id])
         @post.increment!(:view_count)
-        @owner_user = find_owner_user_for_post(@post)
-        @owner_post = find_owner_post_for_user(@owner_user)
         @post_images = @post.post_images.all
     end
 
