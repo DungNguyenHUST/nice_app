@@ -32,7 +32,7 @@
 					<div class='post_show_tag_link_block'>
 						<%@post.tags.each do |tag|%>
 							<div class='post_show_tag_link'>
-								<a><%= link_to ("#" + tag.name.downcase), tag_path(tag) %></a>
+								<a><%= link_to (tag.name), tag_path(tag) %></a>
 							</div>
 						<%end%>
 					</div>
@@ -322,7 +322,7 @@
 							<div class='post_show_right_tag_block'>
 								<%post.tags.each do |tag|%>
 									<%= button_to tag_path(tag), method: :get do %>
-										<a><span>#</span><%=tag.name.downcase%></a>
+										<a><%=tag.name%></a>
 									<%end%>
 								<%end%>
 							</div>

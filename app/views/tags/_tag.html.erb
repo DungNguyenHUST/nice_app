@@ -1,7 +1,7 @@
 <div class='tag_index_block'>
     <div class='tag_index_info'>
         <div class='tag_index_name'>
-            <a><%= link_to ("#" + tag.name.downcase), tag_path(tag) %></a>
+            <a><%= link_to (tag.name), tag_path(tag) %></a>
         </div>
         <div class='tag_index_count'>
             <a><%= tag.posts.count %> bài viết</a><span> · </span>
