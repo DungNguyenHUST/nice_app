@@ -2,7 +2,7 @@
     <div class='user_profile_dasboard'>
         <div class="container">
             <div class="row">
-                <div class="col-sm-8 col-nopadding">
+                <div class="col-sm-12 col-nopadding">
                     <div class='user_show_info_block'>
                         <div class='user_show_info'>
                             <%if @user.cover_image?%>
@@ -24,21 +24,6 @@
                                     <%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(@user)%>
                                 </div>
                             <%end%>
-
-                            <div class="user_show_info_follow" id="user_follow_<%=@user.id%>">
-                                <%if user_signed_in?%>
-                                    <% pre_follow = @user.following_users.find { |follow| follow.followee_id == @user.id} %>
-                                <%end%>
-                                <% if pre_follow %>  
-                                    <%= button_to user_user_follow_path(@user, pre_follow), method: :delete, remote: true, form_class: "follow_btn_highlight" do%>
-                                        <a>Đã theo dõi</a>
-                                    <%end%> 
-                                <%else%>
-                                    <%= button_to user_user_follows_path(@user), method: :post, remote: true, form_class: "follow_btn" do%>
-                                        <a>Theo dõi</a>
-                                    <%end%>
-                                <%end%>
-                            </div>
                         </div>
 
                         <div class='user_show_info_data'>
@@ -82,7 +67,7 @@
                                 <span><%="Tham gia " + @user.created_at.strftime("%B %d, %Y")%></span>
                             </div>
                             
-                            <div class="user_show_info_follow">
+                            <div class="user_show_info_follow_info">
                                 <span><%=@user.followers.count%></span> <a>người theo dõi</a>
                                 <span><%=@user.followees.count%></span> <a>đang theo dõi</a>
                             </div>
@@ -183,7 +168,7 @@
                         <%if @tab_id == "UserTagID"%>
                             <div class="user_profile_tag_tab">
                                 <%find_owner_tag_for_user(@user).each do |tag|%>
-                                    <%= render tag%>
+                                    <%= render :partial => 'tags/tag', :locals => {:mini_tyle => false}, :object => tag %>
                                 <%end%>
                             </div>
                         <%end%>
@@ -255,6 +240,17 @@
                     </div>
                 </div>
                 <div class="col-sm-4 col-nopadding">
+                    <div class="user_profile_suggest_tag">
+                        <div class="user_profile_suggest_tag_title">
+                            <a>Gợi ý tag dành cho bạn</a>
+                        </div>
+                        <%@tags.each do |tag|%>
+                            <div class="user_profile_suggest_tag_content">
+                                <%= render :partial => 'tags/tag', :locals => {:mini_tyle => true}, :object => tag %>
+                            </div>
+                        <%end%>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -263,7 +259,7 @@
     <div class='user_profile_dasboard'>
         <div class="container">
             <div class="row">
-                <div class="col-sm-8 col-nopadding">
+                <div class="col-sm-12 col-nopadding">
                     <div class='user_show_info_block'>
                         <div class='user_show_info'>
                             <%if @user.cover_image?%>
@@ -285,21 +281,6 @@
                                     <%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(@user)%>
                                 </div>
                             <%end%>
-
-                            <div class="user_show_info_follow" id="user_follow_<%=@user.id%>">
-                                <%if user_signed_in?%>
-                                    <% pre_follow = @user.following_users.find { |follow| follow.followee_id == @user.id} %>
-                                <%end%>
-                                <% if pre_follow %>  
-                                    <%= button_to user_user_follow_path(@user, pre_follow), method: :delete, remote: true, form_class: "follow_btn_highlight" do%>
-                                        <a>Đã theo dõi</a>
-                                    <%end%> 
-                                <%else%>
-                                    <%= button_to user_user_follows_path(@user), method: :post, remote: true, form_class: "follow_btn" do%>
-                                        <a>Theo dõi</a>
-                                    <%end%>
-                                <%end%>
-                            </div>
                         </div>
 
                         <div class='user_show_info_data'>
@@ -343,10 +324,25 @@
                                 <span><%="Tham gia " + @user.created_at.strftime("%B %d, %Y")%></span>
                             </div>
                             
-                            <div class="user_show_info_follow">
+                            <div class="user_show_info_follow_info">
                                 <span><%=@user.followers.count%></span> <a>người theo dõi</a>
                                 <span><%=@user.followees.count%></span> <a>đang theo dõi</a>
                             </div>
+                        </div>
+
+                        <div class="user_show_info_follow" id="user_follow_<%=@user.id%>">
+                            <%if user_signed_in?%>
+                                <% pre_follow = @user.following_users.find { |follow| follow.followee_id == @user.id} %>
+                            <%end%>
+                            <% if pre_follow %>  
+                                <%= button_to user_user_follow_path(@user, pre_follow), method: :delete, remote: true, form_class: "follow_btn_highlight" do%>
+                                    <a>Đã theo dõi</a>
+                                <%end%> 
+                            <%else%>
+                                <%= button_to user_user_follows_path(@user), method: :post, remote: true, form_class: "follow_btn" do%>
+                                    <a>Theo dõi</a>
+                                <%end%>
+                            <%end%>
                         </div>
                     </div>
                 </div>
@@ -394,7 +390,19 @@
                         <%end%>
                     </div>
                 </div>
+
                 <div class="col-sm-4 col-nopadding">
+                    <div class="user_profile_suggest_tag">
+                        <div class="user_profile_suggest_tag_title">
+                            <a>Gợi ý tag dành cho bạn</a>
+                        </div>
+                        <%@tags.each do |tag|%>
+                            <div class="user_profile_suggest_tag_content">
+                                <%= render :partial => 'tags/tag', :locals => {:mini_tyle => true}, :object => tag %>
+                            </div>
+                        <%end%>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

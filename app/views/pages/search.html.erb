@@ -65,7 +65,7 @@
                     <%if @tab_id == "PostSearchID"%>
                         <%if @tags_search.present?%>
                             <%@tags_search.each do |tag|%>
-                                <%= render tag%>
+                                <%= render :partial => 'tags/tag', :locals => {:mini_tyle => false}, :object => tag %>
                             <%end%>
                         <%end%>
                     <%end%>

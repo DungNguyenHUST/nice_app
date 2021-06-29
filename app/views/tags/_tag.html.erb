@@ -1,33 +1,88 @@
-<div class='tag_index_block'>
-    <div class='tag_index_info'>
-        <div class='tag_index_name'>
-            <a><%= link_to (tag.name), tag_path(tag) %></a>
-        </div>
-        <div class='tag_index_count'>
-            <a><%= tag.posts.count %> bài viết</a><span> · </span>
-            <a><%= tag.tag_follows.count %> người theo dõi</a>
-        </div>
-    </div>
-    <%if tag.avatar?%>
-        <div class='tag_index_avatar'>
-            <%= link_to (image_tag(tag.avatar.url)), image_path(url_for(tag.avatar.url)), rel: "gallery" , :href => tag_path(tag)%>
-        </div>
-    <%end%>
-    <div class='tag_index_description'>
-        <a><%= truncate(strip_tags(tag.description), length: 300)%></a>
-    </div>
-    <div class="tag_index_follow_block" id="tag_follow_<%=tag.id%>">
-        <%if user_signed_in?%>
-            <% pre_follow = tag.tag_follows.find { |follow| follow.user_id == current_user.id} %>
-        <%end%>
-        <% if pre_follow %>  
-            <%= button_to tag_tag_follow_path(tag, pre_follow, type_param: 'index'), method: :delete, remote: true , form_class: "follow_btn_highlight" do%>
-                <a>Followed</a>
-            <%end%> 
+<%if mini_tyle == true%>
+    <div class='tag_mini_index_block'>
+        <%if tag.avatar?%>
+            <div class='tag_mini_index_tag_avatar'>
+                <%= link_to (image_tag(tag.avatar.url)), image_path(url_for(tag.avatar.url)), rel: "gallery" , :href => tag_path(tag)%>
+            </div>
         <%else%>
-            <%= button_to tag_tag_follows_path(tag, type_param: 'index'), method: :tag, remote: true, form_class: "follow_btn" do%>
-                <a>Follow</a>
-            <%end%> 
+            <div class='tag_mini_index_tag_avatar'>
+                <%= link_to (image_tag("default-avartar.jpg")), image_path(url_for("default-avartar.jpg")), rel: "gallery" , :href => tag_path(tag)%>
+            </div>
         <%end%>
+        <div class='tag_mini_index_tag_block'>
+            <div class='tag_mini_index_tag_name_block'>
+                <a><%= link_to (tag.name), tag_path(tag) %></a>
+            </div>
+
+            <div class='tag_mini_index_tag_nickname_block'>
+                <span><%='#' + tag.name.downcase.gsub(/\s+/, '') %></span>
+            </div>
+
+            <div class="tag_mini_index_tag_follow_block" id="tag_follow_<%=tag.id%>">
+                <%if user_signed_in?%>
+                    <% pre_follow = tag.tag_follows.find { |follow| follow.user_id == current_user.id} %>
+                <%end%>
+                <% if pre_follow %>  
+                    <%= button_to tag_tag_follow_path(tag, pre_follow, type_param: 'index'), method: :delete, remote: true , form_class: "follow_btn_highlight" do%>
+                        <a>Followed</a>
+                    <%end%> 
+                <%else%>
+                    <%= button_to tag_tag_follows_path(tag, type_param: 'index'), method: :tag, remote: true, form_class: "follow_btn" do%>
+                        <a>Follow</a>
+                    <%end%> 
+                <%end%>
+            </div>
+        </div>
     </div>
-</div>
+<%else%>
+    <div class='tag_index_block'>
+        <%if tag.cover_image?%>
+            <div class='tag_index_cover'>
+                <%= link_to (image_tag(tag.cover_image.url)), image_path(url_for(tag.cover_image.url)), rel: "gallery" , :href => tag_path(tag)%>
+            </div>
+        <%else%>
+            <div class='tag_index_cover'>
+                <%= link_to (image_tag("default-cover.jpg")), image_path(url_for("default-cover.jpg")), rel: "gallery" , :href => tag_path(tag)%>
+            </div>
+        <%end%>
+
+        <%if tag.avatar?%>
+            <div class='tag_index_avatar'>
+                <%= link_to (image_tag(tag.avatar.url)), image_path(url_for(tag.avatar.url)), rel: "gallery" , :href => tag_path(tag)%>
+            </div>
+        <%else%>
+            <div class='tag_index_avatar'>
+                <%= link_to (image_tag("default-avartar.jpg")), image_path(url_for("default-avartar.jpg")), rel: "gallery" , :href => tag_path(tag)%>
+            </div>
+        <%end%>
+        
+        <div class='tag_index_info'>
+            <div class='tag_index_name'>
+                <a><%= link_to (tag.name), tag_path(tag) %></a>
+            </div>
+            <div class='tag_index_count'>
+                <a><%= tag.posts.count %> bài viết</a><span> · </span>
+                <a><%= tag.tag_follows.count %> người theo dõi</a>
+            </div>
+        </div>
+
+        <div class='tag_index_description'>
+            <a><%= truncate(strip_tags(tag.description), length: 100)%></a>
+        </div>
+
+        <div class="tag_index_follow_block" id="tag_follow_<%=tag.id%>">
+            <%if user_signed_in?%>
+                <% pre_follow = tag.tag_follows.find { |follow| follow.user_id == current_user.id} %>
+            <%end%>
+            <% if pre_follow %>  
+                <%= button_to tag_tag_follow_path(tag, pre_follow, type_param: 'index'), method: :delete, remote: true , form_class: "follow_btn_highlight" do%>
+                    <a>Followed</a>
+                <%end%> 
+            <%else%>
+                <%= button_to tag_tag_follows_path(tag, type_param: 'index'), method: :tag, remote: true, form_class: "follow_btn" do%>
+                    <a>Follow</a>
+                <%end%> 
+            <%end%>
+        </div>
+    </div>
+<%end%>

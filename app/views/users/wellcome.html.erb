@@ -8,7 +8,7 @@
 		<div class='row'>
 		    <%@tags.each do |tag|%>
 				<div class='col-sm-4 col-nopadding'>
-					<%= render tag%>
+					<%= render :partial => 'tags/tag', :locals => {:mini_tyle => false}, :object => tag %>
 		    	</div>
 		    <%end%>
 		</div>

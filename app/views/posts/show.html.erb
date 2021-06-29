@@ -232,7 +232,7 @@
 				        </div>
 				        <div class='post_show_right_info_right'>
 				            <div class="post_show_right_user_name">
-				                <a><%=@owner_post_user.name%></a>
+								<a><%=link_to (@owner_post_user.name), user_path(@owner_post_user) %></a>
 				            </div>
 				        </div>
 				    </div>
