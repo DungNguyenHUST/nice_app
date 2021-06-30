@@ -5,7 +5,7 @@
                 <div class="new_post_title">
                     <%if !@is_edit%>
                         <i><%= bootstrap_icon "pencil-square", width: 24, height: 24%></i>
-                        <a>Bài viết mới của <%= link_to current_user.name, user_path(current_user)%></a>
+                        <a>Bài viết mới</a>
                     <%else%>
                         <a>Update bài viết <%=@post.title%></a>
                     <%end%>
@@ -43,38 +43,26 @@
 
                 <div class="new_post_tab_content">
                     <%if @tab_id == "default" || @tab_id == "PostID"%>
-                        <%if @post_shared.present?%>
-                            <div class="new_post_share_section">
-                                <%= render @post_shared %>
-                            </div>
-                        <%end%>
                         <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
                             <div class="new_post_form">
                                 <div class="new_post_section">
-                                    <div class="new_post_content">
-                                        <div class="new_post_input">
-                                            <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
-                                        </div>
+                                    <div class="new_post_input">
+                                        <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
                                     </div>
                                 </div>
-                                
-                                <%if @post_shared.present?%>
-                                    <%= f.hidden_field :post_shared_id, :value => @post_shared.id %>
-                                <%else%>
-                                    <div class="new_post_section">
-                                        <div class="new_post_content">
-                                            <div class="new_post_input">
-                                                <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "mini", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
-                                            </div>
-                                        </div>  
-                                    </div>
-                                <%end%>
 
                                 <div class="new_post_section">
-                                    <div class="new_post_content">
-                                        <div class="new_post_input">
-                                            <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
-                                        </div>
+                                    <div class="new_post_input">
+                                        <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "mini", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
+                                    </div>
+                                </div>
+
+                                <div class="new_post_section">
+                                    <div class="new_post_label">
+                                        <a><%= f.label :tag_ids, "Chọn tag phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
+                                    </div>
+                                    <div class="new_post_input">
+                                        <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
                                     </div>
                                 </div>
                             </div>
@@ -86,28 +74,25 @@
 
                     <%if @tab_id == "ImageID"%>
                         <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-                            <div class="new_post_image_form">
-                                <div class="new_image_section">
-                                    <div class="new_image_content">
-                                        <div class="new_image_input">
-                                            <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
-                                        </div>
+                            <div class="new_post_form">
+                                <div class="new_post_section">
+                                    <div class="new_post_input">
+                                        <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
                                     </div>
                                 </div>
 
-                                <div class="new_image_section_upload">
-                                    <div class="new_image_content">
-                                        <div class="new_image_input">
-                                            <%= f.file_field :image, :multiple => true, name: "post_images[image][]"%>
-                                        </div>
+                                <div class="new_post_section">
+                                    <div class="new_image_input">
+                                        <%= f.file_field :image, :multiple => true, name: "post_images[image][]"%>
                                     </div>
                                 </div>
 
-                                <div class="new_image_section">
-                                    <div class="new_image_content">
-                                        <div class="new_image_input">
-                                            <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
-                                        </div>
+                                <div class="new_post_section">
+                                    <div class="new_post_label">
+                                        <a><%= f.label :tag_ids, "Chọn tag phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
+                                    </div>
+                                    <div class="new_post_input">
+                                        <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
                                     </div>
                                 </div>
                             </div>
@@ -119,20 +104,25 @@
 
                     <%if @tab_id == "LinkID"%>
                         <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-                            <div class="new_post_link_form">
+                            <div class="new_post_form">
                                 <div class="new_post_section">
-                                    <div class="new_post_content">
-                                        <div class="new_post_input">
-                                            <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
-                                        </div>
-                                        
-                                        <div class="new_post_input">
-                                            <%= f.text_area :link, :required => true, class: "form-control-rich-text", placeholder: "Dán link của bạn tại đây"  %>
-                                        </div>
+                                    <div class="new_post_input">
+                                        <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                                    </div>
+                                    
+                                    <div class="new_post_input">
+                                        <%= f.text_area :link, :required => true, class: "form-control-rich-text", placeholder: "Dán link của bạn tại đây"  %>
                                     </div>
                                 </div>
 
-                                <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                                <div class="new_post_section">
+                                    <div class="new_post_label">
+                                        <a><%= f.label :tag_ids, "Chọn tag phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
+                                    </div>
+                                    <div class="new_post_input">
+                                        <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                                    </div>
+                                </div>
                             </div>
                             <div class="new_post_submit">
                                 <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>

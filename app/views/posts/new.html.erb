@@ -1,1 +1,5 @@
-<%= render 'form', post: @post %>
+<%if @post_shared.present?%>
+    <%= render 'share_form', post: @post %>
+<%else%>
+    <%= render 'form', post: @post %>
+<%end%>
