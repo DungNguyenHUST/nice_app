@@ -5,17 +5,17 @@
         <%end%>
         <% if pre_comment_vote %>  
             <%= button_to post_comment_post_comment_vote_path(post_comment, pre_comment_vote), method: :delete, remote: true, form_class: "btn_highlight" do%>
-                <i><%= bootstrap_icon "shift-fill", width: 18, height: 18%></i>
+                <i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
             <%end%> 
         <%else%>
             <%= button_to post_comment_post_comment_votes_path(post_comment), method: :post, remote: true, form_class: "btn_normal" do%>
-                <i><%= bootstrap_icon "shift", width: 18, height: 18%></i>
+                <i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
             <%end%> 
         <%end%>
     </div>
 
     <div class="post_comment_vote_unvote_count">
-        <span><%=post_comment.post_comment_votes.count - post_comment.post_comment_unvotes.count%></span>
+        <span><%=convert_number_to_human(post_comment.post_comment_votes.count - post_comment.post_comment_unvotes.count)%></span>
     </div>
 
     <div class="post_comment_unvote_block">
@@ -24,11 +24,11 @@
         <%end%>
         <% if pre_comment_unvote %>  
             <%= button_to post_comment_post_comment_unvote_path(post_comment, pre_comment_unvote), method: :delete, remote: true, form_class: "btn_highlight" do%>
-                <i><%= bootstrap_icon "shift-fill", width: 18, height: 18%></i>
+                <i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
             <%end%> 
         <%else%>
             <%= button_to post_comment_post_comment_unvotes_path(post_comment), method: :post, remote: true, form_class: "btn_normal" do%>
-                <i><%= bootstrap_icon "shift", width: 18, height: 18%></i>
+                <i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
             <%end%> 
         <%end%>
     </div>

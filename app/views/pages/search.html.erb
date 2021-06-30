@@ -19,7 +19,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>
-                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'PostSearchID')%>">Bài viết <span><%= @posts_search.count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'PostSearchID')%>">Bài viết <span><%= convert_number_to_human(@posts_search.count)%><span></a>
                             </li>
                         <%end%>
                         <%if @users_search.present?%>
@@ -29,7 +29,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>
-                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'UserSearchID')%>">Người dùng <span><%= @users_search.count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'UserSearchID')%>">Người dùng <span><%= convert_number_to_human(@users_search.count)%><span></a>
                             </li>
                         <%end%>
                         <%if @tags_search.present?%>
@@ -39,7 +39,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>
-                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'TagSearchID')%>">Tag <span><%= @tags_search.count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'TagSearchID')%>">Tag <span><%= convert_number_to_human(@tags_search.count)%><span></a>
                             </li>
                         <%end%>
                     </ul>

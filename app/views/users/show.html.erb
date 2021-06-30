@@ -68,8 +68,8 @@
                             </div>
                             
                             <div class="user_show_info_follow_info">
-                                <span><%=@user.followers.count%></span> <a>người theo dõi</a>
-                                <span><%=@user.followees.count%></span> <a>đang theo dõi</a>
+                                <span><%=convert_number_to_human(@user.followers.count)%></span> <a>người theo dõi</a>
+                                <span><%=convert_number_to_human(@user.followees.count)%></span> <a>đang theo dõi</a>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserPostID')%>">Bài viết <span><%= find_owner_post_for_user(@user).count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserPostID')%>">Bài viết <span><%= convert_number_to_human(find_owner_post_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserTagID"%>
@@ -94,7 +94,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserTagID')%>">Tag <span><%= find_owner_tag_for_user(@user).count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserTagID')%>">Tag <span><%= convert_number_to_human(find_owner_tag_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserCommentID"%>
@@ -102,7 +102,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserCommentID')%>">Bình luận <span><%= find_owner_post_comment_for_user(@user).count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserCommentID')%>">Bình luận <span><%= convert_number_to_human(find_owner_post_comment_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserVoteID"%>
@@ -110,7 +110,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserVoteID')%>">Vote <span><%= find_owner_post_vote_for_user(@user).count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserVoteID')%>">Vote <span><%= convert_number_to_human(find_owner_post_vote_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserUnvoteID"%>
@@ -118,7 +118,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserUnvoteID')%>">Unvote <span><%= find_owner_post_unvote_for_user(@user).count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserUnvoteID')%>">Unvote <span><%= convert_number_to_human(find_owner_post_unvote_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserSaveID"%>
@@ -126,7 +126,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserSaveID')%>">Đã lưu <span><%= find_owner_post_save_for_user(@user).count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserSaveID')%>">Đã lưu <span><%= convert_number_to_human(find_owner_post_save_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserFollowingID"%>
@@ -134,7 +134,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserFollowingID')%>">Đang theo dõi <span><%= @user.followers.count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserFollowingID')%>">Đang theo dõi <span><%= convert_number_to_human(@user.followers.count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserFollowedID"%>
@@ -142,7 +142,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserFollowedID')%>"></i>Đã theo dõi <span><%= @user.followees.count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserFollowedID')%>"></i>Đã theo dõi <span><%= convert_number_to_human(@user.followees.count)%><span></a>
                             </li>
 
                             <li class="nav-item">
@@ -151,7 +151,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserNotificationID')%>"></i>Thông báo<span><%= @user.user_notifications.count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserNotificationID')%>"></i>Thông báo<span><%= convert_number_to_human(@user.user_notifications.count)%><span></a>
                             </li>
                         </ul>
                     </div>
@@ -325,8 +325,8 @@
                             </div>
                             
                             <div class="user_show_info_follow_info">
-                                <span><%=@user.followers.count%></span> <a>người theo dõi</a>
-                                <span><%=@user.followees.count%></span> <a>đang theo dõi</a>
+                                <span><%=convert_number_to_human(@user.followers.count)%></span> <a>người theo dõi</a>
+                                <span><%=convert_number_to_human(@user.followees.count)%></span> <a>đang theo dõi</a>
                             </div>
                         </div>
 
@@ -358,7 +358,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserPostID')%>">Bài viết <span><%= find_owner_post_for_user(@user).count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserPostID')%>">Bài viết <span><%= convert_number_to_human(find_owner_post_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserCommentID"%>
@@ -366,7 +366,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserCommentID')%>">Bình luận <span><%= find_owner_post_comment_for_user(@user).count%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserCommentID')%>">Bình luận <span><%= convert_number_to_human(find_owner_post_comment_for_user(@user).count)%><span></a>
                             </li>
                         </ul>
                     </div>

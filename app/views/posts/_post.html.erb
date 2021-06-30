@@ -18,7 +18,7 @@
             </div>
             
             <div class="post_index_create">
-                <span><%=time_ago_in_words(post.created_at)%></span>
+                <span><%=post.created_at.strftime("%B %d")%> · <%=time_ago_in_words(post.created_at)%></span>
             </div>
         </div>
     </div>
@@ -117,17 +117,17 @@
                     <%end%>
                     <% if pre_vote %>  
                         <%= button_to post_post_vote_path(post, pre_vote, type_param: 'index'), method: :delete, remote: true, form_class: "btn_highlight" do%>
-                            <i><%= bootstrap_icon "shift-fill", width: 18, height: 18%></i>
+                            <i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
                         <%end%> 
                     <%else%>
                         <%= button_to post_post_votes_path(post, type_param: 'index'), method: :post, remote: true, form_class: "btn_normal" do%>
-                            <i><%= bootstrap_icon "shift", width: 18, height: 18%></i>
+                            <i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
                         <%end%> 
                     <%end%>
                 </div>
 
                 <div class="post_index_vote_unvote_count">
-                    <span><%=post.post_votes.count - post.post_unvotes.count%></span>
+                    <span><%=convert_number_to_human(post.post_votes.count - post.post_unvotes.count)%></span>
                 </div>
 
                 <div class="post_index_unvote_block">
@@ -136,11 +136,11 @@
                     <%end%>
                     <% if pre_unvote %>  
                         <%= button_to post_post_unvote_path(post, pre_unvote, type_param: 'index'), method: :delete, remote: true, form_class: "btn_highlight" do%>
-                            <i><%= bootstrap_icon "shift-fill", width: 18, height: 18%></i>
+                            <i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
                         <%end%> 
                     <%else%>
                         <%= button_to post_post_unvotes_path(post, type_param: 'index'), method: :post, remote: true, form_class: "btn_normal" do%>
-                            <i><%= bootstrap_icon "shift", width: 18, height: 18%></i>
+                            <i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
                         <%end%> 
                     <%end%>
                 </div>
@@ -150,14 +150,14 @@
         <div class="post_index_comment_block">
             <%= button_to post_path(post), method: :get, form_class: "post_index_comment" do%>
                 <i><%= bootstrap_icon "chat", width: 18, height: 18%></i>
-                <a><%= post.post_comments.count%></a> 
+                <a><%= convert_number_to_human(post.post_comments.count)%></a> 
             <%end%> 
         </div>
 
         <div class="post_index_share_block">
             <%= link_to new_post_path(:post_shared_id => post.id, :tab_id => 'PostID'), method: :get, form_class: "post_index_share" do%>
-                <i><%= bootstrap_icon "arrow-repeat", width: 22, height: 22%></i>
-                <span><%=post.share_count.to_s%></span>
+                <i><%= bootstrap_icon "arrow-repeat", width: 21, height: 21%></i>
+                <span><%=convert_number_to_human(post.share_count)%></span>
             <%end%> 
         </div>
 

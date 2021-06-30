@@ -21,7 +21,7 @@
 				                <a><%= link_to @owner_post_user.name, user_path(@owner_post_user)%></a>
 				            </div>
 				            <div class="post_show_create">
-				                <span><%=time_ago_in_words(@owner_post_user.created_at)%></span>
+								<span><%=@owner_post_user.created_at.strftime("%B %d")%> · <%=time_ago_in_words(@owner_post_user.created_at)%></span>
 				            </div>
 				        </div>
 				    </div>
@@ -119,17 +119,17 @@
 									<%end%>
 									<% if pre_vote %>  
 										<%= button_to post_post_vote_path(@post, pre_vote), method: :delete, remote: true, form_class: "btn_highlight" do%>
-											<i><%= bootstrap_icon "shift-fill", width: 18, height: 18%></i>
+											<i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
 										<%end%> 
 									<%else%>
 										<%= button_to post_post_votes_path(@post), method: :@post, remote: true, form_class: "btn_normal" do%>
-											<i><%= bootstrap_icon "shift", width: 18, height: 18%></i>
+											<i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
 										<%end%> 
 									<%end%>
 								</div>
 
 								<a class="post_show_vote_unvote_count">
-									<span><%=@post.post_votes.count - @post.post_unvotes.count%></span>
+									<span><%=convert_number_to_human(@post.post_votes.count - @post.post_unvotes.count)%></span>
 								</a>
 
 								<div class="post_show_unvote_block">
@@ -138,11 +138,11 @@
 									<%end%>
 									<% if pre_unvote %>  
 										<%= button_to post_post_unvote_path(@post, pre_unvote), method: :delete, remote: true, form_class: "btn_highlight" do%>
-											<i><%= bootstrap_icon "shift-fill", width: 18, height: 18%></i>
+											<i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
 										<%end%> 
 									<%else%>
 										<%= button_to post_post_unvotes_path(@post), method: :@post, remote: true, form_class: "btn_normal" do%>
-											<i><%= bootstrap_icon "shift", width: 18, height: 18%></i>
+											<i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
 										<%end%> 
 									<%end%>
 								</div>
@@ -153,19 +153,19 @@
 							<%if user_signed_in?%>
                                 <button class="post_reply_btn" onclick="myFunctionReplyPost('post_comment_input_' + <%=@post.id.to_s%>)">
 									<i><%= bootstrap_icon "chat", width: 18, height: 18%></i>
-									<span><%= @post.post_comments.count%></span>
+									<span><%= convert_number_to_human(@post.post_comments.count)%></span>
 								</button>
                             <%else%>
                                 <%= button_to new_user_session_path, :method => :get, form_class: "post_reply_btn" do%>
                                     <i><%= bootstrap_icon "chat", width: 18, height: 18%></i>
-									<span><%= @post.post_comments.count%></span>
+									<span><%= convert_number_to_human(@post.post_comments.count)%></span>
                                 <%end%>
                             <%end%>
 						</div>
 
 						<div class="post_show_share_block">
 							<%= link_to new_post_path(:post_shared_id => @post.id, :tab_id => 'PostID'), method: :get, form_class: "post_show_share" do%>
-								<i><%= bootstrap_icon "arrow-repeat", width: 22, height: 22%></i>
+								<i><%= bootstrap_icon "arrow-repeat", width: 21, height: 21%></i>
 								<span><%=@post.share_count.to_s%></span>
 							<%end%>  
 						</div>

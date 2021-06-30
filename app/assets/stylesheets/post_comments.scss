@@ -94,7 +94,7 @@
                         display:inline-block;
                         transform: rotate(180deg);
                         position: relative;
-                        top: 2px;
+                        top: 3px;
                         button{
                             border: none;
                             &:focus {outline:none;}
@@ -124,20 +124,20 @@
                     {
                         border: none;
                         background-color: #fff;
-                        color: #536471;
+                        color: #444;
                         font-size: 13px;
                         &:focus {outline:none;}
         
                         button{
                             border: none;
                             background-color: #fff;
-                            color: #536471;
+                            color: #444;
                             font-size: 13px;
                             &:focus {outline:none;}
                         } 
                         a{
                             font-size: 13px;
-                            color: #536471;
+                            color: #444;
                             position: relative;
                             top: 1px;
                             @media screen and (max-width: 600px){
@@ -148,10 +148,10 @@
                         i{
                             font-size: 18px;
                             position: relative;
-                            color: #536471;
+                            color: #444;
                         }
                         span{
-                            font-size: 13px;
+                            font-size: 14px;
                             color: #536471;
                             position: relative;
                             top: 1px;
