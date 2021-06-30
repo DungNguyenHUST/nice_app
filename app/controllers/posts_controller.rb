@@ -23,6 +23,7 @@ class PostsController < ApplicationController
         @post_link = @post.post_links.build
 
         # handle share
+        @post_shared = nil
         if (params.has_key?(:post_shared_id))
             @post_shared = Post.friendly.find(params[:post_shared_id])
         end
@@ -49,6 +50,12 @@ class PostsController < ApplicationController
                 params[:post_images]['image'].each do |a|
                     @post_image = @post.post_images.create!(:image => a, :post_id => @post.id)
                 end
+            end
+            
+            # count number of share
+            if @post.post_shared_id > 0
+                @post_shared = Post.friendly.find(@post.post_shared_id)
+                @post_shared.increment!(:share_count)
             end
 
             # save link data
@@ -114,7 +121,7 @@ private
 
     # Only allow a list of trusted parameters through.
     def post_params
-        params.require(:post).permit(:title, :content, :link, :view_count, :post_shared_id,
+        params.require(:post).permit(:title, :content, :link, :view_count, :post_shared_id, :share_count,
                                     :tag_list, :tag, { tag_ids: [] }, :tag_ids, 
                                     post_images_attributes: [:id, :post_id, :image])
     end

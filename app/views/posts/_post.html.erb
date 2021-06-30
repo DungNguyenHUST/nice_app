@@ -152,6 +152,13 @@
             <%end%> 
         </div>
 
+        <div class="post_index_share_block">
+            <%= link_to new_post_path(:post_shared_id => post.id, :tab_id => 'PostID'), method: :get, form_class: "post_index_share" do%>
+                <i><%= bootstrap_icon "arrow-repeat", width: 22, height: 22%></i>
+                <span><%=post.share_count.to_s%></span>
+            <%end%> 
+        </div>
+
         <div class="post_index_follow_block" id="post_follow_<%=post.id%>">
             <%if user_signed_in?%>
                 <% pre_follow = post.post_follows.find { |follow| follow.user_id == current_user.id} %>
@@ -165,12 +172,6 @@
                     <i><%= bootstrap_icon "bookmark", width: 17, height: 17%></i>
                 <%end%> 
             <%end%>
-        </div>
-
-        <div class="post_index_share_block">
-            <%= link_to new_post_path(:post_shared_id => post.id, :tab_id => 'PostID'), method: :get, form_class: "post_index_share" do%>
-                <i><%= bootstrap_icon "arrow-repeat", width: 20, height: 20%></i>
-            <%end%> 
         </div>
     </div>
 

@@ -299,9 +299,8 @@
             }
         }
 
-        .post_index_follow_block{
+        .post_index_share_block{
             display:inline-block;
-            color: #536471;
             margin-left: 20%;
             margin-right: 20%;
             @media screen and (max-width: 600px){
@@ -309,6 +308,38 @@
                 margin-right: 15%;
             }
             padding-top: 8px;
+            button{
+                border: none;
+                background-color: #fff;
+                &:focus {outline:none;}
+            }
+            a{
+                font-size: 14px;
+                color: #333;
+                text-decoration: none;
+            }
+            span{
+                margin-left: 2px;
+                position: relative;
+                top: 3px;
+                color: #536471;
+                font-size: 14px;
+                text-decoration: none;
+            }
+            .post_index_share
+            {
+                border: none;
+                background-color: #fff;
+                i{
+                    color: #333;
+                    font-size: 24px;
+                }
+                &:focus {outline:none;}
+            }
+        }
+
+        .post_index_follow_block{
+            display:inline-block;
             button{
                 border: none;
                 background-color: #fff;
@@ -336,33 +367,6 @@
                 margin-left: 2px;
                 color: #536471;
                 font-size: 14px;
-            }
-        }
-
-        .post_index_share_block{
-            color: #333;
-            display:inline-block;
-            button{
-                border: none;
-                background-color: #fff;
-                &:focus {outline:none;}
-            }
-            a{
-                font-size: 14px;
-                color: #333;
-                span{
-                    margin-left: 2px;
-                }
-            }
-            .post_index_share
-            {
-                border: none;
-                background-color: #fff;
-                i{
-                    color: #333;
-                    font-size: 24px;
-                }
-                &:focus {outline:none;}
             }
         }
     }
@@ -641,7 +645,7 @@
                 }
             }
     
-            .post_show_follow_block{
+            .post_show_share_block{
                 display:inline-block;
                 margin-left: 20%;
                 margin-right: 20%;
@@ -650,6 +654,37 @@
                     margin-right: 15%;
                 }
                 padding-top: 8px;
+                button{
+                    border: none;
+                    background-color: #fff;
+                    &:focus {outline:none;}
+                }
+                a{
+                    font-size: 14px;
+                    color: #333;
+                    text-decoration: none;
+                }
+                span{
+                    margin-left: 2px;
+                    position: relative;
+                    top: 3px;
+                    color: #536471;
+                    font-size: 14px;
+                    text-decoration: none;
+                }
+                .post_show_share
+                {
+                    border: none;
+                    background-color: #fff;
+                    i{
+                        color: #333;
+                        font-size: 24px;
+                    }
+                }
+            }
+    
+            .post_show_follow_block{
+                display:inline-block;
                 button{
                     border: none;
                     background-color: #fff;
@@ -676,31 +711,6 @@
                     margin-left: 2px;
                     color: #536471;
                     font-size: 14px;
-                }
-            }
-    
-            .post_show_share_block{
-                display:inline-block;
-                button{
-                    border: none;
-                    background-color: #fff;
-                    &:focus {outline:none;}
-                }
-                a{
-                    font-size: 14px;
-                    color: #333;
-                    span{
-                        margin-left: 2px;
-                    }
-                }
-                .post_show_share
-                {
-                    border: none;
-                    background-color: #fff;
-                    i{
-                        color: #333;
-                        font-size: 24px;
-                    }
                 }
             }
         }
