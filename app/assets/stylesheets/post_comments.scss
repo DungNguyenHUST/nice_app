@@ -66,6 +66,18 @@
                             background-color: #f0f2f5;
                             border-radius: 20px;
                         }
+                        .btn_highlight
+                        {
+                            button{
+                                color: #0071e3;
+                            }
+                        }
+
+                        .btn_normal{
+                            button{
+                                color: #333;
+                            }
+                        }
                     }
                     .post_comment_vote_unvote_count{
                         display:inline-block;
@@ -85,6 +97,18 @@
                             &:focus {outline:none;}
                             background-color: #f0f2f5;
                             border-radius: 20px;
+                        }
+                        .btn_highlight
+                        {
+                            button{
+                                color: #0071e3;
+                            }
+                        }
+
+                        .btn_normal{
+                            button{
+                                color: #333;
+                            }
                         }
                     }
                 }
