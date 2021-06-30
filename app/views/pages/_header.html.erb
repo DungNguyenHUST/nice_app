@@ -104,4 +104,11 @@
             x.style.display = "block";
         }
     }
+
+    window.addEventListener('mouseup', function(event){
+        var menu = document.getElementById('user_action_menu');
+        if(event.target != menu && event.target.parentNode != menu){
+            menu.style.display = 'none';
+        }
+    });  
 </script>
