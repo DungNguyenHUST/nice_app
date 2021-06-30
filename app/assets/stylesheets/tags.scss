@@ -78,7 +78,7 @@
                 font-weight: 600;
                 &:focus {outline:none;}
             }
-            .follow_btn_highlight
+            .btn_highlight
             {
                 button{
                     background-color: #0071e3;
@@ -86,7 +86,7 @@
                 }
             }
 
-            .follow_btn{
+            .btn_normal{
                 button{
                     background-color: #fff;
                     color: #536471;
@@ -307,7 +307,7 @@
                 font-weight: 600;
                 &:focus {outline:none;}
             }
-            .follow_btn_highlight
+            .btn_highlight
             {
                 button{
                     background-color: #0071e3;
@@ -315,7 +315,7 @@
                 }
             }
     
-            .follow_btn{
+            .btn_normal{
                 button{
                     border: 1px solid #0071e3;
                     background-color: #fff;
@@ -412,7 +412,7 @@
             font-weight: 600;
             &:focus {outline:none;}
         }
-        .follow_btn_highlight
+        .btn_highlight
         {
             button{
                 background-color: #0071e3;
@@ -420,7 +420,7 @@
             }
         }
 
-        .follow_btn{
+        .btn_normal{
             button{
                 background-color: #dddddd;
                 color: #536471;

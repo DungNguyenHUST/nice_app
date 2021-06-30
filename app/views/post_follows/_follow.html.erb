@@ -4,12 +4,12 @@
             <% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
         <%end%>
         <% if pre_follow %>  
-            <%= button_to post_post_follow_path(@post, pre_follow, type_param: 'index'), method: :delete, remote: true do%>
-                <i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17, fill: "#0071e3" %></i>
+            <%= button_to post_post_follow_path(@post, pre_follow, type_param: 'index'), method: :delete, remote: true, form_class: "btn_highlight" do%>
+                <i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17%></i>
             <%end%> 
         <%else%>
-            <%= button_to post_post_follows_path(@post, type_param: 'index'), method: :post, remote: true do%>
-                <i><%= bootstrap_icon "bookmark", width: 17, height: 17, fill: "#596976" %></i>
+            <%= button_to post_post_follows_path(@post, type_param: 'index'), method: :post, remote: true, form_class: "btn_normal" do%>
+                <i><%= bootstrap_icon "bookmark", width: 17, height: 17%></i>
             <%end%> 
         <%end%>
     </div>
@@ -19,12 +19,12 @@
             <% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
         <%end%>
         <% if pre_follow %>  
-            <%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true do%>
-                <i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17, fill: "#0071e3" %></i>
+            <%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true, form_class: "btn_highlight" do%>
+                <i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17%></i>
             <%end%> 
         <%else%>
-            <%= button_to post_post_follows_path(@post), method: :post, remote: true do%>
-                <i><%= bootstrap_icon "bookmark", width: 17, height: 17, fill: "#596976" %></i>
+            <%= button_to post_post_follows_path(@post), method: :post, remote: true, form_class: "btn_normal" do%>
+                <i><%= bootstrap_icon "bookmark", width: 17, height: 17%></i>
             <%end%> 
         <%end%>
     </div>

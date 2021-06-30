@@ -335,11 +335,11 @@
                                 <% pre_follow = @user.following_users.find { |follow| follow.followee_id == @user.id} %>
                             <%end%>
                             <% if pre_follow %>  
-                                <%= button_to user_user_follow_path(@user, pre_follow), method: :delete, remote: true, form_class: "follow_btn_highlight" do%>
+                                <%= button_to user_user_follow_path(@user, pre_follow), method: :delete, remote: true, form_class: "btn_highlight" do%>
                                     <a>Đã theo dõi</a>
                                 <%end%> 
                             <%else%>
-                                <%= button_to user_user_follows_path(@user), method: :post, remote: true, form_class: "follow_btn" do%>
+                                <%= button_to user_user_follows_path(@user), method: :post, remote: true, form_class: "btn_normal" do%>
                                     <a>Theo dõi</a>
                                 <%end%>
                             <%end%>
