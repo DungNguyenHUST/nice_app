@@ -53,7 +53,7 @@ class PostsController < ApplicationController
             end
             
             # count number of share
-            if @post.post_shared_id > 0
+            if @post.post_shared_id.present? && @post.post_shared_id > 0
                 @post_shared = Post.friendly.find(@post.post_shared_id)
                 @post_shared.increment!(:share_count)
             end
