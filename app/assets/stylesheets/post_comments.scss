@@ -92,6 +92,9 @@
                     }
                     .post_comment_unvote_block{
                         display:inline-block;
+                        transform: rotate(180deg);
+                        position: relative;
+                        top: 2px;
                         button{
                             border: none;
                             &:focus {outline:none;}
