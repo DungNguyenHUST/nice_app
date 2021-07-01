@@ -1,4 +1,4 @@
-<div class='post_index_block'>
+<div class='post_index_block' id="post_index_<%=post.id%>">
     <div class='post_index_info'>
         <%@owner_post_user = find_owner_user(post)%>
         <div class='post_index_info_left'>
@@ -21,6 +21,16 @@
                 <span><%=post.created_at.strftime("%B %d")%> · <%=time_ago_in_words(post.created_at)%></span>
             </div>
         </div>
+
+        <button class="post_index_close_btn" onclick="myFunctionClosePost('post_index_' + <%=post.id.to_s%>)">
+            <i><%= bootstrap_icon "x", width: 24, height: 24%></i>
+        </button>
+        <script>
+            function myFunctionClosePost(id) {
+                var x = document.getElementById(id);
+                x.style.display = "none";
+            }
+        </script>
     </div>
 
     <div class='post_index_title'>

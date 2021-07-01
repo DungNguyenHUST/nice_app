@@ -41,7 +41,7 @@
             padding-left: 10px;
             position: relative;
             top: 3px;
-            display: inline-block;
+            float: left;
             .post_index_user_name{
                 position: relative;
                 top:  -5px;
@@ -61,8 +61,15 @@
                 color: #536471;
             }
         }
+        .post_index_close_btn{
+            border: none;
+            float: right;
+            background-color: #fff;
+            color: #536471;
+        }
     }
     .post_index_title{
+        clear: both;
         padding-left: 15px;
         padding-top: 10px;
         padding-right: 15px;
@@ -276,7 +283,7 @@
 
         .post_index_comment_block{
             display:inline-block;
-            margin-left: 20%;
+            margin-left: 22%;
             @media screen and (max-width: 600px){
                 margin-left: 12%;
             }
@@ -306,8 +313,8 @@
 
         .post_index_share_block{
             display:inline-block;
-            margin-left: 20%;
-            margin-right: 20%;
+            margin-left: 22%;
+            margin-right: 22%;
             @media screen and (max-width: 600px){
                 margin-left: 12%;
                 margin-right: 12%;
@@ -347,13 +354,15 @@
         .post_index_follow_block{
             display:inline-block;
             width: auto;
+            float: right;
             button{
                 border: none;
                 background-color: #fff;
                 &:focus {outline:none;}
                 i{
                     position: relative;
-                    top: -1px;
+                    top: 8px;
+                    left: -5px;
                 }
             }
 
@@ -564,7 +573,7 @@
                 display: inline-block;
                 .post_show_vote_unvote_block{
                     position: relative;
-                    // top: -3px;
+                    top: -3px;
                     background-color: #f0f2f5;
                     border-radius: 20px;
                     padding-bottom: 3px;
@@ -629,10 +638,10 @@
                     }
                 }
             }
-    
+
             .post_show_comment_block{
                 display:inline-block;
-                margin-left: 20%;
+                margin-left: 22%;
                 @media screen and (max-width: 600px){
                     margin-left: 12%;
                 }
@@ -641,11 +650,14 @@
                     background-color: #fff;
                     &:focus {outline:none;}
                 }
-                span{
+                a{
                     font-size: 14px;
                     color: #536471;
+                    span{
+                        margin-left: 2px;
+                    }
                 }
-                .post_index_comment
+                .post_show_comment
                 {
                     border: none;
                     background-color: #fff;
@@ -656,11 +668,11 @@
                     &:focus {outline:none;}
                 }
             }
-    
+
             .post_show_share_block{
                 display:inline-block;
-                margin-left: 20%;
-                margin-right: 20%;
+                margin-left: 22%;
+                margin-right: 22%;
                 @media screen and (max-width: 600px){
                     margin-left: 12%;
                     margin-right: 12%;
@@ -685,7 +697,7 @@
                     font-size: 14px;
                     text-decoration: none;
                 }
-                .post_index_share
+                .post_show_share
                 {
                     border: none;
                     background-color: #fff;
@@ -696,27 +708,29 @@
                     &:focus {outline:none;}
                 }
             }
-    
+
             .post_show_follow_block{
                 display:inline-block;
                 width: auto;
+                float: right;
                 button{
                     border: none;
                     background-color: #fff;
                     &:focus {outline:none;}
                     i{
                         position: relative;
-                        top: -1px;
+                        top: 8px;
+                        left: -5px;
                     }
                 }
-    
+
                 .btn_highlight
                     {
                         button{
                             color: #0071e3;
                         }
                     }
-    
+
                     .btn_normal{
                         button{
                             color: #333;
