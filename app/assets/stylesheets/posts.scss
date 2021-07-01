@@ -1025,6 +1025,7 @@
         .nav .nav-link.active {
             border-radius: 0;
             border-bottom: 2px solid #0071e3;
+            background-color: #e1ecf4;
             font-weight: 600;
             color: #0071e3;
             font-size: 16px;
@@ -1055,7 +1056,8 @@
             border-top: none;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
-            padding: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
             background-color: #fff;
             .new_post_section
             {
@@ -1078,15 +1080,22 @@
                         height: auto;
                         margin-left: 0px;
                         width: 100%;
-                        border: 1px solid #dddddd;
+                        border: 1px solid #eee;
                         border-radius: 5px;
+                        font-size: 14px;
+                        &:focus{
+                            border: 2px solid #0071e3;
+                            border-radius: 5px;
+                        }
                     }
                     .form-control{
                         margin-left: 0px;
                         min-height: 40px;
+                        height: auto;
                         width: 100%;
-                        border: 1px solid #dddddd;
+                        border: 1px solid #eee;
                         border-radius: 5px;
+                        font-size: 14px;
                         &:focus{
                             border: 2px solid #0071e3;
                             border-radius: 5px;
@@ -1103,25 +1112,7 @@
                     min-height: 300px;
                     width: 100%;
                     height: auto;
-                    .form-control-rich-text{
-                        min-height: 150px;
-                        height: auto;
-                        margin-left: 0px;
-                        width: 100%;
-                        border: 1px solid #dddddd;
-                        border-radius: 5px;
-                    }
-                    .form-control{
-                        margin-left: 0px;
-                        min-height: 40px;
-                        width: 100%;
-                        border: 1px solid #dddddd;
-                        border-radius: 5px;
-                        &:focus{
-                            border: 2px solid #0071e3;
-                            border-radius: 5px;
-                        }
-                    }
+                    font-size: 14px;
                 }
             }
         }

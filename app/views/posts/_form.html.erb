@@ -47,13 +47,13 @@
                             <div class="new_post_form">
                                 <div class="new_post_section">
                                     <div class="new_post_input">
-                                        <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                                        <%= f.text_field :title, :required => true, class: "form-control", placeholder: "Tiêu đề" %>
                                     </div>
                                 </div>
 
                                 <div class="new_post_section">
                                     <div class="new_post_input">
-                                        <%= f.cktext_area :content, class: "form-control-rich-text", ckeditor: {toolbar: "mini", height: 200}, placeholder: "Nhập nội dung bài viết (ít nhất 3000 từ)" %>
+                                        <%= f.rich_text_area :content_rich_text, class: "form-control-rich-text", placeholder: "Nội dung(tùy chọn)" %>
                                     </div>
                                 </div>
 
@@ -77,7 +77,7 @@
                             <div class="new_post_form">
                                 <div class="new_post_section">
                                     <div class="new_post_input">
-                                        <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                                        <%= f.text_field :title, :required => true, class: "form-control", placeholder: "Tiêu đề" %>
                                     </div>
                                 </div>
 
@@ -107,11 +107,11 @@
                             <div class="new_post_form">
                                 <div class="new_post_section">
                                     <div class="new_post_input">
-                                        <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bài viết" %>
+                                        <%= f.text_field :title, :required => true, class: "form-control", placeholder: "Tiêu đề" %>
                                     </div>
                                     
                                     <div class="new_post_input">
-                                        <%= f.text_area :link, :required => true, class: "form-control-rich-text", placeholder: "Dán link của bạn tại đây"  %>
+                                        <%= f.text_area :link, :required => true, class: "form-control-rich-text", placeholder: "Link"  %>
                                     </div>
                                 </div>
 

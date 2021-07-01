@@ -97,9 +97,9 @@
 						</div>
 					<%end%>
 
-					<%if @post.content.present?%>
+					<%if @post.content_rich_text.present?%>
 						<div class='post_show_content'>
-							<a><%=@post.content.html_safe%></a>
+							<a><%=@post.content_rich_text%></a>
 						</div>
 					<%end%>
 

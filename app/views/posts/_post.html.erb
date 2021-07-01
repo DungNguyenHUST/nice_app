@@ -63,12 +63,6 @@
         </div>
     <%end%>
 
-    <%if post.content?%>
-        <div class='post_index_content'>
-            <a><%= truncate(strip_tags(post.content), length: 200) %></a>
-        </div>
-    <%end%>
-
     <%if post.post_shared_id?%>
         <div class='post_index_shared'>
             <%@post_shared = Post.friendly.find(post.post_shared_id)%>
