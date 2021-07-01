@@ -10,10 +10,7 @@
     .tag_show_info{
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         background-color: #fff;
@@ -126,10 +123,7 @@
         .tag_show_post_sort{
             border: 1px solid #dddddd;
             @media screen and (max-width: 600px){
-                border-left: none;
-                border-right: none;
-                border-top: 1px solid #dddddd;
-                border-bottom: 1px solid #dddddd;
+                border: none;
                 border-radius: 0px;
             }
             background-color: #fff;
@@ -177,10 +171,7 @@
     .tag_show_right{
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         background-color: #fff;
@@ -329,9 +320,7 @@
 .tag_index_block{
     border: 1px solid #dddddd;
     @media screen and (max-width: 600px){
-        border-left: none;
-        border-right: none;
-        border-bottom: 1px solid #dddddd;
+        border: none;
         border-radius: 0px;
     }
     margin-top: 20px;

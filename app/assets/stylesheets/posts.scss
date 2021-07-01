@@ -5,10 +5,7 @@
 .post_index_block{
     border: 1px solid #dddddd;
     @media screen and (max-width: 600px){
-        border-left: none;
-        border-right: none;
-        border-top: 1px solid #dddddd;
-        border-bottom: 1px solid #dddddd;
+        border: none;
         border-radius: 0px;
         margin-bottom: 10px;
     }
@@ -281,7 +278,7 @@
             display:inline-block;
             margin-left: 20%;
             @media screen and (max-width: 600px){
-                margin-left: 10%;
+                margin-left: 12%;
             }
             button{
                 border: none;
@@ -312,8 +309,8 @@
             margin-left: 20%;
             margin-right: 20%;
             @media screen and (max-width: 600px){
-                margin-left: 10%;
-                margin-right: 10%;
+                margin-left: 12%;
+                margin-right: 12%;
             }
             position: relative;
             top: -2px;
@@ -388,10 +385,7 @@
     .post_show_left_block{
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         background-color: #fff;
@@ -789,10 +783,7 @@
     .post_show_right_block_user{
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 40px solid #596976;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         border-top: 40px solid #596976;
@@ -882,10 +873,7 @@
     .post_show_right_user_post{
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         background-color: #fff;
@@ -987,10 +975,7 @@
         background-color: #fff;
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         border-top-left-radius: 5px;
@@ -1047,10 +1032,7 @@
         {
             border: 1px solid #dddddd;
             @media screen and (max-width: 600px){
-                border-left: none;
-                border-right: none;
-                border-top: 1px solid #dddddd;
-                border-bottom: 1px solid #dddddd;
+                border: none;
                 border-radius: 0px;
             }
             border-top: none;
@@ -1146,10 +1128,7 @@
     .new_post_policy{
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         padding: 15px;
@@ -1219,10 +1198,7 @@
         {
             border: 1px solid #dddddd;
             @media screen and (max-width: 600px){
-                border-left: none;
-                border-right: none;
-                border-top: 1px solid #dddddd;
-                border-bottom: 1px solid #dddddd;
+                border: none;
                 border-radius: 0px;
             }
             border-radius: 5px;
@@ -1296,10 +1272,7 @@
     .new_post_share_policy{
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         padding: 15px;

@@ -590,10 +590,7 @@
         background-color: #fff;
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         border-radius: 5px;
@@ -648,10 +645,7 @@
                     border-radius: 5px;
                     border: 1px solid #dddddd;
                     @media screen and (max-width: 600px){
-                        border-left: none;
-                        border-right: none;
-                        border-top: 1px solid #dddddd;
-                        border-bottom: 1px solid #dddddd;
+                        border: none;
                         border-radius: 0px;
                     }
                     .user_setting_description{
@@ -739,8 +733,6 @@
                     }
                     @media screen and (max-width: 600px){
                         border: none;
-                        border-top: 1px solid #dddddd;
-                        border-bottom: 1px solid #dddddd;
                         padding: 15px;
                         padding-top: 20px;
                         border-radius: 0px;
@@ -795,10 +787,7 @@
         background-color: #fff;
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         min-height: 200px;
@@ -936,10 +925,7 @@
         background-color: #fff;
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         border-radius: 5px;
@@ -1018,10 +1004,7 @@
         clear: both;
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border: none;
             border-radius: 0px;
         }
         background-color: #fff;
@@ -1054,10 +1037,7 @@
     background-color: #fff;
     border: 1px solid #dddddd;
     @media screen and (max-width: 600px){
-        border-left: none;
-        border-right: none;
-        border-top: 1px solid #dddddd;
-        border-bottom: 1px solid #dddddd;
+        border: none;
         border-radius: 0px;
     }
     border-radius: 5px;
