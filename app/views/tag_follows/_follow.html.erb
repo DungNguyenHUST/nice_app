@@ -5,11 +5,11 @@
         <%end%>
         <% if pre_follow %>  
             <%= button_to tag_tag_follow_path(tag, pre_follow), method: :delete, remote: true , form_class: "btn_highlight" do%>
-                <a>Followed</a>
+                <a>Bỏ theo dõi</a>
             <%end%> 
         <%else%>
             <%= button_to tag_tag_follows_path(tag), method: :tag, remote: true, form_class: "btn_normal" do%>
-                <a>Follow</a>
+                <a>Theo dõi</a>
             <%end%> 
         <%end%>
     </div>
@@ -20,11 +20,11 @@
         <%end%>
         <% if pre_follow %>  
             <%= button_to tag_tag_follow_path(@tag, pre_follow), method: :delete, remote: true , form_class: "btn_highlight" do%>
-                <a>Followed</a>
+                <a>Bỏ theo dõi</a>
             <%end%> 
         <%else%>
             <%= button_to tag_tag_follows_path(@tag), method: :tag, remote: true, form_class: "btn_normal" do%>
-                <a>Follow</a>
+                <a>Theo dõi</a>
             <%end%> 
         <%end%>
     </div>
