@@ -121,7 +121,7 @@ private
 
     # Only allow a list of trusted parameters through.
     def post_params
-        params.require(:post).permit(:title, :content, :link, :view_count, :post_shared_id, :share_count,
+        params.require(:post).permit(:title, :content, :content_rich_text, :link, :view_count, :post_shared_id, :share_count,
                                     :tag_list, :tag, { tag_ids: [] }, :tag_ids, 
                                     post_images_attributes: [:id, :post_id, :image])
     end

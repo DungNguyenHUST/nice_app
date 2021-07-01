@@ -15,6 +15,8 @@ class Post < ApplicationRecord
     has_many :taggings
     has_many :tags, through: :taggings
 
+    has_rich_text :content_rich_text
+
     def self.tagged_with(name)
         Tag.find_by!(name: name).posts
     end

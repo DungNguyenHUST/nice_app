@@ -20,3 +20,6 @@ ActiveStorage.start()
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+require("trix")
+require("@rails/actiontext")
