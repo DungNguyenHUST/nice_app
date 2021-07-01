@@ -200,13 +200,13 @@
 			display: none;
 			position: absolute;
 			top: 55px;
-			right: 8%;
 			background-color: #fff;
 			border: 1px solid #dddddd;
 			border-radius: 5px;
 			z-index: 10;
 			width: 200px;
 			padding-bottom: 10px;
+			overflow: auto;
 			.user_action{
 				color: #536471;
 				button{
