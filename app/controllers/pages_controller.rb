@@ -11,8 +11,9 @@ class PagesController < ApplicationController
         @tab_id = params[:tab_id]
     end
 
-    if "default" == @tab_id || "PostHotID" == @tab_id
+    if "default" == @tab_id || "PostForYou" == @tab_id
       @buffers = Post.all.sort_by{|post| cal_post_hot_point(post)}.reverse
+      @buffers = Post.where("created_at >= ?", 1.week.ago.utc)
       @post_hots = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
@@ -25,14 +26,29 @@ class PagesController < ApplicationController
       @post_tops = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
-    if "PostTrendID" == @tab_id
+    if "PostTopWeekID" == @tab_id
       @buffers = Post.where("created_at >= ?", 1.week.ago.utc)
+      @buffers = @buffers.sort_by{|post| cal_post_top_point(post)}.reverse
+      @post_top_weeks = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+    end
+
+    if "PostTopMonthID" == @tab_id
+      @buffers = Post.where("created_at >= ?", 1.month.ago.utc)
+      @buffers = @buffers.sort_by{|post| cal_post_top_point(post)}.reverse
+      @post_top_months = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+    end
+
+    if "PostTopYearID" == @tab_id
+      @buffers = Post.where("created_at >= ?", 1.year.ago.utc)
+      @buffers = @buffers.sort_by{|post| cal_post_top_point(post)}.reverse
+      @post_top_years = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+    end
+
+    if "PostTrendID" == @tab_id
+      @buffers = Post.where("created_at >= ?", 3.day.ago.utc)
       @buffers = @buffers.sort_by{|post| cal_post_trend_point(post)}.reverse
       @post_trends = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
-
-    @buffers = Post.where("created_at >= ?", 1.week.ago.utc)
-    @post_trend_todays = @buffers.sort_by{|post| cal_post_trend_point(post)}.reverse.first(10)
 
   end
 
