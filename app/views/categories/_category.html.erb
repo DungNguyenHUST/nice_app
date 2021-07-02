@@ -7,10 +7,12 @@
     </div>
 
     <div class='category_index_topic'>
-        <%category.topics.each do |topic|%>
-            <div class='col-sm-3 col-nopadding'>
-                <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
-            </div>
-        <%end%>
+        <div class='row'>
+            <%category.topics.each do |topic|%>
+                <div class='col-sm-3 col-nopadding'>
+                    <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
+                </div>
+            <%end%>
+        </div>
     </div>
 </div>

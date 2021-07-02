@@ -97,6 +97,14 @@
                                 <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserTopicID')%>">Chủ đề <span><%= convert_number_to_human(find_owner_topic_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
+                                <%if @tab_id == "UserTopicFollowID"%>
+                                    <%active = "active"%>
+                                <%else%> 
+                                    <%active = ""%>
+                                <%end%>                                     
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserTopicFollowID')%>">Chủ đề đang theo dõi <span><%= convert_number_to_human(find_owner_topic_follow_for_user(@user).count)%><span></a>
+                            </li>
+                            <li class="nav-item">
                                 <%if @tab_id == "UserCommentID"%>
                                     <%active = "active"%>
                                 <%else%> 
@@ -168,6 +176,14 @@
                         <%if @tab_id == "UserTopicID"%>
                             <div class="user_profile_topic_tab">
                                 <%find_owner_topic_for_user(@user).each do |topic|%>
+                                    <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
+                                <%end%>
+                            </div>
+                        <%end%>
+
+                        <%if @tab_id == "UserTopicFollowID"%>
+                            <div class="user_profile_topic_tab">
+                                <%find_owner_topic_follow_for_user(@user).each do |topic|%>
                                     <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
                                 <%end%>
                             </div>
