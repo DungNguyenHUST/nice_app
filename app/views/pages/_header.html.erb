@@ -29,7 +29,7 @@
             <div class="nav_right_block">
                 <div class="nav_post">
                     <%= link_to new_post_path do %>
-                        <i><%= bootstrap_icon "plus-circle", width: 24, height: 24 %></i>
+                        <i><%= bootstrap_icon "plus-circle", width: 26, height: 26 %></i>
                     <%end%>
                 </div>
 
@@ -47,7 +47,7 @@
 
                 <div class="nav_user_notification">                     
                     <%= link_to user_path(current_user, :tab_id => "UserNotificationID") do %>
-                        <i><%= bootstrap_icon "app", width: 24, height: 24%></i><span><%=convert_number_to_human(current_user.user_notifications.count)%></span>
+                        <i><%= bootstrap_icon "app", width: 26, height: 26%></i><span><%=convert_number_to_human(current_user.user_notifications.count)%></span>
                     <%end%>
                 </div>
 

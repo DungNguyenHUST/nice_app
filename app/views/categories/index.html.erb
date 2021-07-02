@@ -2,7 +2,8 @@
 	<div class='container'>
 		<div class='category_index_new'>
 			<%= button_to new_topic_path, method: :get do%>
-                Thêm chủ đề mới
+                <i><%= bootstrap_icon "plus", width: 20, height: 20%></i>
+				<a>Thêm chủ đề mới</a>
             <%end%>
 		</div>
 		<%@categories.each do |category|%>

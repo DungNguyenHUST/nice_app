@@ -642,6 +642,7 @@
             .post_show_comment_block{
                 display:inline-block;
                 margin-left: 22%;
+                color: #536471;
                 @media screen and (max-width: 600px){
                     margin-left: 14%;
                 }
@@ -657,7 +658,7 @@
                         margin-left: 2px;
                     }
                 }
-                .post_show_comment
+                .post_show_reply_btn
                 {
                     border: none;
                     background-color: #fff;
@@ -1276,14 +1277,6 @@
                     margin-bottom: 10px;
                     width: 100%;
                     height: auto;
-                    .form-control-rich-text{
-                        min-height: 150px;
-                        height: auto;
-                        margin-left: 0px;
-                        width: 100%;
-                        border: 1px solid #dddddd;
-                        border-radius: 5px;
-                    }
                     .form-control{
                         margin-left: 0px;
                         min-height: 40px;
@@ -1294,6 +1287,43 @@
                             border: 2px solid #0071e3;
                             border-radius: 5px;
                         }
+                    }
+                }
+            }
+        }
+
+        .new_post_share_topic_section
+        {
+            margin-top: 10px;
+            .new_post_share_topic_label_name{
+                font-weight: 550;
+                font-size: 16px;
+                color: #333;
+                text-align: left;
+                padding-top: 10px;
+            }
+            .new_post_share_topic_input{
+                left: 0px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+                width: 100%;
+                height: auto;
+                .form-control{
+                    margin-left: 0px;
+                    min-height: 40px;
+                    height: auto;
+                    width: 100%;
+                    border: 1px solid #dddddd;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    &:focus{
+                        border: 2px solid #0071e3;
+                        border-radius: 5px;
+                    }
+                    
+                    @media screen and (max-width: 600px){
+                        border: none;
+                        border-radius: 0px;
                     }
                 }
             }

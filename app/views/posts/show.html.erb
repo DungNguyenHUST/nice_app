@@ -150,15 +150,22 @@
 						</div>
 
 						<div class="post_show_comment_block">
-							<%= button_to post_path(@post), method: :get, form_class: "post_show_comment" do%>
-								<i><%= bootstrap_icon "chat", width: 18, height: 18%></i>
-								<a><%= convert_number_to_human(@post.post_comments.count)%></a> 
-							<%end%> 
+							<%if user_signed_in?%>
+								<button class="post_show_reply_btn" onclick="myFunctionReplyPost('post_show_comment_input_' + <%=@post.id.to_s%>)">
+									<i><%= bootstrap_icon "chat", width: 19, height: 19%></i>
+									<a><%= convert_number_to_human(@post.post_comments.count)%></a>
+								</button>
+							<%else%>
+								<%= button_to new_user_session_path, :method => :get, form_class: "post_show_reply_btn" do%>
+									<i><%= bootstrap_icon "chat", width: 19, height: 19%></i>
+									<a><%= convert_number_to_human(@post.post_comments.count)%></a>
+								<%end%>
+							<%end%>
 						</div>
 
 						<div class="post_show_share_block">
 							<%= link_to new_post_path(:post_shared_id => @post.id, :tab_id => 'PostID'), method: :get, form_class: "post_show_share" do%>
-								<i><%= bootstrap_icon "arrow-repeat", width: 21, height: 21%></i>
+								<i><%= bootstrap_icon "arrow-repeat", width: 22, height: 22%></i>
 								<span><%=convert_number_to_human(@post.share_count)%></span>
 							<%end%> 
 						</div>
@@ -169,17 +176,17 @@
 							<%end%>
 							<% if pre_follow %>  
 								<%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true, form_class: "btn_highlight" do%>
-									<i><%= bootstrap_icon "bookmark-fill", width: 17, height: 17%></i>
+									<i><%= bootstrap_icon "bookmark-fill", width: 18, height: 18%></i>
 								<%end%> 
 							<%else%>
 								<%= button_to post_post_follows_path(@post), method: :post, remote: true, form_class: "btn_normal" do%>
-									<i><%= bootstrap_icon "bookmark", width: 17, height: 17%></i>
+									<i><%= bootstrap_icon "bookmark", width: 18, height: 18%></i>
 								<%end%> 
 							<%end%>
 						</div>
 					</div>
 
-				    <div class="post_show_new_comment_block" id ="post_comment_input_<%=@post.id.to_s%>">
+				    <div class="post_show_new_comment_block" id ="post_show_comment_input_<%=@post.id.to_s%>">
 				        <%= form_for([@post, PostComment.new], remote: true) do |f| %>
 				            <div class="post_show_comment_section">
 				                <div class="post_show_comment_input">

@@ -17,27 +17,24 @@
                             <%= render @post_shared %>
                         </div>
                     <%end%>
-                    <%= form_for @post, :html => { :class => "form-horizontal post_share" } do |f| %>
+                    <%@select_topic = find_owner_topic_follow_for_user(current_user)%>
+                    <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
                         <div class="new_post_share_form">
                             <div class="new_post_share_section">
                                 <div class="new_post_share_input">
-                                    <%= f.text_field :title,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập tiêu đề bạn muốn chia sẻ" %>
-                                </div>
-                            </div>
-                            
-                            <%if @post_shared.present?%>
-                                <%= f.hidden_field :post_shared_id, :value => @post_shared.id %>
-                            <%end%>
-
-                            <div class="new_post_share_section">
-                                <div class="new_post_share_label">
-                                    <a><%= f.label :topic_ids, "Chọn tag phù hợp với bài viết của bạn"%></a>
-                                </div>
-                                <div class="new_post_share_input">
-                                    <%= f.select :topic_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                                    <%= f.text_field :title, :required => true, class: "form-control", placeholder: "Tiêu đề" %>
                                 </div>
                             </div>
                         </div>
+                            
+                        <%if @select_topic.present?%>
+                            <div class="new_post_share_topic_section">
+                                <div class="new_post_share_topic_input">
+                                    <%= f.select :topic_ids, @select_topic.collect {|m| [m.name, m.id]}, {:prompt => '-- Chọn chủ đề phù hợp với bài viết --'}, class: "form-control", :multiple => true, :required => true%>
+                                </div>
+                            </div>
+                        <%end%>
+                            
                         <div class="new_post_share_submit">
                             <%= f.submit "Chia sẻ", class: "new_post_share_form_submit" %>
                         </div>
