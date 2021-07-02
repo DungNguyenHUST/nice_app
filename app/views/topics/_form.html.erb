@@ -4,7 +4,7 @@
             <div class="col-sm-8 col-nopadding">
 	            <div class="new_topic_title">
 	                <%if !@is_edit%>
-	                    <a>Thêm topic mới</a>
+	                    <a>Thêm chủ đề mới</a>
 	                <%else%>
 	                    <a>Update <%=@topic.name%></a>
 	                <%end%>
@@ -14,10 +14,10 @@
 		            <div class="new_topic_section">
 		                <div class="new_topic_content">
 							<div class="new_topic_label">
-								<a><%= f.label :name, "Topic name", class: "new_topic_label_name" %></a>
+								<a><%= f.label :name, "Tên chủ đề", class: "new_topic_label_name" %></a>
 							</div>
 		                    <div class="new_topic_input">
-		                        <%= f.text_field :name,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập topic name" %>
+		                        <%= f.text_field :name,  autofocus: true, :required => true, class: "form-control", placeholder: "Ex: Khoa học công nghệ..." %>
 		                    </div>
 		                </div>
 						<div class="new_topic_content">
@@ -25,10 +25,22 @@
 								<a><%= f.label :description, "Mô tả", class: "new_topic_label_name" %></a>
 							</div>
 		                    <div class="new_topic_input">
-		                        <%= f.text_area :description, :required => true, class: "form-control-rich-text", placeholder: " Nhập mô tả nội dung topic" %>
+		                        <%= f.text_area :description, :required => true, class: "form-control-rich-text", placeholder: "Nội dung" %>
 		                    </div>
 		                </div>
 		            </div>
+
+					<div class="new_topic_section">
+						<div class="new_topic_content">
+							<div class="new_topic_label">
+								<a><%= f.label :category_id, "Chọn danh mục phù hợp với chủ đề của bạn", class: "new_topic_label_name" %></a>
+							</div>
+
+							<div class="new_topic_input">
+								<%= f.select :category_id, Category.all.collect {|m| [m.name, m.id]},{}, class: "form-control"%>
+							</div>
+						</div>
+					</div>
 
 					<div class="new_topic_section">
 						<div class="new_topic_content">

@@ -131,6 +131,18 @@
 			}
 		}
 
+		.nav_category{
+			padding-top: 12px;
+			float: left;
+			padding-right: 20px;
+			i{
+				color: #0f1419;
+				&:hover{
+					color: #0071e3;
+				}
+			}
+		}
+
 		.nav_topic{
 			padding-top: 12px;
 			float: left;

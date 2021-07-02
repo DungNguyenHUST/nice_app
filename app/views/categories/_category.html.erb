@@ -1,0 +1,16 @@
+<div class='category_index_block'>
+    <div class='category_index_info'>
+        <div class='category_index_name'>
+            <a><%= link_to (category.name), category_path(category) %></a>
+            <span> · <%= category.topics.count %> chủ đề</span>
+        </div>
+    </div>
+
+    <div class='category_index_topic'>
+        <%category.topics.each do |topic|%>
+            <div class='col-sm-3 col-nopadding'>
+                <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
+            </div>
+        <%end%>
+    </div>
+</div>

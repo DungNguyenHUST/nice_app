@@ -1,0 +1,16 @@
+<div class='category_index_container'>
+	<div class='container'>
+		<div class='category_index_new'>
+			<%= button_to new_topic_path, method: :get do%>
+                Thêm chủ đề mới
+            <%end%>
+		</div>
+		<div class='row'>
+		    <%@categories.each do |category|%>
+				<div class='category_index_render'>
+					<%= render category%>
+		    	</div>
+		    <%end%>
+		</div>
+	</div>
+</div>

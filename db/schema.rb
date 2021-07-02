@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_02_035815) do
+ActiveRecord::Schema.define(version: 2021_07_02_062921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -218,6 +218,8 @@ ActiveRecord::Schema.define(version: 2021_07_02_035815) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_topics_on_category_id"
     t.index ["slug"], name: "index_topics_on_slug", unique: true
   end
 
@@ -316,6 +318,7 @@ ActiveRecord::Schema.define(version: 2021_07_02_035815) do
   add_foreign_key "post_unvotes", "posts"
   add_foreign_key "post_votes", "posts"
   add_foreign_key "topic_follows", "topics"
+  add_foreign_key "topics", "categories"
   add_foreign_key "topings", "posts"
   add_foreign_key "topings", "topics"
   add_foreign_key "user_notifications", "users"

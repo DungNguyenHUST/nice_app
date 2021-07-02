@@ -1,0 +1,40 @@
+<div class="new_category_form">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-nopadding">
+	            <div class="new_category_title">
+	                <%if !@is_edit%>
+	                    <a>Thêm danh mục mới</a>
+	                <%else%>
+	                    <a>Update <%=@category.name%></a>
+	                <%end%>
+	            </div>
+
+	            <%= form_for @category, :html => { :class => "form-horizontal category" } do |f| %>
+		            <div class="new_category_section">
+		                <div class="new_category_content">
+							<div class="new_category_label">
+								<a><%= f.label :name, "Tên danh mục", class: "new_category_label_name" %></a>
+							</div>
+		                    <div class="new_category_input">
+		                        <%= f.text_field :name,  autofocus: true, :required => true, class: "form-control", placeholder: " Ex: Đời sống xã hội" %>
+		                    </div>
+		                </div>
+						<div class="new_category_content">
+							<div class="new_category_label">
+								<a><%= f.label :description, "Mô tả", class: "new_category_label_name" %></a>
+							</div>
+		                    <div class="new_category_input">
+		                        <%= f.text_area :description, :required => true, class: "form-control-rich-text", placeholder: " Nhập mô tả" %>
+		                    </div>
+		                </div>
+		            </div>
+
+		            <div class="new_category_submit">
+		                <%= f.submit "Submit", class: "new_category_form_submit" %>
+		            </div>
+		        <%end%>	
+	        </div>
+        </div>  
+    </div>
+</div>
