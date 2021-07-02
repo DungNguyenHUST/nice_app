@@ -110,8 +110,8 @@
                         </div>
                     <%end%>
                     
-                    <div class='home_right_all_tag'>
-                        <%= button_to topics_path, method: :get, form_class: "home_right_all_tag_button" do%>
+                    <div class='home_right_all_topic'>
+                        <%= button_to topics_path, method: :get, form_class: "home_right_all_topic_button" do%>
                             <a>Xem tất cả(<%=convert_number_to_human(Topic.all.count)%>)</a>
                         <%end%> 
                     </div>

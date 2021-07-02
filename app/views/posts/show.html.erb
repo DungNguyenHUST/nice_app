@@ -29,10 +29,10 @@
 				        <a><%= @post.title%></a>
 				    </div>
 
-					<div class='post_show_tag_link_block'>
+					<div class='post_show_topic_link_block'>
 						<%@post.topics.each do |topic|%>
-							<div class='post_show_tag_link'>
-								<a><%= link_to (topic.name), tag_path(tag) %></a>
+							<div class='post_show_topic_link'>
+								<a><%= link_to (topic.name), topic_path(tag) %></a>
 							</div>
 						<%end%>
 					</div>
@@ -315,9 +315,9 @@
 							<div class='post_show_right_post_block'>
                             	<a><%= link_to (post.title), post_path(post) %></a>
 							</div>
-							<div class='post_show_right_tag_block'>
+							<div class='post_show_right_topic_block'>
 								<%post.topics.each do |topic|%>
-									<%= button_to tag_path(topic), method: :get do %>
+									<%= button_to topic_path(topic), method: :get do %>
 										<a><%=topic.name%></a>
 									<%end%>
 								<%end%>

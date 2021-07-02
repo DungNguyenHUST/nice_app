@@ -1000,7 +1000,7 @@
         }
     }
 
-    .user_profile_suggest_tag{
+    .user_profile_suggest_topic{
         clear: both;
         border: 1px solid #dddddd;
         @media screen and (max-width: 600px){
@@ -1014,14 +1014,14 @@
         }
         border-radius: 5px;
         min-height: 300px;
-        .user_profile_suggest_tag_title{
+        .user_profile_suggest_topic_title{
             font-size: 22px;
             font-weight: 600;
             padding: 15px;
             color: #0f1419;
         }
 
-        .user_profile_suggest_tag_content{
+        .user_profile_suggest_topic_content{
             border-top: 1px solid #f0f2f5;
             padding: 15px;
             padding-bottom: 10px;

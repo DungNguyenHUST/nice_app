@@ -172,7 +172,7 @@
         margin: 15px;
     }
 
-    .post_index_tag_block{
+    .post_index_topic_block{
         padding-left: 64px;
         @media screen and (max-width: 600px){
             padding-left: 15px;
@@ -458,10 +458,10 @@
             }
         }
 
-        .post_show_tag_link_block{
+        .post_show_topic_link_block{
             padding-left: 15px;
             padding-right: 15px;
-            .post_show_tag_link{
+            .post_show_topic_link{
                 float: left;
                 margin-right: 10px;
                 margin-bottom: 10px;
@@ -927,7 +927,7 @@
                 }
             }
 
-            .post_show_right_tag_block{
+            .post_show_right_topic_block{
                 margin-top: 10px;
                 margin-bottom: 10px;
                 display: block;

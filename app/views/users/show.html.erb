@@ -89,12 +89,12 @@
                                 <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserPostID')%>">Bài viết <span><%= convert_number_to_human(find_owner_post_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
-                                <%if @tab_id == "UserTagID"%>
+                                <%if @tab_id == "UserTopicID"%>
                                     <%active = "active"%>
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserTagID')%>">Tag <span><%= convert_number_to_human(find_owner_tag_for_user(@user).count)%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserTopicID')%>">Chủ đề <span><%= convert_number_to_human(find_owner_topic_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserCommentID"%>
@@ -165,9 +165,9 @@
                             </div>
                         <%end%>
 
-                        <%if @tab_id == "UserTagID"%>
-                            <div class="user_profile_tag_tab">
-                                <%find_owner_tag_for_user(@user).each do |topic|%>
+                        <%if @tab_id == "UserTopicID"%>
+                            <div class="user_profile_topic_tab">
+                                <%find_owner_topic_for_user(@user).each do |topic|%>
                                     <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
                                 <%end%>
                             </div>
@@ -240,12 +240,12 @@
                     </div>
                 </div>
                 <div class="col-sm-4 col-nopadding">
-                    <div class="user_profile_suggest_tag">
-                        <div class="user_profile_suggest_tag_title">
-                            <a>Gợi ý tag dành cho bạn</a>
+                    <div class="user_profile_suggest_topic">
+                        <div class="user_profile_suggest_topic_title">
+                            <a>Gợi ý chủ đề dành cho bạn</a>
                         </div>
                         <%@topics.each do |topic|%>
-                            <div class="user_profile_suggest_tag_content">
+                            <div class="user_profile_suggest_topic_content">
                                 <%= render :partial => 'topics/topic', :locals => {:mini_tyle => true}, :object => topic %>
                             </div>
                         <%end%>
@@ -392,12 +392,12 @@
                 </div>
 
                 <div class="col-sm-4 col-nopadding">
-                    <div class="user_profile_suggest_tag">
-                        <div class="user_profile_suggest_tag_title">
-                            <a>Gợi ý topic dành cho bạn</a>
+                    <div class="user_profile_suggest_topic">
+                        <div class="user_profile_suggest_topic_title">
+                            <a>Gợi ý chủ đề dành cho bạn</a>
                         </div>
                         <%@topics.each do |topic|%>
-                            <div class="user_profile_suggest_tag_content">
+                            <div class="user_profile_suggest_topic_content">
                                 <%= render :partial => 'topics/topic', :locals => {:mini_tyle => true}, :object => topic %>
                             </div>
                         <%end%>

@@ -31,10 +31,10 @@
 
                             <div class="new_post_share_section">
                                 <div class="new_post_share_label">
-                                    <a><%= f.label :tag_ids, "Chọn tag phù hợp với bài viết của bạn"%></a>
+                                    <a><%= f.label :topic_ids, "Chọn tag phù hợp với bài viết của bạn"%></a>
                                 </div>
                                 <div class="new_post_share_input">
-                                    <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                                    <%= f.select :topic_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
                                 </div>
                             </div>
                         </div>

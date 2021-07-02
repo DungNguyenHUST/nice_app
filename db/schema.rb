@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_02_025342) do
+ActiveRecord::Schema.define(version: 2021_07_02_035815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -201,34 +201,6 @@ ActiveRecord::Schema.define(version: 2021_07_02_025342) do
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 
-  create_table "tag_follows", force: :cascade do |t|
-    t.bigint "tag_id", null: false
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["tag_id"], name: "index_tag_follows_on_tag_id"
-  end
-
-  create_table "taggings", force: :cascade do |t|
-    t.bigint "tag_id", null: false
-    t.bigint "post_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_taggings_on_post_id"
-    t.index ["tag_id"], name: "index_taggings_on_tag_id"
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.text "description"
-    t.string "avatar"
-    t.string "cover_image"
-    t.string "slug"
-    t.index ["slug"], name: "index_tags_on_slug", unique: true
-  end
-
   create_table "topic_follows", force: :cascade do |t|
     t.bigint "topic_id", null: false
     t.integer "user_id"
@@ -343,9 +315,6 @@ ActiveRecord::Schema.define(version: 2021_07_02_025342) do
   add_foreign_key "post_links", "posts"
   add_foreign_key "post_unvotes", "posts"
   add_foreign_key "post_votes", "posts"
-  add_foreign_key "tag_follows", "tags"
-  add_foreign_key "taggings", "posts"
-  add_foreign_key "taggings", "tags"
   add_foreign_key "topic_follows", "topics"
   add_foreign_key "topings", "posts"
   add_foreign_key "topings", "topics"

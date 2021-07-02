@@ -104,7 +104,7 @@
         <%end%>
     <%end%>
 
-    <div class='post_index_tag_block'>
+    <div class='post_index_topic_block'>
         <%post.topics.each do |topic|%>
             <%= button_to topic_path(topic), method: :get do %>
                 <a><%=topic.name%></a>
