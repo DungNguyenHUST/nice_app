@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.friendly.find params[:id]
-        @tags = Tag.all.limit(10)
+        @topics = Topic.all.limit(10)
         if(params.has_key?(:tab_id))
             @tab_id = params[:tab_id]
         else
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     end
 
     def wellcome
-        @tags = Tag.all
+        @topics = Topic.all
     end
 
 private

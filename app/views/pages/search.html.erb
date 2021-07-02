@@ -32,14 +32,14 @@
                                 <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'UserSearchID')%>">Người dùng <span><%= convert_number_to_human(@users_search.count)%><span></a>
                             </li>
                         <%end%>
-                        <%if @tags_search.present?%>
+                        <%if @topics_search.present?%>
                             <li class="nav-item">
                                 <%if @tab_id == "TagSearchID"%>
                                     <%active = "active"%>
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>
-                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'TagSearchID')%>">Tag <span><%= convert_number_to_human(@tags_search.count)%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'TagSearchID')%>">Tag <span><%= convert_number_to_human(@topics_search.count)%><span></a>
                             </li>
                         <%end%>
                     </ul>
@@ -63,9 +63,9 @@
                     <%end%>
 
                     <%if @tab_id == "PostSearchID"%>
-                        <%if @tags_search.present?%>
-                            <%@tags_search.each do |tag|%>
-                                <%= render :partial => 'tags/tag', :locals => {:mini_tyle => false}, :object => tag %>
+                        <%if @topics_search.present?%>
+                            <%@topics_search.each do |topic|%>
+                                <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
                             <%end%>
                         <%end%>
                     <%end%>

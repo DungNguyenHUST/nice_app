@@ -1,0 +1,88 @@
+<%if mini_tyle == true%>
+    <div class='topic_mini_index_block'>
+        <%if topic.avatar?%>
+            <div class='topic_mini_index_topic_avatar'>
+                <%= link_to (image_tag(topic.avatar.url)), image_path(url_for(topic.avatar.url)), rel: "gallery" , :href => topic_path(topic)%>
+            </div>
+        <%else%>
+            <div class='topic_mini_index_topic_avatar'>
+                <%= link_to (image_tag("default-avartar.jpg")), image_path(url_for("default-avartar.jpg")), rel: "gallery" , :href => topic_path(topic)%>
+            </div>
+        <%end%>
+        <div class='topic_mini_index_topic_block'>
+            <div class='topic_mini_index_topic_name_block'>
+                <a><%= link_to (topic.name), topic_path(topic) %></a>
+            </div>
+
+            <div class='topic_mini_index_topic_nickname_block'>
+                <span><%='#' + topic.name.downcase.gsub(/\s+/, '') %></span>
+            </div>
+
+            <div class="topic_mini_index_topic_follow_block" id="topic_follow_<%=topic.id%>">
+                <%if user_signed_in?%>
+                    <% pre_follow = topic.topic_follows.find { |follow| follow.user_id == current_user.id} %>
+                <%end%>
+                <% if pre_follow %>  
+                    <%= button_to topic_topic_follow_path(topic, pre_follow, type_param: 'index'), method: :delete, remote: true , form_class: "btn_highlight" do%>
+                        <a>Bỏ theo dõi</a>
+                    <%end%> 
+                <%else%>
+                    <%= button_to topic_topic_follows_path(topic, type_param: 'index'), method: :topic, remote: true, form_class: "btn_normal" do%>
+                        <a>Theo dõi</a>
+                    <%end%> 
+                <%end%>
+            </div>
+        </div>
+    </div>
+<%else%>
+    <div class='topic_index_block'>
+        <%if topic.cover_image?%>
+            <div class='topic_index_cover'>
+                <%= link_to (image_tag(topic.cover_image.url)), image_path(url_for(topic.cover_image.url)), rel: "gallery" , :href => topic_path(topic)%>
+            </div>
+        <%else%>
+            <div class='topic_index_cover'>
+                <%= link_to (image_tag("default-cover.jpg")), image_path(url_for("default-cover.jpg")), rel: "gallery" , :href => topic_path(topic)%>
+            </div>
+        <%end%>
+
+        <%if topic.avatar?%>
+            <div class='topic_index_avatar'>
+                <%= link_to (image_tag(topic.avatar.url)), image_path(url_for(topic.avatar.url)), rel: "gallery" , :href => topic_path(topic)%>
+            </div>
+        <%else%>
+            <div class='topic_index_avatar'>
+                <%= link_to (image_tag("default-avartar.jpg")), image_path(url_for("default-avartar.jpg")), rel: "gallery" , :href => topic_path(topic)%>
+            </div>
+        <%end%>
+        
+        <div class='topic_index_info'>
+            <div class='topic_index_name'>
+                <a><%= link_to (topic.name), topic_path(topic) %></a>
+            </div>
+            <div class='topic_index_count'>
+                <a><%= topic.posts.count %> bài viết</a><span> · </span>
+                <a><%= topic.topic_follows.count %> người theo dõi</a>
+            </div>
+        </div>
+
+        <div class='topic_index_description'>
+            <a><%= truncate(strip_topics(topic.description), length: 100)%></a>
+        </div>
+
+        <div class="topic_index_follow_block" id="topic_follow_<%=topic.id%>">
+            <%if user_signed_in?%>
+                <% pre_follow = topic.topic_follows.find { |follow| follow.user_id == current_user.id} %>
+            <%end%>
+            <% if pre_follow %>  
+                <%= button_to topic_topic_follow_path(topic, pre_follow, type_param: 'index'), method: :delete, remote: true , form_class: "btn_highlight" do%>
+                    <a>Bỏ theo dõi</a>
+                <%end%> 
+            <%else%>
+                <%= button_to topic_topic_follows_path(topic, type_param: 'index'), method: :topic, remote: true, form_class: "btn_normal" do%>
+                    <a>Theo dõi</a>
+                <%end%> 
+            <%end%>
+        </div>
+    </div>
+<%end%>

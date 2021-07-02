@@ -1,0 +1,19 @@
+<div class='topic_index_container'>
+	<div class='container'>
+		<div class='topic_index_new'>
+			<%= button_to new_topic_path, method: :get do%>
+                Thêm topic mới
+            <%end%>
+		</div>
+		<div class='row'>
+		    <%@topics.each do |topic|%>
+				<div class='col-sm-3 col-nopadding'>
+					<%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
+		    	</div>
+		    <%end%>
+			<div id="paginate">
+				<%= paginate @topics, window: 1, outer_window: 1%>
+			</div>
+		</div>
+	</div>
+</div>

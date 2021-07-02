@@ -1,0 +1,60 @@
+<div class="new_topic_form">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-nopadding">
+	            <div class="new_topic_title">
+	                <%if !@is_edit%>
+	                    <a>Thêm topic mới</a>
+	                <%else%>
+	                    <a>Update <%=@topic.name%></a>
+	                <%end%>
+	            </div>
+
+	            <%= form_for @topic, :html => { :class => "form-horizontal topic" } do |f| %>
+		            <div class="new_topic_section">
+		                <div class="new_topic_content">
+							<div class="new_topic_label">
+								<a><%= f.label :name, "Topic name", class: "new_topic_label_name" %></a>
+							</div>
+		                    <div class="new_topic_input">
+		                        <%= f.text_field :name,  autofocus: true, :required => true, class: "form-control", placeholder: " Nhập topic name" %>
+		                    </div>
+		                </div>
+						<div class="new_topic_content">
+							<div class="new_topic_label">
+								<a><%= f.label :description, "Mô tả", class: "new_topic_label_name" %></a>
+							</div>
+		                    <div class="new_topic_input">
+		                        <%= f.text_area :description, :required => true, class: "form-control-rich-text", placeholder: " Nhập mô tả nội dung topic" %>
+		                    </div>
+		                </div>
+		            </div>
+
+					<div class="new_topic_section">
+						<div class="new_topic_content">
+							<div class="new_topic_label">
+								<a><%= f.label :avatar, "Ảnh đại diện", class: "new_topic_label_name" %></a>
+							</div>
+		                    <div class="new_topic_input">
+		                        <%= f.file_field :avatar, :required => true, class: "form-control"%>
+		                    </div>
+		                </div>
+
+						<div class="new_topic_content">
+							<div class="new_topic_label">
+								<a><%= f.label :cover_image, "Ảnh bìa (nếu có)", class: "new_topic_label_name" %></a>
+							</div>
+		                    <div class="new_topic_input">
+		                        <%= f.file_field :cover_image, class: "form-control"%>
+		                    </div>
+		                </div>
+		            </div>
+
+		            <div class="new_topic_submit">
+		                <%= f.submit "Submit", class: "new_topic_form_submit" %>
+		            </div>
+		        <%end%>	
+	        </div>
+        </div>  
+    </div>
+</div>

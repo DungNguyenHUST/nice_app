@@ -12,26 +12,26 @@ class Post < ApplicationRecord
 
     has_many :post_links
 
-    has_many :taggings
-    has_many :tags, through: :taggings
+    has_many :topings
+    has_many :topics, through: :topings
 
     has_rich_text :content_rich_text
 
-    def self.tagged_with(name)
-        Tag.find_by!(name: name).posts
+    def self.topicged_with(name)
+        Topic.find_by!(name: name).posts
     end
 
-    def self.tag_counts
-        Tag.select('tags.*, count(taggings.tag_id) as count').joins(:taggings).group('taggings.tag_id')
+    def self.topic_counts
+        Topic.select('topics.*, count(topings.topic_id) as count').joins(:topings).group('topings.topic_id')
     end
 
-    def tag_list
-        tags.map(&:name).join(', ')
+    def topic_list
+        topics.map(&:name).join(', ')
     end
 
-    def tag_list=(names)
-        self.tags = names.split(',').map do |n|
-          Tag.where(name: n.strip).first_or_create!
+    def topic_list=(names)
+        self.topics = names.split(',').map do |n|
+            Topic.where(name: n.strip).first_or_create!
         end
     end
 

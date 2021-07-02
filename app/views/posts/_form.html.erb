@@ -59,10 +59,10 @@
 
                                 <div class="new_post_section">
                                     <div class="new_post_label">
-                                        <a><%= f.label :tag_ids, "Chọn tag phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
+                                        <a><%= f.label :topic_ids, "Chọn topic phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
                                     </div>
                                     <div class="new_post_input">
-                                        <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                                        <%= f.select :topic_ids, Topic.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
                                     </div>
                                 </div>
                             </div>
@@ -89,10 +89,10 @@
 
                                 <div class="new_post_section">
                                     <div class="new_post_label">
-                                        <a><%= f.label :tag_ids, "Chọn tag phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
+                                        <a><%= f.label :topic_ids, "Chọn topic phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
                                     </div>
                                     <div class="new_post_input">
-                                        <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                                        <%= f.select :topic_ids, Topic.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
                                     </div>
                                 </div>
                             </div>
@@ -117,10 +117,10 @@
 
                                 <div class="new_post_section">
                                     <div class="new_post_label">
-                                        <a><%= f.label :tag_ids, "Chọn tag phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
+                                        <a><%= f.label :topic_ids, "Chọn topic phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
                                     </div>
                                     <div class="new_post_input">
-                                        <%= f.select :tag_ids, Tag.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
+                                        <%= f.select :topic_ids, Topic.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
                                     </div>
                                 </div>
                             </div>

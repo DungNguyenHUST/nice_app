@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   # GET /pages or /pages.json
   def index
     @posts = Post.all.page(params[:page]).per(10)
-    @tags = Tag.all.sort_by{|tag| tag.tag_follows.count}.reverse.first(10)
+    @topics = Topic.all.sort_by{|topic| topic.topic_follows.count}.reverse.first(10)
 
     @tab_id = "default"
     if(params.has_key?(:tab_id))
@@ -41,7 +41,7 @@ class PagesController < ApplicationController
       @search = params[:search]
       @posts_search = Post.search(@search)
       @users_search = User.search(@search)
-      @tags_search = Tag.search(@search)
+      @topics_search = Topic.search(@search)
     end
 
     @tab_id = "default"

@@ -167,8 +167,8 @@
 
                         <%if @tab_id == "UserTagID"%>
                             <div class="user_profile_tag_tab">
-                                <%find_owner_tag_for_user(@user).each do |tag|%>
-                                    <%= render :partial => 'tags/tag', :locals => {:mini_tyle => false}, :object => tag %>
+                                <%find_owner_tag_for_user(@user).each do |topic|%>
+                                    <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
                                 <%end%>
                             </div>
                         <%end%>
@@ -244,9 +244,9 @@
                         <div class="user_profile_suggest_tag_title">
                             <a>Gợi ý tag dành cho bạn</a>
                         </div>
-                        <%@tags.each do |tag|%>
+                        <%@topics.each do |topic|%>
                             <div class="user_profile_suggest_tag_content">
-                                <%= render :partial => 'tags/tag', :locals => {:mini_tyle => true}, :object => tag %>
+                                <%= render :partial => 'topics/topic', :locals => {:mini_tyle => true}, :object => topic %>
                             </div>
                         <%end%>
                         </div>
@@ -394,11 +394,11 @@
                 <div class="col-sm-4 col-nopadding">
                     <div class="user_profile_suggest_tag">
                         <div class="user_profile_suggest_tag_title">
-                            <a>Gợi ý tag dành cho bạn</a>
+                            <a>Gợi ý topic dành cho bạn</a>
                         </div>
-                        <%@tags.each do |tag|%>
+                        <%@topics.each do |topic|%>
                             <div class="user_profile_suggest_tag_content">
-                                <%= render :partial => 'tags/tag', :locals => {:mini_tyle => true}, :object => tag %>
+                                <%= render :partial => 'topics/topic', :locals => {:mini_tyle => true}, :object => topic %>
                             </div>
                         <%end%>
                         </div>

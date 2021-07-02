@@ -38,6 +38,14 @@ Rails.application.routes.draw do
     resources :tag_follows
   end
 
+  resources :categories do
+    resources :topics
+  end
+
+  resources :topics do
+    resources :topic_follows
+  end
+
   resources :post_comments do
     resources :post_comments
   end

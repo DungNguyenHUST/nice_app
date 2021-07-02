@@ -2,13 +2,13 @@
 	<div class='container'>
 		<div class='tag_index_new'>
 			<%= button_to new_tag_path, method: :get do%>
-                Wellcome, <%=current_user.name%>, hãy theo dõi ít nhất 5 tag mà bạn thích
+                Wellcome, <%=current_user.name%>, hãy theo dõi ít nhất 5 topic mà bạn thích
             <%end%>
 		</div>
 		<div class='row'>
-		    <%@tags.each do |tag|%>
+		    <%@topics.each do |topic|%>
 				<div class='col-sm-4 col-nopadding'>
-					<%= render :partial => 'tags/tag', :locals => {:mini_tyle => false}, :object => tag %>
+					<%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
 		    	</div>
 		    <%end%>
 		</div>

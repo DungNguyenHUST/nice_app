@@ -101,18 +101,18 @@
             <div class="col-sm-4 col-nopadding">
                 <div class='home_right_top_block'>
                     <div class='home_right_title'>
-                        <a>Top Tag</a>
+                        <a>Hot Topic</a>
                     </div>
                     
-                    <%@tags.each do |tag|%>
+                    <%@topics.each do |topic|%>
                         <div class="home_right_content">
-                            <%= render :partial => 'tags/tag', :locals => {:mini_tyle => true}, :object => tag %>
+                            <%= render :partial => 'topics/topic', :locals => {:mini_tyle => true}, :object => topic %>
                         </div>
                     <%end%>
                     
                     <div class='home_right_all_tag'>
-                        <%= button_to tags_path, method: :get, form_class: "home_right_all_tag_button" do%>
-                            <a>Xem tất cả(<%=convert_number_to_human(Tag.all.count)%>)</a>
+                        <%= button_to topics_path, method: :get, form_class: "home_right_all_tag_button" do%>
+                            <a>Xem tất cả(<%=convert_number_to_human(Topic.all.count)%>)</a>
                         <%end%> 
                     </div>
                 </div>
