@@ -42,92 +42,51 @@
                 </div>
 
                 <div class="new_post_tab_content">
-                    <%if @tab_id == "default" || @tab_id == "PostID"%>
-                        <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-                            <div class="new_post_form">
-                                <div class="new_post_section">
-                                    <div class="new_post_input">
-                                        <%= f.text_field :title, :required => true, class: "form-control", placeholder: "Tiêu đề" %>
-                                    </div>
+                    <%@select_topic = find_owner_topic_follow_for_user(current_user)%>
+                    <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+                        <div class="new_post_form">
+                            <div class="new_post_section">
+                                <div class="new_post_input">
+                                    <%= f.text_field :title, :required => true, class: "form-control", placeholder: "Tiêu đề" %>
                                 </div>
-
+                            </div>
+                        
+                            <%if @tab_id == "default" || @tab_id == "PostID"%>
                                 <div class="new_post_section">
                                     <div class="new_post_input">
                                         <%= f.rich_text_area :content_rich_text, class: "form-control-rich-text", placeholder: "Nội dung(tùy chọn)" %>
                                     </div>
                                 </div>
-
-                                <div class="new_post_section">
-                                    <div class="new_post_label">
-                                        <a><%= f.label :topic_ids, "Chọn topic phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
-                                    </div>
-                                    <div class="new_post_input">
-                                        <%= f.select :topic_ids, Topic.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="new_post_submit">
-                                <%= f.submit "Post", class: "new_post_form_submit" %>
-                            </div>
-                        <%end%>
-                    <%end%>
-
-                    <%if @tab_id == "ImageID"%>
-                        <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-                            <div class="new_post_form">
-                                <div class="new_post_section">
-                                    <div class="new_post_input">
-                                        <%= f.text_field :title, :required => true, class: "form-control", placeholder: "Tiêu đề" %>
-                                    </div>
-                                </div>
-
+                            <%end%>
+                            
+                            <%if @tab_id == "ImageID"%>
                                 <div class="new_post_section">
                                     <div class="new_image_input">
                                         <%= f.file_field :image, :multiple => true, name: "post_images[image][]"%>
                                     </div>
                                 </div>
+                            <%end%>
 
+                            <%if @tab_id == "LinkID"%>
                                 <div class="new_post_section">
-                                    <div class="new_post_label">
-                                        <a><%= f.label :topic_ids, "Chọn topic phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
-                                    </div>
-                                    <div class="new_post_input">
-                                        <%= f.select :topic_ids, Topic.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="new_post_submit">
-                                <%= f.submit "Post", class: "new_post_form_submit" %>
-                            </div>
-                        <%end%>
-                    <%end%>
-
-                    <%if @tab_id == "LinkID"%>
-                        <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-                            <div class="new_post_form">
-                                <div class="new_post_section">
-                                    <div class="new_post_input">
-                                        <%= f.text_field :title, :required => true, class: "form-control", placeholder: "Tiêu đề" %>
-                                    </div>
-                                    
                                     <div class="new_post_input">
                                         <%= f.text_area :link, :required => true, class: "form-control-rich-text", placeholder: "Link"  %>
                                     </div>
                                 </div>
-
-                                <div class="new_post_section">
-                                    <div class="new_post_label">
-                                        <a><%= f.label :topic_ids, "Chọn topic phù hợp với bài viết của bạn", class: "new_post_label_name"%></a>
-                                    </div>
-                                    <div class="new_post_input">
-                                        <%= f.select :topic_ids, Topic.all.collect {|m| [m.name, m.id]}, {}, class: "form-control", :multiple => true%>
-                                    </div>
+                            <%end%>
+                        </div>
+                            
+                        <%if @select_topic.present?%>
+                            <div class="new_post_topic_section">
+                                <div class="new_post_topic_input">
+                                    <%= f.select :topic_ids, @select_topic.collect {|m| [m.name, m.id]}, {:prompt => '-- Chọn chủ đề phù hợp với bài viết --'}, class: "form-control", :multiple => true, :required => true%>
                                 </div>
                             </div>
-                            <div class="new_post_submit">
-                                <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>
-                            </div>
                         <%end%>
+                            
+                        <div class="new_post_submit">
+                            <%= f.submit "Gửi bài viết", class: "new_post_form_submit" %>
+                        </div>
                     <%end%>
                 </div>
             </div>

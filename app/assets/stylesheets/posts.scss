@@ -1024,7 +1024,7 @@
         .nav .nav-link.active {
             border-radius: 0;
             border-bottom: 2px solid #0071e3;
-            background-color: #e1ecf4;
+            // background-color: #e1ecf4;
             font-weight: 600;
             color: #0071e3;
             font-size: 16px;
@@ -1113,9 +1113,51 @@
             }
         }
         
+        .new_post_topic_section
+        {
+            margin-top: 10px;
+            .new_post_topic_label_name{
+                font-weight: 550;
+                font-size: 16px;
+                color: #333;
+                text-align: left;
+                padding-top: 10px;
+            }
+            .new_post_topic_input{
+                left: 0px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+                width: 100%;
+                height: auto;
+                .form-control{
+                    margin-left: 0px;
+                    min-height: 40px;
+                    height: auto;
+                    width: 100%;
+                    border: 1px solid #dddddd;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    &:focus{
+                        border: 2px solid #0071e3;
+                        border-radius: 5px;
+                    }
+                    
+                    @media screen and (max-width: 600px){
+                        border: none;
+                        border-radius: 0px;
+                    }
+                }
+            }
+        }
+        
         .new_post_submit{
             margin-top: 30px;
             margin-bottom: 30px;
+            @media screen and (max-width: 600px){
+                width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
             .new_post_form_submit{
                 height: 44px;
                 width: 150px;
