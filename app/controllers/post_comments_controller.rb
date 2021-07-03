@@ -4,45 +4,51 @@ class PostCommentsController < ApplicationController
     before_action :find_commentable, only: :create
 
     def new
-        @post_comment = PostComment.new
+        @post_commenter = PostComment.new
     end
 
     def create
-        @commentable.post_comments.build(post_comment_params)
-        @commentable.user_id = current_user.id
-        if @commentable.save
+        @post_commenter = @commentable.post_comments.build(post_comment_params)
+        @post_commenter.user_id = current_user.id
+        if @post_commenter.save
             # redirect_to post_path(@post)
 
             if @is_post_comment
                 # Notify user
-                if(find_owner_user(@commentable).present?)
-                    destination_user = find_owner_user(@commentable)
+                if(find_owner_user(@post).present?)
+                    destination_user = find_owner_user(@post)
                     trigger_user = current_user
-                    if @commentable.title.empty?
-                        title = @commentable.title
+                    if @post.title.present?
+                        title = @post.title
                     else
                         title = ''
                     end
-                    if @commentable.content.empty?
-                        content = @commentable.content
+                    if @post.content.present?
+                        content = @post.content
                     else
                         content = ''
                     end
-                    original_url = post_path(@commentable)
+                    original_url = post_path(@post)
                     type = "PostComment"
                     UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
                 end
             else
-                if(find_owner_user(@commentable).present?)
-                    destination_user = find_owner_user(@commentable)
+                if(find_owner_user(@post_comment).present?)
+                    destination_user = find_owner_user(@post_comment)
                     trigger_user = current_user
-                    title = ''
-                    if @commentable.content.empty?
-                        content = @commentable.content
+
+                    if @post_comment.commentable.title.present?
+                        title = @post_comment.commentable.title
+                    else
+                        title = ''
+                    end
+
+                    if @post_comment.content.present?
+                        content = @post_comment.content
                     else
                         content = ''
                     end
-                    original_url = post_path(@commentable.commentable)
+                    original_url = post_path(@post_comment.commentable)
                     type = "PostReplyComment"
                     UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
                 end
@@ -64,10 +70,11 @@ class PostCommentsController < ApplicationController
     def find_commentable
         @is_post_comment = false
         if params[:post_comment_id]
-            @commentable = PostComment.find_by_id(params[:post_comment_id]) 
+            @commentable = PostComment.find(params[:post_comment_id]) 
             @post_comment = @commentable
+            @is_post_comment = false
         elsif params[:post_id]
-            @commentable = Post.friendly.find_by_id(params[:post_id])
+            @commentable = Post.friendly.find(params[:post_id])
             @post = @commentable
             @is_post_comment = true
         end

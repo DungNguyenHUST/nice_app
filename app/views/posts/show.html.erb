@@ -21,7 +21,7 @@
 				                <a><%= link_to @owner_post_user.name, user_path(@owner_post_user)%></a>
 				            </div>
 				            <div class="post_show_create">
-								<span><%=@owner_post_user.created_at.strftime("%B %d")%> · <%=time_ago_in_words(@owner_post_user.created_at)%></span>
+								<span><%=@post.created_at.strftime("%B %d")%> · <%=time_ago_in_words(@post.created_at)%></span>
 				            </div>
 				        </div>
 				    </div>
