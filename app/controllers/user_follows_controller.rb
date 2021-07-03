@@ -15,7 +15,7 @@ class UserFollowsController < ApplicationController
         @owner_user = current_user
         @user_follow = UserFollow.new
         if !already_followed?
-            @user_follow = UserFollow.create(follower_id: current_user.id, followee_id: params[:user_id])
+            @user_follow = UserFollow.create(follower_id: current_user.id, followee_id: @user.id)
             @user_follow.save!
         end
         @type_param = params[:type_param]

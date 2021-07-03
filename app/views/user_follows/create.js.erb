@@ -1,1 +1,1 @@
-$('#user_follow_<%=@user.id%>').html('<%= j render partial: "user_follows/follow", locals: {user: @user} %>');
+$('#user_follow_<%=current_user.id%>').html('<%= j render partial: "user_follows/follow", locals: {user: @user} %>');

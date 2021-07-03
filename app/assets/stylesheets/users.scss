@@ -896,6 +896,7 @@
                 font-weight: 600;
                 &:focus {outline:none;}
             }
+
             .btn_highlight
             {
                 button{
@@ -906,8 +907,9 @@
 
             .btn_normal{
                 button{
-                    background-color: #dddddd;
+                    background-color: #fff;
                     color: #536471;
+                    border: 1px solid #0c87ee;
                 }
             }
         }
@@ -1081,6 +1083,21 @@
             font-size:14px;
             font-weight: 600;
             &:focus {outline:none;}
+        }
+        .btn_highlight
+        {
+            button{
+                background-color: #0071e3;
+                color: #fff;
+            }
+        }
+
+        .btn_normal{
+            button{
+                background-color: #fff;
+                color: #536471;
+                border: 1px solid #0c87ee;
+            }
         }
     }
 }
