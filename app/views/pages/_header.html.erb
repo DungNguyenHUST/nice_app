@@ -47,7 +47,11 @@
 
                 <div class="nav_user_notification">                     
                     <%= link_to user_path(current_user, :tab_id => "UserNotificationID") do %>
-                        <i><%= bootstrap_icon "app", width: 26, height: 26%></i><span><%=convert_number_to_human(current_user.user_notifications.count)%></span>
+                        <%if (current_user.user_notifications.count < 10)%>
+                            <i><%= bootstrap_icon "app", width: 26, height: 26%></i><span><%=current_user.user_notifications.count%></span>
+                        <%else%>
+                            <i><%= bootstrap_icon "app", width: 26, height: 26%></i><span>9+</span>
+                        <%end%>
                     <%end%>
                 </div>
 
