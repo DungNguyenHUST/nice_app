@@ -92,6 +92,16 @@
         }
     }
 
+    .post_index_content{
+        padding-left: 15px;
+        padding-right: 15px;
+        a{
+            font-weight: 500;
+            font-size: 15px;
+            color: #444;
+        }
+    }
+
     .post_index_link_block{
         clear: both;
         .post_index_link_image{
@@ -151,17 +161,6 @@
             object-fit: cover;
         }
         display: block;
-    }
-
-    .post_index_content{
-        a{
-            padding-left: 15px;
-            padding-right: 15px;
-            font-size: 16px;
-            color: #536471;
-            word-break: break-word;
-            display: block;
-        }
     }
 
     .post_index_shared{

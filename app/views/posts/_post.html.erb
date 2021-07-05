@@ -55,7 +55,11 @@
     </div>
 
     <div class='post_index_title'>
-        <h5><a><%= link_to (post.title), post_path(post) %></a></h5>
+        <a><%= link_to (post.title), post_path(post) %></a>
+    </div>
+
+    <div class='post_index_content'>
+        <a><%= truncate(strip_tags(post.content_rich_text.to_s), length: 300) %></a>
     </div>
 
     <%if post.post_images.count > 0 && post.post_images.count == 1%>
