@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
     include PostsHelper
+    include PostCommentsHelper
+
     before_action :set_post, only: %i[ show edit update destroy ]
     before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 
@@ -14,6 +16,29 @@ class PostsController < ApplicationController
         @post = Post.friendly.find(params[:id])
         @post.increment!(:view_count)
         @post_images = @post.post_images.all
+
+        # Sort comment
+        if(params.has_key?(:tab_id))
+            @tab_id = params[:tab_id]
+        else
+            @tab_id = "default"
+        end
+
+        if "default" == @tab_id || "PostCommentBest" == @tab_id
+            @post_comment_bests = @post.post_comments.sort_by{|post_comment| cal_post_comment_best_point(post_comment)}.reverse
+        end
+    
+        if "PostCommentNew" == @tab_id
+            @post_comment_news = @post.post_comments.order('created_at DESC')
+        end
+
+        if "PostCommentTop" == @tab_id
+            @post_comment_tops = @post.post_comments.sort_by{|post_comment| cal_post_comment_top_point(post_comment)}.reverse
+        end
+
+        if "PostCommentOld" == @tab_id
+            @post_comment_olds = @post.post_comments.order('created_at DESC').reverse
+        end
     end
 
     # GET /posts/new

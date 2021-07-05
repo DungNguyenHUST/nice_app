@@ -199,10 +199,82 @@
 				            </div>
 				        <%end%>
 				    </div>
+
+					<div class="post_show_comment_count">
+						<a><%=@post.post_comments.count%> bình luận</a>
+					</div>
+
+					<div class="post_show_comment_sort">
+						<div class="post_show_comment_tab_link">
+                            <ul class="nav">
+								<li class="nav-item dropdown">
+									<%if @tab_id == "default" || @tab_id == "PostCommentBest"%>
+										<%dropdown_name = "Tốt nhất"%>
+									<%elsif @tab_id == "PostCommentNew"%>
+										<%dropdown_name = "Mới nhất"%>
+									<%elsif @tab_id == "PostCommentTop"%>
+										<%dropdown_name = "Top"%>
+									<%elsif @tab_id == "PostCommentOld"%>
+										<%dropdown_name = "Cũ nhất"%>
+									<%end%>
+
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%=dropdown_name%></a>
+									<div class="dropdown-menu">
+										<%if @tab_id == "default" || @tab_id == "PostCommentBest"%>
+											<%active = "active"%>
+										<%else%> 
+											<%active = ""%>
+										<%end%>
+										<a class="dropdown-item <%=active%>" href="<%=post_path(@post, tab_id: 'PostCommentBest')%>">Tốt nhất</a>
+										
+										<%if @tab_id == "PostCommentNew"%>
+											<%active = "active"%>
+										<%else%> 
+											<%active = ""%>
+										<%end%>
+										<a class="dropdown-item <%=active%>" href="<%=post_path(@post, tab_id: 'PostCommentNew')%>">Mới nhất
+										
+										<%if @tab_id == "PostCommentTop"%>
+											<%active = "active"%>
+										<%else%> 
+											<%active = ""%>
+										<%end%>
+										<a class="dropdown-item <%=active%>" href="<%=post_path(@post, tab_id: 'PostCommentTop')%>">Top</a>
+                                    	
+										<%if @tab_id == "PostCommentOld"%>
+											<%active = "active"%>
+										<%else%> 
+											<%active = ""%>
+										<%end%>
+										<a class="dropdown-item <%=active%>" href="<%=post_path(@post, tab_id: 'PostCommentOld')%>">Cũ nhất</a>
+									</div>
+								</li>
+                            </ul>
+                        </div>
+					</div>
 				    
-				    <div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
-				        <%= render @post.post_comments%>
-				    </div>
+					<div class="post_show_comment_tab_content">
+                        <%if @tab_id == "default" || @tab_id == "PostCommentBest"%>
+							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
+								<%= render @post_comment_bests%>
+							</div>
+                        <%end%>
+						<%if @tab_id == "PostCommentNew"%>
+							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
+								<%= render @post_comment_news%>
+							</div>
+                        <%end%>
+						<%if @tab_id == "PostCommentTop"%>
+							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
+								<%= render @post_comment_tops%>
+							</div>
+                        <%end%>
+						<%if @tab_id == "PostCommentOld"%>
+							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
+								<%= render @post_comment_olds%>
+							</div>
+                        <%end%>
+					</div>
 
 				    <script>
 						function myFunctionReplyPost(id) {
