@@ -16,6 +16,7 @@
     padding-top: 15px;
     padding-bottom: 15px;
     clear: both;
+    display: block;
     &:hover{
         border: 1px solid #0071e3;
         // background-color: #fff;
@@ -68,17 +69,6 @@
                 background-color: #fff;
                 color: #536471;
             }
-            
-            .post_index_info_more_action{
-                padding-left: 10px;
-                display: none;
-                border: 1px solid #dfe1e5;
-                border-radius: 5px;
-                background-color: #fff;
-                color: #536471;
-                font-size: 14px;
-            }
-
             .post_index_option_btn{
                 border: none;
                 background-color: #fff;
@@ -426,8 +416,9 @@
         .post_show_info{
             padding-left: 15px;
             padding-right: 15px;
+            float: left;
             .post_show_info_left{
-                float: left;
+                display: inline-block;
                 .post_show_user_avatar{
                     border: none;
                     img{
@@ -441,9 +432,9 @@
             }
 
             .post_show_info_right{
-                padding-left: 10px;
+                padding-left: 5px;
                 position: relative;
-                top: 4px;
+                top: 10px;
                 display: inline-block;
                 .post_show_user_name{
                     a{
@@ -461,7 +452,21 @@
             }
         }
 
+        .post_show_info_action{
+            float: right;
+            padding-right: 15px;
+            .post_show_option_btn{
+                border: none;
+                background-color: #fff;
+                color: #536471;
+            }
+            .dropdown-item{
+                font-size: 14px;
+            }
+        }
+        
         .post_show_title{
+            clear: both;
             font-size: 24px;
             font-weight: 600;
             padding-top: 20px;

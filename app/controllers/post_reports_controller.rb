@@ -16,12 +16,13 @@ class PostReportsController < ApplicationController
         @post = Post.friendly.find(params[:post_id])
         @post_report = @post.post_reports.build(post_report_params)
         
-        if @post_report.save
-            respond_to do |format|
-                format.html {}
-                format.js
-            end
-        end
+        redirect_to root_path
+        # if @post_report.save
+        #     respond_to do |format|
+        #         format.html {}
+        #         format.js
+        #     end
+        # end
     end
 
     def edit
