@@ -25,19 +25,23 @@ class PostsController < ApplicationController
         end
 
         if "default" == @tab_id || "PostCommentBest" == @tab_id
-            @post_comment_bests = @post.post_comments.sort_by{|post_comment| cal_post_comment_best_point(post_comment)}.reverse
+            @buffers = @post.post_comments.sort_by{|post_comment| cal_post_comment_best_point(post_comment)}.reverse
+            @post_comment_bests = Kaminari.paginate_array(@buffers).page(params[:page]).per(20)
         end
     
         if "PostCommentNew" == @tab_id
-            @post_comment_news = @post.post_comments.order('created_at DESC')
+            @buffers = @post.post_comments.order('created_at DESC')
+            @post_comment_news = Kaminari.paginate_array(@buffers).page(params[:page]).per(20)
         end
 
         if "PostCommentTop" == @tab_id
-            @post_comment_tops = @post.post_comments.sort_by{|post_comment| cal_post_comment_top_point(post_comment)}.reverse
+            @buffers = @post.post_comments.sort_by{|post_comment| cal_post_comment_top_point(post_comment)}.reverse
+            @post_comment_tops = Kaminari.paginate_array(@buffers).page(params[:page]).per(20)
         end
 
         if "PostCommentOld" == @tab_id
-            @post_comment_olds = @post.post_comments.order('created_at DESC').reverse
+            @buffers = @post.post_comments.order('created_at DESC').reverse
+            @post_comment_olds = Kaminari.paginate_array(@buffers).page(params[:page]).per(20)
         end
     end
 

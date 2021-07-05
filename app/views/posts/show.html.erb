@@ -258,21 +258,33 @@
 							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
 								<%= render @post_comment_bests%>
 							</div>
+							<div class="post_show_comment_paginate" id="paginate">
+                                <%= paginate @post_comment_bests, window: 1, outer_window: 1%>
+                            </div>
                         <%end%>
 						<%if @tab_id == "PostCommentNew"%>
 							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
 								<%= render @post_comment_news%>
 							</div>
+							<div class="post_show_comment_paginate" id="paginate">
+                                <%= paginate @post_comment_news, window: 1, outer_window: 1%>
+                            </div>
                         <%end%>
 						<%if @tab_id == "PostCommentTop"%>
 							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
 								<%= render @post_comment_tops%>
 							</div>
+							<div class="post_show_comment_paginate" id="paginate">
+                                <%= paginate @post_comment_tops, window: 1, outer_window: 1%>
+                            </div>
                         <%end%>
 						<%if @tab_id == "PostCommentOld"%>
 							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
 								<%= render @post_comment_olds%>
 							</div>
+							<div class="post_show_comment_paginate" id="paginate">
+                                <%= paginate @post_comment_olds, window: 1, outer_window: 1%>
+                            </div>
                         <%end%>
 					</div>
 
