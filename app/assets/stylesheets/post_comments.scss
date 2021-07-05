@@ -156,6 +156,20 @@
                         }
                     }
                 }
+                .post_comment_action_block{
+                    // margin-left: 2px;
+                    position: relative;
+                    top: 4px;
+                    display:inline-block;
+                    .post_comment_option_btn{
+                        border: none;
+                        background-color: #fff;
+                        color: #536471;
+                    } 
+                    .dropdown-item{
+                       font-size: 14px;
+                    }
+                }
             }
 
             .post_reply_comment_new{

@@ -35,19 +35,31 @@
                             <a><%=@topic.description%></a>
                         </div>
                     </div>
-                    <div class="topic_show_follow_block" id="topic_follow_<%=@topic.id%>">
-                        <%if user_signed_in?%>
-                            <% pre_follow = @topic.topic_follows.find { |follow| follow.user_id == current_user.id} %>
-                        <%end%>
-                        <% if pre_follow %>  
-                            <%= button_to topic_topic_follow_path(@topic, pre_follow), method: :delete, remote: true , form_class: "btn_highlight" do%>
-                                <a>Bỏ theo dõi</a>
-                            <%end%> 
-                        <%else%>
-                            <%= button_to topic_topic_follows_path(@topic), method: :topic, remote: true, form_class: "btn_normal" do%>
-                                <a>Theo dõi</a>
-                            <%end%> 
-                        <%end%>
+
+                    <div class="topic_show_action_block">
+                        <div class="topic_show_follow_block" id="topic_follow_<%=@topic.id%>">
+                            <%if user_signed_in?%>
+                                <% pre_follow = @topic.topic_follows.find { |follow| follow.user_id == current_user.id} %>
+                            <%end%>
+                            <% if pre_follow %>  
+                                <%= button_to topic_topic_follow_path(@topic, pre_follow), method: :delete, remote: true , form_class: "btn_highlight" do%>
+                                    <a>Bỏ theo dõi</a>
+                                <%end%> 
+                            <%else%>
+                                <%= button_to topic_topic_follows_path(@topic), method: :topic, remote: true, form_class: "btn_normal" do%>
+                                    <a>Theo dõi</a>
+                                <%end%> 
+                            <%end%>
+                        </div>
+
+                        <div class='topic_show_info_action'>
+                            <button class="topic_show_option_btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i><%= bootstrap_icon "three-dots-vertical", width: 18, height: 18%></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="<%=new_topic_topic_report_path(@topic)%>">Báo xấu</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

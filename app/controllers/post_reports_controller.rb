@@ -15,14 +15,15 @@ class PostReportsController < ApplicationController
     def create
         @post = Post.friendly.find(params[:post_id])
         @post_report = @post.post_reports.build(post_report_params)
+        @post_report.user_id = current_user.id
         
-        redirect_to root_path
-        # if @post_report.save
+        if @post_report.save
+            redirect_to root_path
         #     respond_to do |format|
         #         format.html {}
         #         format.js
         #     end
-        # end
+        end
     end
 
     def edit
