@@ -27,15 +27,13 @@ Rails.application.routes.draw do
     resources :post_unvotes
     resources :post_follows
     resources :post_comments
+    resources :post_reports
   end
 
   resources :post_comments do
     resources :post_comment_votes
     resources :post_comment_unvotes
-  end
-
-  resources :tags do
-    resources :tag_follows
+    resources :post_comment_reports
   end
 
   resources :categories do
@@ -44,6 +42,7 @@ Rails.application.routes.draw do
 
   resources :topics do
     resources :topic_follows
+    resources :topic_reports
   end
 
   resources :post_comments do

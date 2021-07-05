@@ -22,13 +22,36 @@
             </div>
         </div>
 
-        <button class="post_index_close_btn" onclick="myFunctionClosePost('post_index_' + <%=post.id.to_s%>)">
-            <i><%= bootstrap_icon "x", width: 24, height: 24%></i>
-        </button>
+        <div class='post_index_info_action'>
+            <button class="post_index_option_btn" onclick="myFunctionOptionPost('post_option_index_' + <%=post.id.to_s%>)">
+                <i><%= bootstrap_icon "three-dots-vertical", width: 20, height: 20%></i>
+            </button>
+            
+            <button class='post_index_info_more_action' id="post_option_index_<%=post.id%>" href="<%=new_post_post_report_path(post)%>">
+                <i><%= bootstrap_icon "flag", width: 18, height: 18%></i> <span>Báo cáo</span>
+            </button>
+
+            <button class="post_index_close_btn" onclick="myFunctionClosePost('post_index_' + <%=post.id.to_s%>)">
+                <i><%= bootstrap_icon "x", width: 24, height: 24%></i>
+            </button>
+        </div>
+
         <script>
             function myFunctionClosePost(id) {
                 var x = document.getElementById(id);
                 x.style.display = "none";
+            }
+
+            function myFunctionOptionPost(id) {
+                var x = document.getElementById(id);
+                if (x.style.display == "block") 
+                {
+                    x.style.display = "none";
+                } 
+                else 
+                {
+                    x.style.display = "block";
+                }
             }
         </script>
     </div>

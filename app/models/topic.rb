@@ -9,6 +9,7 @@ class Topic < ApplicationRecord
   	has_many :posts, through: :topings
       
   	has_many :topic_follows, dependent: :destroy
+    has_many :topic_reports, dependent: :destroy
 
     belongs_to :category, optional: true
 

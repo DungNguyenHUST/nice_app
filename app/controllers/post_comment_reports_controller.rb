@@ -1,0 +1,2 @@
+class PostCommentReportsController < ApplicationController
+end

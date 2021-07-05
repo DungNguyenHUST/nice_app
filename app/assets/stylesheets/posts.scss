@@ -61,11 +61,29 @@
                 color: #536471;
             }
         }
-        .post_index_close_btn{
-            border: none;
+        .post_index_info_action{
             float: right;
-            background-color: #fff;
-            color: #536471;
+            .post_index_close_btn{
+                border: none;
+                background-color: #fff;
+                color: #536471;
+            }
+            
+            .post_index_info_more_action{
+                padding-left: 10px;
+                display: none;
+                border: 1px solid #dfe1e5;
+                border-radius: 5px;
+                background-color: #fff;
+                color: #536471;
+                font-size: 14px;
+            }
+
+            .post_index_option_btn{
+                border: none;
+                background-color: #fff;
+                color: #536471;
+            }
         }
     }
     .post_index_title{

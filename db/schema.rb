@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_02_062921) do
+ActiveRecord::Schema.define(version: 2021_07_05_065921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,16 @@ ActiveRecord::Schema.define(version: 2021_07_02_062921) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "post_comment_reports", force: :cascade do |t|
+    t.bigint "post_comment_id", null: false
+    t.integer "user_id"
+    t.integer "report_type"
+    t.text "report_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_comment_id"], name: "index_post_comment_reports_on_post_comment_id"
+  end
+
   create_table "post_comment_unvotes", force: :cascade do |t|
     t.bigint "post_comment_id", null: false
     t.integer "user_id"
@@ -170,6 +180,16 @@ ActiveRecord::Schema.define(version: 2021_07_02_062921) do
     t.index ["post_id"], name: "index_post_links_on_post_id"
   end
 
+  create_table "post_reports", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.integer "user_id"
+    t.integer "report_type"
+    t.text "report_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_post_reports_on_post_id"
+  end
+
   create_table "post_unvotes", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.integer "user_id"
@@ -207,6 +227,16 @@ ActiveRecord::Schema.define(version: 2021_07_02_062921) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["topic_id"], name: "index_topic_follows_on_topic_id"
+  end
+
+  create_table "topic_reports", force: :cascade do |t|
+    t.bigint "topic_id", null: false
+    t.integer "user_id"
+    t.integer "report_type"
+    t.text "report_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["topic_id"], name: "index_topic_reports_on_topic_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -310,14 +340,17 @@ ActiveRecord::Schema.define(version: 2021_07_02_062921) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "post_comment_reports", "post_comments"
   add_foreign_key "post_comment_unvotes", "post_comments"
   add_foreign_key "post_comment_votes", "post_comments"
   add_foreign_key "post_follows", "posts"
   add_foreign_key "post_images", "posts"
   add_foreign_key "post_links", "posts"
+  add_foreign_key "post_reports", "posts"
   add_foreign_key "post_unvotes", "posts"
   add_foreign_key "post_votes", "posts"
   add_foreign_key "topic_follows", "topics"
+  add_foreign_key "topic_reports", "topics"
   add_foreign_key "topics", "categories"
   add_foreign_key "topings", "posts"
   add_foreign_key "topings", "topics"

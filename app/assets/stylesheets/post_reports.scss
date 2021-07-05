@@ -1,0 +1,96 @@
+// Place all the styles related to the PostReports controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+//////////////////////////new/////////////////////////
+.new_post_report_form
+{
+    background-color: #f0f2f5;
+    padding-bottom: 30px;
+    min-height: 900px;
+    .new_post_report_title{
+        font-size: 24px;
+        font-weight: 600;
+        color: #0f1419;
+        text-align: left;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+
+    .new_post_report_section
+    {
+		border: 1px solid #dddddd;
+		padding: 15px;
+		border-radius: 5px;
+        background-color: #fff;
+        margin-bottom: 20px;
+        width: 100%;
+        height: auto;
+        .new_post_report_content{
+            .new_post_report_label{
+                font-weight: 550;
+                font-size: 16px;
+                color: #0f1419;
+                text-align: left;
+            }
+
+            .new_post_report_input{
+                left: 0px;
+                margin-top: 5px;
+                margin-bottom: 20px;
+                width: 100%;
+                height: auto;
+                .new_post_report_form_input{
+                    margin-left: 0px;
+                    height: 40px;
+                    width: 100%;
+                    border: 1px solid #dddddd;
+                    border-radius: 5px;
+                }
+
+                .form-control{
+                    margin-left: 0px;
+                    height: 40px;
+                    width: 100%;
+                    border: 1px solid #dddddd;
+                    border-radius: 5px;
+                    &:focus{
+                        border: 2px solid #0071e3;
+                        border-radius: 5px;
+                    }
+                }
+
+                .form-control-rich-text{
+                    min-height: 150px;
+                    height: auto;
+                    margin-left: 0px;
+                    width: 100%;
+                    border: 1px solid #dddddd;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+    .new_post_report_submit{
+        width: 100%;
+        .new_post_report_form_submit{
+            height: 44px;
+            @media screen and (max-width: 600px){
+                width: 100%;
+            }
+            width: 150px;
+            border-radius: 22px;
+            padding: 6px;
+            background: #0071e3;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            color: #fff;
+            
+            &:hover{
+                background-color: #0071e3;
+            }
+        }
+    }
+}
