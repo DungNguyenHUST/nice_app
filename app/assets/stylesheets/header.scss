@@ -208,36 +208,26 @@
 			}
 		}
 
-		.user_action_select{
-			box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
-			display: none;
-			position: absolute;
-			top: 55px;
-			background-color: #fff;
-			border: 1px solid #dddddd;
-			border-radius: 5px;
-			z-index: 10;
-			width: 200px;
-			padding-bottom: 10px;
-			overflow: auto;
-			.user_action{
-				color: #536471;
-				button{
-					background-color: #fff;
-					border: none;
-					padding: 3px;
-					padding-left: 10px;
-					&:focus{
-						border: none;
-						background: none;
-						outline: none;
-					}
-				}
-				i{
-					position: relative;
-					padding-right: 3px;
-					font-size: 24px;
-				}
+		.dropdown-menu{
+			margin-top: 15px !important;
+		}
+
+		.user_action{
+			color: #536471;
+			button{
+				background-color: #0071e3;
+				border-radius: 5px;
+				border: none;
+				padding: 5px;
+				padding-top: 3px;
+				padding-left: 10px;
+				padding-right: 10px;
+				color: #fff;
+			}
+			i{
+				position: relative;
+				padding-right: 3px;
+				font-size: 24px;
 			}
 		}
 	}
