@@ -19,6 +19,7 @@
                     <%end%>
                     <%@select_topic = find_owner_topic_follow_for_user(current_user)%>
                     <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+                        <%=f.hidden_field :post_shared_id, :value => @post_shared.id %>
                         <div class="new_post_share_form">
                             <div class="new_post_share_section">
                                 <div class="new_post_share_input">
