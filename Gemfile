@@ -85,6 +85,9 @@ gem 'friendly_id', '~> 5.4.0'
 # admin
 gem 'rails_admin', '~> 2.0'
 
+# share button
+gem 'shareable'
+
 #deploy
 gem 'capistrano', '>= 3.11'
 gem 'capistrano-rails', '~> 1.4'
