@@ -18,11 +18,10 @@ class TopicReportsController < ApplicationController
         @topic_report.user_id = current_user.id
         
         if @topic_report.save
-            redirect_to topic_path(@topic)
-        #     respond_to do |format|
-        #         format.html {}
-        #         format.js
-        #     end
+            respond_to do |format|
+                format.html {}
+                format.js
+            end
         end
     end
 

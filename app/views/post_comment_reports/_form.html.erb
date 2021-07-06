@@ -1,39 +1,43 @@
-<div class="new_post_comment_report_form">
+<div class="new_post_comment_report_form" id="post_comment_report_form_<%=@post_comment.id%>">
     <div class="container">
-        <div class="col-sm-8 col-nopadding">
+        <div class="modal-header">
             <div class="new_post_comment_report_title">
+                <i><%= bootstrap_icon "flag", width: 22, height: 22%></i>
                 <a>Thông báo bình luận xấu</a>
             </div>
-            <div class="new_post_comment_report_new" id="new_post_comment_report_input_reply_<%=@post_comment.id.to_s%>">
-                <%= form_for([@post_comment, PostCommentReport.new], remote: true) do |f| %>
-                    <div class="new_post_comment_report_section">
-                        <div class="new_post_comment_report_label">
-                            <a><%= f.label :report_type, "Lý do vi phạm", class: "new_post_comment_report_label" %></a>
-                        </div>
-                        <div class="new_post_comment_report_input">
-                            <%= f.select(:report_type, options_for_select([['Dùng tiếng Việt không dấu', 1], 
-                                                                    ['Vi phạm nội quy', 2], 
-                                                                    ['Cố tình spam, làm hỏng nội dung bài viết', 3], 
-                                                                    ['Sử dụng từ ngữ thô tục, xúc phạm', 4], 
-                                                                    ['Nội dung liên quan tới chính trị', 5], 
-                                                                    ['Nội dung gây kích động bạo lực', 6]]), 
-                                                                    {:include_blank => '--Chọn lý do--'}, { :class => 'form-control'}) %>
-                        </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="new_post_comment_report_new" id="new_post_comment_report_input_reply_<%=@post_comment.id.to_s%>">
+            <%= form_for([@post_comment, PostCommentReport.new], remote: true) do |f| %>
+                <div class="new_post_comment_report_section">
+                    <div class="new_post_comment_report_label">
+                        <a><%= f.label :report_type, "Lý do vi phạm"%></a>
                     </div>
-                    <div class="new_post_comment_report_section">
-                        <div class="new_post_comment_report_label">
-                            <a><%= f.label :report_content, "Lý do khác", class: "new_post_comment_report_label" %></a>
-                        </div>
-                        <div class="new_post_comment_report_input">
-                            <%= f.text_area :report_content, :required =>true, class: "form-control", placeholder: "Thêm lý do khác" %>
-                        </div>
+                    <div class="new_post_comment_report_input">
+                        <%= f.select(:report_type, options_for_select([['Dùng tiếng Việt không dấu', 1], 
+                                                                ['Vi phạm nội quy', 2], 
+                                                                ['Cố tình spam, làm hỏng nội dung bài viết', 3], 
+                                                                ['Sử dụng từ ngữ thô tục, xúc phạm', 4], 
+                                                                ['Nội dung liên quan tới chính trị', 5], 
+                                                                ['Nội dung gây kích động bạo lực', 6]]), 
+                                                                {:include_blank => '--Chọn lý do--'}, { :class => 'form-control'}) %>
                     </div>
-                    
-                    <div class="new_post_comment_report_submit">
-                        <%= f.submit "Gửi", class: "new_post_comment_report_form_submit" %>
+                </div>
+                <div class="new_post_comment_report_section">
+                    <div class="new_post_comment_report_label">
+                        <a><%= f.label :report_content, "Lý do khác(nếu có)"%></a>
                     </div>
-                <%end%>
-            </div>
+                    <div class="new_post_comment_report_input">
+                        <%= f.text_area :report_content, :required =>true, class: "form-control", placeholder: "Thêm lý do khác" %>
+                    </div>
+                </div>
+                
+                <div class="new_post_comment_report_submit">
+                    <%= f.submit "Gửi", class: "new_post_comment_report_form_submit" %>
+                </div>
+            <%end%>
         </div>
     </div>
 </div>

@@ -371,6 +371,11 @@
                 border: none;
                 background-color: #fff;
                 color: #536471;
+                .dropdown-menu{
+                    button {
+                        font-size: 14px;
+                    }
+                }
             }
         }
     }

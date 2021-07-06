@@ -18,11 +18,10 @@ class PostReportsController < ApplicationController
         @post_report.user_id = current_user.id
         
         if @post_report.save
-            redirect_to root_path
-        #     respond_to do |format|
-        #         format.html {}
-        #         format.js
-        #     end
+            respond_to do |format|
+                format.html {}
+                format.js
+            end
         end
     end
 

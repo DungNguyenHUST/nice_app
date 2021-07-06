@@ -15,11 +15,10 @@ class PostCommentReportsController < ApplicationController
         @post_comment_report.user_id = current_user.id
         
         if @post_comment_report.save
-            redirect_to root_path
-        #     respond_to do |format|
-        #         format.html {}
-        #         format.js
-        #     end
+            respond_to do |format|
+                format.html {}
+                format.js
+            end
         end
     end
 

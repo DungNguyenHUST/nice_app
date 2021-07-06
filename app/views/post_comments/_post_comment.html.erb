@@ -77,8 +77,19 @@
                     <button class="post_comment_option_btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i><%= bootstrap_icon "three-dots-vertical", width: 16, height: 16%></i>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="<%=new_post_comment_post_comment_report_path(post_comment)%>">Báo xấu</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <button type="button" class="btn" data-toggle="modal" data-target="#buttonCommentModalCenter">
+                            Báo xấu
+                        </button>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="buttonCommentModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <%@post_comment = post_comment%>
+                                <%= render :partial => 'post_comment_reports/form', object: @post_comment %>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -4,35 +4,35 @@
 //////////////////////////new/////////////////////////
 .new_post_report_form
 {
-    background-color: #f0f2f5;
-    padding-bottom: 30px;
-    min-height: 900px;
+    background-color: #fff;
+    padding-bottom: 20px;
+    border-radius: 5px;
     .new_post_report_title{
         font-size: 24px;
         font-weight: 600;
         color: #0f1419;
         text-align: left;
-        padding-top: 30px;
-        padding-bottom: 20px;
+        i{
+            color: #0f1419;
+            padding-right: 3px;
+        }
     }
 
     .new_post_report_section
     {
-		border: 1px solid #dddddd;
-		padding: 15px;
 		border-radius: 5px;
         background-color: #fff;
+        margin-top: 20px;
         margin-bottom: 20px;
         width: 100%;
         height: auto;
+        .new_post_report_label{
+            font-weight: 600;
+            font-size: 16px;
+            color: #0f1419;
+            text-align: left;
+        }
         .new_post_report_content{
-            .new_post_report_label{
-                font-weight: 550;
-                font-size: 16px;
-                color: #0f1419;
-                text-align: left;
-            }
-
             .new_post_report_input{
                 left: 0px;
                 margin-top: 5px;
@@ -93,4 +93,10 @@
             }
         }
     }
+}
+
+.post_report_success_message{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
 }
