@@ -53,3 +53,39 @@
         }
     }
 }
+
+////////////////////////mini////////////////////////////////
+.user_notification_mini_block{
+    padding-left: 15px;
+    padding-right: 15px;
+    .user_notification_mini_left{  
+        float: left;
+        a{
+            font-size: 14px;
+            font-style: italic;
+            color: #333;
+            position: relative;
+            top: -8px;
+        }
+    }
+    .user_notification_mini_right{
+        padding-left: 60px;
+        .user_notification_mini_user{
+            a{
+                font-size: 14px;
+                color: #333;
+            }
+            span{
+                margin-left: 3px;
+                font-size: 13px;
+                color: #536471;
+            }
+        }
+        .user_notification_mini_title{
+            a{
+                font-size: 14px;
+                word-break: break-word; 
+            }
+        }
+    }
+}

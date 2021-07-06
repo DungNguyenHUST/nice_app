@@ -225,7 +225,7 @@
                         <%if @tab_id == "UserNotificationID"%>
                             <div class="user_notification_tab">
                                 <%@user.user_notifications.each do |user_notification|%>
-                                    <%= render user_notification%>
+                                    <%= render :partial => 'user_notifications/user_notification', :locals => {:mini_tyle => false}, :object => user_notification %>
                                 <%end%>
                             </div>
                         <%end%>
