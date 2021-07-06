@@ -165,7 +165,7 @@
 							</div>
 							<div class="post_show_share_block">
 								<%= link_to new_post_path(:post_shared_id => @post.id, :tab_id => 'PostID'), method: :get, form_class: "post_show_share" do%>
-									<i><%= bootstrap_icon "arrow-repeat", width: 23, height: 23%></i>
+									<i><%= bootstrap_icon "arrow-repeat", width: 22, height: 22%></i>
 									<span><%=convert_number_to_human(@post.share_count)%></span>
 								<%end%> 
 							</div>

@@ -53,6 +53,20 @@
                     <%end%>
                 </button>
 
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownUserMenuButton">
+                    <a class="dropdown-item" href="<%=user_path(current_user)%>">
+                        <i><%= bootstrap_icon "person", width: 24, height: 24%></i> <span>Thông tin cá nhân</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="<%=edit_user_path(current_user)%>">
+                        <i><%= bootstrap_icon "gear", width: 22, height: 22%></i> <span>Cài đặt tài khoản</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" type="button" class="btn" data-toggle="modal" data-target="#buttonModalHeaderCenter">
+                        <i><%= bootstrap_icon "box-arrow-right", width: 22, height: 22%></i> <span>Đăng xuất</span>
+                    </button>
+                </div>
+
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownUserNotiButton">
                     <%current_user.user_notifications.limit(5).each do |user_notification|%>
                         <a class="dropdown-item" href="<%=edit_user_path(current_user)%>">
@@ -76,20 +90,6 @@
                         </div>
                     <%end%>
                 </button>
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownUserMenuButton">
-                    <a class="dropdown-item" href="<%=user_path(current_user)%>">
-                        <i><%= bootstrap_icon "person", width: 24, height: 24%></i> <span>Thông tin cá nhân</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<%=edit_user_path(current_user)%>">
-                        <i><%= bootstrap_icon "gear", width: 22, height: 22%></i> <span>Cài đặt tài khoản</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" type="button" class="btn" data-toggle="modal" data-target="#buttonModalHeaderCenter">
-                        <i><%= bootstrap_icon "box-arrow-right", width: 22, height: 22%></i> <span>Đăng xuất</span>
-                    </button>
-                </div>
                 <!-- Modal -->
                 <div class="modal fade" id="buttonModalHeaderCenter" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
