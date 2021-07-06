@@ -590,19 +590,6 @@
                 }
             }
         }
-
-        .post_show_info_action{
-            float: right;
-            padding-right: 15px;
-            .post_show_option_btn{
-                border: none;
-                background-color: #fff;
-                color: #536471;
-            }
-            .dropdown-item{
-                font-size: 14px;
-            }
-        }
         
         .post_show_title{
             clear: both;
@@ -717,181 +704,205 @@
         }
 
         .post_show_shared{
-            margin: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
         }
 
         .post_show_toolbar_block{
             border-bottom: 1px solid #e1ecf4;
             border-top: 1px solid #e1ecf4;
             clear: left;
-            margin-top: 30px;
-            padding-top: 10px;
-            padding-bottom: 15px;
+            margin-top: 20px;
+            padding-top: 5px;
+            padding-bottom: 45px;
             padding-left: 15px;
             padding-right: 15px;
-            .post_show_vote_unvote_conatainer{
-                display: inline-block;
-                .post_show_vote_unvote_block{
-                    position: relative;
-                    top: 6px;
-                    background-color: #f0f2f5;
-                    border-radius: 20px;
-                    padding-bottom: 3px;
-                    padding-top: 1px;
-                    padding-left: 3px;
-                    padding-right: 3px;
-                    .post_show_vote_block{
-                        display:block;
-                        float: left;
-                        button{
-                            border: none;
-                            &:focus {outline:none;}
-                            background-color: #f0f2f5;
-                            border-radius: 20px;
-                        }
-                        .btn_highlight
-                        {
-                            button{
-                                color: #0071e3;
-                            }
-                        }
-        
-                        .btn_normal{
-                            button{
-                                color: #333;
-                            }
-                        }
-                    }
-                    .post_show_vote_unvote_count{
-                        display:block;
-                        float: left;
-                        font-size: 14px;
-                        text-decoration: none;
-                        color: #536471;
+            .post_show_toolbar_left{
+                float: left;
+                .post_show_vote_unvote_conatainer{
+                    display: inline-block;
+                    .post_show_vote_unvote_block{
                         position: relative;
-                        top: 5px;
-                        font-weight: 600;
+                        top: -3px;
+                        background-color: #f0f2f5;
+                        border-radius: 20px;
+                        padding-bottom: 3px;
+                        padding-top: 1px;
                         padding-left: 3px;
                         padding-right: 3px;
-                    }
-                    .post_show_unvote_block{
-                        display:inline-block;
-                        transform: rotate(180deg);
-                        position: relative;
-                        top: 3px;
-                        button{
-                            border: none;
-                            &:focus {outline:none;}
-                            background-color: #f0f2f5;
-                            border-radius: 20px;
+                        .post_show_vote_block{
+                            display:block;
+                            float: left;
+                            button{
+                                border: none;
+                                &:focus {outline:none;}
+                                background-color: #f0f2f5;
+                                border-radius: 20px;
+                            }
+                            .btn_highlight
+                            {
+                                button{
+                                    color: #0071e3;
+                                }
+                            }
+            
+                            .btn_normal{
+                                button{
+                                    color: #333;
+                                }
+                            }
                         }
-                        .btn_highlight
+                        .post_show_vote_unvote_count{
+                            display:block;
+                            float: left;
+                            font-size: 14px;
+                            text-decoration: none;
+                            color: #536471;
+                            position: relative;
+                            top: 5px;
+                            font-weight: 600;
+                            padding-left: 3px;
+                            padding-right: 3px;
+                        }
+                        .post_show_unvote_block{
+                            display:inline-block;
+                            transform: rotate(180deg);
+                            position: relative;
+                            top: 3px;
+                            button{
+                                border: none;
+                                &:focus {outline:none;}
+                                background-color: #f0f2f5;
+                                border-radius: 20px;
+                            }
+                            .btn_highlight
+                            {
+                                button{
+                                    color: #0071e3;
+                                }
+                            }
+            
+                            .btn_normal{
+                                button{
+                                    color: #333;
+                                }
+                            }
+                        }
+                    }
+                }
+    
+                .post_show_comment_block{
+                    display: inline-block;
+                    padding-left: 15px;
+                    color: #536471;
+                    button{
+                        border: none;
+                        background-color: #fff;
+                        &:focus {outline:none;}
+                    }
+                    a{
+                        font-size: 14px;
+                        color: #536471;
+                        span{
+                            margin-left: 2px;
+                        }
+                    }
+                    .post_show_reply_btn
+                    {
+                        border: none;
+                        background-color: #fff;
+                        i{
+                            color: #333;
+                            font-size: 24px;
+                        }
+                        &:focus {outline:none;}
+                    }
+                }
+    
+                .post_show_share_block{
+                    display: inline-block;
+                    padding-left: 15px;
+                    position: relative;
+                    top: -2px;
+                    button{
+                        border: none;
+                        background-color: #fff;
+                        &:focus {outline:none;}
+                    }
+                    a{
+                        font-size: 14px;
+                        color: #444;
+                        text-decoration: none;
+                    }
+                    span{
+                        margin-left: 2px;
+                        position: relative;
+                        top: 2px;
+                        color: #536471;
+                        font-size: 14px;
+                        text-decoration: none;
+                    }
+                    .post_show_share
+                    {
+                        border: none;
+                        background-color: #fff;
+                        i{
+                            color: #444;
+                            font-size: 24px;
+                        }
+                        &:focus {outline:none;}
+                    }
+                }
+    
+                .post_show_follow_block{
+                    padding-left: 15px;
+                    display: inline-block;
+                    position: relative;
+                    top: -10px;
+                    button{
+                        border: none;
+                        background-color: #fff;
+                        &:focus {outline:none;}
+                        i{
+                            position: relative;
+                            top: 8px;
+                            left: -5px;
+                        }
+                    }
+    
+                    .btn_highlight
                         {
                             button{
                                 color: #0071e3;
                             }
                         }
-        
+    
                         .btn_normal{
                             button{
                                 color: #333;
                             }
                         }
-                    }
-                }
-            }
-
-            .post_show_comment_block{
-                display: block;
-                color: #536471;
-                button{
-                    border: none;
-                    background-color: #fff;
-                    &:focus {outline:none;}
-                }
-                a{
-                    font-size: 14px;
-                    color: #536471;
+                    
                     span{
                         margin-left: 2px;
+                        color: #536471;
+                        font-size: 14px;
                     }
-                }
-                .post_show_reply_btn
-                {
-                    border: none;
-                    background-color: #fff;
-                    i{
-                        color: #333;
-                        font-size: 24px;
-                    }
-                    &:focus {outline:none;}
                 }
             }
-
-            .post_show_share_block{
-                display: block;
-                position: relative;
-                top: 8px;
-                button{
-                    border: none;
-                    background-color: #fff;
-                    &:focus {outline:none;}
-                }
-                a{
-                    font-size: 14px;
-                    color: #444;
-                    text-decoration: none;
-                }
-                span{
-                    margin-left: 2px;
+            .post_show_toolbar_right{
+                float: right;
+                .post_show_info_action{
                     position: relative;
-                    top: 2px;
-                    color: #536471;
-                    font-size: 14px;
-                    text-decoration: none;
-                }
-                .post_show_share
-                {
-                    border: none;
-                    background-color: #fff;
-                    i{
-                        color: #444;
-                        font-size: 24px;
+                    top: 5px;
+                    .post_show_option_btn{
+                        border: none;
+                        background-color: #fff;
+                        color: #536471;
                     }
-                    &:focus {outline:none;}
-                }
-            }
-
-            .post_show_follow_block{
-                display: block;
-                button{
-                    border: none;
-                    background-color: #fff;
-                    &:focus {outline:none;}
-                    i{
-                        position: relative;
-                        top: 8px;
-                        left: -5px;
+                    .dropdown-item{
+                        font-size: 14px;
                     }
-                }
-
-                .btn_highlight
-                    {
-                        button{
-                            color: #0071e3;
-                        }
-                    }
-
-                    .btn_normal{
-                        button{
-                            color: #333;
-                        }
-                    }
-                
-                span{
-                    margin-left: 2px;
-                    color: #536471;
-                    font-size: 14px;
                 }
             }
         }
