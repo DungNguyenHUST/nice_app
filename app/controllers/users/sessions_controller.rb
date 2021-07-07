@@ -50,9 +50,11 @@ class Users::SessionsController < Devise::SessionsController
     else
     end
 
-    if current_user.sign_in_count == 1
+    # Show wellcome path
+    if current_user.sign_in_count == 0
       session[:my_previous_url] = user_wellcome_path
     end
+    current_user.increment!(:sign_in_count)
 
     stored_location_for(resource_or_scope) || session[:my_previous_url]
   end

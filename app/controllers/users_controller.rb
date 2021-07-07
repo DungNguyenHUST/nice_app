@@ -51,6 +51,7 @@ class UsersController < ApplicationController
 
     def wellcome
         @topics = Topic.all
+        @categories = Category.all
     end
 
 private
