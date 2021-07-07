@@ -96,15 +96,15 @@
 
 			.user_avatar_small_img{
 				position: relative;
-				top: 4px;
+				top: 6px;
 				@media screen and (max-width: 600px){
-					top: 8px;
+					top: 10px;
 				}
-				left: -8px;
+				left: -10px;
 				img{
 					border: 1px solid #eee;
-					width: 36px;
-					height: 36px;
+					width: 33px;
+					height: 33px;
 					border-radius: 50%;
 					object-fit: cover;
 				}

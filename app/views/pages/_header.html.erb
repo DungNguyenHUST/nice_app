@@ -30,10 +30,15 @@
                 <div class="col-sm-4">
                     <div class="nav_header_signed_right_block">
                         <div class="row">
+                            <%@current_path = request.original_fullpath%>
                             <div class="col-2">
                                 <div class="nav_header_signed_right_item">
                                     <%= link_to root_path do %>
-                                        <i><%= bootstrap_icon "house", width: 26, height: 26 %></i>
+                                        <%if @current_path == root_path || @current_path == pages_path%>
+                                            <i><%= bootstrap_icon "house-fill", width: 25, height: 25, color: "#0071e3" %></i>
+                                        <%else%>
+                                            <i><%= bootstrap_icon "house", width: 25, height: 25 %></i>
+                                        <%end%>
                                     <%end%>
                                 </div>
                             </div>
@@ -41,7 +46,11 @@
                             <div class="col-2">
                                 <div class="nav_header_signed_right_item">
                                     <%= link_to new_post_path do %>
-                                        <i><%= bootstrap_icon "plus-circle", width: 26, height: 26 %></i>
+                                        <%if @current_path == new_post_path%>
+                                            <i><%= bootstrap_icon "plus-circle-fill", width: 25, height: 25, color: "#0071e3" %></i>
+                                        <%else%>
+                                            <i><%= bootstrap_icon "plus-circle", width: 25, height: 25 %></i>
+                                        <%end%>
                                     <%end%>
                                 </div>
                             </div>
@@ -49,7 +58,11 @@
                             <div class="col-2">
                                 <div class="nav_header_signed_right_item">
                                     <%= link_to pages_path(tab_id: 'PostTrendID') do %>
-                                        <i><%= bootstrap_icon "arrow-up-right-circle", width: 26, height: 26 %></i>
+                                        <%if @current_path == pages_path(tab_id: 'PostTrendID')%>
+                                            <i><%= bootstrap_icon "arrow-up-right-circle-fill", width: 25, height: 25, color: "#0071e3" %></i>
+                                        <%else%>
+                                            <i><%= bootstrap_icon "arrow-up-right-circle", width: 25, height: 25 %></i>
+                                        <%end%>
                                     <%end%>
                                 </div>
                             </div>
@@ -57,18 +70,32 @@
                             <div class="col-2">
                                 <div class="nav_header_signed_right_item">
                                     <%= link_to categories_path do %>
-                                        <i><%= bootstrap_icon "compass", width: 26, height: 26 %></i>
+                                        <%if @current_path == categories_path%>
+                                            <i><%= bootstrap_icon "compass-fill", width: 25, height: 25 , color: "#0071e3"%></i>
+                                        <%else%>
+                                            <i><%= bootstrap_icon "compass", width: 25, height: 25 %></i>
+                                        <%end%>
                                     <%end%>
                                 </div>
                             </div>
 
                             <div class="col-2">
                                 <div class="nav_header_signed_right_item">
-                                    <%= link_to user_path(current_user, :tab_id => "UserNotificationID") do %>
-                                        <%if (current_user.user_notifications.count < 10)%>
-                                            <i><%= bootstrap_icon "app", width: 26, height: 26%></i><span><%=current_user.user_notifications.count%></span>
-                                        <%else%>
-                                            <i><%= bootstrap_icon "app", width: 26, height: 26%></i><span>9+</span>
+                                    <%if @current_path == user_path(current_user, :tab_id => "UserNotificationID")%>
+                                        <%= link_to user_path(current_user, :tab_id => "UserNotificationID") do %>
+                                            <%if (current_user.user_notifications.count < 10)%>
+                                                <i><%= bootstrap_icon "bell-fill", width: 25, height: 25, color: "#0071e3"%></i><span><%=current_user.user_notifications.count%></span>
+                                            <%else%>
+                                                <i><%= bootstrap_icon "bell-fill", width: 25, height: 25, color: "#0071e3"%></i><span>9+</span>
+                                            <%end%>
+                                        <%end%>
+                                    <%else%>
+                                        <%= link_to user_path(current_user, :tab_id => "UserNotificationID") do %>
+                                            <%if (current_user.user_notifications.count < 10)%>
+                                                <i><%= bootstrap_icon "bell", width: 25, height: 25%></i><span><%=current_user.user_notifications.count%></span>
+                                            <%else%>
+                                                <i><%= bootstrap_icon "bell", width: 25, height: 25%></i><span>9+</span>
+                                            <%end%>
                                         <%end%>
                                     <%end%>
                                 </div>
