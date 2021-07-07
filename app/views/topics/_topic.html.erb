@@ -35,7 +35,7 @@
         </div>
     </div>
 <%else%>
-    <div class='topic_index_block'>
+    <div class='topic_index_block' id="topic_index_<%=topic.id%>">
         <%if topic.cover_image?%>
             <div class='topic_index_cover'>
                 <%= link_to (image_tag(topic.cover_image.url)), image_path(url_for(topic.cover_image.url)), rel: "gallery" , :href => topic_path(topic)%>
@@ -55,6 +55,19 @@
                 <%= link_to (image_tag("default-avartar.jpg")), image_path(url_for("default-avartar.jpg")), rel: "gallery" , :href => topic_path(topic)%>
             </div>
         <%end%>
+
+        <div class='topic_index_info_action'>
+            <button class="topic_index_close_btn" onclick="myFunctionCloseTopic('topic_index_' + <%=topic.id.to_s%>)">
+                <i><%= bootstrap_icon "x-lg", width: 13, height: 10%></i>
+            </button>
+        </div>
+
+        <script>
+            function myFunctionCloseTopic(id) {
+                var x = document.getElementById(id);
+                x.style.display = "none";
+            }
+        </script>
         
         <div class='topic_index_info'>
             <div class='topic_index_name'>

@@ -30,7 +30,11 @@
     </div>
 
     <div class='post_index_title'>
-        <a><%= link_to (post.title), post_path(post) %></a>
+        <%if post.podcast?%>
+            <span><i><%= bootstrap_icon "mic", width: 16, height: 16%></i> Podcast</span><a><%= link_to (post.title), post_path(post) %></a>
+        <%else%>
+            <a><%= link_to (post.title), post_path(post) %></a>
+        <%end%>
     </div>
 
     <div class='post_index_content'>

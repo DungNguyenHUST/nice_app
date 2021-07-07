@@ -16,14 +16,19 @@ module UsersHelper
     end
 
     def find_owner_topic_follow_for_user(user)
-        @owner_topics = []
+        @user_owner_topics = []
         if user.id.present?
             @owner_topic_follows = TopicFollow.where(user_id: user.id)
             @owner_topic_follows.each do |topic_follow|
-                @owner_topics.push(topic_follow.topic)
+                @user_owner_topics.push(topic_follow.topic)
+            end
+
+            @owner_topics = Topic.where(user_id: user.id)
+            @owner_topics.each do |topic|
+                @user_owner_topics.push(topic)
             end
         end
-        return @owner_topics
+        return @user_owner_topics
     end
 
     def find_owner_post_comment_for_user(user)

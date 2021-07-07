@@ -370,6 +370,23 @@
         }
     }
 
+    .topic_index_info_action{
+        position: absolute;
+        right: 25px;
+        top: 28px;
+        @media screen and (max-width: 600px){
+            right: 7px;
+            top: 15px;
+        }
+        .topic_index_close_btn{
+            border: none;
+            background-color: #f0f2f5;
+            color: #596976;
+            border-radius: 30px;
+            opacity: 0.8;
+        }
+    }
+
     .topic_index_info{
         padding-left: 15px;
         padding-right: 15px;
