@@ -7,14 +7,14 @@
                 <div class="col-sm-8">
                     <div class="nav_header_signed_left_block">
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-2">
                                 <div class="nav_header_signed_logo">
                                     <%= button_to pages_path, method: :get do %>
-                                        <a>HOME</a>
+                                        <a>DEV</a>
                                     <%end%>
                                 </div>
                             </div>
-                            <div class="col-9">
+                            <div class="col-10">
                                 <div class="nav_header_signed_search_block">
                                     <%=form_tag page_search_path, :method => "get" do%>
                                         <div class="nav_header_signed_search_input">
@@ -110,7 +110,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="user_action">
+                                                <div class="nav_header_user_action">
                                                     <%= button_to destroy_user_session_path, method: :delete do%>
                                                         <i><%= bootstrap_icon "box-arrow-right", width: 22, height: 22%></i> <span>Có, đăng xuất ngay bây giờ</span>
                                                     <%end%>

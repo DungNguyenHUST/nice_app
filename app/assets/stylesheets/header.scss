@@ -1,6 +1,6 @@
 /////////////////////////signed in//////
 .nav_header_signed_block {
-	overflow: hidden;
+	display: block;
 	background-color: #fff;
 	border-bottom: 2px solid #eee;
 	height: 50px;
@@ -52,7 +52,6 @@
 	.nav_header_signed_right_block
 	{	
 		display: block;
-
 		.nav_header_signed_right_item{
 			margin-top: 11px;
 			@media screen and (max-width: 600px){
@@ -61,7 +60,7 @@
 			display: block;
 			text-decoration: none !important;
 			i{
-				color: #333;
+				color: #444;
 				&:hover{
 					color: #0071e3;
 					text-decoration: none !important;
@@ -79,6 +78,9 @@
 				position: relative;
 				top: -36px;
 				left: 12px;
+				text-decoration: none !important;
+			}
+			a:link{
 				text-decoration: none !important;
 			}
 		}
@@ -110,57 +112,29 @@
 		}
 
 		.dropdown-menu{
-			margin-top: 10px !important;
+			margin-top: 15px !important;
 		}
 
 		.dropdown-item{
 			font-size: 14px !important;
 		}
 
-		.nav_header_signed_account_block{
-			float: right;
-			.nav_header_signed_signup{
-				margin-top: 8px;
-				margin-right: 10px;
-				border-radius: 20px;
+		.nav_header_user_action{
+			color: #536471;
+			button{
+				background-color: #0071e3;
+				border-radius: 5px;
+				border: none;
 				padding: 5px;
-				display: inline-block;
-				button{
-					border: none;
-					background-color: #fff;
-				}
-				a{
-					color: #0071e3;
-					font-weight: 600;
-					text-decoration: none !important;
-				}
-				&:hover{
-					color: #536471;
-				}
-			}
-	
-			.nav_header_signed_signin{
-				margin-top: 8px;
-				display: inline-block;
-				button{
-					border: none;
-					border-radius: 20px;
-					padding: 5px;
-					padding-left: 10px;
-					padding-right: 10px;
-					background-color: #0071e3;
-				}
+				padding-top: 3px;
+				padding-left: 10px;
+				padding-right: 10px;
 				color: #fff;
+			}
+			i{
 				position: relative;
-				font-size: 16px;
-				a{
-					color: #fff;
-					font-weight: 600;
-					text-decoration: none !important;
-				}
-				&:hover{
-					color: #536471;
-				}
+				padding-right: 3px;
+				font-size: 24px;
 			}
 		}
 	}
