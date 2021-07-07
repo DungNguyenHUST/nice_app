@@ -38,6 +38,15 @@
                             <%end%>                                     
                             <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'LinkID')%>"><i><%= bootstrap_icon "link", width: 24, height: 24%></i>Link</a>
                         </li>
+
+                        <li class="nav-item">
+                            <%if @tab_id == "PodcastID"%>
+                                <%active = "active"%>
+                            <%else%> 
+                                <%active = ""%>
+                            <%end%>                                     
+                            <a class="nav-link <%=active%>" href="<%=new_post_path(tab_id: 'PodcastID')%>"><i><%= bootstrap_icon "mic", width: 20, height: 20%></i>Podcast</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -71,6 +80,14 @@
                                 <div class="new_post_section">
                                     <div class="new_post_input">
                                         <%= f.text_area :link, :required => true, class: "form-control-rich-text", placeholder: "Link"  %>
+                                    </div>
+                                </div>
+                            <%end%>
+
+                            <%if @tab_id == "PodcastID"%>
+                                <div class="new_post_section">
+                                    <div class="new_podcast_input">
+                                        <%= f.file_field :podcast%>
                                     </div>
                                 </div>
                             <%end%>

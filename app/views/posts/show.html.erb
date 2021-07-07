@@ -30,14 +30,6 @@
 				        <a><%= @post.title%></a>
 				    </div>
 
-					<div class='post_show_topic_link_block'>
-						<%@post.topics.each do |topic|%>
-							<div class='post_show_topic_link'>
-								<a><%= link_to (topic.name), topic_path(tag) %></a>
-							</div>
-						<%end%>
-					</div>
-
 					<%if @post.post_links.count > 0%>
 						<%@post.post_links.each do |post_link|%>
 							<div class='post_show_link_block'>
@@ -98,6 +90,12 @@
 						</div>
 					<%end%>
 
+					<%if @post.podcast?%>
+						<div class='post_show_podcast'>
+							<%=audio_tag(@post.podcast.url, autoplay: false, controls: true)%>
+						</div>
+					<%end%>
+
 					<%if @post.content_rich_text.present?%>
 						<div class='post_show_content'>
 							<a><%=@post.content_rich_text%></a>
@@ -110,6 +108,14 @@
 							<%= render :partial => 'posts/post_share', :object => @post_shared %>
 						</div>
 					<%end%>
+
+					<div class='post_show_topic_link_block'>
+						<%@post.topics.each do |topic|%>
+							<div class='post_show_topic_link'>
+								<a><%= link_to (topic.name), topic_path(tag) %></a>
+							</div>
+						<%end%>
+					</div>
 
 					<div class="post_show_toolbar_block">
 						<div class="post_show_toolbar_left">

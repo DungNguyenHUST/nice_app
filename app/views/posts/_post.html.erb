@@ -73,6 +73,12 @@
         </div>
     <%end%>
 
+    <%if post.podcast?%>
+        <div class='post_index_podcast'>
+            <%=audio_tag(post.podcast.url, autoplay: false, controls: true)%>
+        </div>
+    <%end%>
+
     <%if post.post_shared_id?%>
         <div class='post_index_shared'>
             <%@post_shared = Post.friendly.find(post.post_shared_id)%>

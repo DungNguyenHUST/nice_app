@@ -18,6 +18,8 @@ class Post < ApplicationRecord
 
     has_rich_text :content_rich_text
 
+    mount_uploader :podcast, FileUploader
+
     def self.topicged_with(name)
         Topic.find_by!(name: name).posts
     end

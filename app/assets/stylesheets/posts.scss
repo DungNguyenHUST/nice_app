@@ -161,6 +161,12 @@
         display: block;
     }
 
+    .post_index_podcast{
+        padding-top: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
     .post_index_shared{
         padding-left: 15px;
         padding-right: 15px;
@@ -710,6 +716,13 @@
             padding-left: 15px;
             padding-right: 15px;
             color: #333;
+        }
+
+        .post_show_podcast{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
         }
 
         .post_show_shared{
@@ -1314,6 +1327,18 @@
                 }
 
                 .new_image_input{
+                    border: 1px dashed #dddddd;
+                    border-radius: 5px;
+                    left: 0px;
+                    margin-top: 5px;
+                    margin-bottom: 20px;
+                    min-height: 300px;
+                    width: 100%;
+                    height: auto;
+                    font-size: 14px;
+                }
+
+                .new_podcast_input{
                     border: 1px dashed #dddddd;
                     border-radius: 5px;
                     left: 0px;
