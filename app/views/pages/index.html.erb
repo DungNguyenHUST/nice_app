@@ -82,6 +82,14 @@
                                         <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostTopYearID')%>">Top năm</a>
                                     </li>
                                 <%end%>
+                                <li class="nav-item">
+                                    <%if @tab_id == "PostPodID"%>
+                                        <%active = "active"%>
+                                    <%else%> 
+                                        <%active = ""%>
+                                    <%end%>
+                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostPodID')%>"><i><%= bootstrap_icon "mic", width: 19, height: 19%></i>Podcasts </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -146,6 +154,15 @@
                             <%end%>
                             <div id="paginate">
                                 <%= paginate @post_top_years, window: 1, outer_window: 1%>
+                            </div>
+                        <%end%>
+
+                        <%if @tab_id == "PostPodID"%>
+                            <%@post_top_pods.each do |post|%>
+                                <%= render post%>
+                            <%end%>
+                            <div id="paginate">
+                                <%= paginate @post_top_pods, window: 1, outer_window: 1%>
                             </div>
                         <%end%>
                     </div>

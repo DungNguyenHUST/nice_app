@@ -50,6 +50,12 @@ class PagesController < ApplicationController
       @post_trends = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
+    if "PostPodID" == @tab_id
+      @buffers = Post.where("podcast <> ''")
+      @buffers = @buffers.sort_by{|post| cal_post_trend_point(post)}.reverse
+      @post_top_pods = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+    end
+
   end
 
   def search
