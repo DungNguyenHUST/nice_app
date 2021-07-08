@@ -70,50 +70,76 @@
                             
                             <%if @tab_id == "ImageID"%>
                                 <div class="new_post_section">
-                                    <div class="new_image_input">
+                                    <div class="new_post_image_input">
                                         <%= f.file_field :image, :multiple => true, :id => "image_upload", name: "post_images[image][]"%>
-                                        <div class="new_image_preview">
+
+                                        <div class="new_post_image_preview" id="result">
                                         </div>
                                     </div>
                                 </div>
                                 <script>
-                                    $(function() {
-                                        // Multiple images preview in browser
-                                        var imagesPreview = function(input, placeToInsertImagePreview) {
-                                            if (input.files) {
-                                                var filesAmount = input.files.length;
-
-                                                for (i = 0; i < filesAmount; i++) {
-                                                    var reader = new FileReader();
-
-                                                    reader.onload = function(event) {
-                                                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
-                                                    }
-
-                                                    reader.readAsDataURL(input.files[i]);
-                                                }
-                                            }
-
-                                        };
-
-                                        $('#image_upload').on('change', function() {
-                                            imagesPreview(this, 'div.new_image_preview');
-                                        });
-                                    });
+                                    window.onload = function(){
+                                        //Check File API support
+                                        if(window.File && window.FileList && window.FileReader)
+                                        {
+                                            var filesInput = document.getElementById("image_upload");
+                                            
+                                            filesInput.addEventListener("change", function(event){
+                                                
+                                                var files = event.target.files; //FileList object
+                                                var output = document.getElementById("result");
+                                                
+                                                for(var i = 0; i< files.length; i++)
+                                                {
+                                                    var file = files[i];
+                                                    
+                                                    //Only pics
+                                                    if(!file.type.match('image'))
+                                                    continue;
+                                                    
+                                                    var picReader = new FileReader();
+                                                    
+                                                    picReader.addEventListener("load",function(event){
+                                                        
+                                                        var picFile = event.target;
+                                                        
+                                                        var div = document.createElement("div");
+                                                        
+                                                        div.innerHTML = "<img class='thumbnail' src='" + picFile.result + "'" +
+                                                                "title='" + picFile.name + "'/>" + "<a href='#' class='new_post_image_preview_remove'>X</a>";
+                                                        
+                                                        output.insertBefore(div,null);   
+                                                        div.children[1].addEventListener("click", function(event){
+                                                            div.parentNode.removeChild(div);
+                                                        });         
+                                                    
+                                                    });
+                                                    
+                                                    //Read the image
+                                                    picReader.readAsDataURL(file);
+                                                }                               
+                                            
+                                            });
+                                        }
+                                        else
+                                        {
+                                            console.log("Your browser does not support File API");
+                                        }
+                                    }
                                 </script>
                             <%end%>
 
                             <%if @tab_id == "LinkID"%>
                                 <div class="new_post_section">
-                                    <div class="new_post_input">
-                                        <%= f.text_area :link, :required => true, class: "form-control-rich-text", placeholder: "Link"  %>
+                                    <div class="new_post_link_input">
+                                        <%= f.text_area :link, :required => true, class: "form-control", placeholder: "Link"  %>
                                     </div>
                                 </div>
                             <%end%>
 
                             <%if @tab_id == "PodcastID"%>
                                 <div class="new_post_section">
-                                    <div class="new_podcast_input">
+                                    <div class="new_post_podcast_input">
                                         <%= f.file_field :podcast%>
                                     </div>
                                 </div>
