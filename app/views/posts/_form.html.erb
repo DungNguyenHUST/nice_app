@@ -52,7 +52,7 @@
 
                 <div class="new_post_tab_content">
                     <%@select_topic = find_owner_topic_follow_for_user(current_user)%>
-                    <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+                    <%= simple_form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
                         <div class="new_post_form">
                             <div class="new_post_section">
                                 <div class="new_post_input">
@@ -71,9 +71,36 @@
                             <%if @tab_id == "ImageID"%>
                                 <div class="new_post_section">
                                     <div class="new_image_input">
-                                        <%= f.file_field :image, :multiple => true, name: "post_images[image][]"%>
+                                        <%= f.file_field :image, :multiple => true, :id => "image_upload", name: "post_images[image][]"%>
+                                        <div class="new_image_preview">
+                                        </div>
                                     </div>
                                 </div>
+                                <script>
+                                    $(function() {
+                                        // Multiple images preview in browser
+                                        var imagesPreview = function(input, placeToInsertImagePreview) {
+                                            if (input.files) {
+                                                var filesAmount = input.files.length;
+
+                                                for (i = 0; i < filesAmount; i++) {
+                                                    var reader = new FileReader();
+
+                                                    reader.onload = function(event) {
+                                                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                                                    }
+
+                                                    reader.readAsDataURL(input.files[i]);
+                                                }
+                                            }
+
+                                        };
+
+                                        $('#image_upload').on('change', function() {
+                                            imagesPreview(this, 'div.new_image_preview');
+                                        });
+                                    });
+                                </script>
                             <%end%>
 
                             <%if @tab_id == "LinkID"%>

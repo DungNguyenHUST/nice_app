@@ -1231,6 +1231,10 @@
         text-align: left;
         margin-top: 30px;
         font-weight: 536471;
+        @media screen and (max-width: 600px){
+            padding-left: 15px;
+            padding-right: 15px;
+        }
         a{
             text-decoration: none;
         }
@@ -1370,10 +1374,23 @@
                     left: 0px;
                     margin-top: 5px;
                     margin-bottom: 10px;
-                    min-height: 300px;
+                    min-height: 150px;
                     width: 100%;
                     height: auto;
                     font-size: 14px;
+            
+                    .new_image_preview{
+                        padding-bottom: 10px;
+                        padding-top: 20px;
+                        display: block;
+                        img{
+                            width: 100%;
+                            height: 300px;
+                            // border-radius: 5px;
+                            object-fit: cover;
+                            margin-bottom: 10px;
+                        }
+                    }
                 }
 
                 .new_podcast_input{
