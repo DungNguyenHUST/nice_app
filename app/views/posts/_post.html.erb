@@ -94,16 +94,27 @@
         <%post.post_links.each do |post_link|%>
             <div class='post_index_link_block'>
                 <div class='post_index_link_image'>
-                    <%= link_to (image_tag(post_link.image.to_s)), image_path(url_for(post_link.image.to_s)), rel: "gallery" , :href => url_for(post.link), target: :_blank%>
+                    <%if post_link.image.empty?%>
+                        <div class='post_index_link_image_default'>
+                            <%= link_to (image_tag("default-image-lg.jpg")), image_path(url_for("default-image-lg.jpg")), rel: "gallery" , :href => url_for(post.link), target: :_blank%>
+                        </div>
+                    <%else%>
+                        <%= link_to (image_tag(post_link.image.to_s)), image_path(url_for(post_link.image.to_s)), rel: "gallery" , :href => url_for(post.link), target: :_blank%>
+                    <%end%>
                 </div>
 
                 <div class='post_index_link_right'>
-                    <div class='post_index_link_title'>
-                        <a><%= link_to post_link.title, url_for(post.link), target: :_blank%></a>
-                    </div>
-                    <div class='post_index_link_description'>
-                        <a><%= link_to truncate(strip_tags(post_link.description), length: 300), url_for(post.link), target: :_blank%></a>
-                    </div>
+                    <%if !post_link.title.empty?%>
+                        <div class='post_index_link_title'>
+                            <a><%= link_to post_link.title, url_for(post.link), target: :_blank%></a>
+                        </div>
+                    <%end%>
+                    
+                    <%if !post_link.description.empty?%>
+                        <div class='post_index_link_description'>
+                            <a><%= link_to truncate(strip_tags(post_link.description), length: 300), url_for(post.link), target: :_blank%></a>
+                        </div>
+                    <%end%>
 
                     <div class='post_index_link_url'>
                         <i><%= bootstrap_icon "link-45deg", width: 18, height: 18%></i>
