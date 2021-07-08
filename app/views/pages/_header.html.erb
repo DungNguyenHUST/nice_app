@@ -18,6 +18,7 @@
                                 <div class="nav_header_signed_search_block">
                                     <%=form_tag page_search_path, :method => "get" do%>
                                         <div class="nav_header_signed_search_input">
+                                            <i><%= bootstrap_icon "search", width: 22, height: 22 %></i>
                                             <a><%= text_field_tag :search, params[:search], required: true, class: 'form-control', placeholder: "Tìm kiếm..."%></a>
                                         </div>
                                     <%end%>
@@ -156,36 +157,48 @@
 <%else%>
     <div class="nav_header_block">
         <div class="container">
-            <div class="nav_header_logo">
-                <%= button_to pages_path, method: :get do %>
-                    <a>HOME</a>
-                <%end%>
-            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="nav_header_logo">
+                                <%= button_to pages_path, method: :get do %>
+                                    <a>DEV</a>
+                                <%end%>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <div class="nav_header_search_block">
+                                <%=form_tag page_search_path, :method => "get" do%>
+                                    <div class="nav_header_search_input">
+                                        <i><%= bootstrap_icon "search", width: 22, height: 22 %></i>
+                                        <a><%= text_field_tag :search, params[:search], required: true, class: 'form-control', placeholder: "Tìm kiếm..."%></a>
+                                    </div>
+                                <%end%>
+                            </div>
 
-            <div class="nav_header_search_block">
-                <%=form_tag page_search_path, :method => "get" do%>
-                    <div class="nav_header_search_input">
-                        <a><%= text_field_tag :search, params[:search], required: true, class: 'form-control', placeholder: "Tìm kiếm..."%></a>
+                            <div class="nav_header_search_block_moblie">
+                                <%= link_to page_search_path do %>
+                                    <i><%= bootstrap_icon "search", width: 20, height: 20 %></i>
+                                <%end%>
+                            </div>
+                        </div>
                     </div>
-                <%end%>
-            </div>
-
-            <div class="nav_header_search_block_moblie">
-                <%= link_to page_search_path do %>
-                    <i><%= bootstrap_icon "search", width: 18, height: 18 %></i>
-                <%end%>
-            </div>
-                
-            <div class="nav_header_right_block">
-                <div class="nav_header_signup">
-                    <%= button_to new_user_registration_path , :method => :get do %>
-                        <a>Đăng kí</a>
-                    <%end%>
                 </div>
-                <div class="nav_header_signin">
-                    <%= button_to new_user_session_path, :method => :post do %>
-                        <a>Đăng nhập</a>
-                    <%end%>
+                
+                <div class="col-6">
+                    <div class="nav_header_right_block">
+                        <div class="nav_header_signup">
+                            <%= button_to new_user_registration_path , :method => :get do %>
+                                <a>Đăng kí</a>
+                            <%end%>
+                        </div>
+                        <div class="nav_header_signin">
+                            <%= button_to new_user_session_path, :method => :post do %>
+                                <a>Đăng nhập</a>
+                            <%end%>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

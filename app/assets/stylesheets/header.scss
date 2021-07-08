@@ -32,8 +32,14 @@
 			position: relative;
 			top: 6px;
 			.nav_header_signed_search_input{
+				i{
+					position: absolute;
+					top: 5px;
+					left: 8px;
+					color: #444;
+				}
 				.form-control{
-					padding-left: 10px;
+					padding-left: 40px;
 					padding-right: 10px;
 					width: 100%;
 					font-size: 14px;
@@ -97,10 +103,11 @@
 			.user_avatar_small_img{
 				position: relative;
 				top: 6px;
+				left: -6px;
 				@media screen and (max-width: 600px){
 					top: 10px;
+					left: -5px;
 				}
-				left: -5x;
 				img{
 					border: 1px solid #eee;
 					width: 33px;
@@ -147,10 +154,8 @@
 	border-bottom: 2px solid #eee;
 	height: 50px;
 	.nav_header_logo{
-		float: left;
 		display: block;
 		position: relative;
-		margin-right: 5%;
 		padding-top: 6px;
 		button{
 			color: #fff;
@@ -173,11 +178,15 @@
 			display: none;
 		}
 		margin-top: 6px;
-		float: left;
-		width: 55%;
 		.nav_header_search_input{
+			i{
+				position: absolute;
+				top: 11px;
+				left: 24px;
+				color: #444;
+			}
 			.form-control{
-				padding-left: 10px;
+				padding-left: 40px;
 				padding-right: 10px;
 				width: 100%;
 				font-size: 14px;
@@ -197,15 +206,13 @@
 		@media screen and (max-width: 600px){
 			display: block;
 		}
-		margin-top: 7px;
-		padding: 6px;
-		padding-left: 10px;
-		padding-right: 10px;
-		border-radius: 20px;
-		background-color: #dfe1e5;
-		float: left;
+		margin-left: 20px;
+		margin-top: 12px;
 		i{
-			color: #0f1419;
+			padding: 9px;
+			border-radius: 20px;
+			background-color: #dfe1e5;
+			color: #333;
 			&:hover{
 				color: #0071e3;
 			}
@@ -217,6 +224,9 @@
 		float: right;
 		display: block;
 		.nav_header_signup{
+			@media screen and (max-width: 600px){
+				display: none;
+			}
 			float: left;
 			margin-top: 8px;
 			margin-right: 10px;
