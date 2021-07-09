@@ -30,7 +30,7 @@
                                     <%else%> 
                                         <%active = ""%>
                                     <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostForYou')%>"><i><%= bootstrap_icon "megaphone", width: 18, height: 18%></i>For U </a>
+                                    <a class="nav-link <%=active%>" href="<%=root_path(tab_id: 'PostForYou')%>"><i><%= bootstrap_icon "megaphone", width: 18, height: 18%></i>For U </a>
                                 </li>
                                 <li class="nav-item">
                                     <%if @tab_id == "PostTrendID"%>
@@ -38,7 +38,7 @@
                                     <%else%> 
                                         <%active = ""%>
                                     <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostTrendID')%>"><i><%= bootstrap_icon "arrow-up-right-square", width: 18, height: 18%></i>Trending </a>
+                                    <a class="nav-link <%=active%>" href="<%=root_path(tab_id: 'PostTrendID')%>"><i><%= bootstrap_icon "arrow-up-right-square", width: 18, height: 18%></i>Trending </a>
                                 </li>
                                 <li class="nav-item">
                                     <%if @tab_id == "PostNewID"%>
@@ -46,7 +46,7 @@
                                     <%else%> 
                                         <%active = ""%>
                                     <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostNewID')%>"><i><%= bootstrap_icon "lightning", width: 18, height: 18%></i>Mới nhất </a>
+                                    <a class="nav-link <%=active%>" href="<%=root_path(tab_id: 'PostNewID')%>"><i><%= bootstrap_icon "lightning", width: 18, height: 18%></i>Mới nhất </a>
                                 </li>
                                 <li class="nav-item">
                                     <%if @tab_id == "PostTopID"%>
@@ -54,7 +54,7 @@
                                     <%else%> 
                                         <%active = ""%>
                                     <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostTopID')%>"><i><%= bootstrap_icon "shift", width: 19, height: 19%></i>Top </a>
+                                    <a class="nav-link <%=active%>" href="<%=root_path(tab_id: 'PostTopID')%>"><i><%= bootstrap_icon "shift", width: 19, height: 19%></i>Top </a>
                                 </li>
                                 <%if @tab_id == "PostTopID" || @tab_id == "PostTopWeekID" || @tab_id == "PostTopMonthID" || @tab_id == "PostTopYearID"%>
                                     <li class="nav-item">
@@ -63,7 +63,7 @@
                                         <%else%> 
                                             <%active = ""%>
                                         <%end%>
-                                        <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostTopWeekID')%>">Top tuần</a>
+                                        <a class="nav-link <%=active%>" href="<%=root_path(tab_id: 'PostTopWeekID')%>">Top tuần</a>
                                     </li>
                                     <li class="nav-item">
                                         <%if @tab_id == "PostTopMonthID"%>
@@ -71,7 +71,7 @@
                                         <%else%> 
                                             <%active = ""%>
                                         <%end%>
-                                        <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostTopMonthID')%>">Top tháng</a>
+                                        <a class="nav-link <%=active%>" href="<%=root_path(tab_id: 'PostTopMonthID')%>">Top tháng</a>
                                     </li>
                                     <li class="nav-item">
                                         <%if @tab_id == "PostTopYearID"%>
@@ -79,7 +79,7 @@
                                         <%else%> 
                                             <%active = ""%>
                                         <%end%>
-                                        <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostTopYearID')%>">Top năm</a>
+                                        <a class="nav-link <%=active%>" href="<%=root_path(tab_id: 'PostTopYearID')%>">Top năm</a>
                                     </li>
                                 <%end%>
                                 <li class="nav-item">
@@ -88,81 +88,18 @@
                                     <%else%> 
                                         <%active = ""%>
                                     <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=pages_path(tab_id: 'PostPodID')%>"><i><%= bootstrap_icon "mic", width: 19, height: 19%></i>Podcasts </a>
+                                    <a class="nav-link <%=active%>" href="<%=root_path(tab_id: 'PostPodID')%>"><i><%= bootstrap_icon "mic", width: 19, height: 19%></i>Podcasts </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="home_post_tab_content">
-                        <%if @tab_id == "default" || @tab_id == "PostForYou"%>
-                            <%@post_hots.each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                            <div id="paginate">
-                                <%= paginate @post_hots, window: 1, outer_window: 1%>
+                        <%if @posts.present?%>
+                            <div id="home_infinite_scroll">
+                                <%= render @posts %>
                             </div>
-                        <%end%>
-
-                        <%if @tab_id == "PostTrendID"%>
-                            <%@post_trends.each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                            <div id="paginate">
-                                <%= paginate @post_trends, window: 1, outer_window: 1%>
-                            </div>
-                        <%end%>
-
-                        <%if @tab_id == "PostNewID"%>
-                            <%@post_news.each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                            <div id="paginate">
-                                <%= paginate @post_news, window: 1, outer_window: 1%>
-                            </div>
-                        <%end%>
-
-                        <%if @tab_id == "PostTopID"%>
-                            <%@post_tops.each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                            <div id="paginate">
-                                <%= paginate @post_tops, window: 1, outer_window: 1%>
-                            </div>
-                        <%end%>
-
-                        <%if @tab_id == "PostTopWeekID"%>
-                            <%@post_top_weeks.each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                            <div id="paginate">
-                                <%= paginate @post_top_weeks, window: 1, outer_window: 1%>
-                            </div>
-                        <%end%>
-
-                        <%if @tab_id == "PostTopMonthID"%>
-                            <%@post_top_months.each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                            <div id="paginate">
-                                <%= paginate @post_top_months, window: 1, outer_window: 1%>
-                            </div>
-                        <%end%>
-
-                        <%if @tab_id == "PostTopYearID"%>
-                            <%@post_top_years.each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                            <div id="paginate">
-                                <%= paginate @post_top_years, window: 1, outer_window: 1%>
-                            </div>
-                        <%end%>
-
-                        <%if @tab_id == "PostPodID"%>
-                            <%@post_top_pods.each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                            <div id="paginate">
-                                <%= paginate @post_top_pods, window: 1, outer_window: 1%>
+                            <div id="home_pagination">
+                                <%= link_to_next_page(@posts, 'Xem thêm ->', :remote => true) %>
                             </div>
                         <%end%>
                     </div>

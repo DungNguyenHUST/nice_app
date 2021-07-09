@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
   include PostsHelper
   include Kaminari
-  # GET /pages or /pages.json
-  def index
+  
+  def home
     @posts = Post.all.page(params[:page]).per(10)
     @topics = Topic.all.sort_by{|topic| topic.topic_follows.count}.reverse.first(10)
 
@@ -14,48 +14,57 @@ class PagesController < ApplicationController
     if "default" == @tab_id || "PostForYou" == @tab_id
       @buffers = Post.all.sort_by{|post| cal_post_hot_point(post)}.reverse
       @buffers = Post.where("created_at >= ?", 1.week.ago.utc)
-      @post_hots = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+      @posts = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
     if "PostNewID" == @tab_id
-      @post_news = Post.all.order('created_at DESC').page(params[:page]).per(10)
+      @posts = Post.all.order('created_at DESC').page(params[:page]).per(10)
     end
 
     if "PostTopID" == @tab_id
       @buffers = Post.all.sort_by{|post| cal_post_top_point(post)}.reverse
-      @post_tops = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+      @posts = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
     if "PostTopWeekID" == @tab_id
       @buffers = Post.where("created_at >= ?", 1.week.ago.utc)
       @buffers = @buffers.sort_by{|post| cal_post_top_point(post)}.reverse
-      @post_top_weeks = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+      @posts = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
     if "PostTopMonthID" == @tab_id
       @buffers = Post.where("created_at >= ?", 1.month.ago.utc)
       @buffers = @buffers.sort_by{|post| cal_post_top_point(post)}.reverse
-      @post_top_months = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+      @posts = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
     if "PostTopYearID" == @tab_id
       @buffers = Post.where("created_at >= ?", 1.year.ago.utc)
       @buffers = @buffers.sort_by{|post| cal_post_top_point(post)}.reverse
-      @post_top_years = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+      @posts = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
     if "PostTrendID" == @tab_id
       @buffers = Post.where("created_at >= ?", 3.day.ago.utc)
       @buffers = @buffers.sort_by{|post| cal_post_trend_point(post)}.reverse
-      @post_trends = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+      @posts = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
     if "PostPodID" == @tab_id
       @buffers = Post.where("podcast <> ''")
       @buffers = @buffers.sort_by{|post| cal_post_trend_point(post)}.reverse
-      @post_top_pods = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+      @posts = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
     end
 
+    respond_to do |format|
+      format.html {}
+      format.js
+    end
+  end
+
+  def index
+    @posts = Post.all.page(params[:page]).per(10)
+    @topics = Topic.all.page(params[:page]).per(10)
   end
 
   def search

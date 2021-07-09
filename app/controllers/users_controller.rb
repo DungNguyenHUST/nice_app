@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     def destroy
         @user = User.friendly.find params[:id]
         @user.destroy
-        redirect_to pages_path
+        redirect_to root_path
     end
 
     def update

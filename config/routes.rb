@@ -51,6 +51,6 @@ Rails.application.routes.draw do
 
   resources :pages
   get 'page_search' => 'pages#search'
-  root "pages#index"
+  root "pages#home"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
