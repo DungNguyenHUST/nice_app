@@ -3,16 +3,10 @@ class CategoriesController < ApplicationController
 	before_action :set_category, only: %i[ show edit update destroy ]
 
 	def index
-		@categories = Category.all.page(params[:page]).per(20)
+		@categories = Category.all
 	end
 
 	def show
-		@posts = @category.posts
-
-		@tab_id = "default"
-	    if(params.has_key?(:tab_id))
-	        @tab_id = params[:tab_id]
-	    end
 	end
 
 	def new
@@ -23,7 +17,7 @@ class CategoriesController < ApplicationController
 		@category = Category.new(category_params)
         @category.user_id = current_user.id
 	    if @category.save
-	      	redirect_to root_path
+	      	redirect_to category_path(@category)
 	    end
 	end
 

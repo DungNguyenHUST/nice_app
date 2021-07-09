@@ -1,131 +1,17 @@
-<div class="category_show_container">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-nopadding">
-                <div class='category_show_info'>
-                    <%if @category.cover_image?%>
-                        <div class='category_show_info_cover'>
-                            <%= link_to (image_tag(@category.cover_image.url)), image_path(url_for(@category.cover_image.url)), rel: "gallery" , :href => category_path(@category)%>
-                        </div>
-                    <%else%>
-                        <div class='category_show_info_cover'>
-                            <%= link_to (image_tag("default-cover.jpg")), image_path(url_for("default-cover.jpg")), rel: "gallery" , :href => category_path(category)%>
-                        </div>
-                    <%end%>
-
-                    <%if @category.avatar?%>
-                        <div class='category_show_info_avatar'>
-                            <%= link_to (image_tag(@category.avatar.url)), image_path(url_for(@category.avatar.url)), rel: "gallery" , :href => category_path(@category)%>
-                        </div>
-                    <%else%>
-                        <div class='category_show_info_avatar'>
-                            <%= link_to (image_tag("default-avartar.jpg")), image_path(url_for("default-avartar.jpg")), rel: "gallery" , :href => category_path(category)%>
-                        </div>
-                    <%end%>
-
-                    <div class='category_show_info_data'>
-                        <div class='category_show_info_title'>
-                            <a><%=@category.name%></a>
-                        </div>
-                        <div class='category_show_info_count'>
-                            <a><%= @category.posts.count %> bài viết</a><span> · </span>
-                            <a><%= @category.category_follows.count %> người theo dõi</a>
-                        </div>
-                        <div class='category_show_info_des'>
-                            <a><%=@category.description%></a>
-                        </div>
-                    </div>
-                    <div class="category_show_follow_block" id="category_follow_<%=@category.id%>">
-                        <%if user_signed_in?%>
-                            <% pre_follow = @category.category_follows.find { |follow| follow.user_id == current_user.id} %>
-                        <%end%>
-                        <% if pre_follow %>  
-                            <%= button_to category_category_follow_path(@category, pre_follow), method: :delete, remote: true , form_class: "btn_highlight" do%>
-                                <a>Bỏ theo dõi</a>
-                            <%end%> 
-                        <%else%>
-                            <%= button_to category_category_follows_path(@category), method: :category, remote: true, form_class: "btn_normal" do%>
-                                <a>Theo dõi</a>
-                            <%end%> 
-                        <%end%>
-                    </div>
-                </div>
-            </div>
+<div class='category_show_block'>
+    <div class='container'>
+        <div class='category_show_name'>
+            <a><%= (@category.name)%></a>
+            <span> · <%= @category.topics.count %> chủ đề</span>
         </div>
-        <div class="row">
-            <div class="col-sm-8 col-nopadding">
-                <div class='category_show_middle'>
-                    <div class="category_show_post_sort">
-                        <div class="category_show_post_tab_link">
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <%if @tab_id == "default" || @tab_id == "categoryPostHotID"%>
-                                        <%active = "active"%>
-                                    <%else%> 
-                                        <%active = ""%>
-                                    <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=category_path(tab_id: 'categoryPostHotID')%>"><i><%= bootstrap_icon "bar-chart", width: 18, height: 18%></i>Hot </a>
-                                </li>
-                                <li class="nav-item">
-                                    <%if @tab_id == "categoryPostNewID"%>
-                                        <%active = "active"%>
-                                    <%else%> 
-                                        <%active = ""%>
-                                    <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=category_path(tab_id: 'categoryPostNewID')%>"><i><%= bootstrap_icon "lightning", width: 18, height: 18%></i>Mới nhất </a>
-                                </li>
-                                <li class="nav-item">
-                                    <%if @tab_id == "categoryPostTopID"%>
-                                        <%active = "active"%>
-                                    <%else%> 
-                                        <%active = ""%>
-                                    <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=category_path(tab_id: 'categoryPostTopID')%>"><i><%= bootstrap_icon "shift", width: 19, height: 19%></i>Top </a>
-                                </li>
-                                <li class="nav-item">
-                                    <%if @tab_id == "categoryPostTrendID"%>
-                                        <%active = "active"%>
-                                    <%else%> 
-                                        <%active = ""%>
-                                    <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=category_path(tab_id: 'categoryPostTrendID')%>"><i><%= bootstrap_icon "graph-up", width: 18, height: 18%></i>Trending </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="category_show_post_tab_content">
-                        <%if @tab_id == "default" || @tab_id == "categoryPostHotID"%>
-                            <%@posts.each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                        <%end%>
 
-                        <%if @tab_id == "categoryPostNewID"%>
-                            <%@posts.reverse.each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                        <%end%>
+        <div class='category_show_topic'>
+            <div class='row'>
+                <%@category.topics.each do |topic|%>
+                    <div class='col-sm-3 col-nopadding'>
+                        <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-4 col-nopadding">
-                <div class='category_show_right'>
-                    <div class='category_show_right_title'>
-                        <a>Bài viết khác về <%=link_to (@category.name), category_path(@category)%></a>
-                    </div>
-                    <%@posts.each do |post|%>
-                        <div class='category_show_right_post_block'>
-                            <a><%= link_to (post.title), post_path(post) %></a>
-                        </div>
-                        <div class='category_show_right_category_block'>
-                            <%post.categories.each do |category|%>
-                                <%= button_to category_path(category), method: :get do %>
-                                    <a><%=category.name%></a>
-                                <%end%>
-                            <%end%>
-                        </div>
-                    <%end%>
-                </div>
+                <%end%>
             </div>
         </div>
     </div>

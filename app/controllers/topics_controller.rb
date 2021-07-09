@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
 		@topic = Topic.new(topic_params)
 		@topic.user_id = current_user.id
 	    if @topic.save
-	      	redirect_to root_path
+	      	redirect_to categories_path
 	    end
 	end
 
