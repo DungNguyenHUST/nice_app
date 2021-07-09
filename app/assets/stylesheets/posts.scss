@@ -1050,9 +1050,13 @@
         .post_show_comment_tab_content{
             clear: both;
             .post_show_comment_render{
-                border-top: 1px solid #eee;
-                margin-left: 15px;
-                margin-right: 15px;
+                .post_show_comment_render_block{
+                    border-top: 1px solid #eee;
+                    padding-top: 5px;
+                    padding-bottom: 15px;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
             }
             .post_show_comment_paginate{
                 border: none;

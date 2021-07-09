@@ -33,25 +33,25 @@ class PostCommentsController < ApplicationController
                     UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
                 end
             else
-                if(find_owner_user(@post_comment).present?)
-                    destination_user = find_owner_user(@post_comment)
-                    trigger_user = current_user
+                # if(find_owner_user(@post_comment).present?)
+                #     destination_user = find_owner_user(@post_comment)
+                #     trigger_user = current_user
 
-                    if @post_comment.commentable.title.present?
-                        title = @post_comment.commentable.title
-                    else
-                        title = ''
-                    end
+                #     if @post_comment.commentable.title.present?
+                #         title = @post_comment.commentable.title
+                #     else
+                #         title = ''
+                #     end
 
-                    if @post_comment.content.present?
-                        content = @post_comment.content
-                    else
-                        content = ''
-                    end
-                    original_url = post_path(@post_comment.commentable)
-                    type = "PostReplyComment"
-                    UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
-                end
+                #     if @post_comment.content.present?
+                #         content = @post_comment.content
+                #     else
+                #         content = ''
+                #     end
+                #     original_url = post_path(@post_comment.commentable)
+                #     type = "PostReplyComment"
+                #     UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
+                # end
             end
             
             respond_to do |format|
