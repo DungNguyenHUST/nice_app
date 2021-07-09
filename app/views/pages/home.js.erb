@@ -3,8 +3,8 @@ $("<%=j render @posts %>").appendTo($("#home_infinite_scroll"));
 
 // Update pagination link
 <% if @posts.last_page? %>
-  $('#home_pagination').html("That's all, folks!");
+  $('#home_pagination').html("<a>End</a>");
 <% else %>
   $('#home_pagination')
-    .html("<%=j link_to_next_page(@posts, 'Xem thêm', :remote => true) %>");
+    .html("<%=j link_to_next_page(@posts, 'Xem thêm bài viết khác', :remote => true, :id => "next_page_button") %>");
 <% end %>

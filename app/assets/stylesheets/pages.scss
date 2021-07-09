@@ -129,8 +129,22 @@
         }
         .home_post_tab_content{
             padding-top: 20px;
+            padding-bottom: 20px;
             @media screen and (max-width: 600px){
                 padding-top: 10px;
+            }
+        }
+        .home_pagination_button{
+            border: none;
+            padding: 8px;
+            text-align: center;
+            background-color: #d9dce2;
+            border-radius: 5px;
+            width: 100%;
+            a{
+                font-size: 14px;
+                font-weight: 600;
+                color: #0071e3;
             }
         }
     }
