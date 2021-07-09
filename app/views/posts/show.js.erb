@@ -1,7 +1,7 @@
 // Append new data
 $("<%=j render @post_comments %>").appendTo($("#post_show_comment_index_<%=@post.id%>"));
 <%remain_item = @post_comments.total_count - (@post_comments.current_page * 10)%>
-<%remain_item = "Xem thêm" + " " + remain_item.to_s + " " + "bình luận"%>
+<%remain_item = "Xem thêm" + " " + remain_item.to_s + " " + "bình luận khác"%>
 
 // Update pagination link
 <% if @post_comments.last_page? %>

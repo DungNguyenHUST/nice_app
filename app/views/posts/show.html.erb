@@ -317,7 +317,7 @@
 							<%= render @post_comments%>
 						</div>
 						<%remain_item = @post_comments.total_count - (@post_comments.current_page * 10)%>
-						<%remain_item = "Xem thêm" + " " + remain_item.to_s + " " + "bình luận"%>
+						<%remain_item = "Xem thêm" + " " + remain_item.to_s + " " + "bình luận khác"%>
 						<%if @post_comments.total_count > 10%>
 							<div class="post_show_comment_paginate" id="post_comment_pagination">
 								<%= link_to_next_page(@post_comments, remain_item.to_s, :remote => true) %>
