@@ -98,9 +98,11 @@
                             <div id="home_infinite_scroll">
                                 <%= render @posts %>
                             </div>
-                            <div class="home_pagination_button" id="home_pagination">
-                                <%= link_to_next_page(@posts, 'Xem thêm', :remote => true, :id => "next_page_button") %>
-                            </div>
+                            <%if @posts.total_count > 10%>
+                                <div class="home_pagination_button" id="home_pagination">
+                                    <%= link_to_next_page(@posts, 'Xem thêm', :remote => true) %>
+                                </div>
+                            <%end%>
                         <%end%>
                     </div>
                 </div>

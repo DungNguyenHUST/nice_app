@@ -313,38 +313,16 @@
 					</div>
 				    
 					<div class="post_show_comment_tab_content">
-                        <%if @tab_id == "default" || @tab_id == "PostCommentBest"%>
-							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
-								<%= render @post_comment_bests%>
+						<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
+							<%= render @post_comments%>
+						</div>
+						<%remain_item = @post_comments.total_count - (@post_comments.current_page * 10)%>
+						<%remain_item = "Xem thêm" + " " + remain_item.to_s + " " + "bình luận"%>
+						<%if @post_comments.total_count > 10%>
+							<div class="post_show_comment_paginate" id="post_comment_pagination">
+								<%= link_to_next_page(@post_comments, remain_item.to_s, :remote => true) %>
 							</div>
-							<div class="post_show_comment_paginate" id="paginate">
-                                <%= paginate @post_comment_bests, window: 1, outer_window: 1%>
-                            </div>
-                        <%end%>
-						<%if @tab_id == "PostCommentNew"%>
-							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
-								<%= render @post_comment_news%>
-							</div>
-							<div class="post_show_comment_paginate" id="paginate">
-                                <%= paginate @post_comment_news, window: 1, outer_window: 1%>
-                            </div>
-                        <%end%>
-						<%if @tab_id == "PostCommentTop"%>
-							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
-								<%= render @post_comment_tops%>
-							</div>
-							<div class="post_show_comment_paginate" id="paginate">
-                                <%= paginate @post_comment_tops, window: 1, outer_window: 1%>
-                            </div>
-                        <%end%>
-						<%if @tab_id == "PostCommentOld"%>
-							<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
-								<%= render @post_comment_olds%>
-							</div>
-							<div class="post_show_comment_paginate" id="paginate">
-                                <%= paginate @post_comment_olds, window: 1, outer_window: 1%>
-                            </div>
-                        <%end%>
+						<%end%>
 					</div>
 
 				    <script>

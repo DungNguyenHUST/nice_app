@@ -1055,10 +1055,19 @@
                 margin-right: 15px;
             }
             .post_show_comment_paginate{
-                padding: 20px;
-                padding-bottom: 0px;
-                padding-top: 30px;
-                font-size: 14px;
+                border: none;
+                padding: 8px;
+                text-align: center;
+                background-color: #d9dce2;
+                border-radius: 20px;
+                margin-left: 15px;
+                margin-right: 15px;
+                margin-top: 20px;
+                a{
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #0071e3;
+                }
             }
         }
     }
