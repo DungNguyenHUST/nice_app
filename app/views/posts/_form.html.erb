@@ -149,7 +149,7 @@
                         <%if @select_topic.present?%>
                             <div class="new_post_topic_section">
                                 <div class="new_post_topic_input">
-                                    <%= f.select :topic_ids, @select_topic.collect {|m| [m.name, m.id]}, {:prompt => '-- Chọn chủ đề phù hợp với bài viết --'}, class: "form-control", :multiple => true, :required => true%>
+                                    <%= f.select :topic_ids, @select_topic.collect {|m| [m.name, m.id]}, {:prompt => '-- Chọn một chủ đề phù hợp với bài viết --'}, class: "form-control", :required => true%>
                                 </div>
                             </div>
                         <%end%>
