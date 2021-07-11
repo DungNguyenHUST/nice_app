@@ -4,9 +4,13 @@
             <a><%= link_to (category.name), category_path(category) %></a>
             <span> · <%= category.topics.count %> chủ đề</span>
         </div>
+        
+        <button class="category_index_show_hide_btn" onclick="myFunctionShowHideCategory('category_index_show_hide_' + <%=category.id.to_s%>)">
+            <i><%= bootstrap_icon "chevron-contract", width: 15, height: 15%></i>
+        </button>
     </div>
 
-    <div class='category_index_topic'>
+    <div class='category_index_topic' id="category_index_show_hide_<%=category.id%>">
         <div class='row'>
             <%category.topics.each do |topic|%>
                 <div class='col-sm-3 col-nopadding'>
@@ -15,4 +19,18 @@
             <%end%>
         </div>
     </div>
+    
+    <script>
+        function myFunctionShowHideCategory(id) {
+            var x = document.getElementById(id);
+            if (x.style.display == "none") 
+            {
+                x.style.display = "block";
+            } 
+            else 
+            {
+                x.style.display = "none";
+            }
+        }
+    </script>
 </div>

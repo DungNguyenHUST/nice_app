@@ -133,6 +133,7 @@
         text-align: left ;
         margin-bottom: 10px;
         .category_index_name{
+            float: left;
             a{
                 font-size: 18px;
                 font-weight: 600;
@@ -144,6 +145,21 @@
                 color: #536471;
             }
         }
+        .category_index_show_hide_btn{
+            float: right;
+            border: none;
+            background-color: #f0f2f5;
+            color: #333;
+            position: relative;
+            top: -2px;
+            &:hover{
+                color: #0071e3;
+            }
+        }
+    }
+
+    .category_index_topic{
+        clear: both;
     }
 
     .category_index_description{
