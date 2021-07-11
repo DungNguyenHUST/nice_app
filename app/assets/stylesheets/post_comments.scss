@@ -14,47 +14,61 @@
     padding-left: 15px;
     padding-right: 15px;
     .post_comment_left_block{
-        float: left;
-        .post_comment_user_avatar{
-            border: none;
-            margin-right: 5px;
-            img{
-                border: 1px solid #eee;
-                width: 36px;
-                height: 36px;
-                border-radius: 50%;
-                object-fit: cover;
+        .post_comment_left_info{
+            .post_comment_user_avatar{
+                border: none;
+                display: inline;
+                img{
+                    border: 1px solid #eee;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    position: relative;
+                    top: -4px;
+                    left: -2px;
+                }
+            }
+            .post_comment_user_info{
+                display: inline;
                 position: relative;
-                top: -6px;
-                left: -2px;
+                top: -2px;
+                a{
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #536471;
+                }
+                span{
+                    font-size: 12px;
+                    color: #536471;
+                }
+            }
+        }
+        .post_comment_show_hide_btn{
+            float: right;
+            border: none;
+            background-color: #fff;
+            color: #555;
+            position: relative;
+            top: -2px;
+            &:hover{
+                color: #0071e3;
             }
         }
     }
     .post_comment_right_block{
+        clear: both;
         margin-left: 15px;
         display: block;
-        .post_comment_info{
-            a{
-                font-size: 13px;
-                font-weight: 600;
-                color: #536471;
-            }
-            span{
-                font-size: 12px;
-                color: #536471;
-            }
-        }
-
         .post_comment_right{
-            margin-top: 10px;
-            padding-left: 10px;
+            padding-left: 12px;
             border-left: 2px solid #eeeeee;
             .post_comment_cotent{
                 padding-left: 8px;
                 font-size: 14px;
                 position: relative;
                 top: -3px;
-                word-break: break-all;
+                word-break: break-word;
             }
             
             .post_comment_right_toolbar{
@@ -278,7 +292,7 @@
                 font-size: 14px;
                 position: relative;
                 top: -2px;
-                word-break: break-all;
+                word-break: break-word;
             }
             
             .post_reply_comment_right_toolbar{
