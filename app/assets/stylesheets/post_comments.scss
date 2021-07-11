@@ -1,12 +1,18 @@
 // Place all the styles related to the PostComments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+// Place all the styles related to the PostComments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+/////////////////main comment//////////////////////////
 .post_comment_block{
     clear: right;
     clear: left;
-    margin-top: 10px;
-    background-color: #fff;
-    border-radius: 5px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
     .post_comment_left_block{
         float: left;
         .post_comment_user_avatar{
@@ -14,15 +20,18 @@
             margin-right: 5px;
             img{
                 border: 1px solid #eee;
-                width: 26px;
-                height: 26px;
+                width: 36px;
+                height: 36px;
                 border-radius: 50%;
                 object-fit: cover;
+                position: relative;
+                top: -6px;
+                left: -2px;
             }
         }
     }
     .post_comment_right_block{
-        margin-left: 12px;
+        margin-left: 15px;
         display: block;
         .post_comment_info{
             a{
@@ -43,6 +52,9 @@
             .post_comment_cotent{
                 padding-left: 8px;
                 font-size: 14px;
+                position: relative;
+                top: -3px;
+                word-break: break-all;
             }
             
             .post_comment_right_toolbar{
@@ -211,6 +223,230 @@
             }
 
             .post_comment_reply_container{
+                .post_reply_comment_render{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+/////////////////reply comment////////////////////////////////
+.post_reply_comment_block{
+    clear: right;
+    clear: left;
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    .post_reply_comment_left_block{
+        float: left;
+        .post_reply_comment_user_avatar{
+            border: none;
+            margin-right: 5px;
+            img{
+                border: 1px solid #eee;
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+    }
+    .post_reply_comment_right_block{
+        margin-left: 12px;
+        display: block;
+        .post_reply_comment_info{
+            position: relative;
+            top: 3px;
+            a{
+                font-size: 13px;
+                font-weight: 600;
+                color: #536471;
+            }
+            span{
+                font-size: 12px;
+                color: #536471;
+            }
+        }
+
+        .post_reply_comment_right{
+            margin-top: 10px;
+            padding-left: 10px;
+            border-left: 2px solid #eeeeee;
+            .post_reply_comment_cotent{
+                padding-left: 8px;
+                font-size: 14px;
+                position: relative;
+                top: -2px;
+                word-break: break-all;
+            }
+            
+            .post_reply_comment_right_toolbar{
+                padding-bottom: 10px;
+                .post_comment_vote_unvote_block{
+                    position: relative;
+                    top: 6px;
+                    margin-left: 5px;
+                    background-color: #f0f2f5;
+                    border-radius: 20px;
+                    padding-bottom: 3px;
+                    // padding-top: 1px;
+                    padding-left: 3px;
+                    padding-right: 3px;
+                    float: left;
+                    .post_comment_vote_block{
+                        display:inline-block;
+                        button{
+                            border: none;
+                            &:focus {outline:none;}
+                            background-color: #f0f2f5;
+                            border-radius: 20px;
+                        }
+                        .btn_highlight
+                        {
+                            button{
+                                color: #0071e3;
+                            }
+                        }
+
+                        .btn_normal{
+                            button{
+                                color: #333;
+                            }
+                        }
+                    }
+                    .post_comment_vote_unvote_count{
+                        display:inline-block;
+                        font-size: 14px;
+                        text-decoration: none;
+                        color: #536471;
+                        position: relative;
+                        top: 2px;
+                        font-weight: 600;
+                    }
+                    .post_comment_unvote_block{
+                        display:inline-block;
+                        transform: rotate(180deg);
+                        position: relative;
+                        top: 3px;
+                        button{
+                            border: none;
+                            &:focus {outline:none;}
+                            background-color: #f0f2f5;
+                            border-radius: 20px;
+                        }
+                        .btn_highlight
+                        {
+                            button{
+                                color: #0071e3;
+                            }
+                        }
+
+                        .btn_normal{
+                            button{
+                                color: #333;
+                            }
+                        }
+                    }
+                }
+                .post_reply_comment_reply_block{
+                    position: relative;
+                    top: 4px;
+                    padding-left: 10px;
+                    display:inline-block;
+                    .post_reply_comment_reply_btn
+                    {
+                        border: none;
+                        background-color: #fff;
+                        color: #444;
+                        font-size: 13px;
+                        &:focus {outline:none;}
+        
+                        button{
+                            border: none;
+                            background-color: #fff;
+                            color: #444;
+                            font-size: 13px;
+                            &:focus {outline:none;}
+                        } 
+                        a{
+                            font-size: 13px;
+                            color: #444;
+                            position: relative;
+                            top: 1px;
+                            @media screen and (max-width: 600px){
+                                display: none;
+                            }
+                        }
+        
+                        i{
+                            font-size: 18px;
+                            position: relative;
+                            color: #444;
+                        }
+                        span{
+                            font-size: 14px;
+                            color: #536471;
+                            position: relative;
+                            top: 1px;
+                        }
+                    }
+                }
+                .post_reply_comment_action_block{
+                    // margin-left: 2px;
+                    position: relative;
+                    top: 4px;
+                    display:inline-block;
+                    .post_reply_comment_option_btn{
+                        border: none;
+                        background-color: #fff;
+                        color: #536471;
+                    } 
+                    .dropdown-item{
+                       font-size: 14px;
+                    }
+                }
+            }
+
+            .post_reply_comment_new{
+                display: none;
+                padding-left: 8px;
+                .post_reply_comment_section{
+                    margin-bottom: 15px;
+                    margin-top: 5px;
+                    display: block;
+                    .post_reply_comment_input{
+                        width: 100%;
+                        margin-top: 10px;
+                        .form-control{
+                            border-radius: 5px;
+                            min-height: 100px;
+                            padding-left: 15px;
+                            padding-right: 15px;
+                            font-size: 14px;
+                            &:focus{
+                                border: 2px solid #0071e3;
+                                border-radius: 5px;
+                            }
+                        }
+                    }
+                    .post_reply_comment_submit{
+                        .post_reply_comment_form_submit{
+                            margin-top: 5px;
+                            width: 100px;
+                            border: none;
+                            border-radius: 20px;
+                            background-color: #0071e3;
+                            height: 30px;
+                            color: #fff;
+                            font-size:14px;
+                            &:focus {outline:none;}
+                        }
+                    }
+                }
+            }
+
+            .post_reply_comment_reply_container{
                 .post_reply_comment_render{
                     font-size: 14px;
                 }

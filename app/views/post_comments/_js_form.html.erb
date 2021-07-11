@@ -1,9 +1,9 @@
 <%if @is_post_comment%>
     <div id="post_show_comment_index_<%=@post.id%>">
-        <%= render @post.post_comments %>
+        <%=render @post.post_comments%>
     </div>
 <%else%>
     <div id="post_reply_comment_index_<%=@post_comment.id%>">
-        <%= render @post_comment.post_comments%>
+        <%=render @post_comment.post_comments%>
     </div>
 <%end%>

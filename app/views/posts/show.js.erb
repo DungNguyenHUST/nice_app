@@ -1,5 +1,8 @@
 // Append new data
-$("<%=j render @post_comments %>").appendTo($("#post_show_comment_index_<%=@post.id%>"));
+<%@post_comments.each do |post_comment|%>
+  $("<%=j render post_comment %>").appendTo($("#post_show_comment_index_<%=@post.id%>"));
+<%end%>
+
 <%remain_item = @post_comments.total_count - (@post_comments.current_page * 10)%>
 <%remain_item = "Xem thêm" + " " + remain_item.to_s + " " + "bình luận khác"%>
 
