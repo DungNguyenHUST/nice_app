@@ -95,11 +95,11 @@
                     </div>
                     <div class="home_post_tab_content">
                         <%if @posts.present?%>
-                            <div id="home_infinite_scroll">
+                            <div id="home_post_infinite_scroll">
                                 <%= render @posts %>
                             </div>
                             <%if @posts.total_count > 10%>
-                                <div class="home_pagination_button" id="home_pagination">
+                                <div class="home_post_pagination_button" id="home_post_pagination">
                                     <%= link_to_next_page(@posts, 'Xem thêm', :remote => true) %>
                                 </div>
                             <%end%>

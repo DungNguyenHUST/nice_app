@@ -83,50 +83,84 @@
                         <div class="topic_show_post_tab_link">
                             <ul class="nav">
                                 <li class="nav-item">
-                                    <%if @tab_id == "default" || @tab_id == "topicPostHotID"%>
+                                    <%if @tab_id == "default" || @tab_id == "TopicPostForYou"%>
                                         <%active = "active"%>
                                     <%else%> 
                                         <%active = ""%>
                                     <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=topic_path(tab_id: 'topicPostHotID')%>"><i><%= bootstrap_icon "bar-chart", width: 18, height: 18%></i>Hot </a>
+                                    <a class="nav-link <%=active%>" href="<%=topic_path(@topic, tab_id: 'TopicPostForYou')%>"><i><%= bootstrap_icon "megaphone", width: 18, height: 18%></i>For U </a>
                                 </li>
                                 <li class="nav-item">
-                                    <%if @tab_id == "topicPostNewID"%>
+                                    <%if @tab_id == "TopicPostTrendID"%>
                                         <%active = "active"%>
                                     <%else%> 
                                         <%active = ""%>
                                     <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=topic_path(tab_id: 'topicPostNewID')%>"><i><%= bootstrap_icon "lightning", width: 18, height: 18%></i>Mới nhất </a>
+                                    <a class="nav-link <%=active%>" href="<%=topic_path(@topic, tab_id: 'TopicPostTrendID')%>"><i><%= bootstrap_icon "arrow-up-right-square", width: 18, height: 18%></i>Trending </a>
                                 </li>
                                 <li class="nav-item">
-                                    <%if @tab_id == "topicPostTopID"%>
+                                    <%if @tab_id == "TopicPostNewID"%>
                                         <%active = "active"%>
                                     <%else%> 
                                         <%active = ""%>
                                     <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=topic_path(tab_id: 'topicPostTopID')%>"><i><%= bootstrap_icon "shift", width: 19, height: 19%></i>Top </a>
+                                    <a class="nav-link <%=active%>" href="<%=topic_path(@topic, tab_id: 'TopicPostNewID')%>"><i><%= bootstrap_icon "lightning", width: 18, height: 18%></i>Mới nhất </a>
                                 </li>
                                 <li class="nav-item">
-                                    <%if @tab_id == "topicPostTrendID"%>
+                                    <%if @tab_id == "TopicPostTopID"%>
                                         <%active = "active"%>
                                     <%else%> 
                                         <%active = ""%>
                                     <%end%>
-                                    <a class="nav-link <%=active%>" href="<%=topic_path(tab_id: 'topicPostTrendID')%>"><i><%= bootstrap_icon "graph-up", width: 18, height: 18%></i>Trending </a>
+                                    <a class="nav-link <%=active%>" href="<%=topic_path(@topic, tab_id: 'TopicPostTopID')%>"><i><%= bootstrap_icon "shift", width: 19, height: 19%></i>Top </a>
+                                </li>
+                                <%if @tab_id == "TopicPostTopID" || @tab_id == "TopicPostTopWeekID" || @tab_id == "TopicPostTopMonthID" || @tab_id == "TopicPostTopYearID"%>
+                                    <li class="nav-item">
+                                        <%if @tab_id == "TopicPostTopWeekID"%>
+                                            <%active = "active"%>
+                                        <%else%> 
+                                            <%active = ""%>
+                                        <%end%>
+                                        <a class="nav-link <%=active%>" href="<%=topic_path(@topic, tab_id: 'TopicPostTopWeekID')%>">Top tuần</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <%if @tab_id == "TopicPostTopMonthID"%>
+                                            <%active = "active"%>
+                                        <%else%> 
+                                            <%active = ""%>
+                                        <%end%>
+                                        <a class="nav-link <%=active%>" href="<%=topic_path(@topic, tab_id: 'TopicPostTopMonthID')%>">Top tháng</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <%if @tab_id == "TopicPostTopYearID"%>
+                                            <%active = "active"%>
+                                        <%else%> 
+                                            <%active = ""%>
+                                        <%end%>
+                                        <a class="nav-link <%=active%>" href="<%=topic_path(@topic, tab_id: 'TopicPostTopYearID')%>">Top năm</a>
+                                    </li>
+                                <%end%>
+                                <li class="nav-item">
+                                    <%if @tab_id == "TopicPostPodID"%>
+                                        <%active = "active"%>
+                                    <%else%> 
+                                        <%active = ""%>
+                                    <%end%>
+                                    <a class="nav-link <%=active%>" href="<%=topic_path(@topic, tab_id: 'TopicPostPodID')%>"><i><%= bootstrap_icon "mic", width: 19, height: 19%></i>Podcasts </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
+                    
                     <div class="topic_show_post_tab_content">
-                        <%if @tab_id == "default" || @tab_id == "topicPostHotID"%>
-                            <%@posts.each do |post|%>
-                                <%= render post%>
-                            <%end%>
-                        <%end%>
-
-                        <%if @tab_id == "topicPostNewID"%>
-                            <%@posts.reverse.each do |post|%>
-                                <%= render post%>
+                        <%if @posts.present?%>
+                            <div id="topic_show_infinite_scroll">
+                                <%= render @posts %>
+                            </div>
+                            <%if @posts.total_count > 10%>
+                                <div class="topic_show_pagination_button" id="topic_show_pagination">
+                                    <%= link_to_next_page(@posts, 'Xem thêm', :remote => true) %>
+                                </div>
                             <%end%>
                         <%end%>
                     </div>

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+include UsersHelper
     before_action :require_login, only: [:index, :edit, :update, :destroy]
     
     def index
@@ -20,6 +21,56 @@ class UsersController < ApplicationController
             @tab_id = params[:tab_id]
         else
             @tab_id = "default"
+        end
+        
+        if "default" == @tab_id || "UserPostID" == @tab_id
+            @buffers = find_owner_post_for_user(@user)
+            @user_posts = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+        end
+    
+        if "UserTopicID" == @tab_id
+            @buffers = find_owner_topic_for_user(@user)
+            @user_topics = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+        end
+    
+        if "UserTopicFollowID" == @tab_id
+            @buffers = find_owner_topic_follow_for_user(@user)
+            @user_topic_follows = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+        end
+    
+        if "UserCommentID" == @tab_id
+            @buffers = find_owner_post_comment_for_user(@user)
+            @user_comments = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+        end
+    
+        if "UserVoteID" == @tab_id
+            @buffers = find_owner_post_vote_for_user(@user)
+            @user_votes = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+        end
+    
+        if "UserUnvoteID" == @tab_id
+            @buffers = find_owner_post_unvote_for_user(@user)
+            @user_unvotes = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+        end
+    
+        if "UserSaveID" == @tab_id
+            @buffers = find_owner_post_save_for_user(@user)
+            @user_saves = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+        end
+    
+        if "UserNotificationID" == @tab_id
+            @buffers = @user.user_notifications
+            @user_notifications = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+        end
+
+        if "UserFollowingID" == @tab_id
+            @buffers = @user.followers
+            @user_followers = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+        end
+
+        if "UserFollowedID" == @tab_id
+            @buffers = @user.followees
+            @user_followees = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
         end
     end
 

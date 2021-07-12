@@ -167,90 +167,100 @@
                     <div class="user_profile_tab_content">
                         <%if @tab_id == "default" || @tab_id == "UserPostID"%>
                             <div class="user_profile_post_tab">
-                                <%find_owner_post_for_user(@user).each do |post|%>
+                                <%@user_posts.each do |post|%>
                                     <%= render post%>
                                 <%end%>
+								<%= paginate @user_posts, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 
                         <%if @tab_id == "UserTopicID"%>
                             <div class="user_profile_topic_tab">
-                                <%find_owner_topic_for_user(@user).each do |topic|%>
+                                <%@user_topics.each do |topic|%>
                                     <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
                                 <%end%>
+								<%= paginate @user_topics, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 
                         <%if @tab_id == "UserTopicFollowID"%>
                             <div class="user_profile_topic_tab">
-                                <%find_owner_topic_follow_for_user(@user).each do |topic|%>
+                                <%@user_topic_follows.each do |topic|%>
                                     <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
                                 <%end%>
+                                <%= paginate @user_topic_follows, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 
                         <%if @tab_id == "UserCommentID"%>
                             <div class="user_profile_comment_tab">
-                                <%find_owner_post_comment_for_user(@user).each do |post|%>
+                                <%@user_comments.each do |post|%>
                                     <%@post = post%>
                                     <%= render @post%>
                                 <%end%>
+                                <%= paginate @user_comments, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 
                         <%if @tab_id == "UserVoteID"%>
                             <div class="user_profile_vote_tab">
-                                <%find_owner_post_vote_for_user(@user).each do |post|%>
+                                <%@user_votes.each do |post|%>
                                     <%= render post%>
                                 <%end%>
+                                <%= paginate @user_votes, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 
                         <%if @tab_id == "UserUnvoteID"%>
                             <div class="user_profile_unvote_tab">
-                                <%find_owner_post_unvote_for_user(@user).each do |post|%>
+                                <%@user_unvotes.each do |post|%>
                                     <%= render post%>
                                 <%end%>
+                                <%= paginate @user_unvotes, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 
                         <%if @tab_id == "UserSaveID"%>
                             <div class="user_profile_save_tab">
-                                <%find_owner_post_save_for_user(@user).each do |post|%>
+                                <%@user_saves.each do |post|%>
                                     <%= render post%>
                                 <%end%>
+                                <%= paginate @user_saves, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 
                         <%if @tab_id == "UserNotificationID"%>
                             <div class="user_notification_tab">
-                                <%@user.user_notifications.each do |user_notification|%>
+                                <%@user_notifications.each do |user_notification|%>
                                     <%= render :partial => 'user_notifications/user_notification', :locals => {:mini_tyle => false}, :object => user_notification %>
                                 <%end%>
+                                <%= paginate @user_notifications, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 
                         <%if @tab_id == "UserFollowingID"%>
                             <div class="user_following_tab">
                                 <div class="row">
-                                    <%@user.followers.each do |user|%>
+                                    <%@user_followers.each do |user|%>
                                         <div class="col-sm-4 col-nopadding">
                                             <%= render user%>
                                         </div>
                                     <%end%>
                                 </div>
+                                <%= paginate @user_followers, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 
                         <%if @tab_id == "UserFollowedID"%>
                             <div class="user_followed_tab">
                                 <div class="row">
-                                    <%@user.followees.each do |user|%>
+                                    <%@user_followees.each do |user|%>
                                         <div class="col-sm-4 col-nopadding">
                                             <%= render user%>
                                         </div>
                                     <%end%>
                                 </div>
+                                <%= paginate @user_followees, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
                     </div>
@@ -390,18 +400,20 @@
                     <div class="user_profile_tab_content">
                         <%if @tab_id == "default" || @tab_id == "UserPostID"%>
                             <div class="user_profile_post_tab">
-                                <%find_owner_post_for_user(@user).each do |post|%>
+                                <%@user_posts.each do |post|%>
                                     <%= render post%>
                                 <%end%>
+                                <%= paginate @user_posts, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 
                         <%if @tab_id == "UserCommentID"%>
                             <div class="user_profile_comment_tab">
-                                <%find_owner_post_comment_for_user(@user).each do |post|%>
+                                <%@user_comments.each do |post|%>
                                     <%@post = post%>
                                     <%= render @post%>
                                 <%end%>
+                                <%= paginate @user_comments, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
                     </div>

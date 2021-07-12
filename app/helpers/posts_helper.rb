@@ -20,12 +20,13 @@ module PostsHelper
     end
 
     def cal_post_trend_point(post)
+        comment_count = post.post_comments.count
         if post.view_count.present?
             view_count = post.view_count
         else
             view_count = 0
         end
-        point = view_count
+        point = view_count + comment_count
         return point
     end
 end

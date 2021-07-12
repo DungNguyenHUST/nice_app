@@ -111,40 +111,20 @@
         @media screen and (max-width: 600px){
             margin-top: 10px;
         }
-        .topic_show_topic_new{
-            border: 1px dashed #dddddd;
-            background-color: #fff;
-            padding: 15px;
-            .topic_show_new_topic{
-                button{
-                    width: 100%;
-                    height: 44px;
-                    border-radius: 22px;
-                    padding: 6px;
-                    background: #fff;
-                    font-size: 16px;
-                    border: none;
-                    cursor: pointer;
-                    text-align: center;
-                    color: #0071e3;
-                    i{
-                        color: #0071e3;
-                    }
-                }
-            }
-
-        }
+        
         .topic_show_post_sort{
             border: 1px solid #dddddd;
             @media screen and (max-width: 600px){
                 border: none;
                 border-radius: 0px;
+                margin-top: 10px;
             }
             background-color: #fff;
             padding: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
             border-radius: 5px;
             margin-top: 20px;
-            margin-bottom: 20px;
             .topic_show_post_tab_link{
                 overflow: hidden;
                 position: relative;
@@ -157,7 +137,7 @@
                 .nav .nav-link {
                     white-space: nowrap;
                     font-size: 16px;
-                    color: #0f1419;
+                    color: #444;
                     text-align: left;
                     i{
                         position: relative;
@@ -167,19 +147,36 @@
                 }
                 .nav .nav-link, .nav .nav-link.active, .nav .nav-link:hover {
                     border: none;
-                    color: #0f1419;
+                    color: #444;
                     font-size: 16px;
                 }
                 .nav .nav-link.active {
-                    border-radius: 0;
-                    border-bottom: 3px solid #0071e3;
+                    background-color: #eee;
+                    border-radius: 20px;
                     font-weight: 600;
                     color: #0071e3;
                 }
             }
         }
-        .topic_show_topic_tab_content{
+        .topic_show_post_tab_content{
             padding-top: 20px;
+            padding-bottom: 20px;
+            @media screen and (max-width: 600px){
+                padding-top: 10px;
+            }
+        }
+        .topic_show_pagination_button{
+            padding: 4px;
+            text-align: center;
+            background-color: #fff;
+            border: 2px solid #dddddd;
+            border-radius: 20px;
+            margin-top: 20px;
+            a{
+                font-size: 13px;
+                font-weight: 600;
+                color: #0071e3;
+            }
         }
     }
     .topic_show_right{

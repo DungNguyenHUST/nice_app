@@ -34,7 +34,7 @@ module UsersHelper
     def find_owner_post_comment_for_user(user)
         @owner_posts = []
         if user.id.present?
-            @owner_post_comments = PostComment.where(user_id: user.id)
+            @owner_post_comments = PostComment.where(user_id: user.id, commentable_type: "Post")
             @owner_post_comments.each do |post_comment|
                 @owner_posts.push(post_comment.commentable)
             end

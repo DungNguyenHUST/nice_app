@@ -1,9 +1,9 @@
 // Append new data
-$("<%=j render @posts %>").appendTo($("#home_infinite_scroll"));
+$("<%=j render @posts %>").appendTo($("#home_post_infinite_scroll"));
 
 // Update pagination link
 <% if @posts.last_page? %>
-  $('#home_pagination').remove();
+  $('#home_post_pagination').remove();
 <% else %>
-  $('#home_pagination').html("<%=j link_to_next_page(@posts, 'Xem thêm', :remote => true) %>");
+  $('#home_post_pagination').html("<%=j link_to_next_page(@posts, 'Xem thêm', :remote => true) %>");
 <% end %>

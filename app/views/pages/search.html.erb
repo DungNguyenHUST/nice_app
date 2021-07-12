@@ -19,7 +19,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>
-                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'PostSearchID')%>">Bài viết <span><%= convert_number_to_human(@posts_search.count)%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'PostSearchID')%>">Bài viết <span><%= convert_number_to_human(@posts_search.total_count)%><span></a>
                             </li>
                         <%end%>
                         <%if @users_search.present?%>
@@ -29,7 +29,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>
-                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'UserSearchID')%>">Người dùng <span><%= convert_number_to_human(@users_search.count)%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'UserSearchID')%>">Người dùng <span><%= convert_number_to_human(@users_search.total_count)%><span></a>
                             </li>
                         <%end%>
                         <%if @topics_search.present?%>
@@ -39,7 +39,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>
-                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'TagSearchID')%>">Tag <span><%= convert_number_to_human(@topics_search.count)%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=page_search_path(tab_id: 'TagSearchID')%>">Tag <span><%= convert_number_to_human(@topics_search.total_count)%><span></a>
                             </li>
                         <%end%>
                     </ul>
@@ -52,6 +52,7 @@
                                 <%= render post%>
                             <%end%>
                         <%end%>
+                        <%= paginate @posts_search, window: 1, outer_window: 1 %>
                     <%end%>
 
                     <%if @tab_id == "PeopleSearchID"%>
@@ -60,6 +61,7 @@
                                 <%= render user%>
                             <%end%>
                         <%end%>
+                        <%= paginate @users_search, window: 1, outer_window: 1 %>
                     <%end%>
 
                     <%if @tab_id == "PostSearchID"%>
@@ -68,6 +70,7 @@
                                 <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
                             <%end%>
                         <%end%>
+                        <%= paginate @topics_search, window: 1, outer_window: 1 %>
                     <%end%>
                 </div>
             </div>

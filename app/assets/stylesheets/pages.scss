@@ -87,6 +87,7 @@
             @media screen and (max-width: 600px){
                 border: none;
                 border-radius: 0px;
+                margin-top: 10px;
             }
             background-color: #fff;
             padding: 15px;
@@ -94,9 +95,6 @@
             padding-bottom: 10px;
             border-radius: 5px;
             margin-top: 20px;
-            @media screen and (max-width: 600px){
-                margin-top: 10px;
-            }
             .home_post_tab_link{
                 overflow: hidden;
                 position: relative;
@@ -137,7 +135,7 @@
                 padding-top: 10px;
             }
         }
-        .home_pagination_button{
+        .home_post_pagination_button{
             padding: 4px;
             text-align: center;
             background-color: #fff;
