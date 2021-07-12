@@ -8,8 +8,7 @@
 
 // Update pagination link
 <% if @post_comments.last_page? %>
-  $('#post_comment_pagination').html("<a>End</a>");
+  $('#post_comment_pagination').remove();
 <% else %>
-  $('#post_comment_pagination')
-    .html("<%=j link_to_next_page(@post_comments, remain_item, :remote => true) %>");
+  $('#post_comment_pagination').html("<%=j link_to_next_page(@post_comments, remain_item, :remote => true) %>");
 <% end %>
