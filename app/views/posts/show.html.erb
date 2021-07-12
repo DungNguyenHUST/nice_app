@@ -412,18 +412,20 @@
 					</div>
 					
 					<%if user_signed_in?%>
-						<div class="post_show_right_user_follow" id="user_follow_<%=current_user.id%>">
-							<% pre_follow = @owner_post_user.followed_users.find { |follow| follow.followee_id == current_user.id} %>
-							<% if pre_follow %>  
-								<%= button_to user_user_follow_path(@owner_post_user, pre_follow), method: :delete, remote: true, form_class: "btn_highlight" do%>
-									<a>Đang theo dõi</a>
-								<%end%> 
-							<%else%>
-								<%= button_to user_user_follows_path(@owner_post_user), method: :post, remote: true, form_class: "btn_normal" do%>
-									<a>Theo dõi</a>
+						<%if current_user.id != @owner_post_user.id%>
+							<div class="post_show_right_user_follow" id="user_follow_<%=current_user.id%>">
+								<% pre_follow = @owner_post_user.followed_users.find { |follow| follow.followee_id == current_user.id} %>
+								<% if pre_follow %>  
+									<%= button_to user_user_follow_path(@owner_post_user, pre_follow), method: :delete, remote: true, form_class: "btn_highlight" do%>
+										<a>Đang theo dõi</a>
+									<%end%> 
+								<%else%>
+									<%= button_to user_user_follows_path(@owner_post_user), method: :post, remote: true, form_class: "btn_normal" do%>
+										<a>Theo dõi</a>
+									<%end%>
 								<%end%>
-							<%end%>
-						</div>
+							</div>
+						<%end%>
 					<%else%>
 						<div class="post_show_right_user_follow">
 							<%= button_to new_user_session_path, :method => :post do%>
