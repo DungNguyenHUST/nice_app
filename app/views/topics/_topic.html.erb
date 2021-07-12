@@ -24,7 +24,7 @@
                 <%end%>
                 <% if pre_follow %>  
                     <%= button_to topic_topic_follow_path(topic, pre_follow, type_param: 'index'), method: :delete, remote: true , form_class: "btn_highlight" do%>
-                        <a>Bỏ theo dõi</a>
+                        <a>Đang theo dõi</a>
                     <%end%> 
                 <%else%>
                     <%= button_to topic_topic_follows_path(topic, type_param: 'index'), method: :topic, remote: true, form_class: "btn_normal" do%>
@@ -89,7 +89,7 @@
             <%end%>
             <% if pre_follow %>  
                 <%= button_to topic_topic_follow_path(topic, pre_follow, type_param: 'index'), method: :delete, remote: true , form_class: "btn_highlight" do%>
-                    <a>Bỏ theo dõi</a>
+                    <a>Đang theo dõi</a>
                 <%end%> 
             <%else%>
                 <%= button_to topic_topic_follows_path(topic, type_param: 'index'), method: :topic, remote: true, form_class: "btn_normal" do%>

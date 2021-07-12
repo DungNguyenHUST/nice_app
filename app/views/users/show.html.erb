@@ -362,7 +362,7 @@
                             <%end%>
                             <% if pre_follow %>  
                                 <%= button_to user_user_follow_path(@user, pre_follow), method: :delete, remote: true, form_class: "btn_highlight" do%>
-                                    <a>Bỏ theo dõi</a>
+                                    <a>Đang theo dõi</a>
                                 <%end%> 
                             <%else%>
                                 <%= button_to user_user_follows_path(@user), method: :post, remote: true, form_class: "btn_normal" do%>
