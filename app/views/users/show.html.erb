@@ -356,20 +356,26 @@
                             </div>
                         </div>
 
-                        <div class="user_show_info_follow" id="user_follow_<%=current_user.id%>">
-                            <%if user_signed_in?%>
-                                <% pre_follow = @user.following_users.find { |follow| follow.followee_id == @user.id} %>
-                            <%end%>
-                            <% if pre_follow %>  
-                                <%= button_to user_user_follow_path(@user, pre_follow), method: :delete, remote: true, form_class: "btn_highlight" do%>
-                                    <a>Đang theo dõi</a>
-                                <%end%> 
-                            <%else%>
-                                <%= button_to user_user_follows_path(@user), method: :post, remote: true, form_class: "btn_normal" do%>
+                        <%if user_signed_in?%>
+                            <div class="user_show_info_follow" id="user_follow_<%=current_user.id%>">
+                                <% pre_follow = @user.followed_users.find { |follow| follow.followee_id == current_user.id} %>
+                                <% if pre_follow %>  
+                                    <%= button_to user_user_follow_path(@user, pre_follow), method: :delete, remote: true, form_class: "btn_highlight" do%>
+                                        <a>Đang theo dõi</a>
+                                    <%end%> 
+                                <%else%>
+                                    <%= button_to user_user_follows_path(@user), method: :post, remote: true, form_class: "btn_normal" do%>
+                                        <a>Theo dõi</a>
+                                    <%end%>
+                                <%end%>
+                            </div>
+                        <%else%>
+                            <div class="user_show_info_follow">
+                                <%= button_to new_user_session_path, :method => :post do%>
                                     <a>Theo dõi</a>
                                 <%end%>
-                            <%end%>
-                        </div>
+                            </div>
+                        <%end%>
                     </div>
                 </div>
             </div>

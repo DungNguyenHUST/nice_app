@@ -11,13 +11,14 @@ class UserFollowsController < ApplicationController
     end
 
     def create
-        @user = User.friendly.find(params[:user_id])
-        @owner_user = current_user
+        @user_followed = User.friendly.find(params[:user_id])
         @user_follow = UserFollow.new
+
         if !already_followed?
-            @user_follow = UserFollow.create(follower_id: current_user.id, followee_id: @user.id)
+            @user_follow = @user_followed.followed_users.build(followee_id: current_user.id)
             @user_follow.save!
         end
+
         @type_param = params[:type_param]
 
         respond_to do |format|
@@ -33,10 +34,10 @@ class UserFollowsController < ApplicationController
     end
     
     def destroy
-        @user = User.friendly.find(params[:user_id])
-        @owner_user = current_user
-        @user_follow = @user.following_users.find(params[:id])
+        @user_followed = User.friendly.find(params[:user_id])
+        @user_follow = @user_followed.followed_users.find(params[:id])
         @user_follow.destroy
+
         @type_param = params[:type_param]
         
         respond_to do |format|
@@ -51,6 +52,6 @@ class UserFollowsController < ApplicationController
 private
 
     def already_followed?
-        current_user.following_users.find { |follow| follow.followee_id == current_user.id }
+        @user_followed.followed_users.find { |follow| follow.followee_id == current_user.id}
     end
 end
