@@ -2,15 +2,19 @@
     <div class="post_comment_upvote_block">
         <%if user_signed_in?%>
             <% pre_comment_upvote = post_comment.post_comment_votes.find { |vote| (vote.user_id == current_user.id) && (vote.vote_type == 1)} %>
-        <%end%>
-        <% if pre_comment_upvote %>  
-            <%= button_to post_comment_post_comment_vote_path(post_comment, pre_comment_upvote, vote_type: -1), method: :delete, remote: true, form_class: "btn_highlight" do%>
-                <i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
-            <%end%> 
+            <% if pre_comment_upvote %>  
+                <%= button_to post_comment_post_comment_votes_path(post_comment, vote_type: -1), method: :post, remote: true, form_class: "btn_highlight" do%>
+                    <i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
+                <%end%> 
+            <%else%>
+                <%= button_to post_comment_post_comment_votes_path(post_comment, vote_type: 1), method: :post, remote: true, form_class: "btn_normal" do%>
+                    <i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
+                <%end%> 
+            <%end%>
         <%else%>
-            <%= button_to post_comment_post_comment_votes_path(post_comment, vote_type: 1), method: :post, remote: true, form_class: "btn_normal" do%>
+            <button type="button" class="btn_normal" data-toggle="modal" data-target="#buttonModalLoginCenter">
                 <i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
-            <%end%> 
+            </button>
         <%end%>
     </div>
 
@@ -21,15 +25,19 @@
     <div class="post_comment_downvote_block">
         <%if user_signed_in?%>
             <% pre_comment_downvote = post_comment.post_comment_votes.find { |vote| (vote.user_id == current_user.id) && (vote.vote_type == 0)} %>
-        <%end%>
-        <% if pre_comment_downvote %>  
-            <%= button_to post_comment_post_comment_vote_path(post_comment, pre_comment_downvote, vote_type: -1), method: :delete, remote: true, form_class: "btn_highlight" do%>
-                <i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
-            <%end%> 
+            <% if pre_comment_downvote %>  
+                <%= button_to post_comment_post_comment_votes_path(post_comment, vote_type: -1), method: :post, remote: true, form_class: "btn_highlight" do%>
+                    <i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
+                <%end%> 
+            <%else%>
+                <%= button_to post_comment_post_comment_votes_path(post_comment, vote_type: 0), method: :post, remote: true, form_class: "btn_normal" do%>
+                    <i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
+                <%end%> 
+            <%end%>
         <%else%>
-            <%= button_to post_comment_post_comment_votes_path(post_comment, vote_type: 0), method: :post, remote: true, form_class: "btn_normal" do%>
+            <button type="button" class="btn_normal" data-toggle="modal" data-target="#buttonModalLoginCenter">
                 <i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
-            <%end%> 
+            </button>
         <%end%>
     </div>
 </div>

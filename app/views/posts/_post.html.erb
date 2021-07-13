@@ -141,7 +141,7 @@
                         <%if user_signed_in?%>
                             <% upvote = post.post_votes.find { |vote| (vote.user_id == current_user.id) && (vote.vote_type == 1)} %>
                             <% if upvote %>  
-                                <%= button_to post_post_vote_path(post, upvote, vote_type: -1, type_param: 'index'), method: :delete, remote: true, form_class: "btn_highlight" do%>
+                                <%= button_to post_post_votes_path(post, vote_type: -1, type_param: 'index'), method: :post, remote: true, form_class: "btn_highlight" do%>
                                     <i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
                                 <%end%> 
                             <%else%>
@@ -164,7 +164,7 @@
                         <%if user_signed_in?%>
                             <% downvote = post.post_votes.find { |vote| (vote.user_id == current_user.id) && (vote.vote_type == 0)} %>
                             <% if downvote %>  
-                                <%= button_to post_post_vote_path(post, downvote, vote_type: -1, type_param: 'index'), method: :delete, remote: true, form_class: "btn_highlight" do%>
+                                <%= button_to post_post_votes_path(post, vote_type: -1, type_param: 'index'), method: :post, remote: true, form_class: "btn_highlight" do%>
                                     <i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
                                 <%end%> 
                             <%else%>
