@@ -118,7 +118,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserVoteID')%>">Vote <span><%= convert_number_to_human(find_owner_post_vote_for_user(@user).count)%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserVoteID')%>">Vote <span><%= convert_number_to_human(find_owner_post_upvote_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserUnvoteID"%>
@@ -126,7 +126,7 @@
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserUnvoteID')%>">Unvote <span><%= convert_number_to_human(find_owner_post_unvote_for_user(@user).count)%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserUnvoteID')%>">Unvote <span><%= convert_number_to_human(find_owner_post_downvote_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserSaveID"%>

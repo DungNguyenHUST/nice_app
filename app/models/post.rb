@@ -3,7 +3,6 @@ class Post < ApplicationRecord
     friendly_id :title, use: :slugged
 
     has_many :post_votes, dependent: :destroy
-    has_many :post_unvotes, dependent: :destroy
     has_many :post_follows, dependent: :destroy
     has_many :post_reports, dependent: :destroy
     has_many :post_comments, as: :commentable

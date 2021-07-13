@@ -42,22 +42,22 @@ module UsersHelper
         return @owner_posts
     end
 
-    def find_owner_post_vote_for_user(user)
+    def find_owner_post_upvote_for_user(user)
         @owner_posts = []
         if user.id.present?
-            @owner_post_votes = PostVote.where(user_id: user.id)
-            @owner_post_votes.each do |post_vote|
+            @owner_post_upvotes = PostVote.where(user_id: user.id, vote_type: 1)
+            @owner_post_upvotes.each do |post_vote|
                 @owner_posts.push(post_vote.post)
             end
         end
         return @owner_posts
     end
 
-    def find_owner_post_unvote_for_user(user)
+    def find_owner_post_downvote_for_user(user)
         @owner_posts = []
         if user.id.present?
-            @owner_post_unvotes = PostUnvote.where(user_id: user.id)
-            @owner_post_unvotes.each do |post_unvote|
+            @owner_post_downvotes = PostVote.where(user_id: user.id, vote_type: 0)
+            @owner_post_downvotes.each do |post_unvote|
                 @owner_posts.push(post_unvote.post)
             end
         end

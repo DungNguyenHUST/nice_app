@@ -1,21 +1,19 @@
 module PostsHelper
+include PostVotesHelper
     def cal_post_top_point(post)
-        vote_count = post.post_votes.count
-        unvote_count = post.post_unvotes.count
-        point = vote_count - unvote_count
-        return point
+        vote_count = count_post_vote(post)
+        return vote_count
     end
 
     def cal_post_hot_point(post)
-        vote_count = post.post_votes.count
-        unvote_count = post.post_unvotes.count
+        vote_count = count_post_vote(post)
         comment_count = post.post_comments.count
         if post.view_count.present?
             view_count = post.view_count
         else
             view_count = 0
         end
-        point = (vote_count - unvote_count) + view_count + comment_count
+        point = vote_count + view_count + comment_count
         return point
     end
 
