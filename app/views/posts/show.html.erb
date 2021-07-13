@@ -139,15 +139,19 @@
 									<div class="post_show_upvote_block">
 										<%if user_signed_in?%>
 											<% upvote = @post.post_votes.find { |vote| (vote.user_id == current_user.id) && (vote.vote_type == 1)} %>
-										<%end%>
-										<% if upvote %>  
-											<%= button_to post_post_vote_path(@post, upvote, vote_type: -1), method: :delete, remote: true, form_class: "btn_highlight" do%>
-												<i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
-											<%end%> 
+											<% if upvote %>  
+												<%= button_to post_post_vote_path(@post, upvote, vote_type: -1), method: :delete, remote: true, form_class: "btn_highlight" do%>
+													<i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
+												<%end%> 
+											<%else%>
+												<%= button_to post_post_votes_path(@post, vote_type: 1), method: :post, remote: true, form_class: "btn_normal" do%>
+													<i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
+												<%end%> 
+											<%end%>
 										<%else%>
-											<%= button_to post_post_votes_path(@post, vote_type: 1), method: :post, remote: true, form_class: "btn_normal" do%>
+											<button type="button" class="btn_normal" data-toggle="modal" data-target="#buttonModalLoginCenter">
 												<i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
-											<%end%> 
+											</button>
 										<%end%>
 									</div>
 
@@ -158,15 +162,19 @@
 									<div class="post_show_downvote_block">
 										<%if user_signed_in?%>
 											<% downvote = @post.post_votes.find { |vote| (vote.user_id == current_user.id) && (vote.vote_type == 0)} %>
-										<%end%>
-										<% if downvote %>  
-											<%= button_to post_post_vote_path(@post, downvote, vote_type: -1), method: :delete, remote: true, form_class: "btn_highlight" do%>
-												<i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
-											<%end%> 
+											<% if downvote %>  
+												<%= button_to post_post_vote_path(@post, downvote, vote_type: -1), method: :delete, remote: true, form_class: "btn_highlight" do%>
+													<i><%= bootstrap_icon "shift-fill", width: 19, height: 19%></i>
+												<%end%> 
+											<%else%>
+												<%= button_to post_post_votes_path(@post, vote_type: 0), method: :post, remote: true, form_class: "btn_normal" do%>
+													<i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
+												<%end%> 
+											<%end%>
 										<%else%>
-											<%= button_to post_post_votes_path(@post, vote_type: 0), method: :post, remote: true, form_class: "btn_normal" do%>
+											<button type="button" class="btn_normal" data-toggle="modal" data-target="#buttonModalLoginCenter">
 												<i><%= bootstrap_icon "shift", width: 19, height: 19%></i>
-											<%end%> 
+											</button>
 										<%end%>
 									</div>
 								</div>
@@ -178,17 +186,25 @@
 										<a><%= convert_number_to_human(@post.post_comments.count)%></a>
 									</button>
 								<%else%>
-									<%= button_to new_user_session_path, :method => :get, form_class: "post_show_reply_btn" do%>
+									<button type="button" class="post_show_reply_btn" data-toggle="modal" data-target="#buttonModalLoginCenter">
 										<i><%= bootstrap_icon "chat", width: 19, height: 19%></i>
 										<a><%= convert_number_to_human(@post.post_comments.count)%></a>
-									<%end%>
+									</button>
 								<%end%>
 							</div>
+
 							<div class="post_show_share_block">
-								<%= link_to new_post_path(:post_shared_id => @post.id, :tab_id => 'PostID'), method: :get, form_class: "post_show_share" do%>
-									<i><%= bootstrap_icon "arrow-repeat", width: 22, height: 22%></i>
-									<span><%=convert_number_to_human(@post.share_count)%></span>
-								<%end%> 
+								<%if user_signed_in?%>
+									<%= link_to new_post_path(:post_shared_id => @post.id, :tab_id => 'PostID'), method: :get, form_class: "post_show_share" do%>
+										<i><%= bootstrap_icon "arrow-repeat", width: 22, height: 22%></i>
+										<span><%=convert_number_to_human(@post.share_count)%></span>
+									<%end%>
+								<%else%>
+									<button type="button" class="post_show_share" data-toggle="modal" data-target="#buttonModalLoginCenter">
+										<i><%= bootstrap_icon "arrow-repeat", width: 22, height: 22%></i>
+										<span><%=convert_number_to_human(@post.share_count)%></span>
+									</button>
+								<%end%>
 							</div>
 						</div>
 						
@@ -196,15 +212,19 @@
 							<div class="post_show_follow_block" id="post_follow_<%=@post.id%>">
 								<%if user_signed_in?%>
 									<% pre_follow = @post.post_follows.find { |follow| follow.user_id == current_user.id} %>
-								<%end%>
-								<% if pre_follow %>  
-									<%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true, form_class: "btn_highlight" do%>
-										<i><%= bootstrap_icon "save2-fill", width: 17, height: 17%></i>
-									<%end%> 
+									<% if pre_follow %>  
+										<%= button_to post_post_follow_path(@post, pre_follow), method: :delete, remote: true, form_class: "btn_highlight" do%>
+											<i><%= bootstrap_icon "save2-fill", width: 17, height: 17%></i>
+										<%end%> 
+									<%else%>
+										<%= button_to post_post_follows_path(@post), method: :post, remote: true, form_class: "btn_normal" do%>
+											<i><%= bootstrap_icon "save2", width: 17, height: 17%></i>
+										<%end%> 
+									<%end%>
 								<%else%>
-									<%= button_to post_post_follows_path(@post), method: :post, remote: true, form_class: "btn_normal" do%>
+									<button type="button" class="btn_normal" data-toggle="modal" data-target="#buttonModalLoginCenter">
 										<i><%= bootstrap_icon "save2", width: 17, height: 17%></i>
-									<%end%> 
+									</button>
 								<%end%>
 							</div>
 							<div class='post_show_info_action'>
@@ -228,9 +248,15 @@
 										</button>
 									</div>
 									<div class="dropdown-item">
-										<button type="button" class="btn" data-toggle="modal" data-target="#buttonModalPostCenter">
-											Báo xấu
-										</button>
+										<%if user_signed_in?%>
+											<button type="button" class="btn" data-toggle="modal" data-target="#buttonModalPostCenter">
+												Báo xấu
+											</button>
+										<%else%>
+											<button type="button" class="btn" data-toggle="modal" data-target="#buttonModalLoginCenter">
+												Báo xấu
+											</button>
+										<%end%>
 									</div>
 								</div>
 								<!-- Modal -->
@@ -428,9 +454,9 @@
 						<%end%>
 					<%else%>
 						<div class="post_show_right_user_follow">
-							<%= button_to new_user_session_path, :method => :post do%>
+							<button type="button" class="btn_normal" data-toggle="modal" data-target="#buttonModalLoginCenter">
 								<a>Theo dõi</a>
-							<%end%>
+							</button>
 						</div>
 					<%end%>
 				</div>

@@ -33,9 +33,9 @@
         <%end%>
     <%else%>
         <div class="user_index_follow">
-            <%= button_to new_user_session_path, :method => :post do%>
+            <button type="button" class="btn_normal" data-toggle="modal" data-target="#buttonModalLoginCenter">
                 <a>Theo dõi</a>
-            <%end%>
+            </button>
         </div>
     <%end%>
 </div>

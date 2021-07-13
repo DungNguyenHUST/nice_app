@@ -53,6 +53,11 @@
     </script>
     <!-- Scroll top button end -->
 
+    <!-- For login anywhere -->
+    <%if !user_signed_in?%>
+      <%= render 'pages/login'%>
+    <%end%>
+
     <%= yield %>
   </body>
   <!-- body end -->

@@ -303,3 +303,222 @@
         font-style: normal;
     }
 }
+
+/////////////////////login template////////////////
+.user_login_label{
+    .user_login_title{
+        font-size: 22px;
+        color: #0f1419;
+        text-align: left;
+        font-weight: 550;
+    }
+}
+.user_login_container{
+    background-color: #fff;
+    .user_login_block{
+        background-color: #fff;
+        border-radius: 5px;
+        background-color: #fff;
+        @media screen and (max-width: 600px){
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .user_login_form_left
+        {
+            padding-top: 10px;
+            .user_login_content{
+                clear: both;
+                .user_login_label{
+                    font-weight: 550;
+                    font-size: 16px;
+                    color: #0f1419;
+                    text-align: left;
+                }
+    
+                .user_login_input{
+                    left: 0px;
+                    margin-top: 5px;
+                    margin-bottom: 20px;
+                    .form-control{
+                        margin-left: 0px;
+                        height: 44px;
+                        width: 100%;
+                        border: 1px solid #dddddd;
+                        border-radius: 5px;
+                        &:focus{
+                            border: 2px solid #0071e3;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+
+            .user_login_remember{
+                float: left;
+                .user_login_label_small{
+                    font-size: 14px;
+                    color: #536471;
+                    text-align: left;
+                    font-weight: 300;
+                }
+            }
+
+            .user_login_forgot_pass{
+                float: right;
+                a{
+                    color: #0071e3;
+                }
+            }
+    
+            .user_login_submit{
+                clear: both;
+				padding-top: 20px;
+                .user_login_form_submit{
+                    height: 44px;
+                    width: 100%;
+                    border-radius: 22px;
+                    padding: 6px;
+                    background: #0071e3;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                    text-align: center;
+                    color: #fff;
+                    
+                    &:hover{
+                        background-color: #0071e3;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        
+        .user_login_or{
+            font-size: 16px;
+            color: #596976;
+            text-align: center;
+            padding-top: 10px;
+            a {
+                overflow: hidden;
+            }
+            
+            a:after {
+                content:"";
+                display: inline-block;
+                height: 0.5em;
+                vertical-align: bottom;
+                width: 45%;
+                margin-right: -45%;
+                margin-left: 10px;
+                border-top: 1px solid #dddddd;
+            }
+
+            a:before {
+                content:"";
+                display: inline-block;
+                height: 0.5em;
+                vertical-align: bottom;
+                width: 45%;
+                margin-left: -45%;
+                margin-right: 10px;
+                border-top: 1px solid #dddddd;
+            }
+        }
+    
+        .user_login_form_right{
+			display: block;
+            margin-top: 10px;
+            .user_login_with_google{   
+                button{
+                    height: 44px;
+                    width: 100%;
+                    border-radius: 22px;
+                    padding: 6px;
+                    margin-bottom: 10px;
+                    background: #fff;
+                    border: 2px solid #ea4537;
+                    font-size: 16px;
+                    cursor: pointer;
+                    text-align: left;
+                    color: #ea4537;
+                    font-weight: 500;
+                    &:focus {outline:none;}
+                    i{
+                        padding-left: 10px;
+                        margin-right: 5px;
+                        color: #ea4537;
+                        font-size: 30px;
+                        position: relative;
+                        top: -10px;
+                    }
+                    span{
+                        position: relative;
+                        top: -12px;
+                    }
+                    &:hover{
+                        background-color: #ea4537;
+                        color: #fff;
+                        i{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+    
+            .user_login_with_facebook{   
+                button{
+                    height: 44px;
+                    width: 100%;
+                    border-radius: 22px;
+                    padding: 6px;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                    background: #fff;
+                    border: 2px solid #0c87ee;
+                    font-size: 16px;
+                    // border: none;
+                    cursor: pointer;
+                    text-align: left;
+                    // color: #fff;
+                    color: #0c87ee;
+                    font-weight: 500;
+                    &:focus {outline:none;}
+                    i{
+                        padding-left: 10px;
+                        margin-right: 5px;
+                        color: #0c87ee;
+                        font-size: 30px;
+                        position: relative;
+                        top: -10px;
+                    }
+                    span{
+                        position: relative;
+                        top: -12px;
+                    }
+                    
+                    &:hover{
+                        background-color: #0071e3;
+                        color: #fff;
+                        i{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .user_login_loginhere
+        {
+            text-align: center;
+            font-size: 16px;
+            margin-top: 20px;
+            font-weight: 550;
+            a{
+                padding-left: 5px;
+                text-decoration: none;
+                color: #0071e3;
+            }
+        }
+    }
+}

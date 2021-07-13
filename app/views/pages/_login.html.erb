@@ -1,0 +1,81 @@
+<div class="modal fade" id="buttonModalLoginCenter" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="user_login_label">
+                    <div class="user_login_title">
+                        <a>Đăng nhập</a>
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class='user_login_container'>
+                    <div class='user_login_block'>
+                        <div class="user_login_form_right">
+                            <div class="user_login_with_google">
+                                <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post do%>
+                                    <i><%= bootstrap_icon "google", width: 20, height: 20%></i> <span>Đăng nhập bằng Google</span>
+                                <%end%>
+                            </div>
+                            <div class="user_login_with_facebook">
+                                <%= button_to user_facebook_omniauth_authorize_path, method: :post do%>
+                                    <i><%= bootstrap_icon "facebook", width: 20, height: 20%></i> <span>Đăng nhập bằng Facebook</span>
+                                <%end%>
+                            </div>
+                        </div>
+
+                        <div class="user_login_or">
+                            <a><span>or</span></a>
+                        </div>
+
+                        <div class="user_login_form_left">
+                            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                                <div class="user_login_content">
+                                    <div class="user_login_label">
+                                        <a><%= f.label :email, "Địa chỉ email*", class: "user_login_label_name" %></a>
+                                    </div>
+
+                                    <div class="user_login_input">
+                                        <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true, class: "form-control", placeholder: "Nhập địa chỉ email của bạn" %>
+                                    </div>
+                                </div>
+
+                                <div class="user_login_content">
+                                    <div class="user_login_label">
+                                        <a><%= f.label :password, "Mật khẩu*", class: "user_login_label" %></a>
+                                    </div>
+
+                                    <div class="user_login_input">
+                                        <%= f.password_field :password, autocomplete: "current-password", :required => true, class: "form-control", placeholder: "Nhập mật khẩu của bạn" %>
+                                    </div>
+                                </div>
+
+                                <div class="user_login_remember">
+                                    <% if devise_mapping.rememberable? %>
+                                        <%= f.check_box :remember_me %>
+                                        <%= f.label :remember_me, "Nhớ đăng nhập", class: "user_login_label_small" %>
+                                    <% end %>
+                                </div>
+                                
+                                <div class="user_login_forgot_pass">
+                                    <a><%= link_to "Quên mật khẩu?", new_password_path(resource_name) %></a>
+                                </div>
+
+                                <div class="user_login_submit">
+                                    <%= f.submit "Đăng nhập", class: "user_login_form_submit" %>
+                                </div>
+                            <%end%>
+                        </div>
+
+                        <div class="user_login_loginhere">
+                            Chưa có tài khoản?<a><%= link_to "Tạo tài khoản", new_user_registration_path %></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

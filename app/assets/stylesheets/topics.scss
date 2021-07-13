@@ -74,6 +74,7 @@
                     padding: 5px;
                     font-size: 13px;
                     font-weight: 600;
+                    color: #536471;
                     &:focus {outline:none;}
                 }
                 .btn_highlight
@@ -308,6 +309,7 @@
                 font-size: 13px;
                 font-weight: 600;
                 &:focus {outline:none;}
+                color: #444;
             }
             .btn_highlight
             {
@@ -321,7 +323,7 @@
                 button{
                     border: 1px solid #0071e3;
                     background-color: #fff;
-                    color: #536471;
+                    color: #444;
                 }
             }
         }
@@ -427,6 +429,7 @@
             padding: 5px;
             font-size: 13px;
             font-weight: 600;
+            color: #444;
             &:focus {outline:none;}
         }
         .btn_highlight
@@ -440,7 +443,7 @@
         .btn_normal{
             button{
                 background-color: #dddddd;
-                color: #536471;
+                color: #444;
             }
         }
     }
