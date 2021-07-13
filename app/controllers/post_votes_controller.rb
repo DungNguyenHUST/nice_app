@@ -14,18 +14,15 @@ class PostVotesController < ApplicationController
 
     def create
         @post = Post.friendly.find(params[:post_id])
-        @post_vote = PostVote.new
+        @type_param = params[:type_param]
 
-        if !already_voted?
-            # Deleted unvoted
-            pre_unvote = @post.post_unvotes.find { |unvote| unvote.user_id == current_user.id}
-            if pre_unvote
-                @post_unvote = @post.post_unvotes.find(pre_unvote.id)
-                @post_unvote.destroy
-            end
+        @vote = @post.post_votes.find { |vote| (vote.user_id == current_user.id) && (vote.vote_type == 0 || vote.vote_type == 1)}
 
+        if !@vote.nil?
+            @vote.update(vote_type: params[:vote_type])
+        else
             # Created voted
-            @post_vote = @post.post_votes.build(user_id: current_user.id)
+            @post_vote = @post.post_votes.build(user_id: current_user.id, vote_type: params[:vote_type])
             @post_vote.save!
             
             # Notify user
@@ -39,8 +36,6 @@ class PostVotesController < ApplicationController
                 UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
             end
         end
-
-        @type_param = params[:type_param]
 
         respond_to do |format|
             format.html {}
@@ -70,8 +65,4 @@ class PostVotesController < ApplicationController
     end
 
     private
-
-    def already_voted?
-        PostVote.where(user_id: current_user.id, post_id: params[:post_id]).exists?
-    end
 end
