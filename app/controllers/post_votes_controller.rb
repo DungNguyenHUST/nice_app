@@ -24,17 +24,21 @@ class PostVotesController < ApplicationController
             # Created voted
             @post_vote = @post.post_votes.build(user_id: current_user.id, vote_type: params[:vote_type])
             @post_vote.save!
-            
-            # Notify user
-            if(find_owner_user(@post).present?)
-                destination_user = find_owner_user(@post)
-                trigger_user = current_user
-                title = @post.title
-                content = @post.content
-                original_url = post_path(@post)
+        end
+        
+        # Notify user
+        if(find_owner_user(@post).present?)
+            destination_user = find_owner_user(@post)
+            trigger_user = current_user
+            title = @post.title
+            content = @post.content
+            original_url = post_path(@post)
+            if(params[:vote_type].to_i == 1)
                 type = "PostVote"
-                UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
+            else
+                type = "PostUnvote"
             end
+            UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
         end
 
         respond_to do |format|
