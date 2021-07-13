@@ -46,8 +46,8 @@ module UsersHelper
         @owner_posts = []
         if user.id.present?
             @owner_post_upvotes = PostVote.where(user_id: user.id, vote_type: 1)
-            @owner_post_upvotes.each do |post_vote|
-                @owner_posts.push(post_vote.post)
+            @owner_post_upvotes.each do |post_upvote|
+                @owner_posts.push(post_upvote.post)
             end
         end
         return @owner_posts
@@ -57,8 +57,8 @@ module UsersHelper
         @owner_posts = []
         if user.id.present?
             @owner_post_downvotes = PostVote.where(user_id: user.id, vote_type: 0)
-            @owner_post_downvotes.each do |post_unvote|
-                @owner_posts.push(post_unvote.post)
+            @owner_post_downvotes.each do |post_downvote|
+                @owner_posts.push(post_downvote.post)
             end
         end
         return @owner_posts

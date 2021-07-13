@@ -10,9 +10,9 @@
             <div class="user_notification_user">
                 <%if find_trigger_user(user_notification).present?%>
                     <a> <%= find_trigger_user(user_notification).name%>
-                        <%if user_notification.noti_type.to_s == "PostVote"%>
+                        <%if user_notification.noti_type.to_s == "PostUpvote"%>
                             <span> đã bình chọn cho bài viết của bạn (+1) </span>
-                        <%elsif user_notification.noti_type.to_s == "PostUnvote"%>
+                        <%elsif user_notification.noti_type.to_s == "PostDownvote"%>
                             <span> đã không bình chọn cho bài viết của bạn </span>
                         <%elsif user_notification.noti_type.to_s == "PostComment"%>
                             <span> đã bình luận về bài viết của bạn </span>
@@ -44,9 +44,9 @@
             <div class="user_notification_mini_user">
                 <%if find_trigger_user(user_notification).present?%>
                     <a> <%= find_trigger_user(user_notification).name%>
-                        <%if user_notification.noti_type.to_s == "PostVote"%>
+                        <%if user_notification.noti_type.to_s == "PostUpvote"%>
                             <span> đã bình chọn cho bài viết của bạn (+1) </span>
-                        <%elsif user_notification.noti_type.to_s == "PostUnvote"%>
+                        <%elsif user_notification.noti_type.to_s == "PostDownvote"%>
                             <span> đã không bình chọn cho bài viết của bạn </span>
                         <%elsif user_notification.noti_type.to_s == "PostComment"%>
                             <span> đã bình luận về bài viết của bạn </span>

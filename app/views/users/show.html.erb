@@ -113,20 +113,20 @@
                                 <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserCommentID')%>">Bình luận <span><%= convert_number_to_human(find_owner_post_comment_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
-                                <%if @tab_id == "UserVoteID"%>
+                                <%if @tab_id == "UserUpvoteID"%>
                                     <%active = "active"%>
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserVoteID')%>">Vote <span><%= convert_number_to_human(find_owner_post_upvote_for_user(@user).count)%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserUpvoteID')%>">Đã bình chọn <span><%= convert_number_to_human(find_owner_post_upvote_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
-                                <%if @tab_id == "UserUnvoteID"%>
+                                <%if @tab_id == "UserDownvoteID"%>
                                     <%active = "active"%>
                                 <%else%> 
                                     <%active = ""%>
                                 <%end%>                                     
-                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserUnvoteID')%>">Unvote <span><%= convert_number_to_human(find_owner_post_downvote_for_user(@user).count)%><span></a>
+                                <a class="nav-link <%=active%>" href="<%=user_path(@user, tab_id: 'UserDownvoteID')%>">Không bình chọn <span><%= convert_number_to_human(find_owner_post_downvote_for_user(@user).count)%><span></a>
                             </li>
                             <li class="nav-item">
                                 <%if @tab_id == "UserSaveID"%>
@@ -202,21 +202,21 @@
                             </div>
                         <%end%>
 
-                        <%if @tab_id == "UserVoteID"%>
-                            <div class="user_profile_vote_tab">
-                                <%@user_votes.each do |post|%>
+                        <%if @tab_id == "UserUpvoteID"%>
+                            <div class="user_profile_upvote_tab">
+                                <%@user_upvotes.each do |post|%>
                                     <%= render post%>
                                 <%end%>
-                                <%= paginate @user_votes, window: 1, outer_window: 1 %>
+                                <%= paginate @user_upvotes, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 
-                        <%if @tab_id == "UserUnvoteID"%>
-                            <div class="user_profile_unvote_tab">
-                                <%@user_unvotes.each do |post|%>
+                        <%if @tab_id == "UserDownvoteID"%>
+                            <div class="user_profile_downvote_tab">
+                                <%@user_downvotes.each do |post|%>
                                     <%= render post%>
                                 <%end%>
-                                <%= paginate @user_unvotes, window: 1, outer_window: 1 %>
+                                <%= paginate @user_downvotes, window: 1, outer_window: 1 %>
                             </div>
                         <%end%>
 

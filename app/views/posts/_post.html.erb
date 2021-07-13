@@ -135,9 +135,9 @@
 
     <div class="post_index_toolbar_block">
         <div class="post_index_toolbar_left">
-            <div class="post_index_vote_unvote_conatainer">
-                <div class="post_index_vote_unvote_block" id="post_vote_unvote_<%=post.id%>">
-                    <div class="post_index_vote_block">
+            <div class="post_index_upvote_downvote_conatainer">
+                <div class="post_index_upvote_downvote_block" id="post_upvote_downvote_<%=post.id%>">
+                    <div class="post_index_upvote_block">
                         <%if user_signed_in?%>
                             <% upvote = post.post_votes.find { |vote| (vote.user_id == current_user.id) && (vote.vote_type == 1)} %>
                         <%end%>
@@ -152,11 +152,11 @@
                         <%end%>
                     </div>
 
-                    <div class="post_index_vote_unvote_count">
+                    <div class="post_index_upvote_downvote_count">
                         <span><%=convert_number_to_human(count_post_vote(post))%></span>
                     </div>
 
-                    <div class="post_index_unvote_block">
+                    <div class="post_index_downvote_block">
                         <%if user_signed_in?%>
                             <% downvote = post.post_votes.find { |vote| (vote.user_id == current_user.id) && (vote.vote_type == 0)} %>
                         <%end%>

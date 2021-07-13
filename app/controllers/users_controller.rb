@@ -43,14 +43,14 @@ include UsersHelper
             @user_comments = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
         end
     
-        if "UserVoteID" == @tab_id
+        if "UserUpvoteID" == @tab_id
             @buffers = find_owner_post_upvote_for_user(@user)
-            @user_votes = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+            @user_upvotes = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
         end
     
-        if "UserUnvoteID" == @tab_id
+        if "UserDownvoteID" == @tab_id
             @buffers = find_owner_post_downvote_for_user(@user)
-            @user_unvotes = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
+            @user_downvotes = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
         end
     
         if "UserSaveID" == @tab_id

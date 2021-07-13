@@ -34,9 +34,9 @@ class PostVotesController < ApplicationController
             content = @post.content
             original_url = post_path(@post)
             if(params[:vote_type].to_i == 1)
-                type = "PostVote"
+                type = "PostUpvote"
             else
-                type = "PostUnvote"
+                type = "PostDownvote"
             end
             UserNotificationsController.new.create_notify(destination_user, trigger_user, title, content, original_url, type)
         end
