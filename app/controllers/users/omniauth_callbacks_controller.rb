@@ -66,10 +66,34 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # Show wellcome path
   def after_sign_in_path_for(resource_or_scope)
+    current_path = request.referrer
+
+    case current_path
+    when new_user_session_path
+    when user_session_path
+    when destroy_user_session_path
+    when user_facebook_omniauth_authorize_path
+    when user_facebook_omniauth_callback_path
+    when user_google_oauth2_omniauth_authorize_path
+    when user_google_oauth2_omniauth_callback_path
+    when new_user_password_path
+    when edit_user_password_path
+    when user_password_path
+    when cancel_user_registration_path
+    when new_user_registration_path
+    when edit_user_registration_path
+    when user_registration_path
+    when users_path
+    when new_user_path
+    when edit_user_path(current_user)
+    when user_path(current_user)
+      current_path = root_path
+    else
+    end
+
+    # Show wellcome path
     if current_user.sign_in_count == 0
       current_path = user_wellcome_path
-    else
-      current_path = request.referrer
     end
     current_user.increment!(:sign_in_count)
 
