@@ -413,7 +413,7 @@
 					
 					<%if user_signed_in?%>
 						<%if current_user.id != @owner_post_user.id%>
-							<div class="post_show_right_user_follow" id="user_follow_<%=current_user.id%>">
+							<div class="post_show_right_user_follow" id="user_follow_<%=@owner_post_user.id%>">
 								<% pre_follow = @owner_post_user.followed_users.find { |follow| follow.followee_id == current_user.id} %>
 								<% if pre_follow %>  
 									<%= button_to user_user_follow_path(@owner_post_user, pre_follow), method: :delete, remote: true, form_class: "btn_highlight" do%>

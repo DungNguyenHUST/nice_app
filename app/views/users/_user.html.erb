@@ -18,7 +18,7 @@
 
     <%if user_signed_in?%>
         <%if current_user.id != user.id%>
-            <div class="user_index_follow" id="user_follow_<%=current_user.id%>">
+            <div class="user_index_follow" id="user_follow_<%=user.id%>">
                 <% pre_follow = user.followed_users.find { |follow| follow.followee_id == current_user.id} %>
                 <% if pre_follow %>  
                     <%= button_to user_user_follow_path(user, pre_follow, type_param: "index"), method: :delete, remote: true, form_class: "btn_highlight" do%>
