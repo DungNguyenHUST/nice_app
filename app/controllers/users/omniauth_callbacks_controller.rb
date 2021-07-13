@@ -64,8 +64,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     new_users_session_path
   end
 
+  # Show wellcome path
   def after_sign_in_path_for(resource_or_scope)
-    stored_location_for(resource_or_scope) || root_path
+    if current_user.sign_in_count == 0
+      current_path = user_wellcome_path
+    else
+      current_path = request.referrer
+    end
+    current_user.increment!(:sign_in_count)
+
+    stored_location_for(resource_or_scope) || current_path
   end
 
 end
