@@ -9,6 +9,16 @@
     }
 }
 
+.col-nopadding-left {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.col-nopadding-right {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+}
+
 .home_index_container{
     background-color: #f0f2f5;
     min-height: 900px;

@@ -205,32 +205,32 @@
                 display: none;
                 padding-left: 8px;
                 .post_reply_comment_section{
-                    margin-bottom: 15px;
-                    margin-top: 5px;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
                     display: block;
                     .post_reply_comment_input{
                         width: 100%;
-                        margin-top: 10px;
                         .form-control{
-                            border-radius: 5px;
-                            min-height: 100px;
+                            border-radius: 22px;
+                            height: 44px;
                             padding-left: 15px;
                             padding-right: 15px;
                             font-size: 14px;
                             &:focus{
                                 border: 2px solid #0071e3;
-                                border-radius: 5px;
                             }
                         }
                     }
                     .post_reply_comment_submit{
+                        width: 100%;
                         .post_reply_comment_form_submit{
-                            margin-top: 5px;
-                            width: 100px;
+                            width: 100%;
                             border: none;
-                            border-radius: 20px;
+                            border-radius: 22px;
                             background-color: #0071e3;
-                            height: 30px;
+                            padding-left: 5px;
+                            padding-right: 5px;
+                            height: 44px;
                             color: #fff;
                             font-size:14px;
                             &:focus {outline:none;}
@@ -429,32 +429,32 @@
                 display: none;
                 padding-left: 8px;
                 .post_reply_comment_section{
-                    margin-bottom: 15px;
-                    margin-top: 5px;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
                     display: block;
                     .post_reply_comment_input{
                         width: 100%;
-                        margin-top: 10px;
                         .form-control{
-                            border-radius: 5px;
-                            min-height: 100px;
+                            border-radius: 22px;
+                            height: 44px;
                             padding-left: 15px;
                             padding-right: 15px;
                             font-size: 14px;
                             &:focus{
                                 border: 2px solid #0071e3;
-                                border-radius: 5px;
                             }
                         }
                     }
                     .post_reply_comment_submit{
+                        width: 100%;
                         .post_reply_comment_form_submit{
-                            margin-top: 5px;
-                            width: 100px;
+                            width: 100%;
                             border: none;
-                            border-radius: 20px;
+                            border-radius: 22px;
                             background-color: #0071e3;
-                            height: 30px;
+                            padding-left: 5px;
+                            padding-right: 5px;
+                            height: 44px;
                             color: #fff;
                             font-size:14px;
                             &:focus {outline:none;}

@@ -183,7 +183,7 @@
 
             <div class="post_index_comment_block">
                 <%if user_signed_in?%>
-                    <%= button_to post_path(post), method: :get, form_class: "post_index_comment" do%>
+                    <%= button_to post_path(post, :preview_mode => true), method: :get, remote: true, form_class: "post_index_comment" do%>
                         <i><%= bootstrap_icon "chat", width: 19, height: 19%></i>
                         <a><%= convert_number_to_human(post.post_comments.count)%></a> 
                     <%end%> 

@@ -24,6 +24,12 @@ class PostsController < ApplicationController
             @tab_id = "default"
         end
 
+        if(params.has_key?(:preview_mode))
+            @preview_mode = true
+        else
+            @preview_mode = false
+        end
+
         if "default" == @tab_id || "PostCommentBest" == @tab_id
             @buffers = @post.post_comments.sort_by{|post_comment| cal_post_comment_best_point(post_comment)}.reverse
             @post_comments = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
