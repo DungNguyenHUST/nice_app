@@ -5,21 +5,21 @@
                 <div class='topic_show_info'>
                     <%if @topic.cover_image?%>
                         <div class='topic_show_info_cover'>
-                            <%= link_to (image_tag(@topic.cover_image.url)), image_path(url_for(@topic.cover_image.url)), rel: "gallery" , :href => topic_path(@topic)%>
+                            <%= image_tag(@topic.cover_image.url)%>
                         </div>
                     <%else%>
                         <div class='topic_show_info_cover'>
-                            <%= link_to (image_tag("default-cover.jpg")), image_path(url_for("default-cover.jpg")), rel: "gallery" , :href => topic_path(@topic)%>
+                            <%= image_tag("default-cover.jpg")%>
                         </div>
                     <%end%>
 
                     <%if @topic.avatar?%>
                         <div class='topic_show_info_avatar'>
-                            <%= link_to (image_tag(@topic.avatar.url)), image_path(url_for(@topic.avatar.url)), rel: "gallery" , :href => topic_path(@topic)%>
+                            <%= image_tag(@topic.avatar.url)%>
                         </div>
                     <%else%>
                         <div class='topic_show_info_avatar'>
-                            <%= link_to (image_tag("default-avartar.jpg")), image_path(url_for("default-avartar.jpg")), rel: "gallery" , :href => topic_path(@topic)%>
+                            <%= image_tag("default-avartar.jpg")%>
                         </div>
                     <%end%>
 

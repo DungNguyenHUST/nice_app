@@ -7,21 +7,21 @@
                         <div class='user_show_info'>
                             <%if @user.cover_image?%>
                                 <div class='user_show_info_cover_image'>
-                                    <%= link_to (image_tag(@user.cover_image.url)), image_path(url_for(@user.cover_image.url)), rel: "gallery" , :href => user_path(@user)%>
+                                    <%= image_tag(@user.cover_image.url)%>
                                 </div>
                             <%else%>
                                 <div class='user_show_info_cover_image'>
-                                    <%= link_to (image_tag("default-cover.jpg")), image_path(url_for("default-cover.jpg")), rel: "gallery" , :href => user_path(@user)%>
+                                    <%= image_tag("default-cover.jpg")%>
                                 </div>
                             <%end%>
 
                             <%if @user.avatar?%>
                                 <div class='user_show_info_avatar'>
-                                    <%= link_to (image_tag(@user.avatar.url)), image_path(url_for(@user.avatar.url)), rel: "gallery" , :href => user_path(@user)%>
+                                    <%= image_tag(@user.avatar.url)%>
                                 </div>
                             <%else%>
                                 <div class='user_show_info_avatar'>
-                                    <%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(@user)%>
+                                    <%= image_tag("default-user.png")%>
                                 </div>
                             <%end%>
                         </div>
@@ -290,21 +290,21 @@
                         <div class='user_show_info'>
                             <%if @user.cover_image?%>
                                 <div class='user_show_info_cover_image'>
-                                    <%= link_to (image_tag(@user.cover_image.url)), image_path(url_for(@user.cover_image.url)), rel: "gallery" , :href => user_path(@user)%>
+                                    <%= image_tag(@user.cover_image.url)%>
                                 </div>
                             <%else%>
                                 <div class='user_show_info_cover_image'>
-                                    <%= link_to (image_tag("default-cover.jpg")), image_path(url_for("default-cover.jpg")), rel: "gallery" , :href => user_path(@user)%>
+                                    <%= image_tag("default-cover.jpg")%>
                                 </div>
                             <%end%>
 
                             <%if @user.avatar?%>
                                 <div class='user_show_info_avatar'>
-                                    <%= link_to (image_tag(@user.avatar.url)), image_path(url_for(@user.avatar.url)), rel: "gallery" , :href => user_path(@user)%>
+                                    <%= image_tag(@user.avatar.url)%>
                                 </div>
                             <%else%>
                                 <div class='user_show_info_avatar'>
-                                    <%= link_to (image_tag("default-user.png")), image_path(url_for("default-user.png")), rel: "gallery" , :href => user_path(@user)%>
+                                    <%= image_tag("default-user.png")%>
                                 </div>
                             <%end%>
                         </div>

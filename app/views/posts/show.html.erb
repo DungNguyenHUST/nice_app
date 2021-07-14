@@ -28,9 +28,9 @@
 
 				    <div class='post_show_title'>
 				        <%if @post.podcast?%>
-							<span><i><%= bootstrap_icon "mic", width: 16, height: 16%></i> Podcast</span><a><%= link_to (@post.title), post_path(@post) %></a>
+							<span><i><%= bootstrap_icon "mic", width: 16, height: 16%></i> Podcast</span><a><%= @post.title %></a>
 						<%else%>
-							<a><%= link_to (@post.title), post_path(@post) %></a>
+							<a><%= @post.title %></a>
 						<%end%>
 				    </div>
 
