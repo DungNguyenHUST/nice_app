@@ -2,8 +2,72 @@
 <html>
   <!-- header start -->
   <head>
-    <title>NiceApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Meta tag start --> 
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
+    <meta charset="utf-8">
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="content-language" content="en-us" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <link rel="canonical" href="https://www.firework.vn/" />
+
+    <!-- Icon start --> 
+    <link rel="shortcut icon" href="<%=image_url("favicon.ico")%>" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="<%=image_url("apple-touch-icon.png")%>" />
+    <link rel="apple-touch-icon" sizes="57x57" href="<%=image_url("apple-touch-icon-57x57.png")%>" />
+    <link rel="apple-touch-icon" sizes="72x72" href="<%=image_url("apple-touch-icon-72x72.png")%>" />
+    <link rel="apple-touch-icon" sizes="76x76" href="<%=image_url("apple-touch-icon-76x76.png")%>" />
+    <link rel="apple-touch-icon" sizes="114x114" href="<%=image_url("apple-touch-icon-114x114.png")%>" />
+    <link rel="apple-touch-icon" sizes="120x120" href="<%=image_url("apple-touch-icon-120x120.png")%>" />
+    <link rel="apple-touch-icon" sizes="144x144" href="<%=image_url("apple-touch-icon-144x144.png")%>" />
+    <link rel="apple-touch-icon" sizes="152x152" href="<%=image_url("apple-touch-icon-152x152.png")%>" />
+    <link rel="apple-touch-icon" sizes="180x180" href="<%=image_url("apple-touch-icon-180x180.png")%>" />
+    <!-- Icon end --> 
+    
+    <!-- Google data start-->
+    <title><%= meta_title %> <%= meta_separator %> <%= meta_product_name %></title>
+    <meta name="description" content="<%= meta_description %>">
+    <meta name="keywords" content="<%= meta_key_word %>">
+    <meta name="google-site-verification" content="sBRU0E8_GR7ZPZWKVHN_-pPve__U-yEU2B2Uuyk9bEo" />
+	
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TP9TWNJ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196746836-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-196746836-1');
+    </script>
+    <!-- End Global site tag (gtag.js) - Google Analytics -->
+    <!-- Google data end-->
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %> <%= meta_separator %> <%= meta_product_name %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= image_url(meta_image) %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:title" content="<%= meta_title %> <%= meta_separator %> <%= meta_product_name %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:image:src" content="<%= image_url(meta_image) %>">
+    <!-- Meta tag end -->
 
     <!-- Import start -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -26,7 +90,7 @@
   <!-- body start -->
   <body>
     <!-- For Ckeditor -->
-    <%= javascript_include_tag Ckeditor.cdn_url%>
+    <!-- <%= javascript_include_tag Ckeditor.cdn_url%> -->
 
     <!-- Scroll top button start -->
     <button onclick="topFunction()" id="scrollUpBtn" title="Go to top">Back to top</button>

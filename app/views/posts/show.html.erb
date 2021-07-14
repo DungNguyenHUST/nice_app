@@ -1,3 +1,8 @@
+<% content_for :meta_title, @post.title %>
+<%if @post.content_rich_text%>
+	<% content_for :meta_description, @post.content_rich_text %>
+<%end%>
+
 <div class='post_show_container'>
 	<div class='container'>
 		<div class='row'>

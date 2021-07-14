@@ -1,3 +1,8 @@
+<% content_for :meta_title, @topic.name %>
+<%if @topic.description%>
+	<% content_for :meta_description, @topic.description %>
+<%end%>
+
 <div class="topic_show_container">
     <div class="container">
         <div class="row">
