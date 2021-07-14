@@ -54,7 +54,7 @@
     <!-- Scroll top button end -->
 
     <!-- For login anywhere -->
-    <%if !user_signed_in?%>
+    <%if !user_signed_in? && !admin_signed_in? && (request.referrer != new_admin_session_path)%>
       <%= render 'pages/login'%>
     <%end%>
 

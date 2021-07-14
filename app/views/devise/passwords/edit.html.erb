@@ -3,8 +3,8 @@
     <div class="col-sm-8 col-nopadding">
       <div class="user_change_pass_password">
         <h3>Đổi mật khẩu mới</h3>
+        <%= render "devise/shared/error_messages", resource: resource %>
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
           <%= f.hidden_field :reset_password_token %>
 
           <div class="user_reset_pass_content">

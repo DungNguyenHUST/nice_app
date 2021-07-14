@@ -6,6 +6,7 @@
                     <a>Đăng nhập</a>
                 </div>
             </div>
+
             <div class="user_signin_form_right">
                 <div class="user_signin_with_google">
                     <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post do%>
@@ -24,6 +25,7 @@
             </div>
 
             <div class="user_signin_form_left">
+                <%= render "devise/shared/error_messages", resource: resource %>
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                     <div class="user_signin_content">
                         <div class="user_signin_label">

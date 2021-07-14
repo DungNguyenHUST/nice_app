@@ -3,9 +3,8 @@
     <div class="col-sm-8 col-nopadding">
       <div class="user_reset_password">
         <h3>Quên mật khẩu?</h3>
+        <%= render "devise/shared/error_messages", resource: resource %>
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
-
           <div class="user_reset_pass_content">
             <div class="user_reset_pass_label">
               <a><%= f.label :email, "Nhập địa chỉ email của bạn*", class: "user_reset_pass_label_name" %></a>
