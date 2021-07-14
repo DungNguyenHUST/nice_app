@@ -1178,9 +1178,6 @@
     background-color: #fff;
     .post_preview_new_comment_block{
         margin-top: 20px;
-        @media screen and (max-width: 600px){
-            margin-top: 10px;
-        }
         padding-left: 15px;
         padding-right: 15px;
         display: block;
@@ -1189,7 +1186,8 @@
             margin-bottom: 5px;
             margin-top: 5px;
             .post_preview_comment_input{
-                width: 100%;
+                width: 75%;
+                float: left;
                 .form-control{
                     border-radius: 22px;
                     height: 44px;
@@ -1202,7 +1200,8 @@
                 }
             }
             .post_preview_comment_submit{
-                width: 100%;
+                width: 22%;
+                float: right;
                 .post_preview_comment_submit_btn{
                     border: none;
                     border-radius: 22px;
@@ -1217,45 +1216,41 @@
             }
         }
     }
-    
-    .post_preview_comment_count{
-        padding-top: 30px;
-        padding-left: 15px;
-        float: left;
-        font-size: 14px;
-        color: #333;
-        background-color: #fff;
-    }
-    .post_preview_comment_sort{
-        padding-top: 20px;
-        padding-right: 15px;
-        float: right;
-        background-color: #fff;
-        .post_preview_comment_tab_link{
-            font-size: 14px;
-        }
-    }
-    .post_preview_comment_tab_content{
+
+    .post_preview_comment_container_block{
         clear: both;
-        background-color: #fff;
-        .post_preview_comment_render{
-        }
-        .post_preview_comment_paginate{
-            padding: 4px;
-            text-align: center;
+        .post_preview_comment_sort{
+            padding-top: 20px;
+            padding-right: 15px;
             background-color: #fff;
-            border: 2px solid #dddddd;
-            border-radius: 20px;
-            margin-left: 15px;
-            margin-right: 15px;
-            margin-top: 20px;
-            a{
-                font-size: 13px;
+            .post_preview_comment_tab_link{
+                font-size: 14px;
                 font-weight: 600;
-                color: #0071e3;
+            }
+        }
+        .post_preview_comment_tab_content{
+            clear: both;
+            background-color: #fff;
+            .post_preview_comment_render{
+            }
+            .post_preview_comment_paginate{
+                padding: 4px;
+                text-align: center;
+                background-color: #fff;
+                border: 2px solid #dddddd;
+                border-radius: 20px;
+                margin-left: 15px;
+                margin-right: 15px;
+                margin-top: 20px;
+                a{
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: #0071e3;
+                }
             }
         }
     }
+    
 }
 
 //////////////////////new////////////////////

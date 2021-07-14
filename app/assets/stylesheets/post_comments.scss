@@ -201,16 +201,15 @@
                 }
             }
 
-            .post_reply_comment_new{
+            .post_comment_new{
                 display: none;
-                padding-left: 8px;
-                .post_reply_comment_section{
-                    margin-bottom: 10px;
+                padding-left: 2px;
+                .post_comment_section{
                     margin-top: 10px;
-                    display: block;
-                    .post_reply_comment_input{
+                    .post_comment_input{
                         width: 100%;
                         .form-control{
+                            width: 100%;
                             border-radius: 22px;
                             height: 44px;
                             padding-left: 15px;
@@ -221,18 +220,20 @@
                             }
                         }
                     }
-                    .post_reply_comment_submit{
+                    .post_comment_submit{
                         width: 100%;
-                        .post_reply_comment_form_submit{
-                            width: 100%;
+                        margin-top: 5px;
+                        .post_comment_form_submit{
+                            width: 100px;
                             border: none;
                             border-radius: 22px;
                             background-color: #0071e3;
                             padding-left: 5px;
                             padding-right: 5px;
-                            height: 44px;
+                            height: 36px;
                             color: #fff;
                             font-size:14px;
+                            font-weight: 600;
                             &:focus {outline:none;}
                         }
                     }
@@ -240,6 +241,7 @@
             }
 
             .post_comment_reply_container{
+                clear: both;
                 .post_reply_comment_render{
                     font-size: 14px;
                 }
@@ -427,9 +429,8 @@
 
             .post_reply_comment_new{
                 display: none;
-                padding-left: 8px;
+                padding-left: 2px;
                 .post_reply_comment_section{
-                    margin-bottom: 10px;
                     margin-top: 10px;
                     display: block;
                     .post_reply_comment_input{
@@ -447,16 +448,18 @@
                     }
                     .post_reply_comment_submit{
                         width: 100%;
+                        margin-top: 5px;
                         .post_reply_comment_form_submit{
-                            width: 100%;
+                            width: 100px;
                             border: none;
                             border-radius: 22px;
                             background-color: #0071e3;
                             padding-left: 5px;
                             padding-right: 5px;
-                            height: 44px;
+                            height: 36px;
                             color: #fff;
                             font-size:14px;
+                            font-weight: 600;
                             &:focus {outline:none;}
                         }
                     }
@@ -464,6 +467,7 @@
             }
 
             .post_reply_comment_reply_container{
+                clear: both;
                 .post_reply_comment_render{
                     font-size: 14px;
                 }
