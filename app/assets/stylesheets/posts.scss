@@ -1035,6 +1035,7 @@
                         height: 40px;
                         color: #fff;
                         font-size:14px;
+                        font-weight: 600;
                         &:focus {outline:none;}
                     }
                 }
@@ -1058,7 +1059,7 @@
                 .post_show_comment_tab_link{
                     font-size: 14px;
                     position: relative;
-                    top: 2px;
+                    top: 3px;
                     font-weight: 600;
                 }
             }
