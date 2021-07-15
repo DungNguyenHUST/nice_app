@@ -1000,36 +1000,37 @@
 
         .post_show_new_comment_block{
             margin-top: 20px;
+            min-height: 40px;
             @media screen and (max-width: 600px){
                 margin-top: 10px;
             }
             padding-left: 15px;
             padding-right: 15px;
-            display: none;
+            display: block;
             .post_show_comment_section{
+                margin-bottom: 5px;
+                margin-top: 5px;
                 .post_show_comment_input{
-                    margin-bottom: 5px;
-                    margin-top: 5px;
-                    border-radius: 5px;
-                    width: 100%;
+                    float: left;
+                    width: 75%;
                     .form-control{
-                        border-radius: 5px;
-                        height: 100px;
-                        padding-left: 15px;
-                        padding-right: 15px;
+                        border-radius: 22px;
+                        height: 40px;
                         font-size: 14px;
                         &:focus{
                             border: 2px solid #0071e3;
                             border-radius: 5px;
+                            height: 100px;
                         }
                     }
                 }
                 .post_show_comment_submit{
-                    .post_show_comment_submit{
-                        margin-top: 5px;
-                        width: 100px;
+                    width: 23%;
+                    float: right;
+                    .post_show_comment_submit_btn{
+                        width: 100%;
                         border: none;
-                        border-radius: 20px;
+                        border-radius: 22px;
                         background-color: #0071e3;
                         height: 40px;
                         color: #fff;
@@ -1039,39 +1040,46 @@
                 }
             }
         }
-
-        .post_show_comment_count{
-            padding-top: 30px;
-            padding-left: 15px;
-            float: left;
-            font-size: 14px;
-            color: #333;
-        }
-        .post_show_comment_sort{
-            padding-top: 20px;
-            padding-right: 15px;
-            float: right;
-            .post_show_comment_tab_link{
-                font-size: 14px;
-            }
-        }
-        .post_show_comment_tab_content{
+        
+        .post_show_comment_container{
             clear: both;
-            .post_show_comment_render{
+            .post_show_comment_count{
+                padding-top: 30px;
+                padding-left: 15px;
+                float: left;
+                font-size: 14px;
+                color: #555;
+                font-weight: 500;
             }
-            .post_show_comment_paginate{
-                padding: 4px;
-                text-align: center;
-                background-color: #fff;
-                border: 2px solid #dddddd;
-                border-radius: 20px;
-                margin-left: 15px;
-                margin-right: 15px;
-                margin-top: 20px;
-                a{
-                    font-size: 13px;
+            .post_show_comment_sort{
+                padding-top: 20px;
+                padding-right: 15px;
+                // float: right;
+                .post_show_comment_tab_link{
+                    font-size: 14px;
+                    position: relative;
+                    top: 2px;
                     font-weight: 600;
-                    color: #0071e3;
+                }
+            }
+            .post_show_comment_tab_content{
+                clear: both;
+                .post_show_comment_render{
+                }
+                .post_show_comment_paginate{
+                    padding: 4px;
+                    text-align: center;
+                    background-color: #fff;
+                    border: 2px solid #dddddd;
+                    border-radius: 20px;
+                    margin-left: 15px;
+                    margin-right: 15px;
+                    margin-top: 20px;
+                    a{
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: #0071e3;
+                    }
                 }
             }
         }
