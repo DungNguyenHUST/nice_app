@@ -124,16 +124,14 @@
                     </div>
                 </div>
 
-                <div class="post_comment_new" id="post_comment_input_reply_<%=post_comment.id.to_s%>">
+                <div class="post_reply_comment_new" id="post_comment_input_reply_<%=post_comment.id.to_s%>">
                     <%= form_for([post_comment, PostComment.new], remote: true) do |f| %>
-                        <div class="post_comment_section">
-                            <div class="post_comment_input">
+                        <div class="post_reply_comment_section">
+                            <div class="post_reply_comment_input">
                                 <%= f.text_area :content, :required =>true, class: "form-control", placeholder: "Nhập trả lời tại đây" %>
                             </div>
-                            <div class="post_comment_submit">
-                                <%= button_tag(type: "submit", class: "post_comment_form_submit") do %>
-                                    <a>Trả lời</a>
-                                <%end%> 
+                            <div class="post_reply_comment_submit">
+                                <%= f.submit "Trả lời", class: "post_reply_comment_form_submit" %>
                             </div>
                         </div>
                     <%end%>
@@ -292,9 +290,7 @@
                                 <%= f.text_area :content, :required =>true, class: "form-control", placeholder: "Nhập trả lời tại đây" %>
                             </div>
                             <div class="post_reply_comment_submit">
-                                <%= button_tag(type: "submit", class: "post_reply_comment_form_submit") do %>
-                                    <a>Trả lời</a>
-                                <%end%> 
+                                <%= f.submit "Trả lời", class: "post_reply_comment_form_submit" %>
                             </div>
                         </div>
                     <%end%>

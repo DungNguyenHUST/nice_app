@@ -997,6 +997,84 @@
                 }
             }
         }
+
+        .post_show_new_comment_block{
+            margin-top: 20px;
+            @media screen and (max-width: 600px){
+                margin-top: 10px;
+            }
+            padding-left: 15px;
+            padding-right: 15px;
+            display: none;
+            .post_show_comment_section{
+                .post_show_comment_input{
+                    margin-bottom: 5px;
+                    margin-top: 5px;
+                    border-radius: 5px;
+                    width: 100%;
+                    .form-control{
+                        border-radius: 5px;
+                        height: 100px;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        font-size: 14px;
+                        &:focus{
+                            border: 2px solid #0071e3;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+                .post_show_comment_submit{
+                    .post_show_comment_submit{
+                        margin-top: 5px;
+                        width: 100px;
+                        border: none;
+                        border-radius: 20px;
+                        background-color: #0071e3;
+                        height: 40px;
+                        color: #fff;
+                        font-size:14px;
+                        &:focus {outline:none;}
+                    }
+                }
+            }
+        }
+
+        .post_show_comment_count{
+            padding-top: 30px;
+            padding-left: 15px;
+            float: left;
+            font-size: 14px;
+            color: #333;
+        }
+        .post_show_comment_sort{
+            padding-top: 20px;
+            padding-right: 15px;
+            float: right;
+            .post_show_comment_tab_link{
+                font-size: 14px;
+            }
+        }
+        .post_show_comment_tab_content{
+            clear: both;
+            .post_show_comment_render{
+            }
+            .post_show_comment_paginate{
+                padding: 4px;
+                text-align: center;
+                background-color: #fff;
+                border: 2px solid #dddddd;
+                border-radius: 20px;
+                margin-left: 15px;
+                margin-right: 15px;
+                margin-top: 20px;
+                a{
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: #0071e3;
+                }
+            }
+        }
     }
 
     .post_show_right_block_user{
@@ -1171,86 +1249,7 @@
             }
         }
     }
-}
 
-/////////////preview comment/////////////////
-.post_preview_comment_block{
-    background-color: #fff;
-    .post_preview_new_comment_block{
-        margin-top: 20px;
-        padding-left: 15px;
-        padding-right: 15px;
-        display: block;
-        background-color: #fff;
-        .post_preview_comment_section{
-            margin-bottom: 5px;
-            margin-top: 5px;
-            .post_preview_comment_input{
-                width: 75%;
-                float: left;
-                .form-control{
-                    border-radius: 22px;
-                    height: 44px;
-                    padding-left: 15px;
-                    padding-right: 15px;
-                    font-size: 14px;
-                    &:focus{
-                        border: 2px solid #0071e3;
-                    }
-                }
-            }
-            .post_preview_comment_submit{
-                width: 22%;
-                float: right;
-                .post_preview_comment_submit_btn{
-                    border: none;
-                    border-radius: 22px;
-                    width: 100%;
-                    background-color: #0071e3;
-                    height: 44px;
-                    color: #fff;
-                    font-size:14px;
-                    font-weight: 600;
-                    &:focus {outline:none;}
-                }
-            }
-        }
-    }
-
-    .post_preview_comment_container_block{
-        clear: both;
-        .post_preview_comment_sort{
-            padding-top: 20px;
-            padding-right: 15px;
-            background-color: #fff;
-            .post_preview_comment_tab_link{
-                font-size: 14px;
-                font-weight: 600;
-            }
-        }
-        .post_preview_comment_tab_content{
-            clear: both;
-            background-color: #fff;
-            .post_preview_comment_render{
-            }
-            .post_preview_comment_paginate{
-                padding: 4px;
-                text-align: center;
-                background-color: #fff;
-                border: 2px solid #dddddd;
-                border-radius: 20px;
-                margin-left: 15px;
-                margin-right: 15px;
-                margin-top: 20px;
-                a{
-                    font-size: 13px;
-                    font-weight: 600;
-                    color: #0071e3;
-                }
-            }
-        }
-    }
-    
 }
 
 //////////////////////new////////////////////

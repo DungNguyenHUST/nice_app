@@ -275,9 +275,100 @@
 							</div>
 						</div>
 					</div>
-					
-					<%= render :partial => 'posts/preview_comment', object: @post%>
-					
+
+				    <div class="post_show_new_comment_block" id ="post_show_comment_input_<%=@post.id.to_s%>">
+				        <%= form_for([@post, PostComment.new], remote: true) do |f| %>
+				            <div class="post_show_comment_section">
+				                <div class="post_show_comment_input">
+				                    <%= f.text_area :content, :required =>true, class: "form-control", placeholder: "Nhập bình luận của bạn tại đây" %>
+				                </div>
+
+				                <div class="post_show_comment_submit">
+				                    <%= f.submit "Gửi bình luận", class: "post_show_comment_submit" %>
+				                </div>
+				            </div>
+				        <%end%>
+				    </div>
+
+					<div class="post_show_comment_count">
+						<a><%=@post.post_comments.count%> bình luận</a>
+					</div>
+
+					<div class="post_show_comment_sort">
+						<div class="post_show_comment_tab_link">
+                            <ul class="nav">
+								<li class="nav-item dropdown">
+									<%if @tab_id == "default" || @tab_id == "PostCommentBest"%>
+										<%dropdown_name = "Tốt nhất"%>
+									<%elsif @tab_id == "PostCommentNew"%>
+										<%dropdown_name = "Mới nhất"%>
+									<%elsif @tab_id == "PostCommentTop"%>
+										<%dropdown_name = "Top"%>
+									<%elsif @tab_id == "PostCommentOld"%>
+										<%dropdown_name = "Cũ nhất"%>
+									<%end%>
+
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%=dropdown_name%></a>
+									<div class="dropdown-menu">
+										<%if @tab_id == "default" || @tab_id == "PostCommentBest"%>
+											<%active = "active"%>
+										<%else%> 
+											<%active = ""%>
+										<%end%>
+										<a class="dropdown-item <%=active%>" href="<%=post_path(@post, tab_id: 'PostCommentBest')%>">Tốt nhất</a>
+										
+										<%if @tab_id == "PostCommentNew"%>
+											<%active = "active"%>
+										<%else%> 
+											<%active = ""%>
+										<%end%>
+										<a class="dropdown-item <%=active%>" href="<%=post_path(@post, tab_id: 'PostCommentNew')%>">Mới nhất
+										
+										<%if @tab_id == "PostCommentTop"%>
+											<%active = "active"%>
+										<%else%> 
+											<%active = ""%>
+										<%end%>
+										<a class="dropdown-item <%=active%>" href="<%=post_path(@post, tab_id: 'PostCommentTop')%>">Top</a>
+                                    	
+										<%if @tab_id == "PostCommentOld"%>
+											<%active = "active"%>
+										<%else%> 
+											<%active = ""%>
+										<%end%>
+										<a class="dropdown-item <%=active%>" href="<%=post_path(@post, tab_id: 'PostCommentOld')%>">Cũ nhất</a>
+									</div>
+								</li>
+                            </ul>
+                        </div>
+					</div>
+				    
+					<div class="post_show_comment_tab_content">
+						<div class="post_show_comment_render" id="post_show_comment_index_<%=@post.id%>">
+							<%=render @post_comments%>
+						</div>
+						<%remain_item = @post_comments.total_count - (@post_comments.current_page * 10)%>
+						<%remain_item = "Xem thêm" + " " + remain_item.to_s + " " + "bình luận khác"%>
+						<%if @post_comments.total_count > 10%>
+							<div class="post_show_comment_paginate" id="post_comment_pagination">
+								<%= link_to_next_page(@post_comments, remain_item.to_s, :remote => true) %>
+							</div>
+						<%end%>
+					</div>
+
+				    <script>
+						function myFunctionReplyPost(id) {
+							var x = document.getElementById(id);
+							if (x.style.display == "block") 
+							{
+								x.style.display = "none";
+							} 
+							else 
+							{
+								x.style.display = "block";
+							}
+						}
+					</script>
 				</div>
 			</div>
 			<div class='col-sm-4 col-nopadding'>
