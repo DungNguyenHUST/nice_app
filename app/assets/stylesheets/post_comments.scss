@@ -206,30 +206,37 @@
                 padding-left: 8px;
                 .post_reply_comment_section{
                     margin-bottom: 15px;
-                    margin-top: 5px;
+                    margin-top: 10px;
                     display: block;
+                    background-color: #f0f2f5;
+                    border-radius: 5px;
+                    padding: 5px;
+                    border: 1px solid #ddd;
                     .post_reply_comment_input{
                         width: 100%;
-                        margin-top: 10px;
                         .form-control{
-                            border-radius: 20px;
-                            height: 40px;
+                            border-radius: 5px;
+                            height: 80px;
                             padding-left: 15px;
                             padding-right: 15px;
                             font-size: 14px;
+                            border: none;
+                            outline: none;
+                            background-color: #f0f2f5;
                             &:focus{
-                                border: 2px solid #0071e3;
-                                border-radius: 5px;
-                                height: 100px;
+                                border: none !important;
+                                outline: none !important;
+                                box-shadow: none !important;
                             }
                         }
                     }
                     .post_reply_comment_submit{
+                        margin-top: 5px;
+                        text-align: right;
                         .post_reply_comment_form_submit{
-                            margin-top: 5px;
-                            width: 100px;
+                            width: 80px;
                             border: none;
-                            border-radius: 20px;
+                            border-radius: 5px;
                             background-color: #0071e3;
                             height: 30px;
                             color: #fff;
@@ -242,6 +249,7 @@
             }
 
             .post_comment_reply_container{
+                clear: both;
                 .post_reply_comment_render{
                     font-size: 14px;
                 }
@@ -436,26 +444,29 @@
                     display: block;
                     .post_reply_comment_input{
                         width: 100%;
-                        margin-top: 10px;
                         .form-control{
-                            border-radius: 20px;
-                            height: 40px;
+                            border-radius: 5px;
+                            height: 80px;
                             padding-left: 15px;
                             padding-right: 15px;
                             font-size: 14px;
+                            border: none;
+                            outline: none;
+                            background-color: #f0f2f5;
                             &:focus{
-                                border: 2px solid #0071e3;
-                                border-radius: 5px;
-                                height: 100px;
+                                border: none !important;
+                                outline: none !important;
+                                box-shadow: none !important;
                             }
                         }
                     }
                     .post_reply_comment_submit{
+                        margin-top: 5px;
+                        text-align: right;
                         .post_reply_comment_form_submit{
-                            margin-top: 5px;
-                            width: 100px;
+                            width: 80px;
                             border: none;
-                            border-radius: 20px;
+                            border-radius: 5px;
                             background-color: #0071e3;
                             height: 30px;
                             color: #fff;

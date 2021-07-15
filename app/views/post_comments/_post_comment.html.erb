@@ -128,7 +128,7 @@
                     <%= form_for([post_comment, PostComment.new], remote: true) do |f| %>
                         <div class="post_reply_comment_section">
                             <div class="post_reply_comment_input">
-                                <%= f.text_area :content, :required =>true, class: "form-control", placeholder: "Nhập trả lời ..." %>
+                                <%= f.text_area :content, :required =>true, class: "form-control", placeholder: "Nhập trả lời tại đây ..." %>
                             </div>
                             <div class="post_reply_comment_submit">
                                 <%= f.submit "Trả lời", class: "post_reply_comment_form_submit" %>
@@ -287,7 +287,7 @@
                     <%= form_for([post_comment, PostComment.new], remote: true) do |f| %>
                         <div class="post_reply_comment_section">
                             <div class="post_reply_comment_input">
-                                <%= f.text_area :content, :required =>true, class: "form-control", placeholder: "Nhập trả lời ..." %>
+                                <%= f.text_area :content, :required =>true, class: "form-control", placeholder: "Nhập trả lời tại đây ..." %>
                             </div>
                             <div class="post_reply_comment_submit">
                                 <%= f.submit "Trả lời", class: "post_reply_comment_form_submit" %>
