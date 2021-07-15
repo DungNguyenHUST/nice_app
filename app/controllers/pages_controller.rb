@@ -1,10 +1,11 @@
 class PagesController < ApplicationController
   include PostsHelper
+  include TopicsHelper
   include Kaminari
   
   def home
     @posts = Post.all.page(params[:page]).per(10)
-    @topics = Topic.all.sort_by{|topic| topic.topic_follows.count}.reverse.first(10)
+    @topics = Topic.all.sort_by{|topic| cal_topic_trend_point(topic)}.reverse.first(10)
 
     @tab_id = "default"
     if(params.has_key?(:tab_id))

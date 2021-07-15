@@ -269,7 +269,7 @@
         .nav .nav-link, .nav .nav-link.active, .nav .nav-link:hover {
             border: none;
             color: #0f1419;
-            text-align: left;
+            text-align: center;
             i{
                 position: relative;
                 // top: 5px;
@@ -285,7 +285,7 @@
         }
         .nav .nav-link.active {
             border-radius: 0;
-            border-bottom: 3px solid #0071e3;
+            border-bottom: 5px solid #0071e3;
             font-weight: 600;
             color: #0071e3;
             font-size: 16px;
@@ -295,7 +295,7 @@
         }
     }
 
-    .home_search_tab_content{
+    .tab-content{
         margin-top: 20px;
         @media screen and (max-width: 600px){
             margin-top: 10px;
