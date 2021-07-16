@@ -5,5 +5,5 @@ $("<%=j render @posts %>").appendTo($("#home_post_infinite_scroll"));
 <% if @posts.last_page? %>
   $('#home_post_pagination').remove();
 <% else %>
-  $('#home_post_pagination').html("<%=j link_to_next_page(@posts, 'Xem thêm', :remote => true) %>");
+  $('#home_post_pagination').html("<%=j link_to_next_page(@posts, 'Loading...', :remote => true) %>");
 <% end %>

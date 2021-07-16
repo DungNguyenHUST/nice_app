@@ -100,7 +100,7 @@
                             </div>
                             <%if @posts.total_count > 10%>
                                 <div class="home_post_pagination_button" id="home_post_pagination">
-                                    <%= link_to_next_page(@posts, 'Xem thêm', :remote => true) %>
+                                    <%= link_to_next_page(@posts, 'Loading...', :remote => true) %>
                                 </div>
                             <%end%>
                             <script>
@@ -108,9 +108,9 @@
                                     if ($('#home_post_pagination').length) {
                                         $(window).scroll(function() {
                                             var next_url = $("#home_post_pagination a[rel='next']").attr('href');       
-                                            if (next_url && $(window).scrollTop() > $(document).height() - $(window).height() - 250) {         
+                                            if (next_url && ($(window).scrollTop() > ($(document).height() - $(window).height() - 1000))) {         
                                                 $('#home_post_pagination').show();
-                                                $('#home_post_pagination').html('<a>Loading ...</a>');
+                                                $('#home_post_pagination').html('<a>Loading...</a>');
                                                 $.getScript(next_url)
                                                 return;
                                             }       
