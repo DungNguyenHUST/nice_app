@@ -149,7 +149,7 @@
                         <%if @select_topic.present?%>
                             <div class="new_post_topic_section">
                                 <div class="new_post_topic_input">
-                                    <%= f.select(:topic_ids, @select_topic.collect {|m| [m.name, m.id]}, {:prompt => '-- Chọn chủ đề --'}, {:class => "new_post_topic_select"}) %>   
+                                    <%= f.select(:topic_ids, @select_topic.collect {|m| [m.name, m.id]}, {:prompt => '-- Chọn chủ đề --'}, {:class => 'new_post_topic_select'}) %>   
                                 </div>
                             </div>
                             
@@ -158,7 +158,9 @@
                                     $('.new_post_topic_select').select2({
                                         placeholder: "-- Chọn chủ đề --",
                                         allowClear: true,
-                                        width: 'resolve'
+                                        width: 'resolve',
+                                        theme: "bootstrap",
+                                        selectOnClose: true
                                     });
                                 });
                             </script>
