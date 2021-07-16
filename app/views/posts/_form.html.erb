@@ -52,7 +52,7 @@
 
                 <div class="new_post_tab_content">
                     <%@select_topic = find_owner_topic_follow_for_user(current_user)%>
-                    <%= simple_form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+                    <%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
                         <div class="new_post_form">
                             <div class="new_post_section">
                                 <div class="new_post_input">
@@ -149,9 +149,19 @@
                         <%if @select_topic.present?%>
                             <div class="new_post_topic_section">
                                 <div class="new_post_topic_input">
-                                    <%= f.select :topic_ids, @select_topic.collect {|m| [m.name, m.id]}, {:prompt => '-- Chọn một chủ đề phù hợp với bài viết --'}, class: "form-control", :required => true%>
+                                    <%= f.select(:topic_ids, @select_topic.collect {|m| [m.name, m.id]}, {:prompt => '-- Chọn chủ đề --'}, {:class => "new_post_topic_select"}) %>   
                                 </div>
                             </div>
+                            
+                            <script>
+                                $(document).ready(function() {
+                                    $('.new_post_topic_select').select2({
+                                        placeholder: "-- Chọn chủ đề --",
+                                        allowClear: true,
+                                        width: 'resolve'
+                                    });
+                                });
+                            </script>
                         <%end%>
                             
                         <div class="new_post_submit">

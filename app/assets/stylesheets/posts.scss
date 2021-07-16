@@ -1484,12 +1484,14 @@
                 left: 0px;
                 margin-top: 5px;
                 margin-bottom: 10px;
-                width: 100%;
                 height: auto;
-                .form-control{
+                .new_post_topic_select{
                     margin-left: 0px;
-                    min-height: 40px;
-                    height: auto;
+                    select{
+                        height: 100px;
+                    }
+                    height: 100px;
+                    // height: auto;
                     width: 100%;
                     border: 1px solid #dddddd;
                     border-radius: 5px;
