@@ -103,6 +103,22 @@
                                     <%= link_to_next_page(@posts, 'Xem thêm', :remote => true) %>
                                 </div>
                             <%end%>
+                            <script>
+                                $(document).ready(function() {
+                                    if ($('#home_post_pagination').length) {
+                                        $(window).scroll(function() {
+                                            var next_url = $("#home_post_pagination a[rel='next']").attr('href');       
+                                            if (next_url && $(window).scrollTop() > $(document).height() - $(window).height() - 250) {         
+                                                $('#home_post_pagination').show();
+                                                $('#home_post_pagination').html('<a>Loading ...</a>');
+                                                $.getScript(next_url)
+                                                return;
+                                            }       
+                                        });
+                                        return $(window).scroll();
+                                    }
+                                });
+                            </script>
                         <%end%>
                     </div>
                 </div>
