@@ -104,19 +104,17 @@
                                 </div>
                             <%end%>
                             <script>
-                                $(document).ready(function() {
-                                    if ($('#home_post_pagination').length) {
-                                        $(window).scroll(function() {
-                                            var next_url = $("#home_post_pagination a[rel='next']").attr('href');       
-                                            if (next_url && ($(window).scrollTop() > ($(document).height() - $(window).height() - 5000))) {         
-                                                $('#home_post_pagination').show();
-                                                $('#home_post_pagination').html('<a>Loading...</a>');
-                                                $.getScript(next_url)
-                                                return;
-                                            }       
-                                        });
-                                        return $(window).scroll();
-                                    }
+                                $(document).on('turbolinks:load', function() {
+                                    $(window).scroll(function() {
+                                        var next_url = $("#home_post_pagination a[rel='next']").attr('href');       
+                                        if (next_url && ($(window).scrollTop() > ($(document).height() - $(window).height() - 5000))) {         
+                                            $('#home_post_pagination').show();
+                                            $('#home_post_pagination').html('<a>Loading...</a>');
+                                            $.getScript(next_url);
+                                            return;
+                                        }
+                                    });
+                                    return $(window).scroll();
                                 });
                             </script>
                         <%end%>
