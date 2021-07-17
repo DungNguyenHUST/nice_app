@@ -17,6 +17,8 @@
 				font-size: 20px;
 				padding: 3px;
 				border-radius: 5px;
+				padding-left: 6px;
+				padding-right: 6px;
 				font-weight: 550;
 				border: none;
 				justify-content: center;
@@ -162,6 +164,8 @@
 			font-size: 20px;
 			padding: 3px;
 			border-radius: 5px;
+			padding-left: 6px;
+			padding-right: 6px;
 			font-weight: 550;
 			border: none;
 			justify-content: center;
@@ -206,7 +210,7 @@
 		@media screen and (max-width: 600px){
 			display: block;
 		}
-		margin-left: 20px;
+		margin-left: 30px;
 		margin-top: 12px;
 		i{
 			padding: 9px;
