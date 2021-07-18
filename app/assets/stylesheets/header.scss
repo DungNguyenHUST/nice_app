@@ -27,6 +27,10 @@
 					color: #0071e3;
 				}
 			}
+			img{
+				width: 36x;
+				height: 36px;
+			}
 		}
 
 		.nav_header_signed_search_block{
@@ -174,6 +178,10 @@
 				color: #0071e3;
 			}
 		}
+		img{
+			width: 36x;
+			height: 36px;
+		}
 	}
 
 	.nav_header_search_block{
@@ -210,7 +218,7 @@
 		@media screen and (max-width: 600px){
 			display: block;
 		}
-		margin-left: 30px;
+		margin-left: 20px;
 		margin-top: 12px;
 		i{
 			padding: 9px;
