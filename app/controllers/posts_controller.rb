@@ -122,7 +122,7 @@ class PostsController < ApplicationController
                 end
             end
 
-            redirect_to root_path
+            redirect_to post_path(@post)
         end
     end
 

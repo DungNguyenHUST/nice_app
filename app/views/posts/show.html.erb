@@ -43,7 +43,7 @@
 						<%@post.post_links.each do |post_link|%>
 							<div class='post_show_link_block'>
 								<div class='post_show_link_image'>
-									<%if post_link.image.empty?%>
+									<%if post_link.image.to_s.empty?%>
 										<div class='post_show_link_image_default'>
 											<%= link_to (image_tag("default-image-lg.jpg")), image_path(url_for("default-image-lg.jpg")), rel: "gallery" , :href => url_for(@post.link), target: :_blank%>
 										</div>
@@ -53,13 +53,13 @@
 								</div>
 
 								<div class='post_show_link_right'>
-									<%if !post_link.title.empty?%>
+									<%if !post_link.title.to_s.empty?%>
 										<div class='post_show_link_title'>
 											<a><%= link_to post_link.title, url_for(@post.link), target: :_blank%></a>
 										</div>
 									<%end%>
 									
-									<%if !post_link.description.empty?%>
+									<%if !post_link.description.to_s.empty?%>
 										<div class='post_show_link_description'>
 											<a><%= link_to truncate(strip_tags(post_link.description), length: 300), url_for(@post.link), target: :_blank%></a>
 										</div>
