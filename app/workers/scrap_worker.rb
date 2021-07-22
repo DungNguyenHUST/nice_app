@@ -70,7 +70,8 @@ class ScrapWorker
 
         if @post.save
             # Create topic
-            @post_topping = @post.topings.build(:topic_id => 1)
+            # Thoi su
+            @post_topping = @post.topings.build(:topic_id => 3)
             @post_topping.save!
             
             # Create link

@@ -58,7 +58,7 @@ append :linked_files, "config/secret.yml"
 # after 'deploy:update_code', 'deploy:symlink_uploads'
 
 # Job sidekiq
-task :restart, :clear_cache do
+task :restart do
     on roles(:app) do
         execute "cd /home/deploy/nice_app/current"
         execute :sudo, :systemctl, :restart, :sidekiq
