@@ -37,8 +37,27 @@ class ScrapersController < ApplicationController
         return processing_datas
     end
 
+    def get_data_dantri
+        response = HTTParty.get('https://dantri.com.vn/su-kien.htm')
+        doc = Nokogiri::HTML(response.body)
+        
+        # Get block
+        processing_block = doc.css("h3.news-item__title")
+
+        # Create data in array
+        data = Struct.new(:title, :link)
+        processing_datas = []
+        processing_block.each do |processing_block|
+            title = processing_block.css("a").map { |title| title['title']}
+            link = processing_block.css("a").map { |link| link['href']}
+            data_temp = data.new(title.first, "https://dantri.com.vn" + link.first)
+            processing_datas.push(data_temp)
+        end
+        return processing_datas
+    end
+
     def create
-        processing_datas = get_data_kenh14
+        processing_datas = get_data_dantri
         # Create new modal
         processing_datas.first(2).each do |processing_data|
             @post = Post.new
