@@ -104,3 +104,4 @@ gem 'csv'
 
 # job
 gem 'sidekiq'
+gem 'sidekiq-scheduler'

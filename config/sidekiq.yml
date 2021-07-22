@@ -4,3 +4,9 @@ production:
   :concurrency: 1
 :queues:
   - default
+:schedule:
+  scrap_woker:
+    #      s m h d m w
+    # cron: '47 16 * * *'
+    every: 5 minutes
+    class: ScrapWorker

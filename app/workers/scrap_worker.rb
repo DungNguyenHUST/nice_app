@@ -62,49 +62,61 @@ class ScrapWorker
         return processing_datas
     end
 
-    def processing_data
-        processing_datas = get_data_dantri
-        # Create new modal
-        processing_datas.first(2).each do |processing_data|
-            @post = Post.new
-            @post.title = processing_data.title
-            @post.link = processing_data.link
-            @post.user_id = 1
+    def processing_post(post_data)
+        @post = Post.new
+        @post.title = post_data.title
+        @post.link = post_data.link
+        @post.user_id = 1
 
-            if @post.save
-                # Create topic
-                @post_topping = @post.topings.build(:topic_id => 1)
-                @post_topping.save!
-                
-                # Create link
-                @post_link = @post.post_links.build
-                @link = LinkThumbnailer.generate(@post.link)
-                if @link.present?
-                    image = ""
-                    favicon = ""
-                    title = ""
-                    description = ""
+        if @post.save
+            # Create topic
+            @post_topping = @post.topings.build(:topic_id => 1)
+            @post_topping.save!
+            
+            # Create link
+            @post_link = @post.post_links.build
+            @link = LinkThumbnailer.generate(@post.link)
+            if @link.present?
+                image = ""
+                favicon = ""
+                title = ""
+                description = ""
 
-                    if !@link.images.first.nil?
-                        image = @link.images.first.src.to_s
-                    end
-                    if !@link.favicon.nil?
-                        favicon = @link.favicon.to_s
-                    end
-                    if @link.title.present?
-                        title = @link.title
-                    end
-                    if @link.description.present?
-                        description = @link.description
-                    end
-
-                    @post_link = @post.post_links.create!(:image => image,
-                                                            :favicon => favicon,
-                                                            :title => title,
-                                                            :description => description,
-                                                            :post_id => @post.id)
+                if !@link.images.first.nil?
+                    image = @link.images.first.src.to_s
                 end
+                if !@link.favicon.nil?
+                    favicon = @link.favicon.to_s
+                end
+                if @link.title.present?
+                    title = @link.title
+                end
+                if @link.description.present?
+                    description = @link.description
+                end
+
+                @post_link = @post.post_links.create!(:image => image,
+                                                        :favicon => favicon,
+                                                        :title => title,
+                                                        :description => description,
+                                                        :post_id => @post.id)
             end
         end
+    end
+
+    def processing_data
+        puts "Start scrap data..."
+        get_data_vnexpress.first(2).each do |processing_data|
+            processing_post(processing_data)
+        end
+
+        get_data_dantri.first(2).each do |processing_data|
+            processing_post(processing_data)
+        end
+
+        get_data_kenh14.first(2).each do |processing_data|
+            processing_post(processing_data)
+        end
+        puts "End scrap data!!!"
     end
 end
