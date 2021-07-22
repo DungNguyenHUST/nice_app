@@ -107,15 +107,15 @@ class ScrapWorker
 
     def processing_data
         puts "Start scrap data..."
-        get_data_vnexpress.first(2).each do |processing_data|
+        get_data_vnexpress.first(5).each do |processing_data|
             processing_post(processing_data)
         end
 
-        get_data_dantri.first(2).each do |processing_data|
+        get_data_dantri.first(5).each do |processing_data|
             processing_post(processing_data)
         end
 
-        get_data_kenh14.first(2).each do |processing_data|
+        get_data_kenh14.first(5).each do |processing_data|
             processing_post(processing_data)
         end
         puts "End scrap data!!!"
