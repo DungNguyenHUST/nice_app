@@ -56,3 +56,11 @@ end
 # For append secret key file in host
 append :linked_files, "config/secret.yml"
 # after 'deploy:update_code', 'deploy:symlink_uploads'
+
+# Job sidekiq
+task :restart, :clear_cache do
+    on roles(:app) do
+      execute "cd #{current_app_path}"
+      execute :sudo, :systemctl, :restart, :sidekiq
+    end
+end
