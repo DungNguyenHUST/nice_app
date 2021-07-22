@@ -101,3 +101,6 @@ gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 gem 'httparty'
 gem 'nokogiri'
 gem 'csv'
+
+# job
+gem 'sidekiq'

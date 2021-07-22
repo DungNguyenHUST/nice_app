@@ -20,5 +20,10 @@ module NiceApp
     # config.eager_load_paths << Rails.root.join("extras")
     
     config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
+
+    # job adapter
+    config.active_job.queue_adapter = :sidekiq
+    config.autoload_paths += %W(#{config.root}/app/workers)
+    config.eager_load_paths += %W(#{config.root}/app/workers)
   end
 end

@@ -324,6 +324,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.3.1)
     regexp_parser (2.1.1)
     remotipart (1.4.4)
     responders (3.0.1)
@@ -353,6 +354,10 @@ GEM
     shareable (1.1.4)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    sidekiq (6.2.1)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -446,6 +451,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   shareable
+  sidekiq
   simple_form
   spring
   turbolinks (~> 5)

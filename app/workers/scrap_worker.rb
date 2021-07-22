@@ -1,4 +1,10 @@
-class ScrapersController < ApplicationController
+class ScrapWorker
+    include Sidekiq::Worker
+
+    def perform(*args)
+        processing_data
+    end
+
     def get_data_vnexpress
         response = HTTParty.get('https://vnexpress.net/goc-nhin')
         doc = Nokogiri::HTML(response.body)
@@ -56,7 +62,7 @@ class ScrapersController < ApplicationController
         return processing_datas
     end
 
-    def create
+    def processing_data
         processing_datas = get_data_dantri
         # Create new modal
         processing_datas.first(2).each do |processing_data|
