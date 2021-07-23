@@ -473,7 +473,7 @@
                         <a>Bài viết khác từ <%=link_to (@owner_post_user.name), user_path(@owner_post_user) %></a>
                     </div>
 					<%@owner_post = find_owner_post_for_user(@owner_user)%>
-                    <%@owner_post.each do |post|%>
+                    <%@owner_post.first(10).each do |post|%>
                         <div class='post_show_right_content'>
 							<div class='post_show_right_post_block'>
                             	<a><%= link_to (post.title), post_path(post) %></a>
