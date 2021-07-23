@@ -6,7 +6,7 @@ class ScrapWorker
     end
 
     def get_data_vnexpress
-        response = HTTParty.get('https://vnexpress.net/goc-nhin')
+        response = HTTParty.get('https://vnexpress.net/thoi-su')
         doc = Nokogiri::HTML(response.body)
         
         # Get block
