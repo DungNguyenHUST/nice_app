@@ -62,5 +62,6 @@ task :restart do
     on roles(:app) do
         execute "cd /home/deploy/nice_app/current"
         execute :sudo, :systemctl, :restart, :sidekiq
+        run "#{sudo} nohup /etc/init.d/redis-server"
     end
 end
