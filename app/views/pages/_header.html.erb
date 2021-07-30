@@ -132,7 +132,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Bạn có chắc chắn muốn đăng xuất</h5>
+                                                <h5 class="modal-title">Bạn có chắc chắn muốn đăng xuất?</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -189,14 +189,14 @@
                 <div class="col-6">
                     <div class="nav_header_right_block">
                         <div class="nav_header_signup">
-                            <button type="button" data-toggle="modal" data-target="#buttonModalLoginCenter">
+                            <%= button_to new_user_registration_path, method: :get do%>
                                 <a>Đăng kí</a>
-                            </button>
+                            <%end%>
                         </div>
                         <div class="nav_header_signin">
-                            <button type="button" data-toggle="modal" data-target="#buttonModalLoginCenter">
+                            <%= button_to new_user_session_path, method: :get do%>
                                 <a>Đăng nhập</a>
-                            </button>
+                            <%end%>
                         </div>
                     </div>
                 </div>
