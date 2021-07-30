@@ -11,7 +11,7 @@
         <%end%>
         <div class='topic_mini_index_topic_block'>
             <div class='topic_mini_index_topic_name_block'>
-                <a><%= link_to (topic.name), topic_path(topic) %></a>
+                <a><%= link_to (truncate(strip_tags(topic.name), length: 50)), topic_path(topic) %></a>
             </div>
 
             <div class='topic_mini_index_topic_nickname_block'>
@@ -75,7 +75,7 @@
         
         <div class='topic_index_info'>
             <div class='topic_index_name'>
-                <a><%= link_to (topic.name), topic_path(topic) %></a>
+                <a><%= link_to (truncate(strip_tags(topic.name), length: 50)), topic_path(topic) %></a>
             </div>
             <div class='topic_index_count'>
                 <a><%= topic.posts.count %> bài viết</a><span> · </span>
