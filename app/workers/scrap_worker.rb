@@ -64,43 +64,47 @@ class ScrapWorker
 
     def processing_post(post_data)
         @post = Post.new
-        @post.title = post_data.title
-        @post.link = post_data.link
-        @post.user_id = 1
+        if post_data.title.nil? || post_data.link.nil?
+            return
+        else
+            @post.title = post_data.title
+            @post.link = post_data.link
+            @post.user_id = 1
 
-        if @post.save
-            # Create topic
-            # Thoi su
-            @post_topping = @post.topings.build(:topic_id => 3)
-            @post_topping.save!
-            
-            # Create link
-            @post_link = @post.post_links.build
-            @link = LinkThumbnailer.generate(@post.link)
-            if @link.present?
-                image = ""
-                favicon = ""
-                title = ""
-                description = ""
+            if @post.save
+                # Create topic
+                # Thoi su
+                @post_topping = @post.topings.build(:topic_id => 3)
+                @post_topping.save!
+                
+                # Create link
+                @post_link = @post.post_links.build
+                @link = LinkThumbnailer.generate(@post.link)
+                if @link.present?
+                    image = ""
+                    favicon = ""
+                    title = ""
+                    description = ""
 
-                if !@link.images.first.nil?
-                    image = @link.images.first.src.to_s
-                end
-                if !@link.favicon.nil?
-                    favicon = @link.favicon.to_s
-                end
-                if @link.title.present?
-                    title = @link.title
-                end
-                if @link.description.present?
-                    description = @link.description
-                end
+                    if !@link.images.first.nil?
+                        image = @link.images.first.src.to_s
+                    end
+                    if !@link.favicon.nil?
+                        favicon = @link.favicon.to_s
+                    end
+                    if @link.title.present?
+                        title = @link.title
+                    end
+                    if @link.description.present?
+                        description = @link.description
+                    end
 
-                @post_link = @post.post_links.create!(:image => image,
-                                                        :favicon => favicon,
-                                                        :title => title,
-                                                        :description => description,
-                                                        :post_id => @post.id)
+                    @post_link = @post.post_links.create!(:image => image,
+                                                            :favicon => favicon,
+                                                            :title => title,
+                                                            :description => description,
+                                                            :post_id => @post.id)
+                end
             end
         end
     end
