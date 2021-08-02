@@ -170,102 +170,212 @@
 
                     <div class="user_profile_tab_content">
                         <%if @tab_id == "default" || @tab_id == "UserPostID"%>
-                            <div class="user_profile_post_tab">
-                                <%@user_posts.each do |post|%>
-                                    <%= render post%>
-                                <%end%>
-								<%= paginate @user_posts, window: 1, outer_window: 1 %>
-                            </div>
+                            <%if @user_posts.total_count > 0%>
+                                <div class="user_profile_post_tab">
+                                    <%@user_posts.each do |post|%>
+                                        <%= render post%>
+                                    <%end%>
+                                    <%= paginate @user_posts, window: 1, outer_window: 1 %>
+                                </div>
+                            <%else%>
+                                <div class="user_show_not_found_block">
+                                    <div class="user_show_not_found_icon">
+                                        <i><%= bootstrap_icon "exclamation-circle", width: 24, height: 24%></i>
+                                    </div>
+                                    <div class="user_show_not_found">
+                                        <span>Bạn chưa có bài viết nào</span>
+                                    </div>
+                                </div>
+                            <%end%>
                         <%end%>
 
                         <%if @tab_id == "UserTopicID"%>
-                            <div class="user_profile_topic_tab">
-                                <%@user_topics.each do |topic|%>
-                                    <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
-                                <%end%>
-								<%= paginate @user_topics, window: 1, outer_window: 1 %>
-                            </div>
+                            <%if @user_topics.total_count > 0%>
+                                <div class="user_profile_topic_tab">
+                                    <%@user_topics.each do |topic|%>
+                                        <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
+                                    <%end%>
+                                    <%= paginate @user_topics, window: 1, outer_window: 1 %>
+                                </div>
+                            <%else%>
+                                <div class="user_show_not_found_block">
+                                    <div class="user_show_not_found_icon">
+                                        <i><%= bootstrap_icon "exclamation-circle", width: 24, height: 24%></i>
+                                    </div>
+                                    <div class="user_show_not_found">
+                                        <span>Bạn chưa tạo chủ đề nào</span>
+                                    </div>
+                                </div>
+                            <%end%>
                         <%end%>
 
                         <%if @tab_id == "UserTopicFollowID"%>
-                            <div class="user_profile_topic_tab">
-                                <%@user_topic_follows.each do |topic|%>
-                                    <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
-                                <%end%>
-                                <%= paginate @user_topic_follows, window: 1, outer_window: 1 %>
-                            </div>
+                            <%if @user_topic_follows.total_count > 0%>
+                                <div class="user_profile_topic_tab">
+                                    <%@user_topic_follows.each do |topic|%>
+                                        <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
+                                    <%end%>
+                                    <%= paginate @user_topic_follows, window: 1, outer_window: 1 %>
+                                </div>
+                            <%else%>
+                                <div class="user_show_not_found_block">
+                                    <div class="user_show_not_found_icon">
+                                        <i><%= bootstrap_icon "exclamation-circle", width: 24, height: 24%></i>
+                                    </div>
+                                    <div class="user_show_not_found">
+                                        <span>Bạn chưa theo dõi chủ đề nào</span>
+                                    </div>
+                                </div>
+                            <%end%>
                         <%end%>
 
                         <%if @tab_id == "UserCommentID"%>
-                            <div class="user_profile_comment_tab">
-                                <%@user_comments.each do |post|%>
-                                    <%@post = post%>
-                                    <%= render @post%>
-                                <%end%>
-                                <%= paginate @user_comments, window: 1, outer_window: 1 %>
-                            </div>
+                            <%if @user_comments.total_count > 0%>
+                                <div class="user_profile_comment_tab">
+                                    <%@user_comments.each do |post|%>
+                                        <%@post = post%>
+                                        <%= render @post%>
+                                    <%end%>
+                                    <%= paginate @user_comments, window: 1, outer_window: 1 %>
+                                </div>
+                            <%else%>
+                                <div class="user_show_not_found_block">
+                                    <div class="user_show_not_found_icon">
+                                        <i><%= bootstrap_icon "exclamation-circle", width: 24, height: 24%></i>
+                                    </div>
+                                    <div class="user_show_not_found">
+                                        <span>Bạn chưa có bình luận nào</span>
+                                    </div>
+                                </div>
+                            <%end%>
                         <%end%>
 
                         <%if @tab_id == "UserUpvoteID"%>
-                            <div class="user_profile_upvote_tab">
-                                <%@user_upvotes.each do |post|%>
-                                    <%= render post%>
-                                <%end%>
-                                <%= paginate @user_upvotes, window: 1, outer_window: 1 %>
-                            </div>
+                            <%if @user_upvotes.total_count > 0%>
+                                <div class="user_profile_upvote_tab">
+                                    <%@user_upvotes.each do |post|%>
+                                        <%= render post%>
+                                    <%end%>
+                                    <%= paginate @user_upvotes, window: 1, outer_window: 1 %>
+                                </div>
+                            <%else%>
+                                <div class="user_show_not_found_block">
+                                    <div class="user_show_not_found_icon">
+                                        <i><%= bootstrap_icon "exclamation-circle", width: 24, height: 24%></i>
+                                    </div>
+                                    <div class="user_show_not_found">
+                                        <span>Bạn chưa bình chọn cho bài viết nào</span>
+                                    </div>
+                                </div>
+                            <%end%>
                         <%end%>
 
                         <%if @tab_id == "UserDownvoteID"%>
-                            <div class="user_profile_downvote_tab">
-                                <%@user_downvotes.each do |post|%>
-                                    <%= render post%>
-                                <%end%>
-                                <%= paginate @user_downvotes, window: 1, outer_window: 1 %>
-                            </div>
+                            <%if @user_downvotes.total_count > 0%>
+                                <div class="user_profile_downvote_tab">
+                                    <%@user_downvotes.each do |post|%>
+                                        <%= render post%>
+                                    <%end%>
+                                    <%= paginate @user_downvotes, window: 1, outer_window: 1 %>
+                                </div>
+                            <%else%>
+                                <div class="user_show_not_found_block">
+                                    <div class="user_show_not_found_icon">
+                                        <i><%= bootstrap_icon "exclamation-circle", width: 24, height: 24%></i>
+                                    </div>
+                                    <div class="user_show_not_found">
+                                        <span>Bạn chưa chưa down vote bài viết nào</span>
+                                    </div>
+                                </div>
+                            <%end%>
                         <%end%>
 
                         <%if @tab_id == "UserSaveID"%>
-                            <div class="user_profile_save_tab">
-                                <%@user_saves.each do |post|%>
-                                    <%= render post%>
-                                <%end%>
-                                <%= paginate @user_saves, window: 1, outer_window: 1 %>
-                            </div>
+                            <%if @user_saves.total_count > 0%>
+                                <div class="user_profile_save_tab">
+                                    <%@user_saves.each do |post|%>
+                                        <%= render post%>
+                                    <%end%>
+                                    <%= paginate @user_saves, window: 1, outer_window: 1 %>
+                                </div>
+                            <%else%>
+                                <div class="user_show_not_found_block">
+                                    <div class="user_show_not_found_icon">
+                                        <i><%= bootstrap_icon "exclamation-circle", width: 24, height: 24%></i>
+                                    </div>
+                                    <div class="user_show_not_found">
+                                        <span>Bạn chưa lưu lại bài viết nào</span>
+                                    </div>
+                                </div>
+                            <%end%>
                         <%end%>
 
                         <%if @tab_id == "UserNotificationID"%>
-                            <div class="user_notification_tab">
-                                <%@user_notifications.each do |user_notification|%>
-                                    <%= render :partial => 'user_notifications/user_notification', :locals => {:mini_tyle => false}, :object => user_notification %>
-                                <%end%>
-                                <%= paginate @user_notifications, window: 1, outer_window: 1 %>
-                            </div>
+                            <%if @user_notifications.total_count > 0%>
+                                <div class="user_notification_tab">
+                                    <%@user_notifications.each do |user_notification|%>
+                                        <%= render :partial => 'user_notifications/user_notification', :locals => {:mini_tyle => false}, :object => user_notification %>
+                                    <%end%>
+                                    <%= paginate @user_notifications, window: 1, outer_window: 1 %>
+                                </div>
+                            <%else%>
+                                <div class="user_show_not_found_block">
+                                    <div class="user_show_not_found_icon">
+                                        <i><%= bootstrap_icon "exclamation-circle", width: 24, height: 24%></i>
+                                    </div>
+                                    <div class="user_show_not_found">
+                                        <span>Bạn chưa có thông báo mới nào</span>
+                                    </div>
+                                </div>
+                            <%end%>
                         <%end%>
 
                         <%if @tab_id == "UserFollowingID"%>
-                            <div class="user_following_tab">
-                                <div class="row">
-                                    <%@user_followers.each do |user|%>
-                                        <div class="col-sm-4 col-nopadding">
-                                            <%= render user%>
-                                        </div>
-                                    <%end%>
+                            <%if @user_followers.total_count > 0%>
+                                <div class="user_following_tab">
+                                    <div class="row">
+                                        <%@user_followers.each do |user|%>
+                                            <div class="col-sm-4 col-nopadding">
+                                                <%= render user%>
+                                            </div>
+                                        <%end%>
+                                    </div>
+                                    <%= paginate @user_followers, window: 1, outer_window: 1 %>
                                 </div>
-                                <%= paginate @user_followers, window: 1, outer_window: 1 %>
-                            </div>
+                            <%else%>
+                                <div class="user_show_not_found_block">
+                                    <div class="user_show_not_found_icon">
+                                        <i><%= bootstrap_icon "exclamation-circle", width: 24, height: 24%></i>
+                                    </div>
+                                    <div class="user_show_not_found">
+                                        <span>Không có ai đang theo dõi bạn</span>
+                                    </div>
+                                </div>
+                            <%end%>
                         <%end%>
 
                         <%if @tab_id == "UserFollowedID"%>
-                            <div class="user_followed_tab">
-                                <div class="row">
-                                    <%@user_followees.each do |user|%>
-                                        <div class="col-sm-4 col-nopadding">
-                                            <%= render user%>
-                                        </div>
-                                    <%end%>
+                            <%if @user_followees.total_count > 0%>
+                                <div class="user_followed_tab">
+                                    <div class="row">
+                                        <%@user_followees.each do |user|%>
+                                            <div class="col-sm-4 col-nopadding">
+                                                <%= render user%>
+                                            </div>
+                                        <%end%>
+                                    </div>
+                                    <%= paginate @user_followees, window: 1, outer_window: 1 %>
                                 </div>
-                                <%= paginate @user_followees, window: 1, outer_window: 1 %>
-                            </div>
+                            <%else%>
+                                <div class="user_show_not_found_block">
+                                    <div class="user_show_not_found_icon">
+                                        <i><%= bootstrap_icon "exclamation-circle", width: 24, height: 24%></i>
+                                    </div>
+                                    <div class="user_show_not_found">
+                                        <span>Bạn chưa theo dõi ai</span>
+                                    </div>
+                                </div>
+                            <%end%>
                         <%end%>
                     </div>
                 </div>

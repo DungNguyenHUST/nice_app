@@ -1083,6 +1083,26 @@
                     }
                 }
             }
+            .post_show_comment_not_found_block{
+                background-color: #f8f9fa;
+                padding: 30px 15px 30px 15px;
+                border-radius: 4px;
+                margin: 15px 15px 0px 15px;
+                .post_show_comment_not_found_icon{
+                    i{
+                        font-size: 30px;
+                        color: #666;
+                    }
+                    text-align: center;
+                }
+                .post_show_comment_not_found{
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: 500;
+                    padding-bottom: 10px;
+                    color: #444;
+                }
+            }
         }
     }
 
