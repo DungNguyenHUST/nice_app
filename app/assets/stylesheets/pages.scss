@@ -201,6 +201,10 @@
             }
         }
     }
+
+    .home_right_footer_block{
+        margin-bottom: 20px;
+    }
 }
 
 ///////////////////search///////////////////////////
@@ -211,6 +215,11 @@
         display: block;
         padding-top: 30px;
         margin-bottom: 20px;
+        @media screen and (max-width: 600px){
+            padding-top: 10px;
+            margin-bottom: 10px;
+            border: none;
+        }
         .home_search_what{
             position: relative;
             i{
@@ -223,6 +232,13 @@
                 height: 44px;
                 padding-left: 40px;
                 padding-right: 15px;
+                border: 1px solid #e0e2e5;
+                border-radius: 5px;
+                font-size: 14px;
+                @media screen and (max-width: 600px){
+                    border-radius: 0px;
+                    border: none;
+                }
                 &:focus{
 					border: 2px solid #5865f2;
 					border-radius: 5px;
@@ -230,6 +246,7 @@
             }
         }
     }
+
     .home_search_tab_link{
         overflow: hidden;
         position: relative;

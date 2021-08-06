@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-include UsersHelper
+    include UsersHelper
+    include TopicsHelper
     before_action :require_login, only: [:index, :edit, :update, :destroy]
     
     def index
@@ -16,7 +17,7 @@ include UsersHelper
 
     def show
         @user = User.friendly.find params[:id]
-        @topics = Topic.all.limit(10)
+        @topics = Topic.all.sort_by{|topic| cal_topic_trend_point(topic)}.reverse.first(10)
         if(params.has_key?(:tab_id))
             @tab_id = params[:tab_id]
         else
