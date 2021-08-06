@@ -208,7 +208,8 @@
         }
     }
 
-    .topic_show_right{
+    .topic_show_right_top_block{
+        clear: both;
         border: 1px solid #e0e2e5;
         @media screen and (max-width: 600px){
             border: none;
@@ -222,46 +223,40 @@
         border-radius: 5px;
         min-height: 300px;
         .topic_show_right_title{
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             padding: 15px;
-            a{
-                text-decoration: none;
-            }
+            color: #0f1419;
         }
 
-        .topic_show_right_post_block{
-            border-top: 1px solid #e0e2e5;
+        .topic_show_right_content{
+            border-top: 1px solid #f0f2f5;
             padding: 15px;
-            a{
-                text-decoration: none;
-                color: #0f1419;
-                font-size: 16px;
-                &:hover{
-                    color: #5865f2;
-                };
-            }
+            padding-bottom: 10px;
+            padding-top: 10px;
+            display: block;
+            clear: both;
         }
-        .topic_show_right_topic_block{
-            margin-top: 10px;
-            margin-bottom: 10px;
-            display: none;
-            min-height: 20px;
-            button{
-                margin-bottom: 5px;
-                border: none;
-                border-radius: 5px;
-                background-color: #fff;
-                padding: 3px;
-                color: #5865f2;
-                font-size: 14px;
-                font-weight: 500;
-                &:focus {outline:none;}
-                float: left;
-                margin-right: 5px;
-                &:hover{
-                    background-color: #5865f2;
-                    color: #fff;
+        .topic_show_right_all_topic{
+            border-top: 1px solid #f0f2f5;
+            padding: 15px;
+            .topic_show_right_all_topic_button{
+                button{
+                    width: 100%;
+                    height: 40px;
+                    text-align: center;
+                    // border: 1px solid #e0e2e5;
+                    border: none;
+                    border-radius: 20px;
+                    padding: 3px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    background-color: #f0f2f5;
+                    &:focus {outline:none;}
+                    &:hover{
+                        background-color: #5865f2;
+                        color: #fff;
+                    }
                 }
             }
         }

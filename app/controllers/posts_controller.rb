@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 		@owner_post_user = find_owner_user(@post)
         @owner_post = find_owner_post_for_user(@owner_post_user)
         @user_post_relateds = @owner_post.reject{|i| i.id == @post.id}
-        @user_post_relateds = @user_post_relateds.sort_by{|post| cal_post_top_point(post)}.reverse
+        @user_post_relateds = @user_post_relateds.sort_by{|post| cal_post_top_point(post)}.reverse.first(10)
 
         # Sort comment
         if(params.has_key?(:tab_id))

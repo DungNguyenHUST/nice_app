@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
 	include PostsHelper
+	include TopicsHelper
     before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 	before_action :set_topic, only: %i[ show edit update destroy ]
 
@@ -57,6 +58,9 @@ class TopicsController < ApplicationController
 			@buffers = @buffers.sort_by{|post| cal_post_trend_point(post)}.reverse
 			@posts = Kaminari.paginate_array(@buffers).page(params[:page]).per(10)
 		end
+		
+        @topic_relateds = Topic.all.reject{|i| i.id == @topic.id}
+        @topic_relateds = @topic_relateds.sort_by{|topic| cal_topic_trend_point(topic)}.reverse.first(10)
 	end
 
 	def new

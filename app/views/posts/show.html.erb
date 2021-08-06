@@ -478,25 +478,27 @@
 					<%end%>
 				</div>
 
-	            <div class='post_show_right_user_post'>
-                    <div class='post_show_right_title'>
-                        <a>Bài viết khác từ <%=link_to (@owner_post_user.name), user_path(@owner_post_user) %></a>
-                    </div>
-                    <%@user_post_relateds.first(10).each do |post|%>
-                        <div class='post_show_right_content'>
-							<div class='post_show_right_post_block'>
-                            	<a><%= link_to (post.title), post_path(post) %></a>
-							</div>
-							<div class='post_show_right_topic_block'>
-								<%post.topics.each do |topic|%>
-									<%= button_to topic_path(topic), method: :get do %>
-										<a><%=topic.name%></a>
+				<%if @user_post_relateds.present? && @user_post_relateds.count > 0%>
+					<div class='post_show_right_user_post'>
+						<div class='post_show_right_title'>
+							<a>Bài viết khác từ <%=link_to (@owner_post_user.name), user_path(@owner_post_user) %></a>
+						</div>
+						<%@user_post_relateds.first(10).each do |post|%>
+							<div class='post_show_right_content'>
+								<div class='post_show_right_post_block'>
+									<a><%= link_to (post.title), post_path(post) %></a>
+								</div>
+								<div class='post_show_right_topic_block'>
+									<%post.topics.each do |topic|%>
+										<%= button_to topic_path(topic), method: :get do %>
+											<a><%=topic.name%></a>
+										<%end%>
 									<%end%>
-								<%end%>
+								</div>
 							</div>
-                        </div>
-                    <%end%>
-                </div>
+						<%end%>
+					</div>
+				<%end%>
 			</div>
 		</div>
 	</div>

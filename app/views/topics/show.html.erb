@@ -193,22 +193,22 @@
                 <%end%>
             </div>
             <div class="col-sm-4 col-nopadding">
-                <div class='topic_show_right'>
+                <div class='topic_show_right_top_block'>
                     <div class='topic_show_right_title'>
-                        <a>Bài viết khác về <%=link_to (@topic.name), topic_path(@topic)%></a>
+                        <a>Chủ đề khác tương tự</a>
                     </div>
-                    <%@posts.each do |post|%>
-                        <div class='topic_show_right_post_block'>
-                            <a><%= link_to (post.title), post_path(post) %></a>
-                        </div>
-                        <div class='topic_show_right_topic_block'>
-                            <%post.topics.each do |topic|%>
-                                <%= button_to topic_path(topic), method: :get do %>
-                                    <a><%=topic.name%></a>
-                                <%end%>
-                            <%end%>
+                    
+                    <%@topic_relateds.each do |topic|%>
+                        <div class="topic_show_right_content">
+                            <%= render :partial => 'topics/topic', :locals => {:mini_tyle => true}, :object => topic %>
                         </div>
                     <%end%>
+                    
+                    <div class='topic_show_right_all_topic'>
+                        <%= button_to categories_path, method: :get, form_class: "topic_show_right_all_topic_button" do%>
+                            <a>Xem tất cả(<%=convert_number_to_human(Topic.all.count)%>)</a>
+                        <%end%> 
+                    </div>
                 </div>
             </div>
         </div>
