@@ -10,7 +10,6 @@
 				<div class='post_show_left_block'>
 				    <div class='post_show_info'>
 				        <div class='post_show_info_left'>
-							<%@owner_post_user = find_owner_user(@post)%>
 							<%if @owner_post_user.avatar?%>
                                 <div class="post_show_user_avatar">
                                     <%= link_to (image_tag(@owner_post_user.avatar.url)), image_path(url_for(@owner_post_user.avatar.url)), rel: "gallery" , :href => user_path(@owner_post_user)%>
@@ -483,8 +482,7 @@
                     <div class='post_show_right_title'>
                         <a>Bài viết khác từ <%=link_to (@owner_post_user.name), user_path(@owner_post_user) %></a>
                     </div>
-					<%@owner_post = find_owner_post_for_user(@owner_user)%>
-                    <%@owner_post.first(10).each do |post|%>
+                    <%@user_post_relateds.first(10).each do |post|%>
                         <div class='post_show_right_content'>
 							<div class='post_show_right_post_block'>
                             	<a><%= link_to (post.title), post_path(post) %></a>

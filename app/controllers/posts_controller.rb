@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
     include PostsHelper
     include PostCommentsHelper
+    include UsersHelper
+    include ApplicationHelper
 
     before_action :set_post, only: %i[ show edit update destroy ]
     before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
@@ -16,6 +18,11 @@ class PostsController < ApplicationController
         @post.increment!(:view_count)
         @post_images = @post.post_images.all
         @post_comments = @post.post_comments
+
+		@owner_post_user = find_owner_user(@post)
+        @owner_post = find_owner_post_for_user(@owner_post_user)
+        @user_post_relateds = @owner_post.reject{|i| i.id == @post.id}
+        @user_post_relateds = @user_post_relateds.sort_by{|post| cal_post_top_point(post)}.reverse
 
         # Sort comment
         if(params.has_key?(:tab_id))
