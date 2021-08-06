@@ -36,7 +36,7 @@
                                 <div class="nav_header_signed_right_item">
                                     <%= link_to root_path do %>
                                         <%if @current_path == root_path || @current_path == root_path%>
-                                            <i><%= bootstrap_icon "house-fill", width: 25, height: 25, color: "#0071e3" %></i>
+                                            <i><%= bootstrap_icon "house-fill", width: 25, height: 25, color: "#5865f2" %></i>
                                         <%else%>
                                             <i><%= bootstrap_icon "house", width: 25, height: 25 %></i>
                                         <%end%>
@@ -48,7 +48,7 @@
                                 <div class="nav_header_signed_right_item">
                                     <%= link_to new_post_path do %>
                                         <%if @current_path == new_post_path%>
-                                            <i><%= bootstrap_icon "plus-circle-fill", width: 25, height: 25, color: "#0071e3" %></i>
+                                            <i><%= bootstrap_icon "plus-circle-fill", width: 25, height: 25, color: "#5865f2" %></i>
                                         <%else%>
                                             <i><%= bootstrap_icon "plus-circle", width: 25, height: 25 %></i>
                                         <%end%>
@@ -60,7 +60,7 @@
                                 <div class="nav_header_signed_right_item">
                                     <%= link_to root_path(tab_id: 'PostPodID') do %>
                                         <%if @current_path == root_path(tab_id: 'PostPodID')%>
-                                            <i><%= bootstrap_icon "mic-fill", width: 24, height: 24, color: "#0071e3" %></i>
+                                            <i><%= bootstrap_icon "mic-fill", width: 24, height: 24, color: "#5865f2" %></i>
                                         <%else%>
                                             <i><%= bootstrap_icon "mic", width: 24, height: 24 %></i>
                                         <%end%>
@@ -72,7 +72,7 @@
                                 <div class="nav_header_signed_right_item">
                                     <%= link_to categories_path do %>
                                         <%if @current_path == categories_path%>
-                                            <i><%= bootstrap_icon "compass-fill", width: 25, height: 25 , color: "#0071e3"%></i>
+                                            <i><%= bootstrap_icon "compass-fill", width: 25, height: 25 , color: "#5865f2"%></i>
                                         <%else%>
                                             <i><%= bootstrap_icon "compass", width: 25, height: 25 %></i>
                                         <%end%>
@@ -85,9 +85,9 @@
                                     <%if @current_path == user_path(current_user, :tab_id => "UserNotificationID")%>
                                         <%= link_to user_path(current_user, :tab_id => "UserNotificationID") do %>
                                             <%if (current_user.user_notifications.count < 10)%>
-                                                <i><%= bootstrap_icon "bell-fill", width: 25, height: 25, color: "#0071e3"%></i><span><%=current_user.user_notifications.count%></span>
+                                                <i><%= bootstrap_icon "bell-fill", width: 25, height: 25, color: "#5865f2"%></i><span><%=current_user.user_notifications.count%></span>
                                             <%else%>
-                                                <i><%= bootstrap_icon "bell-fill", width: 25, height: 25, color: "#0071e3"%></i><span>9+</span>
+                                                <i><%= bootstrap_icon "bell-fill", width: 25, height: 25, color: "#5865f2"%></i><span>9+</span>
                                             <%end%>
                                         <%end%>
                                     <%else%>
