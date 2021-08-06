@@ -6,80 +6,82 @@
                     <div class="home_search_input">
                         <div class="home_search_what">
                             <i><%= bootstrap_icon "search", width: 22, height: 22 %></i>
-                            <%= text_field_tag :search, params[:search], required: true, class: 'form-control', placeholder: "Tìm kiếm bài viết, người dùng, tag ..."%>
+                            <%= text_field_tag :search, params[:search], required: true, autofocus: true, class: 'form-control', placeholder: "Tìm kiếm bài viết, người dùng, tag ..."%>
                         </div>
                     </div>
                 <%end%>
 
-                <%if @posts_search.present? && @users_search.present? && @topics_search.present?%>
-                    <div class="home_search_tab_link">
-                        <nav>
-                            <ul class="nav nav-tabs nav-justified" id="user_signin_modal_tabs" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#PostSearchID">Bài viết <span><%= convert_number_to_human(@posts_search.total_count)%><span></a>
-                                </li>
+                <%if @is_searched == true%>
+                    <%if @posts_search.present? && @users_search.present? && @topics_search.present?%>
+                        <div class="home_search_tab_link">
+                            <nav>
+                                <ul class="nav nav-tabs nav-justified" id="user_signin_modal_tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#PostSearchID">Bài viết <span><%= convert_number_to_human(@posts_search.total_count)%><span></a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#PeopleSearchID">Người dùng <span><%= convert_number_to_human(@users_search.total_count)%><span></a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#PeopleSearchID">Người dùng <span><%= convert_number_to_human(@users_search.total_count)%><span></a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#TopicSearchID">Chủ đề <span><%= convert_number_to_human(@topics_search.total_count)%><span></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="tab-content">
-                        <div role="tabpanel" id="PostSearchID" class="tab-pane fade show active">
-                            <%if @posts_search.present?%>
-                                <%@posts_search.each do |post|%>
-                                    <%= render post%>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#TopicSearchID">Chủ đề <span><%= convert_number_to_human(@topics_search.total_count)%><span></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="tab-content">
+                            <div role="tabpanel" id="PostSearchID" class="tab-pane fade show active">
+                                <%if @posts_search.present?%>
+                                    <%@posts_search.each do |post|%>
+                                        <%= render post%>
+                                    <%end%>
                                 <%end%>
-                            <%end%>
-                            <%= paginate @posts_search, window: 1, outer_window: 1 %>
-                        </div>
-                        <div role="tabpanel" id="PeopleSearchID" class="tab-pane">
-                            <%if @users_search.present?%>
-                                <%@users_search.each do |user|%>
-                                    <%= render user%>
+                                <%= paginate @posts_search, window: 1, outer_window: 1 %>
+                            </div>
+                            <div role="tabpanel" id="PeopleSearchID" class="tab-pane">
+                                <%if @users_search.present?%>
+                                    <%@users_search.each do |user|%>
+                                        <%= render user%>
+                                    <%end%>
                                 <%end%>
-                            <%end%>
-                            <%= paginate @users_search, window: 1, outer_window: 1 %>
-                        </div>
-                        <div role="tabpanel" id="TopicSearchID" class="tab-pane">
-                            <%if @topics_search.present?%>
-                                <%@topics_search.each do |topic|%>
-                                    <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
+                                <%= paginate @users_search, window: 1, outer_window: 1 %>
+                            </div>
+                            <div role="tabpanel" id="TopicSearchID" class="tab-pane">
+                                <%if @topics_search.present?%>
+                                    <%@topics_search.each do |topic|%>
+                                        <%= render :partial => 'topics/topic', :locals => {:mini_tyle => false}, :object => topic %>
+                                    <%end%>
                                 <%end%>
-                            <%end%>
-                            <%= paginate @topics_search, window: 1, outer_window: 1 %>
+                                <%= paginate @topics_search, window: 1, outer_window: 1 %>
+                            </div>
                         </div>
-                    </div>
-                <%else%>
-                    <div class="home_search_not_found_block">
-                        <div class="home_search_not_found_label">
-                            <span>Rất tiếc, không tìm được kết quả phù hợp với từ khóa "<%= params[:search]%>"</span>
-                        </div>
-                        <div class="home_search_not_found_image">
-                            <%=image_tag("no_result_found.png")%>
-                        </div>
-                        <div class="home_search_not_found_help">
-                            <a>Gợi ý từ khóa tìm kiếm:</a>
-                            <ul>
-                                <li>
-                                    Tìm kiếm với từ khoá bằng tiếng Việt không dấu hoặc có dấu ...
-                                </li>
+                    <%else%>
+                        <div class="home_search_not_found_block">
+                            <div class="home_search_not_found_label">
+                                <span>Rất tiếc, không tìm được kết quả phù hợp với từ khóa "<%= params[:search]%>"</span>
+                            </div>
+                            <div class="home_search_not_found_image">
+                                <%=image_tag("no_result_found.png")%>
+                            </div>
+                            <div class="home_search_not_found_help">
+                                <a>Gợi ý từ khóa tìm kiếm:</a>
+                                <ul>
+                                    <li>
+                                        Tìm kiếm với từ khoá bằng tiếng Việt không dấu hoặc có dấu ...
+                                    </li>
 
-                                <li>
-                                    Tìm kiếm theo tên người dùng hoặc địa điểm.
-                                </li>
+                                    <li>
+                                        Tìm kiếm theo tên người dùng hoặc địa điểm.
+                                    </li>
 
-                                <li>
-                                    Tìm kiếm theo chủ đề hot mới được cập nhật
-                                </li>
-                            </ul>
+                                    <li>
+                                        Tìm kiếm theo chủ đề hot mới được cập nhật
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    <%end%>
                 <%end%>
             </div>
         </div>

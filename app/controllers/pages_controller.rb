@@ -69,11 +69,13 @@ class PagesController < ApplicationController
     end
 
     def search
+        @is_searched = false
         if(params.has_key?(:search))
-        @search = params[:search]
-        @posts_search = Post.search(@search).page(params[:page]).per(25)
-        @users_search = User.search(@search).page(params[:page]).per(25)
-        @topics_search = Topic.search(@search).page(params[:page]).per(25)
+            @is_searched = true
+            @search = params[:search]
+            @posts_search = Post.search(@search).page(params[:page]).per(25)
+            @users_search = User.search(@search).page(params[:page]).per(25)
+            @topics_search = Topic.search(@search).page(params[:page]).per(25)
         end
 
         @tab_id = "default"
