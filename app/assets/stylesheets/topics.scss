@@ -366,6 +366,7 @@
 	}
     border-radius: 5px;
     background-color: #fff;
+    position: relative;
 
     .topic_index_cover{
         img{ 
@@ -395,8 +396,8 @@
 
     .topic_index_info_action{
         position: absolute;
-        right: 25px;
-        top: 28px;
+        right: 10px;
+        top: 10px;
         @media screen and (max-width: 600px){
             right: 7px;
             top: 15px;

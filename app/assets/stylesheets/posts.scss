@@ -1,7 +1,7 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-/////////////////////index///////////////////////
+/////////////////////block///////////////////////
 .post_index_block{
     border: 1px solid #e0e2e5;
     @media screen and (max-width: 600px){
@@ -1066,7 +1066,28 @@
             .post_show_comment_tab_content{
                 clear: both;
                 .post_show_comment_render{
+                    .post_show_comment_not_found_block{
+                        background-color: #f8f9fa;
+                        padding: 30px 15px 30px 15px;
+                        border-radius: 4px;
+                        margin: 15px 15px 0px 15px;
+                        .post_show_comment_not_found_icon{
+                            i{
+                                font-size: 30px;
+                                color: #666;
+                            }
+                            text-align: center;
+                        }
+                        .post_show_comment_not_found{
+                            text-align: center;
+                            font-size: 14px;
+                            font-weight: 500;
+                            padding-bottom: 10px;
+                            color: #444;
+                        }
+                    }
                 }
+
                 .post_show_comment_paginate{
                     padding: 4px;
                     text-align: center;
@@ -1081,26 +1102,6 @@
                         font-weight: 600;
                         color: #5865f2;
                     }
-                }
-            }
-            .post_show_comment_not_found_block{
-                background-color: #f8f9fa;
-                padding: 30px 15px 30px 15px;
-                border-radius: 4px;
-                margin: 15px 15px 0px 15px;
-                .post_show_comment_not_found_icon{
-                    i{
-                        font-size: 30px;
-                        color: #666;
-                    }
-                    text-align: center;
-                }
-                .post_show_comment_not_found{
-                    text-align: center;
-                    font-size: 14px;
-                    font-weight: 500;
-                    padding-bottom: 10px;
-                    color: #444;
                 }
             }
         }
