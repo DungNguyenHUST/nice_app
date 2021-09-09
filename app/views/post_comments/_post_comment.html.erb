@@ -17,8 +17,15 @@
                         <%end%>
                         
                         <div class="post_comment_user_info">
-                            <a><%=link_to(@owner_post_comment_user.name, user_path(@owner_post_comment_user))%></a> · 
-                            <span><%=time_ago_in_words(post_comment.created_at)%></span>
+                            <%if @owner_post_comment_user.official%>
+                                <a><%=link_to(@owner_post_comment_user.name, user_path(@owner_post_comment_user))%>
+                                    <i><%= bootstrap_icon "check-circle-fill", width: 14, height: 14, fill: '#5865f2'%></i>
+                                </a> · 
+                                <span><%=time_ago_in_words(post_comment.created_at)%></span>
+                            <%else%>
+                                <a><%=link_to(@owner_post_comment_user.name, user_path(@owner_post_comment_user))%></a> · 
+                                <span><%=time_ago_in_words(post_comment.created_at)%></span>
+                            <%end%>
                         </div>
                     </div>
                 </div>

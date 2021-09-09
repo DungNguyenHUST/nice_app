@@ -15,6 +15,9 @@
         <div class='post_share_info_right'>
             <div class="post_share_user_name">
                 <a><%= link_to @owner_post_user.name, user_path(@owner_post_user)%></a>
+                <%if @owner_post_user.official%>
+                    <i><%= bootstrap_icon "check-circle-fill", width: 14, height: 14, fill: '#5865f2'%></i>
+                <%end%>
             </div>
             
             <div class="post_share_create">

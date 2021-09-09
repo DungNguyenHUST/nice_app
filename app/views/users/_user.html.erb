@@ -10,6 +10,9 @@
     <%end%>
     <div class='user_index_name'>
         <a><%= link_to (user.name), user_path(user) %></a>
+        <%if user.official%>
+            <i><%= bootstrap_icon "check-circle-fill", width: 14, height: 14, fill: '#5865f2'%></i>
+        <%end%>
     </div>
 
     <div class='user_index_nickname'>

@@ -35,6 +35,9 @@
                         <div class='user_show_info_data'>
                             <div class='user_show_info_name'>
                                 <a><%=@user.name%></a>
+                                <%if @user.official%>
+                                    <i><%= bootstrap_icon "check-circle-fill", width: 14, height: 14, fill: '#5865f2'%></i>
+                                <%end%>
                             </div>
 
                             <div class='user_show_info_introduce'>
@@ -428,6 +431,9 @@
                         <div class='user_show_info_data'>
                             <div class='user_show_info_name'>
                                 <a><%=@user.name%></a>
+                                <%if @user.official%>
+                                    <i><%= bootstrap_icon "check-circle-fill", width: 14, height: 14, fill: '#5865f2'%></i>
+                                <%end%>
                             </div>
 
                             <div class='user_show_info_introduce'>
