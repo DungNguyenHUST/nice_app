@@ -5,7 +5,7 @@
     <!-- Meta tag start --> 
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
     <meta charset="utf-8">
-    <meta name="robots" content="index,follow" />
+    <meta name="robots" content="<%= meta_robots %>" />
     <meta http-equiv="content-language" content="en-us" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -27,7 +27,11 @@
     <!-- Icon end --> 
     
     <!-- Google data start-->
+    <%if request.original_fullpath == root_path%>
+    <title><%= meta_title %></title>
+    <%else%>
     <title><%= meta_title %> <%= meta_separator %> <%= meta_product_name %></title>
+    <%end%>
     <meta name="description" content="<%= meta_description %>">
     <meta name="keywords" content="<%= meta_key_word %>">
     <meta name="google-site-verification" content="vZ7MaQ5-FmDwK5fXW4_MhW7hDL5OX1rNrBmt7pwahOc" />

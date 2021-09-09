@@ -1,3 +1,22 @@
+<% content_for :meta_robots, "all" %>
+<%if "PostForYou" == @tab_id%>
+    <% content_for :meta_title, "Bài viết dành cho bạn" %>
+<%elsif "PostTrendID" == @tab_id%>
+    <% content_for :meta_title, "Bài viết đang thịnh hành" %>
+<%elsif "PostNewID" == @tab_id%>
+    <% content_for :meta_title, "Bài viết mới nhất" %>
+<%elsif "PostTopID" == @tab_id%>
+    <% content_for :meta_title, "Bài viết nổi bật nhất" %>
+<%elsif "PostTopWeekID" == @tab_id%>
+    <% content_for :meta_title, "Bài viết nổi bật nhất trong tuần" %>
+<%elsif "PostTopMonthID" == @tab_id%>
+    <% content_for :meta_title, "Bài viết nổi bật nhất trong tháng" %>
+<%elsif "PostTopYearID" == @tab_id%>
+    <% content_for :meta_title, "Bài viết nổi bật nhất trong năm" %>
+<%elsif "PostPodID" == @tab_id%>
+    <% content_for :meta_title, "Nghe Podcasts" %>
+<%end%>
+
 <div class="home_index_container">
     <div class="container">
         <div class="row">
@@ -16,7 +35,7 @@
                             <%end%>
                             <div class="home_new_post_editor">
                                 <%= button_to new_post_path(tab_id: 'PostID'), method: :get do%>
-                                    <a><%=current_user.name%></a><span>, hôm nay bạn thế nào?</span>
+                                    <a>Viết bài, đặt câu hỏi, share link ...</span>
                                 <%end%>
                             </div>
                         </div>

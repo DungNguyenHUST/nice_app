@@ -1,7 +1,8 @@
 meta_product_name: "PollingU"
 meta_separator: "|"
-meta_title: "Mạng xã hội xếp hạng nội dung"
-meta_description: "Cập nhật các thông tin thời sự, giải trí,... mà bạn quan tâm đã được xếp hạng bởi cộng đồng người dùng"
+meta_title: "PollingU Community"
+meta_description: "Cộng đồng chia sẻ, đặt câu hỏi và giải đáp thắc mắc về tất cả các vấn đề trong cuộc sống ... Nơi các ý kiến có giá trị được quyết định bởi chính cộng đồng người dùng"
 meta_image: "favicon.ico"
-meta_key_word: "Mạng xã hội, thông tin, thời sự, xếp hạng nội dung"
+meta_key_word: "Mạng xã hội, cộng đồng, chia sẻ thông tin, đặt câu hỏi, share link, kinh tế, đời sống, xã hội, thời sự, xếp hạng nội dung"
 twitter_account: "@dungnguyen_93"   # required for Twitter Cards
+meta_robots: "noindex, nofollow"

@@ -1,3 +1,5 @@
+<% content_for :meta_title, "Bài viết mới" %>
+
 <%if @post_shared.present?%>
     <%= render 'share_form', post: @post %>
 <%else%>
