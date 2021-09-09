@@ -31,9 +31,24 @@
                         <%if @select_topic.present?%>
                             <div class="new_post_share_topic_section">
                                 <div class="new_post_share_topic_input">
-                                    <%= f.select :topic_ids, @select_topic.collect {|m| [m.name, m.id]}, {:prompt => '-- Chọn chủ đề phù hợp với bài viết --'}, class: "form-control", :multiple => true, :required => true%>
+                                    <%= f.select :topic_ids, 
+                                                @select_topic.collect {|m| [m.name, m.id]}, 
+                                                {:include_blank => true},
+                                                {:required => true, :class => 'form-control new_post_share_topic_select'}%>
                                 </div>
                             </div>
+
+                            <script>
+								$(document).ready(function() {
+									$('.new_post_share_topic_select').select2({
+										placeholder: "-- Chọn chủ đề phù hợp --",
+										allowClear: true,
+										width: 'resolve',
+										theme: "bootstrap-5",
+										selectOnClose: true
+									});
+								});
+							</script>
                         <%end%>
                             
                         <div class="new_post_share_submit">

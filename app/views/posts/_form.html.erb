@@ -149,21 +149,24 @@
                         <%if @select_topic.present?%>
                             <div class="new_post_topic_section">
                                 <div class="new_post_topic_input">
-                                    <%= f.select(:topic_ids, @select_topic.collect {|m| [m.name, m.id]}, {:prompt => '-- Chọn chủ đề --'}, {:class => 'form-control new_post_topic_select'}) %>   
+                                    <%= f.select :topic_ids, 
+                                                @select_topic.collect {|m| [m.name, m.id]}, 
+                                                {:include_blank => true},
+                                                {:required => true, :class => 'form-control new_post_topic_select'}%>   
                                 </div>
                             </div>
-                            
+
                             <script>
-                                $(document).ready(function() {
-                                    $('.new_post_topic_select').select2({
-                                        placeholder: "-- Chọn chủ đề --",
-                                        allowClear: true,
-                                        width: 'resolve',
-                                        theme: "bootstrap",
-                                        selectOnClose: true
-                                    });
-                                });
-                            </script>
+								$(document).ready(function() {
+									$('.new_post_topic_select').select2({
+										placeholder: "-- Chọn chủ đề phù hợp --",
+										allowClear: true,
+										width: 'resolve',
+										theme: "bootstrap-5",
+										selectOnClose: true
+									});
+								});
+							</script>
                         <%end%>
                             
                         <div class="new_post_submit">
