@@ -54,7 +54,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # The path used after sign up.
     def after_sign_up_path_for(resource_or_scope)
         # Show wellcome path
-        current_user.increment!(:sign_in_count)
         stored_location_for(resource_or_scope) || user_wellcome_path
     end
 

@@ -28,34 +28,32 @@ class Users::SessionsController < Devise::SessionsController
 
     # The path used after sign in.
     def after_sign_in_path_for(resource_or_scope)
-        case session[:my_previous_url]
-        when new_user_session_path
-        when user_session_path
-        when destroy_user_session_path
-        when user_facebook_omniauth_authorize_path
-        when user_facebook_omniauth_callback_path
-        when user_google_oauth2_omniauth_authorize_path
-        when user_google_oauth2_omniauth_callback_path
-        when new_user_password_path
-        when edit_user_password_path
-        when user_password_path
-        when cancel_user_registration_path
-        when new_user_registration_path
-        when edit_user_registration_path
-        when user_registration_path
-        when users_path
-        when new_user_path
-        when edit_user_path(current_user)
-        when user_path(current_user)
+        if (session[:my_previous_url].to_s == new_user_session_path || 
+            session[:my_previous_url].to_s == user_session_path || 
+            session[:my_previous_url].to_s == destroy_user_session_path || 
+            session[:my_previous_url].to_s == user_facebook_omniauth_authorize_path || 
+            session[:my_previous_url].to_s == user_facebook_omniauth_callback_path || 
+            session[:my_previous_url].to_s == user_google_oauth2_omniauth_authorize_path || 
+            session[:my_previous_url].to_s == user_google_oauth2_omniauth_callback_path || 
+            session[:my_previous_url].to_s == new_user_password_path || 
+            session[:my_previous_url].to_s == edit_user_password_path || 
+            session[:my_previous_url].to_s == user_password_path || 
+            session[:my_previous_url].to_s == cancel_user_registration_path || 
+            session[:my_previous_url].to_s == new_user_registration_path || 
+            session[:my_previous_url].to_s == edit_user_registration_path || 
+            session[:my_previous_url].to_s == user_registration_path || 
+            session[:my_previous_url].to_s == users_path || 
+            session[:my_previous_url].to_s == new_user_path || 
+            session[:my_previous_url].to_s == edit_user_path(current_user) || 
+            session[:my_previous_url].to_s == user_path(current_user))
+            
             session[:my_previous_url] = root_path
-        else
         end
 
         # Show wellcome path
         if current_user.sign_in_count == 0
             session[:my_previous_url] = user_wellcome_path
         end
-        current_user.increment!(:sign_in_count)
 
         stored_location_for(resource_or_scope) || session[:my_previous_url]
     end
