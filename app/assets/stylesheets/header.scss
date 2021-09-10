@@ -241,46 +241,54 @@
 				display: none;
 			}
 			float: left;
-			margin-top: 8px;
+			margin-top: 6px;
 			margin-right: 10px;
-			border-radius: 20px;
-			padding: 5px;
 			button{
+				width: 120px;
 				border: none;
 				background-color: #fff;
+				border-radius: 20px;
+				padding: 5px;
+				border: 1px solid #5865f2;
+				&:hover{
+					a{
+						color: #fff;
+					}
+					background-color: #5865f2;
+				}
 			}
 			a{
+				font-size: 15px;
 				color: #5865f2;
 				font-weight: 600;
 				text-decoration: none !important;
-			}
-			&:hover{
-				color: #536471;
 			}
 		}
 
 		.nav_header_signin{
 			float: right;
-			margin-top: 8px;
+			margin-top: 6px;
 			display: block;
 			button{
-				border: none;
+				width: 120px;
+				border: 1px solid #5865f2;
 				border-radius: 20px;
 				padding: 5px;
 				padding-left: 10px;
 				padding-right: 10px;
 				background-color: #5865f2;
+				&:hover{
+					a{
+						color: #5865f2;
+					}
+					background-color: #fff;
+				}
 			}
-			color: #fff;
-			position: relative;
-			font-size: 16px;
 			a{
+				font-size: 15px;
 				color: #fff;
 				font-weight: 600;
 				text-decoration: none !important;
-			}
-			&:hover{
-				color: #536471;
 			}
 		}
 	}
